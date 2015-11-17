@@ -73,6 +73,10 @@ h1 .small {
   font-size: 26px;
 }
 
+.textarea.form-control {
+  font-family: courier;
+}
+
 #np_example {
   cursor: pointer;
 }
