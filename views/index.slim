@@ -1,0 +1,38 @@
+section#search
+  h1.page-header
+    span  NeuroHmmer&nbsp;
+    span.small  Identify Neuropeptide Precursors
+  form#input action="#{uri('/')}" method="POST"
+    .form-group#input_seq_group
+      label.control-label.input_seq-label for="seq"  Input Sequences:
+      - if @max_characters != 'undefined'
+        textarea#seq.form-control autofocus="" name="seq" placeholder="Paste your sequence(s) here..." rows="10" spellcheck="false" data-maxCharacters="#{@max_characters}"
+      - else
+        textarea#seq.form-control autofocus="" name="seq" placeholder="Paste your sequence(s) here..." rows="10" spellcheck="false"
+    .clearfix
+    button#adv_params_btn.btn.btn-primary type="button" onclick="changeAdvParamsBtnText()"
+      i.fa.fa-pencil-square-o
+      | &nbsp;&nbsp;Show Advanced Parameters
+    .clearfix
+    #adv_params.collapse
+      .form-group.form-inline#validations_group
+        br/
+        label.control-label  Advanced Parameters: Validations Types
+        br/
+        label.checkbox-inline.no_indent.col-lg-3.col-md-5.col-sm-6.col-xs-12
+          <input id="all" class="check" type="checkbox" name="neuropeptides[]" checked="" value="all">All NeuroPeptide Groups 
+      .clearfix
+    .form-group
+      button#input_btn.btn.btn-lg.btn-primary type="submit" value="input"
+        i.fa.fa-search
+        | &nbsp;&nbsp;Analyse Sequences
+      .clearfix
+    .show_examples_text
+      span 
+        a#np_example onclick="examplarSequences()"
+          | Show an example
+section#results
+  #results_box style="display:none;"
+    h1#output_header.page-header
+      span Results
+    #output

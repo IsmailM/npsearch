@@ -1,0 +1,9 @@
+- @neurohmmer_results.each do |query, hits|
+  h3 #{query.gsub(/.fa(sta)?.aligned/, '')}
+  - hits.each do |hit|
+    p.sequence
+      span.id
+        = hit[:id]
+      br
+      span.seq
+        == hit[:seq]

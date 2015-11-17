@@ -1,0 +1,189 @@
+html {
+  /* This is required in order to make the footer stick to the bottom..*/
+  /* There is a js function that controls the bottom margin...*/
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  margin-top: 60px;
+  background-color:#F5F5F5;
+}
+
+section {
+  width: 100%;
+  padding: 0 5%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  padding-bottom: 35px;
+}
+
+.nav-container {
+  width:100%;
+  padding: 0 5%;
+  margin: 0;
+}
+
+.navbar-brand {
+  padding-left: 0;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  border-top: 2px solid #DBDBDB;
+  padding-top:10px;
+}
+
+
+/* Navbar
+-------------------------------------------------- */
+.navbar-nav>li>a, .navbar-brand {
+  line-height: 27px;
+}
+
+.navbar-brand a {
+  color:#fff;
+}
+
+.navbar-brand a:hover {
+  text-decoration: none;
+}
+
+.navbar-nav > li > a.nav_github_icon {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.fa-github {
+  color: #fff;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+h1 .small {
+  color: #2C3E50;
+}
+
+.input_seq-label {
+  font-size: 26px;
+}
+
+#np_example {
+  cursor: pointer;
+}
+
+#adv_params_btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+#input_btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.show_examples_text {
+  font-size: 17px;
+  text-align: center;
+}
+
+.control-label{
+  font-size: 1.25em;
+  font-weight: normal;
+}
+
+label, .radio label, .checkbox label, .help-block {
+  font-size: 0.9em;
+  font-weight: inherit;
+}
+
+.checkbox.inline.no_indent+.checkbox.inline.no_indent {
+  margin-left: 0;
+  margin-right: 10px;
+
+}
+.checkbox.inline.no_indent:last-child {
+  margin-right: 0px;
+}
+
+label.checkbox-inline.no_indent {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+label.radio-inline.no_indent {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+#results_header {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+#results_link_btn {
+  margin-top: 0;
+  margin-right: -15px;
+}
+
+/* NeuroHmmer Results...
+-------------------------------------------------- */
+p {
+  margin:0 0 10.5px;
+  word-break: break-all;
+}
+.id {
+  font-weight:bold;
+}
+.sequence {
+  font-family:Courier New, Courier, Mono;
+}
+.clv {
+  color:#00B050;
+  font-weight:bold;
+}
+.clv_i {
+  color:#00B050;
+  font-weight: bold;
+  background-color:#FFE4B5;
+}
+.gly {
+  color:#FF0000;
+  font-weight:bold;
+}
+.hsp {
+  background-color:#FFE4B5;
+}
+
+
+/* Responsive CSS
+___________________________*/
+
+@media (min-width: 768px) {
+  #adv_params_btn {
+    float:left !important;
+    margin-top: 5px;
+  }
+
+  #input_btn {
+    float:right !important;
+    margin-top: -43px;
+  }
+
+  .show_examples_text {
+    text-align: left;
+  }
+
+  .container{
+    width:90%;
+  }
+}

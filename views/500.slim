@@ -1,0 +1,5 @@
+.alert.alert-danger role="alert"
+  h3.error_header  Oops! Something went Wonky!
+  p  <strong>Apologies, there was an error with your request. Please try again.</strong>
+  p  Error Message: #{request.env['sinatra.error'].message}
+  p  If the error persists, please contact the administrator.
