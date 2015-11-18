@@ -141,7 +141,8 @@ module NeuroHmmerApp
         opt = {
           temp_dir: File.join(@run_dir, 'tmp'),
           input_file: @input_file,
-          num_threads: config[:num_threads]
+          num_threads: config[:num_threads],
+          signalp_path: config[:signalp_path]
         }
         Neurohmmer.init(opt)
         Neurohmmer::Hmmer.search
