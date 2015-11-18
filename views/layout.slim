@@ -1,52 +1,52 @@
 doctype html
-html lang="en"
+html lang='en'
   head
-    meta charset="utf-8"
-    meta content="IE=edge" http-equiv="X-UA-Compatible"
-    meta content="width=device-width, initial-scale=1" name="viewport"
-    meta content="NeuroHmmer | Identify Neuropeptide Precursors" name="description"
-    meta content="Wurmlab" name="author"
+    meta charset='utf-8'
+    meta content='IE=edge' http-equiv='X-UA-Compatible'
+    meta content='width=device-width, initial-scale=1' name='viewport'
+    meta content='NeuroHmmer | Identify Neuropeptide Precursors' name='description'
+    meta content='Wurmlab' name='author'
     title NeuroHmmer | Identify Neuropeptide Precursors
 
-    script type="text/javascript" src="#{uri('web_files/js/nh_compiled_js.min.js')}"
+    script type='text/javascript' src='#{uri('web_files/js/nh_compiled_js.min.js')}'
 
     /! Bootstrap core CSS
-    link href="#{uri('web_files/css/nh_compiled_css.min.css')}" rel="stylesheet" type="text/css"
+    link href='#{uri('web_files/css/nh_compiled_css.min.css')}' rel='stylesheet' type='text/css'
 
     /! HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     /![if lt IE 9]
-      script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
-      script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
+      script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'
+      script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'
 
   body#mainbody
-    .navbar.navbar-default.navbar-fixed-top role="navigation"
+    .navbar.navbar-default.navbar-fixed-top role='navigation'
       .nav-container
         .navbar-header
-          button.navbar-toggle data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button"
+          button.navbar-toggle data-target='.navbar-responsive-collapse' data-toggle='collapse' type='button'
             span.icon-bar
             span.icon-bar
             span.icon-bar
           span.navbar-brand
-            a href="#" NeuroHmmer
+            a href='#' NeuroHmmer
         .navbar-collapse.collapse.navbar-responsive-collapse
           ul.nav.navbar-nav
             li
-              a href="#" Home
+              a href='#' Home
             li
-              a href="https://github.com/wurmlab/neurohmmer" target="_blank"  Source Code
+              a href='https://github.com/wurmlab/neurohmmer' target='_blank'  Source Code
             /! li
-            /!   a href="https://wurmlab.github.io/neurohmmerAPI" target="_blank"  API
-            /!   a href="#"  Documentation
+            /!   a href='https://wurmlab.github.io/neurohmmerAPI' target='_blank'  API
+            /!   a href='#'  Documentation
             /! li
-            /!   a href="#"  Support
+            /!   a href='#'  Support
             li
-              a href="https://wurmlab.github.io" target="_blank" Wurm Lab
+              a href='https://wurmlab.github.io' target='_blank' Wurm Lab
           ul.nav.navbar-nav.navbar-right
             li
-              a.nav_github_icon href="https://github.com/wurmlab/neurohmmer" target="_blank"
+              a.nav_github_icon href='https://github.com/wurmlab/neurohmmer' target='_blank'
                 span.i.fa.fa-2x.fa-github
     ==yield
-    #spinner.modal aria-hidden="true" aria-labelledby="spinner" role="dialog" tabindex="-1"
+    #spinner.modal aria-hidden='true' aria-labelledby='spinner' role='dialog' tabindex='-1'
       .modal-dialog
         .modal-content
           .modal-body.text-center
@@ -55,20 +55,20 @@ html lang="en"
             i.fa.fa-spinner.fa-5x.fa-spin
     footer#footer
       p.text-muted.text-center
-        | Please cite "Moghul MI, Elphick M &amp; Wurm Y 
+        | Please cite 'Moghul MI, Elphick M &amp; Wurm Y 
         em
           | (in prep) 
-        | NeuroHmmer: Identify Neuropeptide Precursors"
+        | NeuroHmmer: Identify Neuropeptide Precursors'
         br
         |  Developed at 
-        a href="https://wurmlab.github.io" target="_blank" Wurm Lab
+        a href='https://wurmlab.github.io' target='_blank' Wurm Lab
         | , 
-        a href="http://www.sbcs.qmul.ac.uk" target="_blank" QMUL
+        a href='http://www.sbcs.qmul.ac.uk' target='_blank' QMUL
         |  with funding by 
-        a href="http://www.bbsrc.ac.uk/home/home.aspx" target="_blank" BBSRC
+        a href='http://www.bbsrc.ac.uk/home/home.aspx' target='_blank' BBSRC
         br
         | This page was created by 
-        a href="https://github.com/wurmlab/neurohmmerapp" target="_blank"  NeuroHmmer Web Application 
+        a href='https://github.com/wurmlab/neurohmmerapp' target='_blank'  NeuroHmmer Web Application 
         | v#{NeuroHmmerApp::VERSION} (using 
-        a href="https://github.com/wurmlab/neurohmmer" target="_blank"  NeuroHmmer 
+        a href='https://github.com/wurmlab/neurohmmer' target='_blank'  NeuroHmmer 
         | v#{@current_neurohmmer_version})
