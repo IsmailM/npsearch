@@ -36,17 +36,16 @@ BANNER
        'dhe public directory that is served to the web application.',
        argument: true
 
-    on 'b', 'bin=',
+    on 'H', 'hmmer_bin=',
        'Load HMMER 3.0 binaries from this directory',
-       argument: true,
-       as: Array
+       argument: true
+
+    on 'S', 'signalp_path=',
+       'Load SignalP binary from this path.',
+       argument: true
 
     on 'n', 'num_threads=',
        'Number of threads to use to run a BLAST search',
-       argument: true
-
-    on 'H', 'host=',
-       'Host to run NeuroHmmerApp on',
        argument: true
 
     on 'p', 'port=',
