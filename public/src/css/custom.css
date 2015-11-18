@@ -200,6 +200,17 @@ p {
 .id {
   font-weight:bold;
 }
+.sp {
+  color:#007AC0;
+  font-weight:bold;
+}
+
+.sp_hsp {
+  color:#007AC0;
+  font-weight:bold;
+  background-color:#FFE4B5;
+}
+
 .sequence {
   font-family: 'Source Code Pro', Courier New, Courier, Mono;
 }
