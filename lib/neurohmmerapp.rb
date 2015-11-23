@@ -36,8 +36,6 @@ module NeuroHmmerApp
 
       init_binaries
       init_dirs
-
-      load_extension
       check_num_threads
       check_max_characters
       self
@@ -107,17 +105,6 @@ module NeuroHmmerApp
       config[:bin] = init_bins if config[:bin]
       assert_blast_installed_and_compatible
       assert_mafft_installed
-    end
-
-    def load_extension
-      return unless config[:require]
-      config[:require] = File.expand_path config[:require]
-      unless File.exist?(config[:require]) && File.file?(config[:require])
-        fail EXTENSION_FILE_NOT_FOUND, config[:require]
-      end
-
-      logger.debug("Loading extension: #{config[:require]}")
-      require config[:require]
     end
 
     def check_num_threads
