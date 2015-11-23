@@ -76,7 +76,7 @@ module NeuroHmmerApp
         :port           => 4567,
         :host           => '0.0.0.0',
         :public_dir     => File.join(Dir.home, '.neurohmmerapp/'),
-        :max_characters => 'undefined',
+        :max_characters => 'undefined'
       }
     end
 

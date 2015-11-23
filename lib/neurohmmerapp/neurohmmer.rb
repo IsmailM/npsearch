@@ -27,7 +27,7 @@ module NeuroHmmerApp
       attr_reader :gv_dir, :input_file, :xml_file, :raw_seq, :unique_id, :params
 
       # Setting the scene
-      def init(base_url, params)
+      def init(_base_url, params)
         create_unique_id
         create_run_dir
         @params = params
@@ -156,4 +156,4 @@ module NeuroHmmerApp
       end
     end
   end
-end 
+end

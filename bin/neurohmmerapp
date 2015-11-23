@@ -12,7 +12,7 @@ begin
   Slop.parse!(strict: true, help: true) do
     banner <<BANNER
 SUMMARY:
-  NeuroHmmer - Identify Neuropeptide Precursors 
+  NeuroHmmer - Identify Neuropeptide Precursors
 
 USAGE:
   $ neurohmmerapp [options]
@@ -114,7 +114,6 @@ BANNER
         end
 
         exit!
-
 
       rescue NeuroHmmerApp::NUM_THREADS_INCORRECT => e
 
