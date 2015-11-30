@@ -1,17 +1,17 @@
 require 'yaml'
 require 'fileutils'
 
-require 'neurohmmerapp/config'
-require 'neurohmmerapp/exceptions'
-require 'neurohmmerapp/neurohmmer'
-require 'neurohmmerapp/logger'
-require 'neurohmmerapp/routes'
-require 'neurohmmerapp/server'
-require 'neurohmmerapp/version'
+require 'nphmmerapp/config'
+require 'nphmmerapp/exceptions'
+require 'nphmmerapp/nphmmer'
+require 'nphmmerapp/logger'
+require 'nphmmerapp/routes'
+require 'nphmmerapp/server'
+require 'nphmmerapp/version'
 
-module NeuroHmmerApp
+module NpHMMerApp
   # Use a fixed minimum version of BLAST+
-  MINIMUM_HMMER_VERSION = '3.0.0'
+  MIN_HMMER_VERSION = '3.0.0'
 
   class << self
     def environment
@@ -49,18 +49,18 @@ module NeuroHmmerApp
       Server.run(self)
     rescue Errno::EADDRINUSE
       puts "** Could not bind to port #{config[:port]}."
-      puts "   Is NeuroHmmer already accessible at #{server_url}?"
-      puts '   No? Try running NeuroHmmer on another port, like so:'
+      puts "   Is NpHMMer already accessible at #{server_url}?"
+      puts '   No? Try running NpHMMer on another port, like so:'
       puts
-      puts '       neurohmmerapp -p 4570.'
+      puts '       nphmmerapp -p 4570.'
     rescue Errno::EACCES
       puts "** Need root privilege to bind to port #{config[:port]}."
-      puts '   It is not advisable to run NeuroHmmer as root.'
+      puts '   It is not advisable to run NpHMMer as root.'
       puts '   Please use Apache/Nginx to bind to a privileged port.'
     end
 
     def on_start
-      puts '** NeuroHmmer is ready.'
+      puts '** NpHMMer is ready.'
       puts "   Go to #{server_url} in your browser and start analysing genes!"
       puts '   Press CTRL+C to quit.'
       open_in_browser(server_url)
@@ -68,10 +68,10 @@ module NeuroHmmerApp
 
     def on_stop
       puts
-      puts '** Thank you for using NeuroHmmerApp :).'
+      puts '** Thank you for using NpHMMerApp :).'
       puts '   Please cite: '
-      puts '        Moghul M.I., Elphick M & Wurm Y (in prep).'
-      puts '        NeuroHmmer: identify Neuropeptide Precursors.'
+      puts '        Moghul et al. (in prep).' \
+           ' NpHMMer: identify Neuropeptide Precursors.'
     end
 
     # Rack-interface.
@@ -94,9 +94,9 @@ module NeuroHmmerApp
     # Create the Public Dir and copy files from gem root - this public dir
     #   is served by the app is accessible at URL/...
     def init_public_dir
-      FileUtils.mkdir_p(File.join(@public_dir, 'NeuroHmmer'))
-      root_web_files = File.join(NeuroHmmerApp.root, 'public/web_files')
-      root_gv        = File.join(NeuroHmmerApp.root, 'public/NeuroHmmer')
+      FileUtils.mkdir_p(File.join(@public_dir, 'NpHMMer'))
+      root_web_files = File.join(NpHMMerApp.root, 'public/web_files')
+      root_gv        = File.join(NpHMMerApp.root, 'public/NpHMMer')
       FileUtils.cp_r(root_web_files, @public_dir)
       FileUtils.cp_r(root_gv, @public_dir)
     end
@@ -104,7 +104,6 @@ module NeuroHmmerApp
     def init_binaries
       config[:bin] = init_bins if config[:bin]
       assert_blast_installed_and_compatible
-      assert_mafft_installed
     end
 
     def check_num_threads
@@ -149,11 +148,7 @@ module NeuroHmmerApp
     def assert_blast_installed_and_compatible
       fail HMMER_NOT_INSTALLED unless command? 'hmmscan'
       # version = `hmmscan -version`.split[1]
-      # fail HMMER_NOT_COMPATIBLE, version unless version >= MINIMUM_HMMER_VERSION
-    end
-
-    def assert_mafft_installed
-      fail MAFFT_NOT_INSTALLED unless command? 'mafft'
+      # fail HMMER_NOT_COMPATIBLE, version unless version >= MIN_HMMER_VERSION
     end
 
     # Check and warn user if host is 0.0.0.0 (default).
@@ -172,9 +167,9 @@ module NeuroHmmerApp
     def open_in_browser(server_url)
       return if using_ssh? || verbose?
       if RUBY_PLATFORM =~ /linux/ && xdg?
-        system "xdg-open #{server_url}"
+        system("xdg-open #{server_url}")
       elsif RUBY_PLATFORM =~ /darwin/
-        system "open #{server_url}"
+        system("open #{server_url}")
       end
     end
 

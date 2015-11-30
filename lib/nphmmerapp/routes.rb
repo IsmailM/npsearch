@@ -1,10 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/cross_origin'
-require 'neurohmmer/version'
-require 'neurohmmerapp/version'
+require 'nphmmer/version'
+require 'nphmmerapp/version'
 require 'slim'
 
-module NeuroHmmerApp
+module NpHMMerApp
   # The Sinatra Routes
   class Routes < Sinatra::Base
     register Sinatra::CrossOrigin
@@ -30,15 +30,15 @@ module NeuroHmmerApp
       set :logging, nil
 
       # This is the app root...
-      set :root,          lambda { NeuroHmmerApp.root }
+      set :root,          lambda { NpHMMerApp.root }
 
       # This is the full path to the public folder...
-      set :public_folder, lambda { NeuroHmmerApp.public_dir }
+      set :public_folder, lambda { NpHMMerApp.public_dir }
     end
 
     # Set up global variables for the templates...
     before '/' do
-      @max_characters             = NeuroHmmerApp.config[:max_characters]
+      @max_characters             = NpHMMerApp.config[:max_characters]
       @current_neurohmmer_version = '0.1'
     end
 
@@ -48,25 +48,25 @@ module NeuroHmmerApp
 
     post '/' do
       cross_origin # Required for the API to work...
-      RunNeuroHmmer.init(request.url, params)
-      @neurohmmer_results = RunNeuroHmmer.run
+      RunNpHMMer.init(request.url, params)
+      @neurohmmer_results = RunNpHMMer.run
       slim :results, layout: false
     end
 
     # This error block will only ever be hit if the user gives us a funny
     # sequence or incorrect advanced parameter. Well, we could hit this block
     # if someone is playing around with our HTTP API too.
-    error RunNeuroHmmer::ArgumentError do
+    error RunNpHMMer::ArgumentError do
       status 400
       slim :"500", layout: false
     end
 
     # This will catch any unhandled error and some very special errors. Ideally
-    # we will never hit this block. If we do, there's a bug in NeuroHmmerApp
+    # we will never hit this block. If we do, there's a bug in NpHMMerApp
     # or something really weird going on.
     # TODO: If we hit this error block we show the stacktrace to the user
     # requesting them to post the same to our Google Group.
-    error Exception, RunNeuroHmmer::RuntimeError do
+    error Exception, RunNpHMMer::RuntimeError do
       status 500
       slim :"500", layout: false
     end

@@ -1,6 +1,6 @@
 require 'logger'
 
-module NeuroHmmerApp
+module NpHMMerApp
   class Logger < Logger
     def initialize(dev, verbose = false)
       super dev

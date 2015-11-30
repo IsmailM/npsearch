@@ -1,8 +1,8 @@
 require 'rack/handler/webrick'
 
-module NeuroHmmerApp
+module NpHMMerApp
   # Simple wrapper around WEBrick and Rack::Handler::WEBrick to host
-  # NeuroHmmerApp standalone.
+  # NpHMMerApp standalone.
   class Server
     class << self
       def run(*args)

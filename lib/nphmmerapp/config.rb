@@ -1,12 +1,12 @@
 require 'forwardable'
 
 # Define Config class.
-module NeuroHmmerApp
+module NpHmmerApp
   # Capture our configuration system.
   class Config
     extend Forwardable
 
-    def_delegators NeuroHmmerApp, :logger
+    def_delegators NpHmmerApp, :logger
 
     def initialize(data = {})
       @data = symbolise data
@@ -72,16 +72,16 @@ module NeuroHmmerApp
     # Default configuration data.
     def defaults
       {
-        :num_threads    => 1,
-        :port           => 4567,
-        :host           => '0.0.0.0',
-        :public_dir     => File.join(Dir.home, '.neurohmmerapp/'),
-        :max_characters => 'undefined'
+        num_threads:    1,
+        port:           4567,
+        host:           '0.0.0.0',
+        public_dir:     File.join(Dir.home, '.nphmmerapp/'),
+        max_characters: 'undefined'
       }
     end
 
     def default_config_file
-      '~/.neurohmmerapp.conf'
+      '~/.nphmmerapp.conf'
     end
   end
 end

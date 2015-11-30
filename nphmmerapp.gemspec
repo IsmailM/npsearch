@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'neurohmmerapp/version'
+require 'nphmmerapp/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'neurohmmerapp'
-  spec.version       = NeuroHmmerApp::VERSION
+  spec.name          = 'nphmmerapp'
+  spec.version       = NpHMMerApp::VERSION
   spec.authors       = ['Ismail Moghul', 'Yannick Wurm']
   spec.email         = 'y.wurm@qmul.ac.uk'
-  spec.summary       = 'A Web App wrapper for NeuroHmmer.'
-  spec.description   = 'A Web App wrapper for NeuroHmmer, a program for' \
-                       ' validating gene predictions.'
-  spec.homepage      = 'https://github.com/wurmlab/neurohmmerapp'
+  spec.summary       = 'A Web App wrapper for NpHMMer.'
+  spec.description   = 'A Web App wrapper for NpHMMer, a program for' \
+                       ' identifying neuropeptide precursors.'
+  spec.homepage      = 'https://github.com/wurmlab/nphmmerapp'
   spec.license       = 'AGPL'
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('capybara', '~> 2.4', '>= 2.4.4')
   spec.add_development_dependency 'w3c_validators', '~>1.1'
 
-  spec.add_dependency 'neurohmmer', '~>0.1'
+  spec.add_dependency 'nphmmer', '~>0.1'
   spec.add_dependency 'bio', '~>1.4'
   spec.add_dependency 'sinatra', '~>1.4'
   spec.add_dependency 'sinatra-cross_origin', '~> 0.3'
@@ -37,13 +37,13 @@ Gem::Specification.new do |spec|
   spec.post_install_message = <<INFO
 
 ------------------------------------------------------------------------
-  Thank you for Installing the NeuroHmmer App!
+  Thank you for Installing the NpHMMer App!
 
-  To launch NeuroHmmerApp execute 'neurohmmerapp' from command line.
+  To launch NpHMMerApp execute 'nphmmerapp' from command line.
 
-    $ neurohmmerapp [options]
+    $ nphmmerapp [options]
 
-  Visit https://github.com/wurmlab/neurohmmerapp for more information.
+  Visit https://github.com/wurmlab/nphmmerapp for more information.
 ------------------------------------------------------------------------
 
 INFO
