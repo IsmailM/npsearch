@@ -1,12 +1,12 @@
 require 'forwardable'
 
 # Define Config class.
-module NpHmmerApp
+module NpHMMerApp
   # Capture our configuration system.
   class Config
     extend Forwardable
 
-    def_delegators NpHmmerApp, :logger
+    def_delegators NpHMMerApp, :logger
 
     def initialize(data = {})
       @data = symbolise data

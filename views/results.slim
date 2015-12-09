@@ -1,9 +1,75 @@
-- @neurohmmer_results.each do |query, hits|
-  h3 #{query.gsub(/.fa(sta)?.aligned/, '')}
-  - hits.each do |hit|
-    p.sequence
-      span.id
-        = '>' + hit[:id]
-      br
-      span.seq
-        == hit[:seq]
+- @nphmmer_results.each_with_index do |seq, idx|
+  .card
+    .card-content
+      span.card-title.id
+        | Potential NP #{idx + 1}: #{seq.id}
+      ul.np_collapsible data-collapsible="expandable" 
+        - seq.hmmer_results.each_with_index do |data, i|
+          li
+            div class=(i == 0 ? 'collapsible-header active' : 'collapsible-header')
+              = "Hit #{i + 1}: " + data[0][:model_name]
+              span.badge.evalue
+                == 'Sequence E-value: ' + NpHMMer::Output.format_evalue(data[0][:seq_evalue])
+            .collapsible-body
+              div.sequence
+                p.id
+                  == '>' + seq.def_line
+                p.seq
+                  == NpHMMer::Output.format_seqs_for_html(seq, data)
+              ul.np_inner_collapsible data-collapsible="accordion"
+                li
+                  .collapsible-header.light-blue.accent-4.waves-effect.waves-light.btn.pull-right style="font-size:14px;border-bottom:none;"
+                    | View More Information
+                  .switch.pull-left
+                    label
+                      | Not a NeuroPeptide :(
+                      input.add_to_scratch data-id=(">#{seq.def_line}") data-model="#{data[0][:model_name]}" data-seq="#{seq.seq.gsub("\n",'')}" type="checkbox" /
+                      span.lever
+                      | NeuroPeptide :)
+                  .clearfix
+                  .collapsible-body style="border-bottom:none;padding:2em 0;"
+                    h5
+                      NpHMMer Results Breakdown
+                    p
+                      strong  Full Sequence E-Value: 
+                      == "#{NpHMMer::Output.format_evalue(data[0][:domain_i_evalue])}"
+                      br
+                      strong  Full Sequence Score:
+                      |  #{data[0][:domain_score]}
+                      br
+                      strong  Full Sequence Bias:
+                      |  #{data[0][:domain_bias]} 
+                      br
+                      - if ! seq.signalp.nil?
+                        - if seq.signalp[:sp] == 'Y'
+                          |  Signal Peptide found with a cleavage site at position #{seq.signalp[:ymax_pos].to_i - 1 }:#{seq.signalp[:ymax_pos]} (Signal Peptide D-Value: #{seq.signalp[:d]})
+                        - else
+                          strong No Signal Peptide Found (Signal Peptide D-Value: #{seq.signalp[:d]})
+                    table.striped.centered
+                      thead
+                        tr
+                          th 
+                          th data-field="c-Evalue"  Conditional E-Value
+                          th data-field="i-Evalue"  Independent E-Value
+                          th data-field="Score"  Score
+                          th data-field="Bias"  Bias
+                          th data-field="Seq Coordinate"  Sequence Coordinates
+                          th data-field="Model Coordinate"  NP Model Coordinates
+                      tbody
+                      - data.each do |d|
+                          tr
+                            td style="font-weight:bold"
+                             | Domain #{d[:domain_number]}
+                            td 
+                              == NpHMMer::Output.format_evalue(d[:domain_c_evalue])
+                            td 
+                              == NpHMMer::Output.format_evalue(d[:domain_i_evalue])
+                            td 
+                              = d[:domain_score]
+                            td
+                              = d[:domain_bias]
+                            td
+                              = d[:ali_coord_from] + ' : ' + d[:ali_coord_to]
+                            td
+                              = d[:hmm_coord_from] + ' : ' + d[:hmm_coord_to]
+              .clearfix

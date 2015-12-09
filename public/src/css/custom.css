@@ -191,46 +191,6 @@ label.radio-inline.no_indent {
   margin-right: -15px;
 }
 
-/* NeuroHmmer Results...
--------------------------------------------------- */
-p {
-  margin:0 0 10.5px;
-  word-break: break-all;
-}
-.id {
-  font-weight:bold;
-}
-.sp {
-  color:#007AC0;
-  font-weight:bold;
-}
-
-.sp_hsp {
-  color:#007AC0;
-  font-weight:bold;
-  background-color:#FFE4B5;
-}
-
-.sequence {
-  font-family: 'Source Code Pro', Courier New, Courier, Mono;
-}
-.clv {
-  color:#00B050;
-  font-weight:bold;
-}
-.clv_i {
-  color:#00B050;
-  font-weight: bold;
-  background-color:#FFE4B5;
-}
-.gly {
-  color:#FF0000;
-  font-weight:bold;
-}
-.hsp {
-  background-color:#FFE4B5;
-}
-
 
 /* Responsive CSS
 ___________________________*/

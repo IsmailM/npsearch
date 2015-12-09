@@ -1,3 +1,4 @@
+require 'bigdecimal'
 require 'forwardable'
 require 'nphmmer'
 
@@ -79,7 +80,6 @@ module NpHMMerApp
         check_seq_param_present
         check_seq
         check_seq_length
-        check_nps_param_present
       end
 
       # Simply asserts whether that the seq param is present
@@ -107,7 +107,7 @@ module NpHMMerApp
             cleaned_seqs << line
             next
           end
-          cleaned_seqs << line.gsub(/\W+/, '')
+          cleaned_seqs << line.gsub(/\W+/, '') + "\n"
         end
         @params[:seq] = cleaned_seqs
       end
@@ -143,11 +143,6 @@ module NpHMMerApp
         fail ArgumentError, 'The input sequence is too long.'
       end
 
-      def check_nps_param_present
-        return if @params[:neuropeptides]
-        fail ArgumentError, 'No neuropeptides groups specified'
-      end
-
       # Writes the input sequences to a file with the sub_dir in the temp_dir
       def write_seqs_to_file
         @input_file = File.join(@run_dir, 'input_file.fa')
@@ -161,13 +156,14 @@ module NpHMMerApp
         opt = {
           temp_dir: File.join(@run_dir, 'tmp'),
           input_file: @input_file,
-          num_threads: config[:num_threads],
-          signalp_path: config[:signalp_path]
+          num_threads: config[:num_threads]
         }
+        opt[:signalp_path] = config[:signalp_path] if @params[:signalp]
+        logger.debug( "OPTS: #{opt}")
         NpHMMer.init(opt)
         NpHMMer::Hmmer.search
-        hmm_results = NpHMMer::Hmmer.analyse_output
-        NpHMMer::Output.format_seqs_for_html(hmm_results)
+        results = NpHMMer::Hmmer.analyse_output
+        results.sort_by { |seq| BigDecimal.new(seq.lowest_evalue) }
       end
 
       def create_log_file

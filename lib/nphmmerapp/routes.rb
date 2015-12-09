@@ -39,7 +39,7 @@ module NpHMMerApp
     # Set up global variables for the templates...
     before '/' do
       @max_characters             = NpHMMerApp.config[:max_characters]
-      @current_neurohmmer_version = '0.1'
+      @current_nphmmer_version = '0.1'
     end
 
     get '/' do
@@ -49,7 +49,7 @@ module NpHMMerApp
     post '/' do
       cross_origin # Required for the API to work...
       RunNpHMMer.init(request.url, params)
-      @neurohmmer_results = RunNpHMMer.run
+      @nphmmer_results = RunNpHMMer.run
       slim :results, layout: false
     end
 

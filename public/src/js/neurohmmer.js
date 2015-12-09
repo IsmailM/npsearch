@@ -1,39 +1,18 @@
 $(document).ready(function() {
   'use strict';
-  checkCollapseState();
-  keepFooterFixedToBottom();
+  $('#seq_label').addClass('active');
   addSeqValidation();
   inputValidation();
 
+  // Materialize set up
+  $(".button-collapse").sideNav();
+  $('.modal-trigger').leanModal();
   $(document).bind('keydown', function (e) {
     if (e.ctrlKey && e.keyCode === 13 ) {
       $('#input').trigger('submit');
     }
   });
 });
-
-// Looks for a cookie (called 'NeuroHmmer_adv_params_status') to check the state of the adv_params box when it was last closed.
-//  This function is called upon as soon as the website is loaded;
-var checkCollapseState = function () {
-  'use strict';
-  if ($.cookie('NeuroHmmer_adv_params_status')){
-    var adv_params_status = $.cookie('NeuroHmmer_adv_params_status');
-    if (adv_params_status === 'open') {
-      var btn = document.getElementById('adv_params_btn');
-      btn.innerHTML = '<i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;Hide Advanced Parameters';
-      $('#adv_params').addClass('in');
-    }
-  }
-};
-
-// This function simply ensures that the footer stays to fixed to the bottom of the window
-var keepFooterFixedToBottom = function () {
-  'use strict';
-  $('#mainbody').css({'margin-bottom': (($('#footer').height()) + 15)+'px'});
-  $(window).resize(function(){
-      $('#mainbody').css({'margin-bottom': (($('#footer').height()) + 15)+'px'});
-  });
-};
 
 // Creates a custom Validation for Jquery Validation plugin...
 // It ensures that sequences are either protein or DNA data...
@@ -92,15 +71,12 @@ var inputValidation = function () {
             checkInputType: true,
             maxlength: maxCharacters // when undefined, maxlength is unlimited
         },
-        'neuropeptides[]': {
-           required: true,
-        },
     },
     highlight: function(element) {
-        $(element).closest('.form-group').addClass('has-error');
+        $(element).addClass('invalid');
     },
     unhighlight: function(element) {
-        $(element).closest('.form-group').removeClass('has-error');
+        $(element).removeClass('invalid');
     },
     errorElement: 'span',
     errorClass: 'help-block',
@@ -117,10 +93,7 @@ var inputValidation = function () {
       }
     },
     submitHandler: function(form) {
-      $('#spinner').modal({
-        backdrop: 'static',
-        keyboard: 'false'
-      });
+      $('#spinnermodel').openModal();
       ajaxFunction();
     }
   });
@@ -141,8 +114,11 @@ var ajaxFunction = function () {
       $('#search').css({'background-color': '#F5F5F5'});
       $('#results').css({'border-top': '3px solid #DBDBDB'});
       $('#search').css({'margin-bottom': '0'});
+      
+      $('.np_collapsible').collapsible();
+      $('.np_inner_collapsible').collapsible();
 
-      $('#spinner').modal('hide'); // remove progress notification
+      $('#spinnermodel').closeModal(); // remove progress notification
     },
     error: function (e, status) {
       var errorMessage;
@@ -150,12 +126,12 @@ var ajaxFunction = function () {
         errorMessage = e.responseText;
         $('#results_box').show();
         $('#output').html(errorMessage);
-        $('#spinner').modal('hide'); // remove progress notification
+        $('#spinnermodel').closeModal(); // remove progress notification
       } else {
         errorMessage = e.responseText;
         $('#results_box').show();
         $('#output').html('There seems to be an unidentified Error.');
-        $('#spinner').modal('hide'); // remove progress notification
+        $('#spinnermodel').closeModal(); // remove progress notification
       }
     }
   });
@@ -165,15 +141,11 @@ var ajaxFunction = function () {
 var changeAdvParamsBtnText = function () {
   'use strict';
   var btn = document.getElementById('adv_params_btn');
-  if (btn.innerHTML === '<i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;Show Advanced Parameters') {
-    btn.innerHTML = '<i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;Hide Advanced Parameters';
-    $('#adv_params').collapse('show');
-    $.cookie('NeuroHmmer_adv_params_status', 'open');
+  if (btn.innerHTML === '&nbsp;&nbsp;Show Advanced Parameters') {
+    btn.innerHTML = '&nbsp;&nbsp;Hide Advanced Parameters';
   }
   else {
-    btn.innerHTML = '<i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;Show Advanced Parameters';
-    $('#adv_params').collapse('hide');
-    $.cookie('NeuroHmmer_adv_params_status', 'closed');
+    btn.innerHTML = '&nbsp;&nbsp;Show Advanced Parameters';
   }
 };
 
@@ -191,8 +163,11 @@ var examplarSequences = function (){
              '>gi|641659926|ref|XP_008181304.1| PREDICTED: uncharacterized protein LOC100570556 isoform X2 [Acyrthosiphon pisum]\n' +
              'MHKFFVQIYIFVLIIWAVEKSDCKQGACLNYGHSCWGAHGKRNVPNDLDSLIRYRMAVFKKSGHRDSFINPNADQSQEDIPNYYNIFKHYSKINSVKTNNDDTVDTWSLEPSNNLPSGGSYYEDQVLDPRIEYKIMKI\n' +
              '>gi|328717573|ref|XP_003246245.1| PREDICTED: uncharacterized protein LOC100568735 [Acyrthosiphon pisum]\n' +
-             'MPHKINVGLVALAALAAAVLADPSVDRRASMGFMGMRGKKDRDQGGGGSGGDETSAAVDLDKRTMVFRRPMFDGGSRPAVFGGGSAEGFKRASMGFMGMRGKKDYYSNNKGSAAGFFGMRGKKVPSADAFYGVRGKKWPDHEDAVDADVQLSPIYILYRIIDELKSELSDRERNLVAAKFDEEREMR\n'
-  document.getElementById('seq').value = seqs;
+             'MPHKINVGLVALAALAAAVLADPSVDRRASMGFMGMRGKKDRDQGGGGSGGDETSAAVDLDKRTMVFRRPMFDGGSRPAVFGGGSAEGFKRASMGFMGMRGKKDYYSNNKGSAAGFFGMRGKKVPSADAFYGVRGKKWPDHEDAVDADVQLSPIYILYRIIDELKSELSDRERNLVAAKFDEEREMR'
+  $('#seq').focus();
+  $('#seq_label').addClass('active');
+  $('#seq').val(seqs);
+  $('#seq').trigger('autoresize');
 };
 
 // FROM BIONODE-Seq - See https://github.com/bionode/bionode-seq

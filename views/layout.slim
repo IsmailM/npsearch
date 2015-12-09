@@ -4,13 +4,13 @@ html lang='en'
     meta charset='utf-8'
     meta content='IE=edge' http-equiv='X-UA-Compatible'
     meta content='width=device-width, initial-scale=1' name='viewport'
-    meta content='NeuroHmmer | Identify Neuropeptide Precursors' name='description'
+    meta content='NpHMMer | Identify Neuropeptide Precursors' name='description'
     meta content='Wurmlab' name='author'
-    title NeuroHmmer | Identify Neuropeptide Precursors
+    title NpHMMer | Identify Neuropeptide Precursors
 
     script type='text/javascript' src='#{uri('web_files/js/nh_compiled_js.min.js')}'
-
-    /! Bootstrap core CSS
+   
+    link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons'
     link href='#{uri('web_files/css/nh_compiled_css.min.css')}' rel='stylesheet' type='text/css'
 
     /! HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -19,45 +19,40 @@ html lang='en'
       script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'
 
   body#mainbody
-    .navbar.navbar-default.navbar-fixed-top role='navigation'
-      .nav-container
-        .navbar-header
-          button.navbar-toggle data-target='.navbar-responsive-collapse' data-toggle='collapse' type='button'
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          span.navbar-brand
-            a href='#' NeuroHmmer
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          ul.nav.navbar-nav
+    main
+      nav.light-blue.darken-4 role="navigation"
+        .nav-wrapper
+          a.brand-logo href="#!"  NpHMMer
+          a.button-collapse data-activates="side_menu" href="#" 
+            i.material-icons menu
+          ul.right.hide-on-med-and-down
             li
-              a href='#' Home
+              a href="#"  Home
             li
-              a href='https://github.com/wurmlab/neurohmmer' target='_blank'  Source Code
-            /! li
-            /!   a href='https://wurmlab.github.io/neurohmmerAPI' target='_blank'  API
-            /!   a href='#'  Documentation
-            /! li
-            /!   a href='#'  Support
+              a href="https://github.com/wurmlab/nphmmer" target="_blank"  Source Code
             li
-              a href='https://wurmlab.github.io' target='_blank' Wurm Lab
-          ul.nav.navbar-nav.navbar-right
+              a href="https://wurmlab.github.io" target="_blank"  Wurm Lab
+          ul#side_menu.side-nav
             li
-              a.nav_github_icon href='https://github.com/wurmlab/neurohmmer' target='_blank'
-                span.i.fa.fa-2x.fa-github
-    ==yield
-    #spinner.modal aria-hidden='true' aria-labelledby='spinner' role='dialog' tabindex='-1'
-      .modal-dialog
+              a href="#"  Home
+            li
+              a href="https://github.com/wurmlab/nphmmer" target="_blank"  Source Code
+            li
+              a href="https://wurmlab.github.io" target="_blank"  Wurm Lab
+      ==yield
+      .modal#spinnermodel
         .modal-content
-          .modal-body.text-center
-            h2  Calculating...
-            p.results_link  This may take some time. Please leave this page open.
-            i.fa.fa-spinner.fa-5x.fa-spin
+          h2  Calculating...
+          p.results_link  This may take some time. Please leave this page open.
+          .progress
+            .indeterminate.light-blue.accent-2
+
     footer#footer
-      p.text-muted.text-center
-        | Please cite 'Moghul MI, Elphick M &amp; Wurm Y 
+      p.center-align
+        | Please cite 'Moghul
+        |
         em
-          | (in prep) 
+          | et al (in prep) 
         | NeuroHmmer: Identify Neuropeptide Precursors'
         br
         |  Developed at 
@@ -68,7 +63,7 @@ html lang='en'
         a href='http://www.bbsrc.ac.uk/home/home.aspx' target='_blank' BBSRC
         br
         | This page was created by 
-        a href='https://github.com/wurmlab/neurohmmerapp' target='_blank'  NeuroHmmer Web Application 
-        | v#{NeuroHmmerApp::VERSION} (using 
-        a href='https://github.com/wurmlab/neurohmmer' target='_blank'  NeuroHmmer 
-        | v#{@current_neurohmmer_version})
+        a href='https://github.com/wurmlab/nphmmerapp' target='_blank'  NpHMMer Web Application 
+        | v#{NpHMMerApp::VERSION} (using 
+        a href='https://github.com/wurmlab/nphmmer' target='_blank'  NpHMMer 
+        | v#{@current_nphmmer_version})
