@@ -1,18 +1,21 @@
 $(document).ready(function() {
-  'use strict';
-  $('#seq_label').addClass('active');
   addSeqValidation();
   inputValidation();
 
   // Materialize set up
   $(".button-collapse").sideNav();
   $('.modal-trigger').leanModal();
+
   $(document).bind('keydown', function (e) {
     if (e.ctrlKey && e.keyCode === 13 ) {
       $('#input').trigger('submit');
     }
   });
+  $("#seq").parent().find("label").addClass("active");
+
 });
+
+
 
 // Creates a custom Validation for Jquery Validation plugin...
 // It ensures that sequences are either protein or DNA data...
@@ -109,12 +112,11 @@ var ajaxFunction = function () {
     success: function(response){
       $('#results_box').show();
       $('#output').html(response);
+      $('.alignment').css('max-width', $('.card').width() - 120 + 'px');
+      $(window).on('resize', function(){
+        $('.alignment').css('max-width', $('.card').width() - 120  + 'px');
+      });
 
-      $('#mainbody').css({'background-color': '#fff'});
-      $('#search').css({'background-color': '#F5F5F5'});
-      $('#results').css({'border-top': '3px solid #DBDBDB'});
-      $('#search').css({'margin-bottom': '0'});
-      
       $('.np_collapsible').collapsible();
       $('.np_inner_collapsible').collapsible();
 
