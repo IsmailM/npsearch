@@ -7,11 +7,11 @@ html lang='en'
     meta content='NpHMMer | Identify Neuropeptide Precursors' name='description'
     meta content='Wurmlab' name='author'
     title NpHMMer | Identify Neuropeptide Precursors
-
-    script type='text/javascript' src='#{uri('web_files/js/nh_compiled_js.min.js')}'
-   
+ 
+    script type='text/javascript' src='#{uri('assets/js/nh_compiled_js.min.js')}'
+ 
     link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons'
-    link href='#{uri('web_files/css/nh_compiled_css.min.css')}' rel='stylesheet' type='text/css'
+    link href='#{uri('assets/css/style.min.css')}' rel='stylesheet' type='text/css'
 
     /! HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     /![if lt IE 9]
@@ -30,15 +30,11 @@ html lang='en'
               a href="#"  Home
             li
               a href="https://github.com/wurmlab/nphmmer" target="_blank"  Source Code
-            li
-              a href="https://wurmlab.github.io" target="_blank"  Wurm Lab
           ul#side_menu.side-nav
             li
               a href="#"  Home
             li
               a href="https://github.com/wurmlab/nphmmer" target="_blank"  Source Code
-            li
-              a href="https://wurmlab.github.io" target="_blank"  Wurm Lab
       ==yield
       .modal#spinnermodel
         .modal-content
@@ -47,9 +43,9 @@ html lang='en'
           .progress
             .indeterminate.light-blue.accent-2
 
-    footer#footer
-      p.center-align
-        | Please cite 'Moghul
+    footer#footer.light-blue.darken-4
+      p.center-align.white-text
+        | Please cite 'Moghul   
         |
         em
           | et al (in prep) 

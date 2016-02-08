@@ -43,7 +43,7 @@ module NpHMMerApp
     end
 
     get '/' do
-      slim :index
+      slim :search
     end
 
     post '/' do

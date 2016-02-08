@@ -21,19 +21,23 @@ Examples:
   # Launch NpHMMerApp with the given config file
   $ nphmmerapp --config ~/.nphmmerapp.conf
 
-  # Launch NpHMMerApp with 8 threads at port 8888
+  # Launch NpHMMerApp with 8 threads / port 8888
   $ nphmmerapp --num_threads 8 --port 8888
 
-  # Create a config file with the other arguments
-  $ nphmmerapp -s -d ~/database_dir
+  # Save the arguments used to a config file - e.g. saving the port 4567
+  $ nphmmerapp -s -p 4567
 
 BANNER
+    on 'n', 'num_threads=',
+       'Number of threads to use to run a BLAST search',
+       argument: true
+
     on 'c', 'config_file=',
        'Use the given configuration file',
        argument: true
 
-    on 'g', 'public_dir=',
-       'dhe public directory that is served to the web application.',
+    on 'p', 'port=',
+       'Port to run NpHMMerApp on',
        argument: true
 
     on 'H', 'hmmer_bin=',
@@ -44,12 +48,8 @@ BANNER
        'Load SignalP binary from this path.',
        argument: true
 
-    on 'n', 'num_threads=',
-       'Number of threads to use to run a BLAST search',
-       argument: true
-
-    on 'p', 'port=',
-       'Port to run NpHMMerApp on',
+    on 'g', 'public_dir=',
+       'The public directory from where the web app is served',
        argument: true
 
     on 's', 'set',
@@ -147,10 +147,7 @@ MSG
         exit
       end
 
-      if set?
-        NpHMMerApp.config.write_config_file
-        exit
-      end
+      NpHMMerApp.config.write_config_file if set?
 
       NpHMMerApp.config.write_config_file if fetch_option(:set).value
 

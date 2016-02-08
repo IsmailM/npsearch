@@ -37,7 +37,7 @@ module NpHMMerApp
       # Writes sequesnces to file and runs NpHMMer
       def run
         write_seqs_to_file
-        run_neurohmmer
+        run_nphmmer
       end
 
       private
@@ -55,7 +55,7 @@ module NpHMMerApp
       def ensure_unique_id
         while File.exist?(@run_dir)
           @unique_id = create_unique_id
-          @run_dir   = File.join(NpHMMerApp.public_dir, 'NpHmmer',  @unique_id)
+          @run_dir   = File.join(NpHMMerApp.public_dir, 'NpHMMer',  @unique_id)
         end
         logger.debug("Job Unique ID = #{@unique_id}")
       end
@@ -152,18 +152,24 @@ module NpHMMerApp
         fail 'NpHMMerApp was unable to create the input file.'
       end
 
-      def run_neurohmmer
-        opt = {
-          temp_dir: File.join(@run_dir, 'tmp'),
-          input_file: @input_file,
-          num_threads: config[:num_threads]
-        }
-        opt[:signalp_path] = config[:signalp_path] if @params[:signalp]
-        logger.debug( "OPTS: #{opt}")
+      def run_nphmmer
+        opt = init_nphmmer_arguments
         NpHMMer.init(opt)
         NpHMMer::Hmmer.search
         results = NpHMMer::Hmmer.analyse_output
         results.sort_by { |seq| BigDecimal.new(seq.lowest_evalue) }
+      end
+
+      def init_nphmmer_arguments
+        opt = {
+          temp_dir: File.join(@run_dir, 'tmp'),
+          input: @input_file,
+          num_threads: config[:num_threads],
+          evalue: @params[:evalue]
+        }
+        opt[:signalp_path] = config[:signalp_path] if @params[:signalp] == 'on'
+        logger.debug("NpHMMer OPTS: #{opt}")
+        opt
       end
 
       def create_log_file

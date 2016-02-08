@@ -1,0 +1,48 @@
+section#search
+  h2  NpHMMer 
+  .card 
+    .card-content
+      span.card-title  Input Sequences
+      .row
+        form#input.col.s12 action="#{uri('/')}" method="POST"
+          .row
+            .input-field.col.s12
+              textarea#seq.materialize-textarea name="seq" autofocus="" spellcheck="false"
+              label for="seq"  Paste your sequences here
+          .row
+            ul.collapsible data-collapsible="accordion" style="box-shadow: none;border: none;"
+              li
+                .collapsible-header#adv_params_btn.light-blue.accent-4.waves-effect.waves-light.btn.left style="font-size:14px;border-bottom:none;"
+                  | &nbsp;&nbsp;Show Advanced Parameters
+                .clearfix
+                .collapsible-body style="border-bottom:none;padding:2em 0;"
+                  .row
+                    .input-field.col.s6
+                      input#evalue.validate type="text" name="evalue" value="10" /
+                      label.active for="evalue"  E-value
+                  .row
+                    .input-field.col.s12
+                      input#signalp type="checkbox" checked="" name="signalp"
+                      label for="signalp"  Calculate Signal Peptide (Protein Input sequences only)
+            button#submit_btn.btn-large.waves-effect.waves-light.light-blue.accent-4.right value="input" type="submit" 
+              | Submit
+              i.material-icons.right send
+
+          .row style="display:none"
+            label for="input_file"  Alternatively, upload a fasta file
+            .file-field.input-field
+              .btn.light-blue.accent-4.waves-effect.waves-light
+                span File
+                input#input_file type="file" name="input_file"
+              .file-path-wrapper
+                input.file-path.validate type="text"
+        .clearfix
+        .show_examples_text
+          span 
+            a#np_example onclick="examplarSequences()"
+              | Show an example
+
+section#results
+  #results_box style="display:none;"
+    h2  NpHMMer Results
+    #output

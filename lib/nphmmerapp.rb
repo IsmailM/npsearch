@@ -95,9 +95,9 @@ module NpHMMerApp
     #   is served by the app is accessible at URL/...
     def init_public_dir
       FileUtils.mkdir_p(File.join(@public_dir, 'NpHMMer'))
-      root_web_files = File.join(NpHMMerApp.root, 'public/web_files')
+      root_assets = File.join(NpHMMerApp.root, 'public/assets')
       root_gv        = File.join(NpHMMerApp.root, 'public/NpHMMer')
-      FileUtils.cp_r(root_web_files, @public_dir)
+      FileUtils.cp_r(root_assets, @public_dir)
       FileUtils.cp_r(root_gv, @public_dir)
     end
 
