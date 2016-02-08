@@ -221,11 +221,11 @@ color: #9e9e9e
 padding-top: 1rem;
 }
 
-#scratch_space.materialize-textarea {
+.materialize-textarea {
   font-family: 'Source Code Pro', "Courier New", Courier, Mono;
   line-height: 1.4;
-  overflow-y: scroll;
-  max-height: 50vh;
+  overflow-y: scroll !important;
+  max-height: 50vh !important;
 }
 
 #submit_btn {
