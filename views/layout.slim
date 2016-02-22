@@ -7,16 +7,17 @@ html lang='en'
     meta content='NpHMMer | Identify Neuropeptide Precursors' name='description'
     meta content='Wurmlab' name='author'
     title NpHMMer | Identify Neuropeptide Precursors
- 
-    script type='text/javascript' src='#{uri('assets/js/nh_compiled_js.min.js')}'
- 
-    link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons'
-    link href='#{uri('assets/css/style.min.css')}' rel='stylesheet' type='text/css'
 
-    /! HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    /!HTML5 and CSS3 media query support for IE8 and below.
     /![if lt IE 9]
       script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'
       script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'
+
+    link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons'
+    - if settings.production?
+      link href='#{uri('assets/css/style.min.css')}' rel='stylesheet' type='text/css'
+    - else
+      link href='#{uri('assets/css/style.css')}' rel='stylesheet' type='text/css'
 
   body#mainbody
     main
@@ -63,3 +64,13 @@ html lang='en'
         | v#{NpHMMerApp::VERSION} (using 
         a href='https://github.com/wurmlab/nphmmer' target='_blank'  NpHMMer 
         | v#{@current_nphmmer_version})
+
+    - if settings.production?
+      script type='text/javascript' src='#{uri('assets/js/nh_compiled_js.min.js')}'
+    - else
+      script type='text/javascript' src='#{uri('assets/js/jquery.min.js')}'
+      script type='text/javascript' src='#{uri('assets/js/jquery.cookie.min.js')}'
+      script type='text/javascript' src='#{uri('assets/js/jquery.validate.min.js')}'
+      script type='text/javascript' src='#{uri('assets/js/materialize.min.js')}'
+      script type='text/javascript' src='#{uri('assets/js/bionode-seq.min.js')}'
+      script type='text/javascript' src='#{uri('assets/js/neurohmmer.js')}'
