@@ -1,13 +1,16 @@
 $(document).ready(function() {
-  addSeqValidation();
   inputValidation();
 
   // Materialize set up
   $(".button-collapse").sideNav();
   $('.modal-trigger').leanModal();
-
-  $("#seq").parent().find("label").addClass("active");
-
+  $('#input_type').click(function(){
+    if ($('#upload').is(':visible')) {
+      $('.show_examples_text').hide();
+    } else {
+      $('.show_examples_text').show();
+    }
+  });
 });
 
 
@@ -60,6 +63,7 @@ var addSeqValidation = function () {
 // A function that validates the input - Utilises Jquery.Validator.js
 var inputValidation = function () {
   'use strict';
+  addSeqValidation();
   var maxCharacters = $('#seq').attr('data-maxCharacters'); // returns a number or undefined
   $.validator.setDefaults({
     errorClass: 'invalid',
@@ -105,6 +109,10 @@ var ajaxFunction = function () {
 
       $('.np_collapsible').collapsible();
       $('.np_inner_collapsible').collapsible();
+
+      $('html, body').animate({
+          scrollTop: $('#output').offset().top
+      });
 
       $('#spinnermodel').closeModal(); // remove progress notification
     },
@@ -189,10 +197,11 @@ var examplarSequences = function (){
              '>gi|301771746|ref|XP_002921293.1| PREDICTED: thyrotropin releasing hormone [Ailuropoda melanoleuca]\n' +
              'MPGPWLQLAMALTLTVAGIPGGRAQPEVAQQEAAMAPERAGLDDLLRQAQRLLFLREDLQRLRGNQGDLESEAQILQPDWLSKRQHPGKREGEAEEGVEEEEEEGGAVGPHKRQHPGRQEDVAAWSDVTLQKRQHPGRRAPLLGYAFTKRQHPGRRLVDSKAQRSWEAEEEDGEEEGGEPMPEKRQHPGKRALGSPCGPGAACGQASLLLGLLDDLSRGQGAEEKRQHPGRRAAWAREPLEE\n' +
              '>gi|193629757|ref|XP_001950852.1| PREDICTED: splicing factor U2AF 50 kDa subunit-like [Acyrthosiphon pisum]\n' +
-             'MGEDKERERDRDRGEREKERGERRRRSRSRDRERHRRHRSRSRDGRKRSRSKSPKNKSRRRKPSLYWDVPPPGFEHIAPLQYKAMQAAGQIPANTMPDTPQTAVPVVGSTITRQARRLYVGNIPFGVTEDEMMEFFNQQMHLSGLAQAAGNPVLACQINLDKNFAFLEFRSIDETTQAMAFDGINFKGQSLKIRRPHDYQPTPGMTESNPVTNYNSGMTLDMMKYDSSSFGLGTVPDSPHKIFIGGLPAYLNDEQVKELLTSFGQLKAFNLVKDAATGLSKGYAFCEYADVVMTDQAIAGLNGMQLGEKKLIVQRASIGAKNPGLGQAPVTIQVPGLTVVGTAGPPTEVLCLLNMVTPDELKDEEEYEDILEDIREECNKYGVVRSLEIPRPIEGIDVPGCGKVFIEFNAIPDCQKAQQALAGRKFNNRVVVTSFMEPDKYHRREF\n'
+             'MGEDKERERDRDRGEREKERGERRRRSRSRDRERHRRHRSRSRDGRKRSRSKSPKNKSRRRKPSLYWDVPPPGFEHIAPLQYKAMQAAGQIPANTMPDTPQTAVPVVGSTITRQARRLYVGNIPFGVTEDEMMEFFNQQMHLSGLAQAAGNPVLACQINLDKNFAFLEFRSIDETTQAMAFDGINFKGQSLKIRRPHDYQPTPGMTESNPVTNYNSGMTLDMMKYDSSSFGLGTVPDSPHKIFIGGLPAYLNDEQVKELLTSFGQLKAFNLVKDAATGLSKGYAFCEYADVVMTDQAIAGLNGMQLGEKKLIVQRASIGAKNPGLGQAPVTIQVPGLTVVGTAGPPTEVLCLLNMVTPDELKDEEEYEDILEDIREECNKYGVVRSLEIPRPIEGIDVPGCGKVFIEFNAIPDCQKAQQALAGRKFNNRVVVTSFMEPDKYHRREF\n';
   $('#seq').focus();
   $('#seq_label').addClass('active');
   $('#seq').val(seqs);
+  $('#seq').valid();
   $('#seq').trigger('autoresize');
 };
 
