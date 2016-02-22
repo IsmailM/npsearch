@@ -14,7 +14,6 @@ $(document).ready(function() {
 });
 
 
-
 // Creates a custom Validation for Jquery Validation plugin...
 // It ensures that sequences are either protein or DNA data...
 // If there are multiple sequences, ensures that they are of the same type
