@@ -6,11 +6,6 @@ $(document).ready(function() {
   $(".button-collapse").sideNav();
   $('.modal-trigger').leanModal();
 
-  $(document).bind('keydown', function (e) {
-    if (e.ctrlKey && e.keyCode === 13 ) {
-      $('#input').trigger('submit');
-    }
-  });
   $("#seq").parent().find("label").addClass("active");
 
 });
@@ -77,10 +72,14 @@ var inputValidation = function () {
   $('#input').validate({
     rules: {
         seq: {
+            required: true,
             minlength: 5,
             checkInputType: true,
             maxlength: maxCharacters // when undefined, maxlength is unlimited
         },
+        input_file: {
+          required: true
+        }
     },
     submitHandler: function(form) {
       $('#spinnermodel').openModal();
