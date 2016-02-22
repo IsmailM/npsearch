@@ -7,7 +7,7 @@ section#search
         form#input.col.s12 action="#{uri('/')}" method="POST"
           .row
             .col.s12
-              ul.tabs
+              ul#input_type.tabs
                 li.tab.col.s6
                   a.light-blue-text.text-darken-3 href="#paste"
                     | Paste Your Sequences
@@ -17,8 +17,8 @@ section#search
                 .indicator.blue style="z-index:1"
           .row
             #paste.input-field.col.s12
-              textarea#seq.materialize-textarea name="seq" autofocus="" spellcheck="false"
-              label for="seq"  Paste your sequences here
+              textarea#seq.materialize-textarea name="seq" spellcheck="false"
+              label#seq_label for="seq"  Paste your sequences here
             #upload
               .file-field.input-field
                 .btn.waves-effect.waves-light.light-blue.accent-4
