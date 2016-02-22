@@ -395,5 +395,16 @@ table {
     border-right: 1px solid #d0d0d0;
   }
 
+label.invalid {
+  color: red;
+  font-size: 0.8rem;
+  left: 0;
+  position: relative;
+  top: -15px;
+  transform: none !important;
+}
 
-
+textarea.materialize-textarea.invalid, textarea.materialize-textarea:focus.invalid {
+  border-bottom: 1px solid #F44336 !important;
+  box-shadow: 0 1px 0 0 #F44336 !important;
+}

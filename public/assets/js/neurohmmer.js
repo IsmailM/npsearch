@@ -67,14 +67,10 @@ var inputValidation = function () {
   'use strict';
   var maxCharacters = $('#seq').attr('data-maxCharacters'); // returns a number or undefined
   $.validator.setDefaults({
-      errorClass: 'invalid',
-      validClass: "valid",
-      errorPlacement: function (error, element) {
-          $(element)
-              .closest("form")
-              .find("label[for='" + element.attr("id") + "']")
-              .attr('data-error', error.text());
-      },
+    errorClass: 'invalid',
+    errorPlacement: function(error, element) {
+      error.insertAfter($(element).siblings('label'));
+    }
   });
 
 
