@@ -18,14 +18,12 @@ section#search
           .row
             #paste.input-field.col.s12
               textarea#seq.materialize-textarea name="seq" spellcheck="false"
-              label#seq_label for="seq"  Paste your sequences here
+              label#seq_label for="seq" Paste your sequences here
             #upload
               .file-field.input-field
-                .btn.waves-effect.waves-light.light-blue.accent-4
-                  span File
-                  input type="file" name="input_file"
+                #qq-file-btn.btn.waves-effect.waves-light.light-blue.accent-4 File
                 .file-path-wrapper
-                  input.file-path.validate type="text"
+                  input#qq-filename.file-path.validate name="qq-filename" type="text"
           .row
             ul.collapsible data-collapsible="accordion" style="box-shadow: none;border: none;"
               li
