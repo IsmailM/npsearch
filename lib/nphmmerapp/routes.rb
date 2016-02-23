@@ -38,7 +38,7 @@ module NpHMMerApp
     end
 
     configure do
-      set :uploaded_files, {}
+      set :uploaded_files, []
     end
 
     # Set up global variables for the templates...
@@ -53,18 +53,17 @@ module NpHMMerApp
 
     post '/' do
       cross_origin # Required for the API to work...
-      if params['qq-filename'] &&
-          settings.uploaded_files.include?(params['qq-filename'])
-        params[:seq] = settings.uploaded_files[params['qq-filename']].read
-      end
+      qq_file = settings.uploaded_files.assoc(params['qq-filename'])
+      params[:seq] = qq_file[1].read if qq_file
       RunNpHMMer.init(request.url, params)
       @nphmmer_results = RunNpHMMer.run
       slim :results, layout: false
     end
 
     post '/upload' do
-      settings.uploaded_files.store(params[:qqfile][:filename],
-                                    params[:qqfile][:tempfile])
+      uploaded_file = [params[:qqfile][:filename], params[:qqfile][:tempfile]]
+      setttings.uploaded_files.shift if settings.uploaded_files.length == 10
+      settings.uploaded_files.push uploaded_file
       {success: true}.to_json
     end
 
