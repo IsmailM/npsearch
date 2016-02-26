@@ -1,3 +1,4 @@
+require 'json'
 require 'sinatra/base'
 require 'sinatra/cross_origin'
 require 'nphmmer/version'
@@ -36,6 +37,10 @@ module NpHMMerApp
       set :public_folder, lambda { NpHMMerApp.public_dir }
     end
 
+    configure do
+      set :uploaded_files, []
+    end
+
     # Set up global variables for the templates...
     before '/' do
       @max_characters             = NpHMMerApp.config[:max_characters]
@@ -48,9 +53,18 @@ module NpHMMerApp
 
     post '/' do
       cross_origin # Required for the API to work...
+      qq_file = settings.uploaded_files.assoc(params['qq-filename'])
+      params[:seq] = qq_file[1].read if qq_file
       RunNpHMMer.init(request.url, params)
       @nphmmer_results = RunNpHMMer.run
       slim :results, layout: false
+    end
+
+    post '/upload' do
+      uploaded_file = [params[:qqfile][:filename], params[:qqfile][:tempfile]]
+      setttings.uploaded_files.shift if settings.uploaded_files.length == 10
+      settings.uploaded_files.push uploaded_file
+      {success: true}.to_json
     end
 
     # This error block will only ever be hit if the user gives us a funny

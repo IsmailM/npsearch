@@ -62,6 +62,9 @@ var addSeqValidation = function () {
 // A function that validates the input - Utilises Jquery.Validator.js
 var inputValidation = function () {
   'use strict';
+
+  var uploader = initUploader();
+
   addSeqValidation();
   var maxCharacters = $('#seq').attr('data-maxCharacters'); // returns a number or undefined
   $.validator.setDefaults({
@@ -86,7 +89,15 @@ var inputValidation = function () {
     },
     submitHandler: function(form) {
       $('#spinnermodel').openModal();
-      ajaxFunction();
+
+      if (uploader.getUploads().length == 0) {
+          // No file to upload - call ajaxFunction.
+          ajaxFunction();
+      }
+      else {
+          // Upload file and automatically call ajaxFunction.
+          uploader.uploadStoredFiles();
+      }
     }
   });
 };
@@ -240,4 +251,37 @@ var checkType = function (sequence, threshold, length, index) {
   } else if (proteinMatch >= threshold) {
     return 'protein';
   }
+};
+
+/**
+ * Initialise fine-uploader file uploader in basic mode.
+ */
+var initUploader = function () {
+    return new qq.FineUploaderBasic({
+        // When triggered, upload to this URL. Don't auot upload: we will
+        // upload manually.
+        request: { endpoint: '/upload' }, autoUpload: false,
+
+        // Let fine-upload create the File select button.
+        button: document.getElementById('qq-file-btn'),
+
+        // Only allow FASTA files smaller than 30 MB.
+        validation: {
+            acceptFiles: '.fa,.fas,.fna,.faa,.fasta',
+            sizeLimit: 30000000
+        },
+
+        // One file at a time.
+        multiple: false,
+
+        callbacks: {
+            // Update input.file-path when a file is selected.
+            onSubmit: function (id, name) {
+                $('#qq-filename').attr('value', name);
+            },
+
+            // Submit form after file has been uploaded.
+            onComplete: ajaxFunction
+        }
+    });
 };
