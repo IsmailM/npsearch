@@ -63,7 +63,7 @@ module NpHMMerApp
       uploaded_file = [params[:qqfile][:filename], params[:qqfile][:tempfile]]
       setttings.uploaded_files.shift if settings.uploaded_files.length == 10
       settings.uploaded_files.push uploaded_file
-      {success: true}.to_json
+      { success: true }.to_json
     end
 
     # This error block will only ever be hit if the user gives us a funny
