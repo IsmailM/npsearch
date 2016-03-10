@@ -3,17 +3,17 @@ require 'rspec'
 require 'capybara/rspec'
 require 'w3c_validators'
 
-require 'neurohmmerapp'
+require 'nphmmerapp'
 
 # Basic unit tests for HTTP / Rack interface.
-module NeuroHmmerApp
+module NpHMMerApp
   include W3CValidators
   describe 'Routes' do
     ENV['RACK_ENV'] = 'production'
     include Rack::Test::Methods
 
     let 'root' do
-      NeuroHmmerApp.root
+      NpHMMerApp.root
     end
 
     let 'empty_config' do
@@ -25,20 +25,20 @@ module NeuroHmmerApp
     end
 
     before :each do
-      NeuroHmmerApp.init(config_file: empty_config,
-                            database_dir: database_dir)
+      NpHMMerApp.init(config_file: empty_config,
+                      database_dir: database_dir)
 
       nps      = %w(all)
       sequence = 'AGCTAGCTAGCT'
 
       @params   = {
         'neuropeptides' => nps,
-        'seq'           => sequence,
+        'seq'           => sequence
       }
     end
 
     let 'app' do
-      NeuroHmmerApp
+      NpHMMerApp
     end
 
     it 'should start the app' do
