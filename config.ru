@@ -1,3 +1,3 @@
-require 'genevalidatorapp'
-GeneValidatorApp.init
-run GeneValidatorApp
+require 'nphmmerapp'
+NpHMMerApp.init
+run NpHMMerApp
