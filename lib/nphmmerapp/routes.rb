@@ -1,6 +1,5 @@
 require 'json'
 require 'sinatra/base'
-require 'sinatra/cross_origin'
 require 'nphmmer/version'
 require 'nphmmerapp/version'
 require 'slim'
@@ -8,7 +7,6 @@ require 'slim'
 module NpHMMerApp
   # The Sinatra Routes
   class Routes < Sinatra::Base
-    register Sinatra::CrossOrigin
 
     configure do
       # We don't need Rack::MethodOverride. Let's avoid the overhead.
@@ -51,7 +49,6 @@ module NpHMMerApp
     end
 
     post '/' do
-      cross_origin # Required for the API to work...
       qq_file = settings.uploaded_files.assoc(params['qq-filename'])
       RunNpHMMer.init(request.url, params, qq_file)
       @nphmmer_results = RunNpHMMer.run(qq_file)
