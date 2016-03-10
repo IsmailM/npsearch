@@ -6,13 +6,13 @@ task default: [:build]
 
 desc 'Builds and installs'
 task install: [:build] do
-  require_relative 'lib/genevalidatorapp/version'
-  sh "gem install ./genevalidatorapp-#{GeneValidatorApp::VERSION}.gem"
+  require_relative 'lib/nphmmerapp/version'
+  sh "gem install ./nphmmerapp-#{NpHMMerApp::VERSION}.gem"
 end
 
 desc 'Runs tests and builds gem (default)'
 task build: [:test] do
-  sh 'gem build genevalidatorapp.gemspec'
+  sh 'gem build nphmmerapp.gemspec'
 end
 
 task test: :spec
