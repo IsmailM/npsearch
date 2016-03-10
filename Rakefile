@@ -19,3 +19,18 @@ task test: :spec
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
 end
+
+task :assets do
+  require_relative 'lib/nphmmerapp/version'
+  `rm ./public/assets/css/style-*.min.css`
+  `rm ./public/assets/js/nphmmer-*.min.js`
+  sh 'cleancss --s0 -s --skip-rebase -o' \
+     " './public/assets/css/style-#{NpHMMerApp::VERSION}.min.css'" \
+     " './public/assets/css/style.css'"
+  sh "uglifyjs './public/assets/js/jquery.min.js'" \
+     " './public/assets/js/jquery.validate.min.js'" \
+     " './public/assets/js/fine-uploader.min.js'" \
+     " './public/assets/js/materialize.min.js'" \
+     " './public/assets/js/nphmmer.js' -m -c -o" \
+     " './public/assets/js/nphmmer-#{NpHMMerApp::VERSION}.min.js'"
+end

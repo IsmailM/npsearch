@@ -15,7 +15,7 @@ html lang='en'
 
     link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons'
     - if settings.production?
-      link href='#{uri('assets/css/style.min.css')}' rel='stylesheet' type='text/css'
+      link href='#{uri('assets/css/style-' + NpHMMerApp::VERSION + '.min.css')}' rel='stylesheet' type='text/css'
     - else
       link href='#{uri('assets/css/style.css')}' rel='stylesheet' type='text/css'
 
@@ -66,12 +66,10 @@ html lang='en'
         | v#{NpHMMer::VERSION})
 
     - if settings.production?
-      script type='text/javascript' src='#{uri('assets/js/nh_compiled_js.min.js')}'
+      script type='text/javascript' src='#{uri('assets/js/nphmmer-' + NpHMMerApp::VERSION + '.min.js')}'
     - else
       script type='text/javascript' src='#{uri('assets/js/jquery.min.js')}'
-      script type='text/javascript' src='#{uri('assets/js/jquery.cookie.min.js')}'
       script type='text/javascript' src='#{uri('assets/js/jquery.validate.min.js')}'
       script type='text/javascript' src='#{uri('assets/js/fine-uploader.min.js')}'
       script type='text/javascript' src='#{uri('assets/js/materialize.min.js')}'
-      script type='text/javascript' src='#{uri('assets/js/bionode-seq.min.js')}'
       script type='text/javascript' src='#{uri('assets/js/nphmmer.js')}'
