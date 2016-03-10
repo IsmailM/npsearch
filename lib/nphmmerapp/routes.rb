@@ -31,10 +31,10 @@ module NpHMMerApp
       set :logging, nil
 
       # This is the app root...
-      set :root,          lambda { NpHMMerApp.root }
+      set :root, -> { NpHMMerApp.root }
 
       # This is the full path to the public folder...
-      set :public_folder, lambda { NpHMMerApp.public_dir }
+      set :public_folder, -> { NpHMMerApp.public_dir }
     end
 
     configure do
@@ -43,7 +43,7 @@ module NpHMMerApp
 
     # Set up global variables for the templates...
     before '/' do
-      @max_characters          = NpHMMerApp.config[:max_characters]
+      @max_characters = NpHMMerApp.config[:max_characters]
     end
 
     get '/' do
