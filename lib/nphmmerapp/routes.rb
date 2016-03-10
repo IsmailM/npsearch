@@ -43,8 +43,7 @@ module NpHMMerApp
 
     # Set up global variables for the templates...
     before '/' do
-      @max_characters             = NpHMMerApp.config[:max_characters]
-      @current_nphmmer_version = '0.1'
+      @max_characters          = NpHMMerApp.config[:max_characters]
     end
 
     get '/' do

@@ -63,7 +63,7 @@ html lang='en'
         a href='https://github.com/wurmlab/nphmmerapp' target='_blank'  NpHMMer Web Application 
         | v#{NpHMMerApp::VERSION} (using 
         a href='https://github.com/wurmlab/nphmmer' target='_blank'  NpHMMer 
-        | v#{@current_nphmmer_version})
+        | v#{NpHMMer::VERSION})
 
     - if settings.production?
       script type='text/javascript' src='#{uri('assets/js/nh_compiled_js.min.js')}'
