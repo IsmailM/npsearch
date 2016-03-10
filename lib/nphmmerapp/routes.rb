@@ -69,7 +69,7 @@ module NpHMMerApp
     # This error block will only ever be hit if the user gives us a funny
     # sequence or incorrect advanced parameter. Well, we could hit this block
     # if someone is playing around with our HTTP API too.
-    error RunNpHMMer::ArgumentError do
+    error RunNpHMMer::ArgumentError, RunNpHMMer::RuntimeError do
       status 400
       slim :"500", layout: false
     end
@@ -79,7 +79,7 @@ module NpHMMerApp
     # or something really weird going on.
     # TODO: If we hit this error block we show the stacktrace to the user
     # requesting them to post the same to our Google Group.
-    error Exception, RunNpHMMer::RuntimeError do
+    error Exception do
       status 500
       slim :"500", layout: false
     end
