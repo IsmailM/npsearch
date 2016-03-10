@@ -62,7 +62,7 @@ module NpHMMerApp
 
     post '/upload' do
       uploaded_file = [params[:qqfile][:filename], params[:qqfile][:tempfile]]
-      setttings.uploaded_files.shift if settings.uploaded_files.length == 10
+      settings.uploaded_files.shift if settings.uploaded_files.length == 10
       settings.uploaded_files.push uploaded_file
       { success: true }.to_json
     end
