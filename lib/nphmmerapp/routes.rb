@@ -39,6 +39,11 @@ module NpHMMerApp
       set :uploaded_files, []
     end
 
+    # For any request that hits the app, log incoming params at debug level.
+    before do
+      logger.debug params
+    end
+
     # Set up global variables for the templates...
     before '/' do
       @max_characters = NpHMMerApp.config[:max_characters]
