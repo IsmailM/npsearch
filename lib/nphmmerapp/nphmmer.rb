@@ -24,19 +24,25 @@ module NpHMMerApp
 
       def_delegators NpHMMerApp, :config, :logger, :public_dir
 
-      attr_reader :gv_dir, :input_file, :xml_file, :raw_seq, :unique_id, :params
+      attr_reader :unique_id, :params
 
       # Setting the scene
-      def init(_base_url, params)
+      def init(_base_url, params, qq_file)
         create_unique_id_and_run_dir
         @params = params
-        validate_params
+        @params[:input_file] = File.join(@run_dir, 'input_file.fa')
+        logger.debug("Input Paramaters: #{@params}")
+        validate_params unless qq_file # qq_file is validated within nphmmer
         # @url = produce_result_url_link(base_url)
       end
 
       # Writes sequesnces to file and runs NpHMMer
-      def run
-        write_seqs_to_file
+      def run(qq_file)
+        if qq_file
+          FileUtils.cp(qq_file[1], @params[:input_file])
+        else
+          write_seqs_to_file
+        end
         run_nphmmer
       end
 
@@ -66,75 +72,31 @@ module NpHMMerApp
         FileUtils.mkdir_p(@run_dir)
       end
 
-      # # Reuturns the URL of the results page.
-      # def produce_result_url_link(url)
-      #   url.gsub(/input/, '').gsub(%r{/*$}, '') +
-      #     "/NpHmmer/#{@unique_id}/output.html"
-      # end
-
       # Validates the paramaters provided via the app.
       #  Only important if POST request is sent via API - Web APP also validates
       #  all params via Javascript.
       def validate_params
-        logger.debug("Input Paramaters: #{@params}")
-        check_seq_param_present
-        check_seq
+        assert_seq_param_present
+        ensure_fasta_valid
         check_seq_length
       end
 
       # Simply asserts whether that the seq param is present
-      def check_seq_param_present
+      def assert_seq_param_present
         return if @params[:seq]
         fail ArgumentError, 'No input sequence provided.'
-      end
-
-      def check_seq
-        logger.debug('Cleaning input sequences')
-        ensure_unix_line_ending
-        remove_bad_char_in_seq
-        ensure_fasta_valid
-        ensure_unique_queries
-      end
-
-      def ensure_unix_line_ending
-        @params[:seq].gsub!(/\r\n?/, "\n")
-      end
-
-      def remove_bad_char_in_seq
-        cleaned_seqs = ''
-        @params[:seq].each_line do |line|
-          if line =~ /^>/
-            cleaned_seqs << line
-            next
-          end
-          cleaned_seqs << line.gsub(/\W+/, '') + "\n"
-        end
-        @params[:seq] = cleaned_seqs
       end
 
       # Adds a ID (based on the time when submitted) to sequences that are not
       #  in fasta format.
       def ensure_fasta_valid
-        logger.debug('Adding an ID to sequences that are not in fasta format.')
-        sequence       = @params[:seq].lstrip
+        sequence = @params[:seq].lstrip
         if sequence[0] != '>'
+          logger.debug('Adding an ID to sequences.')
           inserted_id = ">Submitted: #{Time.now.strftime('%H:%M-%B_%d_%Y')}\n"
           sequence.insert(0, inserted_id)
         end
         @params[:seq] = sequence
-      end
-
-      def ensure_unique_queries
-        unique_queries = {}
-        @params[:seq].gsub!(/^\>(\S+)/) do |s|
-          if unique_queries.key?(s)
-            unique_queries[s] += 1
-            s + '_' + (unique_queries[s] - 1).to_s
-          else
-            unique_queries[s] = 1
-            s
-          end
-        end
       end
 
       def check_seq_length
@@ -145,10 +107,9 @@ module NpHMMerApp
 
       # Writes the input sequences to a file with the sub_dir in the temp_dir
       def write_seqs_to_file
-        @input_file = File.join(@run_dir, 'input_file.fa')
-        logger.debug("Writing input seqs to: '#{@input_file}'")
-        File.open(@input_file, 'w+') { |f| f.write(@params[:seq]) }
-        return if File.exist?(@input_file) && !File.zero?(@input_file)
+        logger.debug("Writing input seqs to: '#{@params[:input_file]}'")
+        File.open(@params[:input_file], 'w+') { |f| f.write(@params[:seq]) }
+        return if File.exist?(@params[:input_file])
         fail 'NpHMMerApp was unable to create the input file.'
       end
 
@@ -163,7 +124,7 @@ module NpHMMerApp
       def init_nphmmer_arguments
         opt = {
           temp_dir: File.join(@run_dir, 'tmp'),
-          input: @input_file,
+          input: @params[:input_file],
           num_threads: config[:num_threads],
           evalue: @params[:evalue]
         }

@@ -53,9 +53,8 @@ module NpHMMerApp
     post '/' do
       cross_origin # Required for the API to work...
       qq_file = settings.uploaded_files.assoc(params['qq-filename'])
-      params[:seq] = qq_file[1].read if qq_file
-      RunNpHMMer.init(request.url, params)
-      @nphmmer_results = RunNpHMMer.run
+      RunNpHMMer.init(request.url, params, qq_file)
+      @nphmmer_results = RunNpHMMer.run(qq_file)
       slim :results, layout: false
     end
 
