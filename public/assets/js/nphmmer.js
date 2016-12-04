@@ -11,7 +11,82 @@ $(document).ready(function() {
       $('.show_examples_text').show();
     }
   });
+
+  $('.cross').on('click', function(e){
+    this.closest('.card').remove();
+  });
+
+  array = $('.card').has(':visible');
+  i = 0;
+  $('body').keyup(function(e){
+    if (e.keyCode == 39) {  // forward arrow
+      scrollToTop(array[i]);
+      $(array[i]).addClass('active');
+      if (i !== 0 && i < array.length ) {
+        $(array[i-1]).removeClass('active');
+      }
+      if (i < array.length) { i+=1; }
+    }
+    if (e.keyCode == 37) { // backward arrow
+      $(array[i-1]).removeClass('active');
+      scrollToTop(array[i-2]);
+      $(array[i-2]).addClass('active');
+      if (i > 0) { i-=1; }
+    }
+    if (e.keyCode == 32) { // space
+      if (i === 0) { j = i; } else { j = i - 1; }
+      scrollToTop(array[j]);
+      $(array[j]).find('.more_info_btn').click();
+    }
+    if (event.keyCode == 8 || event.keyCode == 46) { // delete and backspace
+      if (i === 0) { j = i; } else { j = i - 1; }
+      checkbox = $(array[j]).find('.add_to_scratch');
+      checkbox.prop("checked", false);
+      update_scratch_space(checkbox);
+      scrollToTop(array[j]);
+      $(array[j]).find('.cross').click();
+      array.splice(j, 1);
+      $(array[i-1]).addClass('active');
+      //$('.save_btn').show()
+    }
+    if (e.keyCode == 13) { // enter
+      if (i === 0) { j = i; } else { j = i - 1; }
+      scrollToTop(array[j]);
+      checkbox = $(array[j]).find('.add_to_scratch');
+      checkbox.prop("checked", !checkbox.prop("checked"));
+      update_scratch_space(checkbox);
+    }
+  });
+
+  function scrollToTop(element) {
+    if (element === undefined) {return false;}
+    var offset = $(element).offset(); // Contains .top and .left
+    $('html, body').animate({
+      scrollTop: offset.top - 100,
+      scrollLeft: offset.left - 100
+    }, 200);
+    return false;
+  } 
+
+
+  $('.sp_filter').change(function() {
+    if ($(this).prop('checked')) {
+      $('.card').has('.no_sp_present').hide();
+    } else {
+      $('.card').has('.no_sp_present').show();
+    }
+    array = $('.card').has(':visible');
+    i = 0;
+  });
+
+
 });
+window.onkeydown = function(e) {
+  if(e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+    return false;
+  }
+};
 
 
 // Creates a custom Validation for Jquery Validation plugin...
@@ -90,7 +165,7 @@ var inputValidation = function () {
     submitHandler: function(form) {
       $('#spinnermodel').openModal();
 
-      if (uploader.getUploads().length == 0) {
+      if (uploader.getUploads().length === 0) {
           // No file to upload - call ajaxFunction.
           ajaxFunction();
       }

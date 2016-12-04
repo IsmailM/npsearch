@@ -6,9 +6,13 @@ require 'nphmmerapp/version'
 Gem::Specification.new do |spec|
   spec.name          = 'nphmmerapp'
   spec.version       = NpHMMerApp::VERSION
-  spec.authors       = ['Ismail Moghul', 'Maurice Elphick', 'Yannick Wurm']
+  spec.authors       = ['Ismail Moghul et al.']
   spec.email         = ['ismail.moghul@gmail.com']
-  spec.summary       = 'A Web App wrapper for NpHMMer.'
+  spec.summary       = 'A Web Application for identifying Neuropeptides' \
+                       "using powerful Hidden Markov Models.\n\n For further" \
+                       ' information please refer to:' \
+                       ' https://github.com/wurmlab/nphmmer & ' \
+                       ' https://github.com/wurmlab/nphmmerapp.'
   spec.description   = 'A Web App wrapper for NpHMMer, a program for' \
                        ' identifying neuropeptide precursors.'
   spec.homepage      = 'https://github.com/wurmlab/nphmmerapp'
@@ -28,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('capybara', '~> 2.4', '>= 2.4.4')
   spec.add_development_dependency 'w3c_validators', '~> 1.1'
 
-  spec.add_dependency 'nphmmer', '~> 0.2'
+  spec.add_dependency 'nphmmer', '~> 0.3'
   spec.add_dependency 'bio', '~> 1.4'
   spec.add_dependency 'sinatra', '~> 1.4'
   spec.add_dependency 'sinatra-cross_origin', '~> 0.3'
