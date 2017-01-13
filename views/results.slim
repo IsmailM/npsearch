@@ -6,7 +6,6 @@
       .card-content
         span.card-title.id
           | Potential NP #{idx + 1}: #{seq.id}
-        i.right.material-icons.cross  clear
         ul.np_collapsible.collapsible data-collapsible="expandable" 
           - seq.hmmer_results.each_with_index do |data, i|
             li
@@ -28,13 +27,6 @@
                   li
                     .more_info_btn.collapsible-header.light-blue.waves-effect.waves-light.btn.right
                       | View More Information
-                    .switch.left
-                      label
-                        | Not a NeuroPeptide :(
-                        input.add_to_scratch type="checkbox" /
-                        span.lever
-                        | NeuroPeptide :)
-                      br
                     .clearfix
                     .more_info_body.collapsible-body
                       - if NpHMMer.opt[:type] == :genetic

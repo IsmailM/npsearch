@@ -1,8 +1,10 @@
 require 'json'
+require 'fileutils'
 require 'sinatra/base'
+require 'slim'
+
 require 'nphmmer/version'
 require 'nphmmerapp/version'
-require 'slim'
 
 module NpHMMerApp
   # The Sinatra Routes
