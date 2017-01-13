@@ -102,6 +102,12 @@ var inputValidation = function () {
           required: true
         }
     },
+    messages: {
+      seq: {
+        maxlength: "The above input area supports up to a maximum of " + maxCharacters + " characters. Please use the File Upload feature if you wish to analyse more data."
+      }
+    },
+
     submitHandler: function(form) {
       $('#spinnermodel').openModal();
 
