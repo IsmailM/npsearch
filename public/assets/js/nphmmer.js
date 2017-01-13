@@ -13,11 +13,11 @@ $(document).ready(function() {
   });
 
   $('.more_info_btn').click(function(){
-    var body = $(this).siblings('.more_info_body')
+    var body = $(this).siblings('.more_info_body');
     if ($(body).is(':visible')) {
-      $(this).text('View More Information')
+      $(this).text('View More Information');
     } else {
-      $(this).text('View Less Information')
+      $(this).text('View Less Information');
     }
   });
 
@@ -287,7 +287,7 @@ var initUploader = function () {
 
     validation: {
       allowedExtensions: ['fa','fas','fna','faa','fasta'],
-      sizeLimit: 50000000 // 500MB
+      sizeLimit: 78650000 // 75MB
     },
 
     multiple: false,
@@ -301,7 +301,7 @@ var initUploader = function () {
       // Submit form after file has been uploaded.
       onComplete: function (id, name, responseJson, xhr) {
         $('#qq-uuid').val(this.getUuid(id));
-        ajaxFunction()
+        ajaxFunction();
       },
       
       // show an error message if required.
@@ -311,7 +311,7 @@ var initUploader = function () {
 
       // remove any existing file error message just before validating
       onValidate: function() {
-        $('#file_error').remove()
+        $('#file_error').remove();
       }
     },
 
