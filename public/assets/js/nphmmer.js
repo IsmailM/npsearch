@@ -298,9 +298,37 @@ var initUploader = function () {
         $('#qq-filename').attr('value', name);
       },
 
+      // Submit form after file has been uploaded.
+      onComplete: function (id, name, responseJson, xhr) {
+        $('#qq-uuid').val(this.getUuid(id));
+        ajaxFunction()
+      },
+      
+      // show an error message if required.
+      onError: function(id, name, errorReason, xhrOrXdr) {
+        $('.file-field').append('<label id="file_error" class="invalid">* ' + errorReason + '</label>');
+      },
 
-            // Submit form after file has been uploaded.
-            onComplete: ajaxFunction
-        }
-    });
+      // remove any existing file error message just before validating
+      onValidate: function() {
+        $('#file_error').remove()
+      }
+    },
+
+    // Set the default method of displaying error messages
+    showMessage: function(message) {
+      $('.file-field').append('<label id="seq-error" class="invalid" for="seq">* ' + message + '</label>');
+    },
+
+    // Chunk the data and allow concurrency
+    chunking: {
+      enabled: true,
+      concurrent: {
+          enabled: true
+      },
+      success: {
+        endpoint: "/uploaddone"
+      }
+    }
+  });
 };

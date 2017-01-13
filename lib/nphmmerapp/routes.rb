@@ -56,17 +56,31 @@ module NpHMMerApp
     end
 
     post '/' do
-      qq_file = settings.uploaded_files.assoc(params['qq-filename'])
-      RunNpHMMer.init(request.url, params, qq_file)
-      @nphmmer_results = RunNpHMMer.run(qq_file)
+      RunNpHMMer.init(request.url, params)
+      @nphmmer_results = RunNpHMMer.run
       slim :results, layout: false
     end
 
     post '/upload' do
-      uploaded_file = [params[:qqfile][:filename], params[:qqfile][:tempfile]]
-      settings.uploaded_files.shift if settings.uploaded_files.length == 10
-      settings.uploaded_files.push uploaded_file
+      temp_filename       = "#{params[:qquuid]}.part_#{params[:qqpartindex]}"
+      temp_file_full_path = File.join(NpHMMerApp.public_dir, 'NpHMMer',
+                                      'uploaded_files_tmp', temp_filename)
+      FileUtils.cp(params[:qqfile][:tempfile].path, temp_file_full_path)
       { success: true }.to_json
+    end
+
+    post '/uploaddone' do
+      parts = params[:qqtotalparts].to_i - 1
+      uuid  = params[:qquuid]
+      dir   = File.join(NpHMMerApp.public_dir, 'NpHMMer', 'uploaded_files_tmp')
+      files = (0..parts).map { |i| File.join(dir, "#{uuid}.part_#{i}") }
+      system("cat #{files.join(' ')} > #{File.join(dir, "#{uuid}.fa")}")
+      if $CHILD_STATUS.exitstatus == 0
+        system("rm #{files.join(' ')}")
+        { success: true}.to_json
+      else
+        { success: false}.to_json
+      end
     end
 
     # This error block will only ever be hit if the user gives us a funny

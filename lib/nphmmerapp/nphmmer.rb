@@ -27,21 +27,20 @@ module NpHMMerApp
       attr_reader :unique_id, :params
 
       # Setting the scene
-      def init(_base_url, params, qq_file)
+      def init(_base_url, params)
         create_unique_id_and_run_dir
         @params = params
         @params[:input_file] = File.join(@run_dir, 'input_file.fa')
         logger.debug("Input Paramaters: #{@params}")
-        validate_params unless qq_file # qq_file is validated within nphmmer
-        # @url = produce_result_url_link(base_url)
+        validate_params if params[:file_uuid].empty?
       end
 
       # Writes sequesnces to file and runs NpHMMer
-      def run(qq_file)
-        if qq_file
-          FileUtils.cp(qq_file[1], @params[:input_file])
-        else
+      def run
+        if params[:file_uuid].empty?
           write_seqs_to_file
+        else
+          copy_uploaded_file
         end
         run_nphmmer
       end
@@ -111,6 +110,12 @@ module NpHMMerApp
         File.open(@params[:input_file], 'w+') { |f| f.write(@params[:seq]) }
         return if File.exist?(@params[:input_file])
         fail 'NpHMMerApp was unable to create the input file.'
+      end
+
+      def copy_uploaded_file
+        file = File.join(NpHMMerApp.public_dir, 'NpHMMer','uploaded_files_tmp', 
+                                  "#{@params['file_uuid']}.fa")
+        FileUtils.mv(file, @params[:input_file])
       end
 
       def run_nphmmer
