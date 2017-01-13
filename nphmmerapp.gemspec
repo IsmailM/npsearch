@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('capybara', '~> 2.4', '>= 2.4.4')
   spec.add_development_dependency 'w3c_validators', '~> 1.1'
 
-  spec.add_dependency 'nphmmer', '~> 0.3'
+  spec.add_dependency 'nphmmer', '~> 0.4'
   spec.add_dependency 'bio', '~> 1.4'
   spec.add_dependency 'sinatra', '~> 1.4'
   spec.add_dependency 'sinatra-cross_origin', '~> 0.3'
