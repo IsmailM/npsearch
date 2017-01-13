@@ -96,9 +96,14 @@ module NpHMMerApp
     def init_public_dir
       FileUtils.mkdir_p(File.join(@public_dir, 'NpHMMer'))
       root_assets = File.join(NpHMMerApp.root, 'public/assets')
-      root_gv        = File.join(NpHMMerApp.root, 'public/NpHMMer')
-      FileUtils.cp_r(root_assets, @public_dir)
-      FileUtils.cp_r(root_gv, @public_dir)
+      root_gv     = File.join(NpHMMerApp.root, 'public/NpHMMer')
+      if environment == 'development'
+        FileUtils.ln_s(root_assets, @public_dir)
+        FileUtils.cp_r(root_gv, @public_dir)
+      else
+        FileUtils.cp_r(root_assets, @public_dir)
+        FileUtils.cp_r(root_gv, @public_dir)
+      end
     end
 
     def init_binaries
