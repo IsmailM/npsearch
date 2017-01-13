@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'A Web App wrapper for NpHMMer, a program for' \
                        ' identifying neuropeptide precursors.'
   spec.homepage      = 'https://github.com/wurmlab/nphmmerapp'
-  spec.license       = 'AGPL'
+  spec.license       = 'AGPL-1.0'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
