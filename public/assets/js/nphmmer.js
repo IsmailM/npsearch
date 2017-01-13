@@ -12,62 +12,14 @@ $(document).ready(function() {
     }
   });
 
-  $('.cross').on('click', function(e){
-    this.closest('.card').remove();
-  });
-
-  array = $('.card').has(':visible');
-  i = 0;
-  $('body').keyup(function(e){
-    if (e.keyCode == 39) {  // forward arrow
-      scrollToTop(array[i]);
-      $(array[i]).addClass('active');
-      if (i !== 0 && i < array.length ) {
-        $(array[i-1]).removeClass('active');
-      }
-      if (i < array.length) { i+=1; }
-    }
-    if (e.keyCode == 37) { // backward arrow
-      $(array[i-1]).removeClass('active');
-      scrollToTop(array[i-2]);
-      $(array[i-2]).addClass('active');
-      if (i > 0) { i-=1; }
-    }
-    if (e.keyCode == 32) { // space
-      if (i === 0) { j = i; } else { j = i - 1; }
-      scrollToTop(array[j]);
-      $(array[j]).find('.more_info_btn').click();
-    }
-    if (event.keyCode == 8 || event.keyCode == 46) { // delete and backspace
-      if (i === 0) { j = i; } else { j = i - 1; }
-      checkbox = $(array[j]).find('.add_to_scratch');
-      checkbox.prop("checked", false);
-      update_scratch_space(checkbox);
-      scrollToTop(array[j]);
-      $(array[j]).find('.cross').click();
-      array.splice(j, 1);
-      $(array[i-1]).addClass('active');
-      //$('.save_btn').show()
-    }
-    if (e.keyCode == 13) { // enter
-      if (i === 0) { j = i; } else { j = i - 1; }
-      scrollToTop(array[j]);
-      checkbox = $(array[j]).find('.add_to_scratch');
-      checkbox.prop("checked", !checkbox.prop("checked"));
-      update_scratch_space(checkbox);
+  $('.more_info_btn').click(function(){
+    var body = $(this).siblings('.more_info_body')
+    if ($(body).is(':visible')) {
+      $(this).text('View More Information')
+    } else {
+      $(this).text('View Less Information')
     }
   });
-
-  function scrollToTop(element) {
-    if (element === undefined) {return false;}
-    var offset = $(element).offset(); // Contains .top and .left
-    $('html, body').animate({
-      scrollTop: offset.top - 100,
-      scrollLeft: offset.left - 100
-    }, 200);
-    return false;
-  } 
-
 
   $('.sp_filter').change(function() {
     if ($(this).prop('checked')) {
@@ -75,19 +27,8 @@ $(document).ready(function() {
     } else {
       $('.card').has('.no_sp_present').show();
     }
-    array = $('.card').has(':visible');
-    i = 0;
   });
-
-
 });
-window.onkeydown = function(e) {
-  if(e.keyCode == 32 && e.target == document.body) {
-    e.preventDefault();
-    return false;
-  }
-};
-
 
 // Creates a custom Validation for Jquery Validation plugin...
 // It ensures that sequences are either protein or DNA data...
@@ -148,7 +89,6 @@ var inputValidation = function () {
       error.insertAfter($(element).siblings('label'));
     }
   });
-
 
   $('#input').validate({
     rules: {
@@ -332,28 +272,26 @@ var checkType = function (sequence, threshold, length, index) {
  * Initialise fine-uploader file uploader in basic mode.
  */
 var initUploader = function () {
-    return new qq.FineUploaderBasic({
-        // When triggered, upload to this URL. Don't auot upload: we will
-        // upload manually.
-        request: { endpoint: '/upload' }, autoUpload: false,
+  return new qq.FineUploaderBasic({
+    // When triggered, upload to this URL. Don't auto upload: we will
+    // upload manually.
+    request: { endpoint: '/upload' }, autoUpload: false,
 
-        // Let fine-upload create the File select button.
-        button: document.getElementById('qq-file-btn'),
+    button: document.getElementById('qq-file-btn'),
 
-        // Only allow FASTA files smaller than 30 MB.
-        validation: {
-            acceptFiles: '.fa,.fas,.fna,.faa,.fasta',
-            sizeLimit: 30000000
-        },
+    validation: {
+      allowedExtensions: ['fa','fas','fna','faa','fasta'],
+      sizeLimit: 50000000 // 500MB
+    },
 
-        // One file at a time.
-        multiple: false,
+    multiple: false,
 
-        callbacks: {
-            // Update input.file-path when a file is selected.
-            onSubmit: function (id, name) {
-                $('#qq-filename').attr('value', name);
-            },
+    callbacks: {
+      // Update input.file-path when a file is selected.
+      onSubmit: function (id, name) {
+        $('#qq-filename').attr('value', name);
+      },
+
 
             // Submit form after file has been uploaded.
             onComplete: ajaxFunction
