@@ -50,7 +50,7 @@ module NpHMMerApp
       # Creates a unique run ID (based on time) and a the run directory
       def create_unique_id_and_run_dir
         @unique_id = Time.new.strftime('%Y-%m-%d_%H-%M-%S_%L-%N')
-        @run_dir   = File.join(NpHMMerApp.public_dir, 'NpHmmer', @unique_id)
+        @run_dir   = File.join(NpHMMerApp.public_dir, 'NpHMMer', @unique_id)
         ensure_unique_id
         create_run_dir
       end
