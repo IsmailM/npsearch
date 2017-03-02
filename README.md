@@ -1,8 +1,8 @@
-# NeuroHmmerApp
-[![Build Status](https://travis-ci.org/wurmlab/neurohmmerapp.svg?branch=master)](https://travis-ci.org/wurmlab/neurohmmerapp)
-[![Gem Version](https://badge.fury.io/rb/neurohmmerapp.svg)](http://badge.fury.io/rb/neurohmmerapp)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wurmlab/neurohmmerapp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wurmlab/neurohmmerapp/?branch=master)
-
+# NpHMMerApp
+<!-- [![Build Status](https://travis-ci.org/wurmlab/nphmmerapp.svg?branch=master)](https://travis-ci.org/wurmlab/nphmmerapp)
+[![Gem Version](https://badge.fury.io/rb/nphmmerapp.svg)](http://badge.fury.io/rb/nphmmerapp)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wurmlab/nphmmerapp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wurmlab/nphmmerapp/?branch=master)
+ -->
 
 
 
@@ -11,11 +11,11 @@
 
 ## Introduction
 
-This is a online web application for [Neurohmmer](https://github.com/wurmlab/neurohmmer). This app is currently hosted at: ... 
+This is a online web application for [NpHMMer](https://github.com/IsmailM/NpHMMer). This app is currently hosted at: [nphmmer.sbcs.qmul.ac.uk](nphmmer.sbcs.qmul.ac.uk)
 
 
-If you use Neurohmmer in your work, please cite us as follows:
-> "Moghul MI, Elphick M & Wurm Y (<em>in prep.</em>) NeuroHmmer: identify Neuropeptide Precursors"
+If you use NpHMMer in your work, please cite us as follows:
+> "Moghul <em>et al.</em> (<em>in prep.</em>) NpHMMer: identifing Neuropeptide Precursors"
 
 
 
@@ -26,60 +26,54 @@ If you use Neurohmmer in your work, please cite us as follows:
 ## Installation
 ### Installation Requirements
 * Ruby (>= 2.0.0)
-* HMMer (>=3.0)
- 
+* HMMer (>=3.0) (Available from [here](http://hmmer.org) - Suggested Installation via [Homebrew](http://brew.sh) or [Linuxbrew](http://linuxbrew.sh) - `brew install homebrew/science/hmmer`)
+* Seqtk (Available from [here](https://github.com/lh3/seqtk) - Suggested Installation via [Homebrew](http://brew.sh) or [Linuxbrew](http://linuxbrew.sh) - `brew install homebrew/science/seqtk`)
+* SignalP 4.1.*z (Available from [here](http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp))
 
-### Installation
-Simply run the following command in the terminal.
+### Installation (Will not work during beta)
+1. Install NpHMMerApp 
 
 ```bash
-gem install neurohmmerapp
+gem install nphmmerapp # will not work during beta 
 ```
 
-If that doesn't work, try `sudo gem install neurohmmerapp` instead.
-
-##### Running From Source (Not Recommended)
-It is also possible to run from source. However, this is not recommended.
+##### Running From Source (during beta)
 
 ```bash
-# Clone the repository.
-git clone https://github.com/wurmlab/neurohmmerapp.git
+# Clone the repository. # contact me at ismail.moghul@gmail.com to get access
+git clone https://github.com/IsmailM/nphmmer.git
 
 # Move into GeneValidatorApp source directory.
-cd neurohmmerapp
+cd nphmmer
 
 # Install bundler
 gem install bundler
 
+# Install NpHMMer
+gem install ./nphmmer-0.4.1.gem
+
 # Use bundler to install dependencies
-bundle install
+bundle install --local
 
-# Optional: run tests and build the gem from source
-bundle exec rake
+# Run NpHMMer.
+bundle exec nphmmerapp -h
 
-# Run NeuroHmmer.
-bundle exec neurohmmerapp -h
-# note that `bundle exec` executes NeuroHmmerApp in the context of the bundle
-
-# Alternativaly, install NeuroHmmerApp as a gem
-bundle exec rake install
-neurohmmerapp -h
 ```
 
 
 
 
-## Launch NeuroHmmer
+## Launch NpHMMer
 
-To configure and launch NeuroHmmerApp, run the following from a command line.
+To configure and launch NpHMMerApp, run the following from a command line.
 
 ```bash
-neurohmmerapp
+nphmmerapp -S /path/to/signalp -n 8 -p 4567 
 ```
 
-NeuroHmmerApp will automatically guide you through an interactive setup process to help locate BLAST+ binaries and ask for the location of BLAST+ databases.
+NpHMMerApp will automatically guide you through an interactive setup process to help locate BLAST+ binaries and ask for the location of BLAST+ databases.
 
-That's it! Open http://localhost:4567/ and start using NeuroHmmer!
+That's it! Open http://localhost:4567/ and start using NpHMMer!
 
 
 
@@ -88,9 +82,9 @@ That's it! Open http://localhost:4567/ and start using NeuroHmmer!
 
 ## Advanced Usage
 
-See `$ neurohmmerapp -h` for more information on all the options available when running NeuroHmmerApp.
+See `$ nphmmerapp -h` for more information on all the options available when running NpHMMerApp.
 
 
 <hr>
 
-This program was developed at [Wurm Lab](https://wurmlab.github.io), [QMUL](http://sbcs.qmul.ac.uk).
+This program was developed at [Wurm Lab](https://wurmlab.github.io) and [QMUL](http://sbcs.qmul.ac.uk).
