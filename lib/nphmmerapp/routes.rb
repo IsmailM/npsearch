@@ -62,7 +62,11 @@ module NpHMMerApp
     end
 
     post '/upload' do
-      temp_filename       = "#{params[:qquuid]}.part_#{params[:qqpartindex]}"
+      if params[:qqtotalparts].nil?
+        temp_filename       = "#{params[:qquuid]}.fa"
+      else
+        temp_filename       = "#{params[:qquuid]}.part_#{params[:qqpartindex]}"
+      end
       temp_file_full_path = File.join(NpHMMerApp.public_dir, 'NpHMMer',
                                       'uploaded_files_tmp', temp_filename)
       FileUtils.cp(params[:qqfile][:tempfile].path, temp_file_full_path)
