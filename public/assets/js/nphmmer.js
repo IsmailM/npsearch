@@ -3,7 +3,8 @@ $(document).ready(function() {
 
   // Materialize set up
   $(".button-collapse").sideNav();
-  $('.modal-trigger').leanModal();
+  $('#explanation').modal();
+  $('#spinnermodel').modal({dismissible: false});
   $('#input_type').click(function(){
     if ($('#upload').is(':visible')) {
       $('.show_examples_text').hide();
@@ -93,13 +94,17 @@ var inputValidation = function () {
   $('#input').validate({
     rules: {
         seq: {
-            required: true,
+            required: function(element) {
+              return $('textarea[name=seq]').is(':visible');
+            },
             minlength: 5,
             checkInputType: true,
             maxlength: maxCharacters // when undefined, maxlength is unlimited
         },
         input_file: {
-          required: true
+          required: function(element) {
+            return $('textarea[name=input_file]').is(':visible');
+          }
         }
     },
     messages: {
@@ -109,7 +114,7 @@ var inputValidation = function () {
     },
 
     submitHandler: function(form) {
-      $('#spinnermodel').openModal();
+      $('#spinnermodel').modal('open');
 
       if (uploader.getUploads().length === 0) {
           // No file to upload - call ajaxFunction.
@@ -142,10 +147,10 @@ var ajaxFunction = function () {
       $('.np_inner_collapsible').collapsible();
 
       $('html, body').animate({
-          scrollTop: $('#output').offset().top
+          scrollTop: $('#results').offset().top
       });
 
-      $('#spinnermodel').closeModal(); // remove progress notification
+      $('#spinnermodel').modal('close'); // remove progress notification
     },
     error: function (e, status) {
       var errorMessage;
@@ -153,12 +158,12 @@ var ajaxFunction = function () {
         errorMessage = e.responseText;
         $('#results_box').show();
         $('#output').html(errorMessage);
-        $('#spinnermodel').closeModal(); // remove progress notification
+        $('#spinnermodel').modal('close'); // remove progress notification
       } else {
         errorMessage = e.responseText;
         $('#results_box').show();
         $('#output').html('There seems to be an unidentified Error.');
-        $('#spinnermodel').closeModal(); // remove progress notification
+        $('#spinnermodel').modal('close'); // remove progress notification
       }
     }
   });
