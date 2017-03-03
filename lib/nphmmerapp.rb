@@ -19,7 +19,7 @@ module NpHMMerApp
     end
 
     def verbose?
-      @verbose ||= (environment == 'development')
+      true
     end
 
     def root
