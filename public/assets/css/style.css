@@ -92,7 +92,7 @@ footer a {
 
 .materialize-textarea {
   overflow-y: scroll !important;
-  max-height: 50vh !important;
+  max-height: 40vh !important;
 }
 
 #submit_btn {
@@ -475,4 +475,10 @@ kbd {
 .keyboardshortcuts>thead>tr>th {
   padding: 15px 5px !important;
   vertical-align: middle !important;
+}
+
+#explanation .modal-content p,
+#explanation .modal-content ol li {
+    font-size: 1.25rem;
+    font-weight: 300;
 }
