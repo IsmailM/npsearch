@@ -28,6 +28,7 @@ If you use NpHMMer in your work, please cite us as follows:
 * Ruby (>= 2.0.0)
 * HMMer (>=3.0) (Available from [here](http://hmmer.org) - Suggested Installation via [Homebrew](http://brew.sh) or [Linuxbrew](http://linuxbrew.sh) - `brew install homebrew/science/hmmer`)
 * Seqtk (Available from [here](https://github.com/lh3/seqtk) - Suggested Installation via [Homebrew](http://brew.sh) or [Linuxbrew](http://linuxbrew.sh) - `brew install homebrew/science/seqtk`)
+* EMBOSS (Available from [here](http://emboss.sourceforge.net) - Suggested Installation via [Homebrew](http://brew.sh) or [Linuxbrew](http://linuxbrew.sh) - `brew install homebrew/science/emboss`)
 * SignalP 4.1.*z (Available from [here](http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp))
 
 ### Installation (Will not work during beta)
