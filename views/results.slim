@@ -12,7 +12,7 @@
               div class=(i == 0 ? 'collapsible-header active' : 'collapsible-header')
                 = "Hit #{i + 1}: "
                 span.model_name 
-                  = data[:model]
+                  = data[:model].gsub(/.fa$/, '').gsub('-', ' ')
                 span.badge.evalue
                   == 'Sequence E-value: ' + NpHMMer::HighlightSequence.format_evalue(data[:overall_results][:full_seq_e_value])
               .collapsible-body style=(i == 0 ? 'display:block' : '')
