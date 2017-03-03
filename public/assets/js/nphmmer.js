@@ -81,6 +81,7 @@ var inputValidation = function () {
   'use strict';
 
   var uploader = initUploader();
+  initDragAndDrop(uploader);
 
   addSeqValidation();
   var maxCharacters = $('#seq').attr('data-maxCharacters'); // returns a number or undefined
@@ -336,4 +337,24 @@ var initUploader = function () {
       }
     }
   });
+};
+
+
+// 
+var initDragAndDrop = function(uploader) {
+      return new qq.DragAndDrop({
+      dropZoneElements: [document.getElementById('mainbody')],
+      classes: {
+        dropActive: "cssClassToAddToDropZoneOnEnter"
+      },
+      callbacks: {
+        processingDroppedFiles: function() {
+          //TODO: display some sort of a "processing" or spinner graphic
+          $('#file_upload_tab').click();
+        },
+        processingDroppedFilesComplete: function(files, dropTarget) {
+          uploader.addFiles(files); //this submits the dropped files to Fine Uploader
+        }
+      }
+    });
 };
