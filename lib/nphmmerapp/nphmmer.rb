@@ -33,6 +33,8 @@ module NpHMMerApp
         @params[:input_file] = File.join(@run_dir, 'input_file.fa')
         logger.debug("Input Paramaters: #{@params}")
         validate_params if params[:file_uuid].empty?
+      rescue
+        fail "NpHMMer failed to initialise the analysis successfully. Please contact me at ismail.moghul@gmail.com"
       end
 
       # Writes sequesnces to file and runs NpHMMer
@@ -43,6 +45,8 @@ module NpHMMerApp
           copy_uploaded_file
         end
         run_nphmmer
+      rescue
+        fail "NpHMMer failed to run successfully. Please contact me at ismail.moghul@gmail.com"
       end
 
       private
