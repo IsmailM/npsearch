@@ -1,13 +1,13 @@
 section#search
   h2
-    | NpSearch-HMM 
+    | NpSearch-HMM
     span style="font-size:2rem;color:#787878"
       |  Identify Neuropeptide Homologs
-  .card 
+  .card
     .card-content
       span.card-title  Input Sequences
       .row
-        form#input.col.s12 action="#{uri('/')}" method="POST"
+        form#input.col.s12 action="#{uri('/api/analyse')}" method="POST"
           .row
             .col.s12
               ul#input_type.tabs

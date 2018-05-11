@@ -287,7 +287,7 @@ var initUploader = function () {
   return new qq.FineUploaderBasic({
     // When triggered, upload to this URL. Don't auto upload: we will
     // upload manually.
-    request: { endpoint: '/upload' }, autoUpload: false,
+    request: { endpoint: '/api/upload' }, autoUpload: false,
 
     button: document.getElementById('qq-file-btn'),
 
@@ -309,7 +309,7 @@ var initUploader = function () {
         $('#qq-uuid').val(this.getUuid(id));
         ajaxFunction();
       },
-      
+
       // show an error message if required.
       onError: function(id, name, errorReason, xhrOrXdr) {
         $('.file-field').append('<label id="file_error" class="invalid">* ' + errorReason + '</label>');
@@ -333,7 +333,7 @@ var initUploader = function () {
           enabled: true
       },
       success: {
-        endpoint: "/uploaddone"
+        endpoint: "/api/uploaddone"
       }
     }
   });
