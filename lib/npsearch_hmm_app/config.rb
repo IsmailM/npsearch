@@ -1,15 +1,15 @@
 require 'forwardable'
 
 # Define Config class.
-module NpHMMerApp
+module NpSearchHmmApp
   # Capture our configuration system.
   class Config
     extend Forwardable
 
-    def_delegators NpHMMerApp, :logger
+    def_delegators NpSearchHmmApp, :logger
 
     def initialize(data = {})
-      @data = symbolise data
+      @data        = symbolise data
       @config_file = @data.delete(:config_file) || default_config_file
       @config_file = File.expand_path(@config_file)
       @data = parse_config_file.update @data
@@ -36,7 +36,6 @@ module NpHMMerApp
     # Write config data to config file.
     def write_config_file
       return unless config_file
-
       File.open(config_file, 'w') do |f|
         f.puts(data.delete_if { |_, v| v.nil? }.to_yaml)
       end
@@ -44,7 +43,7 @@ module NpHMMerApp
 
     private
 
-    # Symbolizes keys. Changes `database` key to `database_dir`.
+    # Symbolizes keys.
     def symbolise(data)
       return {} unless data
       # Symbolize keys.
@@ -75,13 +74,14 @@ module NpHMMerApp
         num_threads:    1,
         port:           4567,
         host:           '0.0.0.0',
-        public_dir:     File.join(Dir.home, '.nphmmerapp/'),
-        max_characters: 'undefined'
+        serve_dir:     File.join(Dir.home, '.npsearch_hmm_app/'),
+        max_characters: 'undefined',
+        ssl:            false
       }
     end
 
     def default_config_file
-      '~/.nphmmerapp.conf'
+      '~/.npsearch_hmm_app.conf'
     end
   end
 end

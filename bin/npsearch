@@ -15,11 +15,34 @@ SUMMARY:
   NpSearch - Identify Neuropeptide Precursors
 
 USAGE:
-  $ npsearch [options]
+  $ npsearch command [options]
+BANNER
+
+    on '-v', '--version',
+       'Print version number of NpSearchHmmApp that will be loaded'
+
+    on '-h', '--help',
+       'Display this help message'
+
+    run do
+      if version?
+        require 'npsearch/version'
+        puts NpSearch::VERSION
+        exit
+      end
+    end
+
+    command 'app' do
+      banner <<BANNER
+SUMMARY:
+  NpSearch HMM APP - Identify Neuropeptide Precursors
+
+USAGE:
+  $ npsearch app [options]
 
 Examples:
   # Launch npsearch with the given config file
-  $ npsearch --config ~/.npsearch.conf
+  $ npsearch --config ~/.npsearch_hmm_app.conf
 
   # Launch npsearch with 8 threads / port 8888
   $ npsearch --num_threads 8 --port 8888
@@ -28,13 +51,7 @@ Examples:
   $ npsearch -s -p 4567
 
 BANNER
-    on '-v', '--version',
-       'Print version number of NpHMMerApp that will be loaded'
 
-    on '-h', '--help',
-       'Display this help message'
-
-    command 'app' do
       on 'n', 'num_threads=',
         'Number of threads to use to run a BLAST search',
         argument: true
@@ -44,7 +61,7 @@ BANNER
         argument: true
 
       on 'p', 'port=',
-        'Port to run NpHMMerApp on',
+        'Port to run NpSearch-HMM App on',
         argument: true
 
       on 'H', 'hmmer_bin=',
@@ -63,7 +80,7 @@ BANNER
         'Set configuration value in default or given config file'
 
       on 'D', 'devel',
-        'Start NpHMMerApp in development mode'
+        'Start NpSearch-HMM App in development mode'
 
       clean_opts = lambda do |hash|
         hash.delete_if { |k, v| k == :set || v.nil? }
@@ -71,12 +88,6 @@ BANNER
       end
 
       run do
-        if version?
-          require 'npsearch/version'
-          puts NpSearch::VERSION
-          exit
-        end
-
         ENV['RACK_ENV'] = 'development' if devel?
 
         # Exit gracefully on SIGINT.
@@ -91,39 +102,36 @@ BANNER
         require 'npsearch_hmm_app'
 
         begin
-          NpHMMerApp.init clean_opts[to_h]
+          NpSearchHmmApp.init clean_opts[to_h]
 
         # The aim of following error recovery scenarios is to guide user to a
-        # working NpHMMerApp installation. We expect to land following
-        # error scenarios either when creating a new NpHMMerApp (first
+        # working NpSearchHmmApp installation. We expect to land following
+        # error scenarios either when creating a new NpSearchHmmApp (first
         # time or later), or updating config values using -s CLI option.
 
-        rescue NpHMMerApp::CONFIG_FILE_ERROR => e
-
+        rescue NpSearchHmmApp::CONFIG_FILE_ERROR => e
           puts e
           exit!
 
-        rescue NpHMMerApp::BIN_DIR_NOT_FOUND => e
-
+        rescue NpSearchHmmApp::BIN_DIR_NOT_FOUND => e
           puts e
 
           unless bin?
             puts 'You can set the correct value by running:'
             puts
-            puts '  nphmmerapp -s -b <value>'
+            puts '  NpSearchHmmApp -s -b <value>'
             puts
           end
 
           exit!
 
-        rescue NpHMMerApp::NUM_THREADS_INCORRECT => e
-
+        rescue NpSearchHmmApp::NUM_THREADS_INCORRECT => e
           puts e
 
           unless num_threads?
             puts 'You can set the correct value by running:'
             puts
-            puts '  nphmmerapp -s -n <value>'
+            puts '  NpSearchHmmApp -s -n <value>'
             puts
           end
 
@@ -132,15 +140,15 @@ BANNER
         rescue => e
           # This will catch any unhandled error and some very special errors.
           # Ideally we will never hit this block. If we do, there's a bug in
-          # NpHMMerApp or something really weird going on. If we hit this
+          # NpSearchHmmApp or something really weird going on. If we hit this
           # error block we show the stacktrace to the user requesting them to
           # post the same to our Google Group.
           puts <<MSG
 Something went wonky
 
-Looks like you have encountered a bug in NpHMMerApp. Please could you
+Looks like you have encountered a bug in NpSearch HMM App. Please could you
 report this incident here -
-https://github.com/wurmlab/nphmmerapp/issues
+https://github.com/IsmailM/npearch/issues
 
 Error:
 #{e.backtrace.unshift(e.message).join("\n")}
@@ -148,11 +156,15 @@ MSG
           exit
         end
 
-        NpHMMerApp.config.write_config_file if set?
+        NpSearchHmmApp.config.write_config_file if set?
+        NpSearchHmmApp.config.write_config_file if fetch_option(:set).value
 
-        NpHMMerApp.config.write_config_file if fetch_option(:set).value
+      if interactive?
+        NpSearchHmmApp.irb
+        exit
+      end
 
-        NpHMMerApp.run
+        NpSearchHmmApp.run
       end
     end
   end

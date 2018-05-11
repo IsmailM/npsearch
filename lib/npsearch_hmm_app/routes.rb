@@ -3,12 +3,13 @@ require 'fileutils'
 require 'sinatra/base'
 require 'slim'
 
+require 'npsearch_hmm_app/run_analysis'
 require 'npsearch/version'
 
-module NpHMMerApp
+module NpSearchHmmApp
   # The Sinatra Routes
   class Routes < Sinatra::Base
-
+    # See http://www.sinatrarb.com/configuration.html
     configure do
       # We don't need Rack::MethodOverride. Let's avoid the overhead.
       disable :method_override
@@ -30,10 +31,52 @@ module NpHMMerApp
       set :logging, nil
 
       # This is the app root...
-      set :root, -> { NpHMMerApp.root }
+      set :root, -> { NpSearchHmmApp.root }
 
       # This is the full path to the public folder...
-      set :public_folder, -> { NpHMMerApp.public_dir }
+      set :public_folder, -> { NpSearchHmmApp.public_dir }
+    end
+
+    helpers do
+      # Overide default URI helper method - to hardcode a https://
+      # In our setup, we are running passenger on http:// (not secure) and then
+      # reverse proxying that onto a 443 port (i.e. https://)
+      # Generates the absolute URI for a given path in the app.
+      # Takes Rack routers and reverse proxies into account.
+      def uri(addr = nil, absolute = true, add_script_name = true)
+        return addr if addr =~ /\A[a-z][a-z0-9\+\.\-]*:/i
+        uri = [host = '']
+        if absolute
+          host << (NpSearchHmmApp.ssl? ? 'https://' : 'http://')
+          if request.forwarded? || request.port != (request.secure? ? 443 : 80)
+            host << request.host_with_port
+          else
+            host << request.host
+          end
+        end
+        uri << request.script_name.to_s if add_script_name
+        uri << (addr ? addr : request.path_info).to_s
+        File.join uri
+      end
+
+      def host_with_port
+        forwarded = request.env['HTTP_X_FORWARDED_HOST']
+        if forwarded
+          forwarded.split(/,\s?/).last
+        else
+          request.env['HTTP_HOST'] || "#{request.env['SERVER_NAME'] ||
+            request.env['SERVER_ADDR']}:#{request.env['SERVER_PORT']}"
+        end
+      end
+
+      # Remove port number.
+      def host
+        host_with_port.to_s.sub(/:\d+\z/, '')
+      end
+
+      def base_url
+        @base_url ||= "#{NpSearchHmmApp.ssl? ? 'https' : 'http'}://#{host}"
+      end
     end
 
     configure do
@@ -47,42 +90,39 @@ module NpHMMerApp
 
     # Set up global variables for the templates...
     before '/' do
-      @max_characters = NpHMMerApp.config[:max_characters]
+      @max_characters = NpSearchHmmApp.config[:max_characters]
     end
 
     get '/' do
       slim :search
     end
 
-    post '/' do
-      RunNpHMMer.init(request.url, params)
-      @nphmmer_results = RunNpHMMer.run
+    post '/api/analyse' do
+      email = Base64.decode64(params[:user])
+      @nphmmer_results = RunNpHMMer.run(params, email, base_url)
       slim :results, layout: false
     end
 
-    post '/upload' do
-      if params[:qqtotalparts].nil?
-        temp_filename       = "#{params[:qquuid]}.fa"
-      else
-        temp_filename       = "#{params[:qquuid]}.part_#{params[:qqpartindex]}"
-      end
-      temp_file_full_path = File.join(NpHMMerApp.public_dir, 'NpHMMer',
-                                      'uploaded_files_tmp', temp_filename)
-      FileUtils.cp(params[:qqfile][:tempfile].path, temp_file_full_path)
+    post '/api/upload' do
+      dir = File.join(NpSearchHmmApp.tmp_dir, params[:qquuid])
+      FileUtils.mkdir(dir) unless File.exist?(dir)
+      fname = params[:qqfilename].to_s
+      fname += ".part_#{params[:qqpartindex]}" unless params[:qqtotalparts].nil?
+      FileUtils.cp(params[:qqfile][:tempfile].path, File.join(dir, fname))
       { success: true }.to_json
     end
 
-    post '/uploaddone' do
+    post '/api/uploaddone' do
       parts = params[:qqtotalparts].to_i - 1
-      uuid  = params[:qquuid]
-      dir   = File.join(NpHMMerApp.public_dir, 'NpHMMer', 'uploaded_files_tmp')
-      files = (0..parts).map { |i| File.join(dir, "#{uuid}.part_#{i}") }
-      system("cat #{files.join(' ')} > #{File.join(dir, "#{uuid}.fa")}")
-      if $CHILD_STATUS.exitstatus == 0
+      fname = params[:qqfilename]
+      dir   = File.join(NpSearchHmmApp.tmp_dir, params[:qquuid])
+      files = (0..parts).map { |i| File.join(dir, "#{fname}.part_#{i}") }
+      system("cat #{files.join(' ')} > #{File.join(dir, fname)}")
+      if $CHILD_STATUS.exitstatus.zero?
         system("rm #{files.join(' ')}")
-        { success: true}.to_json
+        { success: true }.to_json
       else
-        { success: false}.to_json
+        { success: false }.to_json
       end
     end
 
@@ -95,7 +135,7 @@ module NpHMMerApp
     end
 
     # This will catch any unhandled error and some very special errors. Ideally
-    # we will never hit this block. If we do, there's a bug in NpHMMerApp
+    # we will never hit this block. If we do, there's a bug in NpSearchHmmApp
     # or something really weird going on.
     # TODO: If we hit this error block we show the stacktrace to the user
     # requesting them to post the same to our Google Group.
@@ -106,7 +146,7 @@ module NpHMMerApp
 
     not_found do
       status 404
-      slim :"500" # TODO: Create another Template
+      slim :"404", layout: false
     end
   end
 end
