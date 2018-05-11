@@ -99,9 +99,8 @@ module NpSearchHmmApp
     end
 
     post '/api/analyse' do
-      params[:user] = 'npsearch'
-      email = Base64.decode64(params[:user])
-      @nphmmer_results = RunNpHMMer.run(params, email, base_url)
+      user = 'npsearch'
+      @nphmmer_results = RunNpHMMer.run(params, user, base_url)
       slim :results, layout: false
     end
 
@@ -148,7 +147,8 @@ module NpSearchHmmApp
 
     not_found do
       status 404
-      slim :"404", layout: false
+      slim :"500", layout: false
+      # slim :"404", layout: false
     end
   end
 end

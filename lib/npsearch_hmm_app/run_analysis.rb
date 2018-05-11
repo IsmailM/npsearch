@@ -1,3 +1,4 @@
+require 'base64'
 require 'bigdecimal'
 require 'forwardable'
 require 'npsearch_hmm'
@@ -40,17 +41,16 @@ module NpSearchHmmApp
       def init(params, user)
         @params = params
         @email = user
-        @params[:files] = JSON.parse(@params[:files], symbolize_names: true)
         assert_params
         @uniq_time = Time.new.strftime('%Y-%m-%d_%H-%M-%S_%L-%N').to_s
-        setup_run_dir
+        setup_run_dir(params)
       # rescue
       #   raise 'NpHMMer failed to initialise the analysis successfully. '\
       #         'Please contact me at ismail.moghul@gmail.com'
       end
 
       def assert_params
-        unless assert_param_exist && assert_files && assert_files_exists
+        unless assert_param_exist #&& assert_files && assert_files_exists
           raise ArgumentError, 'Failed to upload files'
         end
         assert_seq_param_present
@@ -62,16 +62,16 @@ module NpSearchHmmApp
         !@params.nil?
       end
 
-      def assert_files
-        @params[:files].collect { |f| f[:status] == 'upload successful' }.uniq
-      end
+      # def assert_files
+      #   @params[:files].collect { |f| f[:status] == 'upload successful' }.uniq
+      # end
 
-      def assert_files_exists
-        files = @params[:files].collect do |f|
-          File.exist?(File.join(tmp_dir, f[:uuid], f[:originalName]))
-        end
-        files.uniq
-      end
+      # def assert_files_exists
+      #   files = @params[:files].collect do |f|
+      #     File.exist?(File.join(tmp_dir, f[:uuid], f[:originalName]))
+      #   end
+      #   files.uniq
+      # end
 
       # Simply asserts whether that the seq param is present
       def assert_seq_param_present
@@ -97,7 +97,7 @@ module NpSearchHmmApp
         raise ArgumentError, 'The input sequence is too long.'
       end
 
-      def setup_run_dir
+      def setup_run_dir(params)
         @run_dir = File.join(users_dir, @email, @uniq_time)
         @run_files_dir = File.join(@run_dir, 'files')
         logger.debug("Creating Run Directory: #{@run_dir}")
@@ -106,6 +106,7 @@ module NpSearchHmmApp
       end
 
       def move_uploaded
+        @params[:files] = JSON.parse(@params[:files], symbolize_names: true)
         @params[:files].each do |f|
           t_dir = File.join(tmp_dir, f[:uuid])
           t_input_file = File.join(t_dir, f[:originalName])
