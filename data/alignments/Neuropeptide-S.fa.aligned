@@ -1,0 +1,54 @@
+>Homo_sapiens Uniprot_NPS_Hsap
+Y----------------PVPSSKVSGKSDYFLILLNSCPTRLDRSKELAF----------
+---------------------LK-----------PILE---KMFVKRSFRNGVGTGMKKT
+SFQ---------------------------------------------------------
+-------------------------------------------------RAK--------
+--S
+>Monodelphis_domestica Ensembl_ENSMODT00000042215_Mdom
+Y----------------PTPSAMLSEKSDYFLILLNSCLAAMDRSEELAF----------
+---------------------LK-----------PFLV---KNAMKRSFRNGVGSGMKKT
+SFR---------------------------------------------------------
+-------------------------------------------------RAK--------
+--S
+>Gallus_gallus Ensembl_ENSGALT00000041356_Ggal
+YP-------------VGPSMNCQLYGKSDYCLVLLNSCLAKVGRSEEVAL----------
+---------------------LE-----------PHLE---MPFNKRSFRNGVGSGIKKT
+SFR---------------------------------------------------------
+-------------------------------------------------RAK--------
+--S
+>Branchiostoma_floridae jgi_84803_Bflo
+QLSETNNFPQNGNRRLSPERSATVLRQ---FLHLEGAVGSPVSPSDGRALETGDKRSFRN
+GVGKRRDSEEERLPQNRGATELKAEATIFSQNGDPHDEGAKAASEKRSFRNGVG---KRT
+HFRIVADASLGGLDEPEALRQTGGDANSPSLSRDLWAEVQGKDDEQCPACGSDGSGVCVL
+KGVCCRLDSGCVLRKDVCSSLPDRALCASLQYSATCRTDGKCVAPGVCCRAADHSCFLDP
+ECD
+>Homo_sapiens sp|P0C0P6|NPS_HUMAN Neuropeptide S GN=NPS PE=3 SV=1
+Y----------------PVPSSKVSGKSDYFLILLNSCPTRLDRSKELAF----------
+---------------------LK-----------PILE---KMFVKRSFRNGVGTGMKKT
+SFQ---------------------------------------------------------
+-------------------------------------------------RAK--------
+--S
+>Mus_musculus sp|P0C0P8|NPS_MOUSE Neuropeptide S GN=Nps PE=3 SV=1
+Y----------------PVLSSKVPGKPDYFLILLSSCPARLEGSDRLAF----------
+---------------------LK-----------PILE---KTSMKRSFRNGVGSGAKKT
+SFR---------------------------------------------------------
+-------------------------------------------------RAK--------
+--Q
+>Rattus_norvegicus sp|P0C0P7|NPS_RAT Neuropeptide S GN=Nps PE=2 SV=1
+Y----------------PVLSSKVPGKPDYFLILLSTCPARLEGSDGLAF----------
+---------------------LK-----------PILE---KTSMKRSFRNGVGSGVKKT
+SFR---------------------------------------------------------
+-------------------------------------------------RAK--------
+--Q
+>Bos_taurus sp|P0C0P5|NPS_BOVIN Neuropeptide S GN=NPS PE=3 SV=1
+H----------------PISSSKVPGKSDYFVILLNSCPTRMDRRVGLDF----------
+---------------------LK-----------PILE---KTLMKRSFRNGVGTGMKKT
+SFR---------------------------------------------------------
+-------------------------------------------------RAK--------
+--S
+>Oryctolagus_cuniculus tr|B5M6A3|B5M6A3_RABIT Neuropeptide S PE=2 SV=1
+Y----------------PVPPSKVSGKPDYFLILLNSYPSRPDGSEGLGV----------
+---------------------LK-----------PILE---KAFMKRSFRNGVGTGMKKT
+SFR---------------------------------------------------------
+-------------------------------------------------RAK--------
+--L

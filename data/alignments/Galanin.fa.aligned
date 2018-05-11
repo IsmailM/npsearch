@@ -1,0 +1,112 @@
+>Homo_sapiens sp|Q9UBC7|GALP_HUMAN Galanin-like peptide GN=GALP PE=2 SV=1
+ETPASAPAHRGRGGWTLNSAGYLLGP-----VL----------------------HLPQM
+GDQDGKRETA-LE---------------ILD---LWKAIDGLPYSHPPQPSKRNVMETFA
+KPEIGDLGMLSM-------KIPK-------------------------------------
+------------------------------------------------------------
+-----------------------EED----------------------------------
+-VLKS-------------
+>Sus_scrofa sp|Q9TT95|GALP_PIG Galanin-like peptide GN=GALP PE=1 SV=1
+------PVHRGRGGWTLNSAGYLLGP-----VL----------------------HPPSR
+AEGGGKGKTA-LG---------------ILD---LWKAIDGLPYPQSQLASKRSLGETFA
+KPDSG---VTFV-------GVPDVVP----------------------------------
+---------------------------------------WK-------------------
+---------------------RIRPG----------------------------------
+-TTRFQ-----------I
+>Rattus_norvegicus sp|Q9QXQ6|GALP_RAT Galanin-like peptide GN=Galp PE=3 SV=1
+ETPDSAPAHRGRGGWTLNSAGYLLGP-----VL----------------------HLSSK
+ANQGRKTDSA-LE---------------ILD---LWKAIDGLPYSRSPRMTKRSMGETFV
+KPRTGDLRIVDK-------NVPD-------------------------------------
+------------------------------------------------------------
+-----------------------EEA----------------------------------
+-TLNL-------------
+>Macaca_nemestrina sp|Q8SQD7|GALP_MACNE Galanin-like peptide GN=GALP PE=2 SV=1
+ETPASAPAHQGRGGWTLNSAGYLLGP-----VL----------------------HLPQM
+GDQDRKRETA-LE---------------ILD---LWKAIDGLPYSHPLQPSKRNVMEAFA
+KPEIGDLDVLSK-------KIPK-------------------------------------
+------------------------------------------------------------
+-----------------------EED----------------------------------
+-VLKS-------------
+>Canis_lupus tr|F1PM29|F1PM29_CANLF Galanin peptides familiaris GN=GAL PE=4 SV=2
+-----APV-KEKRGWTLNSAGYLLGP------------------------HAIDNHRSFH
+EKPGLTGKRE-LPPEDEGRSGGFAGPLSLSENAAVRMLIEFLTFLR-------------L
+K-EAGALPDLPDL---PSAVSAEDM-----------------------------------
+------------------------------------------------------------
+-----------------------EQP----------------------------------
+------------------
+>Gallus_gallus tr|B9W050|B9W050_CHICK Galanin GN=GAL PE=2 SV=1
+---LVLSA-KEKRGWTLNSAGYLLGP------------------------HAVDNHRSFN
+DKHGFTGKRE-IQPDEDIKAGNLGRP--LADENIVRTVIEFLTYLH-------------L
+K-EAGALENLPS---------PEET-----------------------------------
+------------------------------------------------------------
+-----------------------NLS----------------------------------
+------------------
+>Macaca_mulatta tr|G7NBV1|G7NBV1_MACMU Galanin peptides preproprotein GN=GAL PE=2 SV=1
+--GLWSPA-KEKRGWTLNSAGYLLGP------------------------HAVGNHRSFS
+DKNGLTSKRE-LQPQDDVKPGSFDRS--MPENNIMRTIIEFLSFLH-------------L
+K-EAGAFDRLPDL---PAGASSEDM-----------------------------------
+------------------------------------------------------------
+-----------------------ERS----------------------------------
+------------------
+>Bos_mutus tr|L8HS97|L8HS97_9CETA Galanin GN=M91_19931 PE=4 SV=1
+---LGSPV-KEKRGWTLNSAGYLLGP------------------------HALDSHRSFQ
+DKHGLAGKRE-LEPEDEARPGSFDRP--LAENNVVRTIIEFLTFLH-------------L
+K-DAGALERLPSL---PTAESAEDA-----------------------------------
+------------------------------------------------------------
+-----------------------ERS----------------------------------
+------------------
+>Heterocephalus_glaber tr|G5BTV0|G5BTV0_HETGA Galanin GN=GW7_09652 PE=4 SV=1
+-----APA-KEKRGWTLNSAGYLLGP------------------------HAIDNHRSFS
+DKHGLAGKRE-LQLDGDLQTGSFDRS--LPENNIVRTIIEFLTFLH-------------L
+K-AAPCGERCRSTRPDPTGLVPGRSRSRYPISAVRALLSPAAPRIPRATRPLQPGQAPTA
+RLPSLQMARAGALLLLSLLLVAALPATLVLGAPAKEKRGWTLNSAGYLLGPHAIDNHRSF
+SDKHGLAGKRELQLDGDLQTGSFDRSLPENNIVRTIIEFLTFLHLKAAPGPCSLCNLLLP
+LATPEALGFQIQRHCPPA
+>Gasterosteus_aculeatus tr|G3NBN2|G3NBN2_GASAC Galanin GN=GAL PE=2 SV=1
+-------A-KEKRGWTLNSAGYLLGP------------------------HGIDGHRTLG
+DKSGLAGKRD-MGQDEDFRTGS--QR--IADGDVIHTIIDFLSYLK-------------L
+K-EMGALDILPS---------SVTS-----------------------------------
+------------------------------------------------------------
+-----------------------DEL----------------------------------
+-ANP--------------
+>Gallus_gallus tr|C3V8R3|C3V8R3_CHICK Galanin GN=GAL PE=2 SV=1
+---LVLSA-KEKRGWTLNSAGYLLGPRRIDHLLMIKEMPIARGREEAPGAYAVDNHRSFN
+DKHGFTGKRE-IQPDEDIKAGNLGRP--LADENIVRTVIEFLTYLH-------------L
+K-EAGALENLPS---------PEET-----------------------------------
+------------------------------------------------------------
+-----------------------NLS----------------------------------
+------------------
+>Bos_taurus tr|D5FXN5|D5FXN5_BOVIN Galanin (Fragment) GN=GAL PE=2 SV=1
+-----SPV-KEKRGWTLNSAGYLLGP------------------------HALDSHRSFQ
+DKHGLAGKRE-LEPEDEARPGSFDRP--LAENNVVRTIIEFLTFLH-------------L
+K-DAGALERLPSL---PTAESAEDX-----------------------------------
+------------------------------------------------------------
+-----------------------ERS----------------------------------
+------------------
+>Ovis_aries tr|A2TEE7|A2TEE7_SHEEP Galanin (Fragment) PE=2 SV=1
+---LGSPV-KEKRGWTLNSAGYLLGP------------------------HAIDNHRSFH
+DKHGLAGKRG-LEPEDEARPGSFDRP--LADNNVVRTIIEFL------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------
+>Callorhinchus_milii tr|K4GL38|K4GL38_CALMI Galanin peptide PE=2 SV=1
+---LGVMA-KDKRGWTLNSAGYLLGP------------------------YASNDYRNLN
+AKGGLAGKRDNLYHNGNPDSETLYNP--IAE-NALRRLIQALDYSR-------------K
+KGDRIVLDNADV---------PFLA-----------------------------------
+------------------------------------------------------------
+----------------------NERQ----------------------------------
+-KA---------------
+>Callorhinchus_milii tr|K4GD67|K4GD67_CALMI Galanin peptide PE=2 SV=1
+---LSLLT-KEKRGWTLNSAGYLLGP------------------------HAVDNHPSFN
+EKRGLAGKRE-LHLEDETNSDNVLQA--LTDENAILIVIEFLTYLR-------------L
+K-ETGALDNMPI---------PFSS-----------------------------------
+------------------------------------------------------------
+-----------------------DVQ----------------------------------
+---P--------------
+>Anas_platyrhynchos tr|R0LFA1|R0LFA1_ANAPL Galanin (Fragment) GN=Anapl_05124 PE=4 SV=1
+---LVLSA-KEKRGWTLNSAGYLLGP------------------------HAVDNHRSFS
+DKHGFTGKRE-IQPDEDIKAGNLGRP--LADENIVRTVIEFLTYLH-------------L
+K-----------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------

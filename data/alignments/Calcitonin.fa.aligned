@@ -1,0 +1,105 @@
+>Homo_sapiens Uniprot_CGRP1_Hsap
+---------------------------------APFRSALESSPA---------------
+--------------D---------------------PATLSEDEARLLLAALVQNYVQMK
+ASEL----EQEQ-EREGSR-------IIAQKRACDTAT-------CVTHRLAGLLSRSGG
+VVKNNFVPTNVGSKAFGRRRR-DLQA----------------
+>Homo_sapiens Uniprot_Calc_Hsap
+---------------------------------APFRSALESSPA---------------
+--------------D---------------------PATLSEDEARLLLAALVQNYVQMK
+ASEL----EQEQ-EREGSS-----LDSPRSKRCGNLST-------CMLGTYTQDFNK---
+--FHTFPQTAIGVGAPGKKRD-MSSDLERDHRPHVSMPQNAN
+>Ciona_intestinalis Ghost_KH.C7.399.v1.A.SL1-1_Cint
+GIYNRLLHPRGTGRQQLLYHNFNNRYGEVLKRNQPSRSDYDTHDELIKNVQPLQQRQEEK
+LNKLEKLFADIMLEDNSYKNVLFSKKQESNEIDI-EPSMMRDTRNNFLEMLQLSNWIHRV
+LSRLA--ATPHE----------QQAAPVTGKRCDGVST-------CWLHELGNSVHA---
+---TAAGKQNVGF-GPGRK-----------------------
+>Branchiostoma_floridae jgi_87904_Bflo
+---------------------------------AP--TARGELP----------------
+--------------E--------------------ASLRLSEEDVGRVVSAMAREVLQIV
+NENVDKLAQPNE-FGYGLDGLPQGPVYKRGKIACKTAW-------CMNNRLSHNLSS---
+--LDN--PTDTGVGAPGRKRR-DTS-----------------
+>Branchiostoma_floridae jgi_87907_Bflo
+---------------------------------LP-RPADDG------------------
+--------------D--------------------NPLAMTNSDMRRIVSALIREVDQLA
+AEKL---AAQRV-FGPGIR-----------KRDCSTLT-------CFNQKLAHELAM---
+---DNQRTDTANPYSPGRKRR-SAEEDDH-------------
+>Branchiostoma_floridae jgi_87911_Bflo
+---NQL-------------------------TASVIRRYDDDMY----------------
+--------------D--YDG------------DMEPLLALLGQQAGRVYHGLARELLDNI
+EDNTN--TQDNR-FSRTYEDM-MDPMAMRVRRKCESGT-------CVQMHLADRLRL--G
+LGHNMF--TNTGPESPGRKKR-SLGASRRAARRL--------
+>Homo_sapiens sp|P10092|CALCB_HUMAN Calcitonin gene-related peptide 2 GN=CALCB PE=1 SV=1
+---------------------------------APFRSALESSP----------------
+--------------D---------------------PATLSKEDARLLLAALVQDYVQMK
+ASEL----KQEQ-ETQGSS-------SAAQKRACNTAT-------CVTHRLAGLLSRSGG
+MVKSNFVPTNVGSKAFGRRRR-DLQA----------------
+>Gallus_gallus sp|P10286|CALCA_CHICK Calcitonin gene-related peptide GN=CALCA PE=2 SV=2
+---------------------------------APVRPGLESIT----------------
+--------------D---------------------RVTLSDYEARRLLNALVKDFIQMT
+AEEL------EQ-ASEGNS-------VTAQKRACNTAT-------CVTHRLADFLSRSGG
+VGKNNFVPTNVGSKAFGRRRR-SVQI----------------
+>Canis_familiaris sp|Q9MYV1|CALCA_CANFA Calcitonin gene-related peptide 1 GN=CALCA PE=1 SV=1
+---------------------------------APFRSALEGLP----------------
+--------------D---------------------PTALSEKEGRLLLAALVKAYVQRK
+-NELE--QEQEQ-ETEGSS-------ITAQKRSCNTAT-------CVTHRLAGLLSRSGG
+VVKNNFVPTNVGSEAFGRRRR-DLRA----------------
+>Mus_musculus sp|Q99MP3|CALCB_MOUSE Calcitonin gene-related peptide 2 GN=Calcb PE=2 SV=1
+---------------------------------APFRSALESSL----------------
+--------------D---------------------LGTLGDQEKHLLLAALMQDYEQMK
+ARKLE---QEEQ-ETKGSR-------VTAQKRSCNTAT-------CVTHRLADLLSRSGG
+VLKDNFVPTDVGSEAFGRRRRRDLQA----------------
+>Gallus_gallus sp|P07660|CALC_CHICK Calcitonin GN=CALCA PE=1 SV=2
+---------------------------------APVRPGLESIT----------------
+--------------D---------------------RVTLSDYEARRLLNALVKDFIQMT
+AEEL------EQ-ASEGNS-----LDRPISKRCASLST-------CVLGKLSQELHK---
+--LQTYPRTDVGAGTPGKKRN-VLNDLDHERYANYGETLGNN
+>Canis_familiaris sp|P41547|CALC_CANFA Calcitonin GN=CALCA PE=1 SV=2
+---------------------------------APFRSALEGLP----------------
+--------------D---------------------PTALSEKEGRLLLAALVKAYVQRK
+-NELE--QEQEQ-ETEGSS-----LDSSRAKRCSNLST-------CVLGTYSKDLNN---
+--FHTFSGIGFGAETPGKKRD-IASGLERGR-----------
+>Equus_caballus sp|Q9N0T2|CALCA_HORSE Calcitonin gene-related peptide 1 GN=CALCA PE=2 SV=1
+---------------------------------APFRSALESLP----------------
+--------------D---------------------PAVLPEEESRLLLAALVKDYVQMK
+VRAL----EQEQ-ETGGAS-------ITAQKRSCNTAS-------CLTHRLAGLLSSAGS
+MANSNLLPTEMGFKVSGRRRR-DLQA----------------
+>Equus_caballus sp|Q9N0T3|CALCB_HORSE Calcitonin gene-related peptide 2 GN=CALCB PE=2 SV=1
+---------------------------------QPLRSSLESLP----------------
+--------------D---------------------PAALSEKEGRLLLAALVKAYVQRK
+TNELE--QEQEQ-EMEGSS-------LTAQKRSCNTAT-------CVTHRLAGLLSRSGG
+VVKSNFVPTDVGSEAFGRRRR-DLQA----------------
+>Rattus_norvegicus sp|P10093|CALCB_RAT Calcitonin gene-related peptide 2 GN=Calcb PE=2 SV=1
+---------------------------------APFRSALESSL----------------
+--------------D---------------------LGTLSDQEKHLLLAALIQDYEQ-K
+ARKLE---QEEQ-ETEGSRKG-SSSSVISQKRSCNTAT-------CVTHRLAGLLRRSGG
+VVKDNFVPTNVGSKAFGRRRR-DLRV----------------
+>Ovis_aries sp|P01261|CALC_SHEEP Calcitonin GN=CALCA PE=1 SV=2
+---------------------------------TPLRSALETLP----------------
+--------------D---------------------PGALSEKEGRLLLAALVKAYVQRK
+TNELE--QEEEQEETEDSS-----LDSSRAKRCSNLST-------CVLSAYWKDLNN---
+--YHRYSGMGFGPETPGKKRD-IANSLEKDLSSHFGVPTDAN
+>Strongylocentrotus_purpuratus gi_115767208_Spur
+------------------------------------------------------------
+-------------------------------------ASLTNRDG--LSRQDILDLLQLY
+EEPIR-----------------QEGGDKRSKGCGSFSG-------CMQMEVAKNRVA--A
+LLRNSN-AHLFGLNGPGKRRR-SVDDLPQVNDAETE------
+>Saccoglossus_kowalevskii gi_187217193_Skow
+Y-----------------------------------------------------------
+--------------DDS------------------ESEEVVPPNYWSLQLAELTELVKLG
+EEVLA---QKAS------------AEMKAAKRGRGTSACGGFA-TCKQLEYGRKYAT---
+---SKADLSHFGATSPGRKRR-TTNSELDKQA----------
+>Capitella_telata gi_161220966_Ctel
+---------------------------------ADERESEDLQEAL-RVYQNLGE-TRKG
+LTALKRVVSDL---D----------------GDILQKHDFHDLARKRKGLDILRRILSEM
+EADL----------------------IYEQKRTCQFNL--GGH--CATESAASVADH-WH
+YLNSPL--------SPGRKRR-DTGLYKAVVSGRIFKDSKH-
+>Lottia_gigantea jgi_166645_Lgig
+----QMFHPR--------------------------------------------------
+--------------DISR-----------------GGQQQEEQLRRGYLIQILKSFLNRR
+QEDA----------------------TEKRKRSCNLNL--GFH--CQTDEYSSIADM-YD
+FLQSAL--------SPGKRKR-NVKIVSIEGS----------
+>Caenorhabditis_elegans Ensembl_ZK287.3_Cele
+---------------RVFYNRF--------------------------------------
+--------------DGGL-----------------SSDRFMEQKRDGAEASYDYDANQVI
+RN------------------------TMKRNRQCLLNA--GLSQGC---DFSDLLHA---
+---QTQARKFMSFAGPGK------------------------

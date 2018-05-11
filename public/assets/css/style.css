@@ -482,3 +482,8 @@ kbd {
     font-size: 1.25rem;
     font-weight: 300;
 }
+
+#explanation {
+  width: 90%;
+  max-width: 1180px;
+}

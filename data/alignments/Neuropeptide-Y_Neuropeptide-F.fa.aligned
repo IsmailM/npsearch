@@ -1,0 +1,180 @@
+>Homo_sapiens Uniprot_NPY_Hsap
+---------------------YPSKPDNPGEDAPAEDMARYYSALRHYINLIT-------
+---------RQRYGKRS-SPE------------------------TL-ISD---------
+------LLMRESTE-NVPRTR---------------------------------------
+-------------------LE---------------------------------------
+---------------DPAMW--------------------------------
+>Homo_sapiens Uniprot_PYY_Hsap
+---------------------YPIKPEAPREDASPEELNRYYASLRHYLNLVT-------
+---------RQRYGKRD-GPD------------------------TL-LSK---------
+------TFFPDGED-RPVRSR---------------------------------------
+-------------------SE---------------------------------------
+---------------GPDLW--------------------------------
+>Homo_sapiens Uniprot_PAHO_Hsap
+LLLQP----------LLGAQGAPLEPVYPGDNATPEQMAQYAADLRRYINMLT-------
+---------RPRYGKRH-KED------------------------TLAFSE---------
+------------------------------------------------------------
+------------------------------------------------------------
+-------------------WGSPHAAVPRELS-----PLDL-----------
+>Capitella_telata jgi_204449_Ctel
+-------NTDDDDARLVMVMSQMHPPKRPEHFRNMDELNVYLDKLRQYYTILG-------
+---------RPRFGRRN-VFS-----------------EVRVHTIVL-------------
+------------------------------------------------------------
+-------------------YC--------------FCQSRLAPIRCA-------------
+----------------------------------------------------
+>Capitella_telata jgi_204022_Ctel
+-------------------QDMHGMPVRPKVFRNADELRMYLKALNEYFAIVG-------
+---------RPRFGKRS-SPS-----------------ENPA------FGEVDVDGNG--
+---------RVNDD-EFDQFA---------------------------------------
+-------------------YG---------------------------------------
+---------------YRK----------------------------------
+>Capitella_telata jgi_229397_Ctel
+------------------QDSMLAPPDRPSEFRSPDELRRYLKALNEYYAIVG-------
+---------RPRFGR----SV-----------------NKRSAADYL-FKPSHKNDYE--
+------YLYDERDE-RFPSPY---------------------------------------
+-------------------Y----------------------------------------
+----------------------------------------------------
+>Daphnia_pulex jgi_103536_Dpul
+------------------DGGDVMSGGEGGEMTAMADAIKYLQGLRRYDNSLV-------
+---------RPRFGKRG-RLP------------------------YFDMEDLPLH-----
+------------PQ-VCSSSS---------------------------------------
+-------------------YF---------------------------------------
+----------------------------------------------------
+>Drosophila_melanogaster Ensembl_FBtr0083328_NPY_Dmel
+---------------------SNSRPPRKNDVNTMADAYKFLQDLDTYYGDRA-------
+---------RVRFGKRG-SLM---------------------------------------
+----DILRNHEMDNINLGKNANNGG--------------------EFARG----------
+-------------------FN---------------------------------------
+---------------EEEIF--------------------------------
+>Mus_musculus sp|P57774|NPY_MOUSE Pro-neuropeptide Y GN=Npy PE=1 SV=2
+---------------------YPSKPDNPGEDAPAEDMARYYSALRHYINLIT-------
+---------RQRYGKRS-SPE------------------------TL-ISD---------
+------LLMKESTE-NAPRTR---------------------------------------
+-------------------LE---------------------------------------
+---------------DPSMW--------------------------------
+>Rattus_norvegicus sp|P07808|NPY_RAT Pro-neuropeptide Y GN=Npy PE=1 SV=1
+---------------------YPSKPDNPGEDAPAEDMARYYSALRHYINLIT-------
+---------RQRYGKRS-SPE------------------------TL-ISD---------
+------LLMRESTE-NAPRTR---------------------------------------
+-------------------LE---------------------------------------
+---------------DPSMW--------------------------------
+>Bos_taurus sp|Q6RUW3|NPY_BOVIN Pro-neuropeptide Y GN=NPY PE=3 SV=1
+---------------------YPSKPDNPGEDAPAEDLARYYSALRHYINLIT-------
+---------RQRYGKRS-SPE------------------------TL-ISD---------
+------LLMRESTG-NIPRTR---------------------------------------
+-------------------LE---------------------------------------
+---------------DPSMW--------------------------------
+>Ovis_aries sp|P14765|NPY_SHEEP Pro-neuropeptide Y GN=NPY PE=1 SV=2
+---------------------YPSKPDNPGDDAPAEDLARYYSALRHYINLIT-------
+---------RQRYGKRS-SPE------------------------TL-ISD---------
+------LLMRESTG-NIPRTR---------------------------------------
+-------------------LE---------------------------------------
+---------------DPSMW--------------------------------
+>Xenopus_laevis sp|P33689|NPY_XENLA Pro-neuropeptide Y GN=npy PE=3 SV=1
+---------------------YPSKPDNPGEDAPAEDMAKYYSALRHYINLIT-------
+---------RQRYGKRS-SPE------------------------TM-LSD---------
+------VWWRENTE-NIPRSR---------------------------------------
+-------------------FE---------------------------------------
+---------------DPPMW--------------------------------
+>Carassius_auratus sp|P28672|NPY_CARAU Pro-neuropeptide Y GN=npy PE=3 SV=1
+---------------------YPTKPDNPGEGAPAEELAKYYSALRHYINLIT-------
+---------RQRYGKRS-SAD------------------------TL-ISD---------
+------LLIGE-TE-SHPQTR---------------------------------------
+-------------------YE---------------------------------------
+---------------DQLVW--------------------------------
+>Aplysia_californica sp|Q27441|NPY_APLCA Pro-neuropeptide Y GN=NPY PE=1 SV=1
+-----------------DNSEMLAPPPRPEEFTSAQQLRQYLAALNEYYSIMG-------
+---------RPRFGKRG-DSF-----------------RKRE------------------
+-------FFRTNGE-RYPEDA---------------------------------------
+-------------------AA---------------------------------------
+---------------WTEFQ--------------------------------
+>Gallus_gallus sp|P28673|NPY_CHICK Pro-neuropeptide Y GN=NPY PE=3 SV=1
+---------------------YPSKPDSPGEDAPAEDMARYYSALRHYINLIT-------
+---------RQRYGKRS-SPE------------------------TL-ISD---------
+------LLLRESTE-NIPRSR---------------------------------------
+-------------------FE---------------------------------------
+---------------DPSMW--------------------------------
+>Danio_rerio sp|Q9I8P3|NPY_DANRE Pro-neuropeptide Y GN=npy PE=3 SV=1
+---------------------YPTKPDNPGEDAPAEELAKYYSALRHYINLIT-------
+---------RQRYGKRS-SAD------------------------TL-ISD---------
+------LLIGE-TE-SRPQTR---------------------------------------
+-------------------YE---------------------------------------
+---------------DHLAW--------------------------------
+>Macaca_mulatta sp|Q9XSW6|NPY_MACMU Pro-neuropeptide Y GN=NPY PE=1 SV=1
+---------------------YPSKPDNPGEDAPAEDMARYYSALRHYINLIT-------
+---------RQRYGKRS-SPE------------------------TL-ISD---------
+------LLMRESTE-NVPRTR---------------------------------------
+-------------------LE---------------------------------------
+---------------DPSMW--------------------------------
+>Paralichthys_olivaceus sp|Q90WF4|NPY_PAROL Pro-neuropeptide Y GN=npy PE=3 SV=1
+---------------------YPVKPENPGDDAPAEELAKYYSALRHYINLIT-------
+---------RQRYGKRS-SPEILD---------------------TL-VSE---------
+------LLLKESTD-TLPQSR---------------------------------------
+-------------------YD---------------------------------------
+----------------PSLW--------------------------------
+>Torpedo_marmorata sp|P28674|NPY_TORMA Pro-neuropeptide Y GN=npy PE=3 SV=1
+---------------------YPSKPDNPGEGAPAEDLAKYYSALRHYINLIT-------
+---------RQRYGKRS-SPE------------------------ALMMTD---------
+------LMLRENAE-SFPKYR---------------------------------------
+-------------------YD---------------------------------------
+---------------EPFMW--------------------------------
+>Typhlonectes_natans sp|Q9PW68|NPY_TYPNA Pro-neuropeptide Y GN=npy PE=1 SV=1
+---------------------YPSKPDNPGEDAPAEDMAKYYSALRHYINLIT-------
+---------RQRYGKRS-NPE------------------------TM-VSD---------
+------VWWRESTE-NIPRSR---------------------------------------
+-------------------FE---------------------------------------
+---------------DPSMW--------------------------------
+>Drosophila_melanogaster sp|Q9VET0|NPF_DROME Neuropeptide F GN=NPF PE=1 SV=1
+---------------------SNSRPPRKNDVNTMADAYKFLQDLDTYYGDRA-------
+---------RVRFGKRG-SLM---------------------------------------
+----DILRNHEMDNINLGKNANNGG--------------------EFARG----------
+-------------------FN---------------------------------------
+---------------EEEIF--------------------------------
+>Drosophila_melanogaster sp|Q9VIQ0|SNPF_DROME Short neuropeptide F GN=sNPF PE=1 SV=4
+-------------------------EVSSAQGTPLSNLYDNLLQ-REYAGPVVFPNHQVE
+RKAQRSPSLRLRFG-RS-DPDMLNSIVEKRWFGDVNQKPIRSPSLRLRFGRRDPSLPQMR
+RTAYDDLLERELTL-NSQQQQQQLGTEPD----SDLGADYDGLYERVVRKPQ-RLRWGRS
+VPQFEANNADNEQIERSQWYNSLLNSDKMRRMLVALQQQYEIPENVASYAND-EDTDTDL
+NNDTSEFQREVRKP-MRLRWGRS---TGKAPSEQKHTPEETSSIPPKTQN--
+>Aedes_aegypti sp|A0SIX6|SNPF_AEDAE Short neuropeptide F GN=sNPF PE=2 SV=2
+-------------------------EPSQNADGSIKGLYEYLLQ-REYAAPVSYADHQIK
+RKAVRSPSLRLRFGRRS-DPSVPVEPEDDDM---VDQRSIRAPQLRLRFGRTDPLWSSFN
+ENA---LLE---EK-RAPSQRLRWGRSG-----GGMFSTNDVMQQKAIRAPQLRLRFGRS
+DPSWAM-------------FN----------------EHQLDEQQFADAT----------
+-----------RQPSKTL---RGDEPTSIESTEQ----VESEENSPSNMDEK
+>Anopheles_gambiae sp|Q7Q7R8|NPF_ANOGA Neuropeptide F GN=npf PE=1 SV=3
+-------------------------RPQDSDAASVAAAIRYLQELETKHAQHA-------
+---------RPRFGKRGGYLN------------------------PAIFGQ---------
+---------DEQEV-DWQDST---------------------------------------
+-------------------FS---------------------------------------
+---------------------------------------------------R
+>Locusta_migratoria sp|P86442|NPF_LOCMI Neuropeptide F PE=1 SV=1
+---------------------AEAQQADGNKLEGLADALKYLQELDRYYSQVA-------
+---------RPRFGKRA-ELR------------------------PDVVDDVIPE-----
+-----EMSADKFWR-RFARRR---------------------------------------
+------------------------------------------------------------
+----------------------------------------------------
+>Aedes_aegypti sp|Q8MP00|NPF_AEDAE Neuropeptide F GN=npf PE=1 SV=1
+-------------------------RPQD-DPTSVAEAIRLLQELETKHAQHA-------
+---------RPRFGKRS-YLN------------------------PAGYGQ---------
+---------DEQED-DWQDST---------------------------------------
+-------------------FT---------------------------------------
+---------------------------------------------------R
+>Drosophila_pseudoobscura sp|Q29KK2|SNPF_DROPS Short neuropeptide F pseudoobscura GN=sNPF PE=3 SV=2
+-ELSPVVQG---EFFLPILPDDHPPNTDTSFGGPISNLYDNLLQ-REYAGPVVFPNHQVE
+RKAQRSPSLRLRFG-RS-DPDMLNNIVEKRWFGDVNQKPIRSPSLRLRFGRRDPTLPQMR
+RTAYDDLLERELTL-NNQQQQ-QLGDTAD-----DLSADYDGLYERVVRKPQ-RLRWGRS
+VPQFEATIGDNDQL-----YNSLWNSEKMRRMLLALQQYEAAPGHVAGYANDGDDTEAQL
+DEDTSEFQREARKP-MRLRWGRS---TGKAPQ------IETSSIAPKN----
+>Drosophila_pseudoobscura sp|Q29B55|NPF_DROPS Neuropeptide F pseudoobscura GN=npf PE=3 SV=3
+---------------GCNVEASNSRPPRKNDVNTMADAYKFLQDLDTYYGDRA-------
+---------RVRFGKRGGPLM---------------------------------------
+----EMLRNRELEN-NMAKSINSGG--------------------ELIRA----------
+-------------------LD---------------------------------------
+---------------EEEVF--------------------------------
+>Anopheles_gambiae sp|A0SIF1|SNPF_ANOGA Short neuropeptide F GN=sNPF PE=2 SV=1
+-------------------------ESLHPSDGAINDLYEYLLQ-REYAAPVSYADHQIK
+RKAVRSPSLRLRFGRRS-DPSVPLRPEEDEL---IDQKAIRAPQLRLRFGRNDPLWTSFN
+ENA---LLEENFEK-RAPSQRLRWGRSNLFGNLVNQFQQDDVMQQKTIRAPQLRLRFGRT
+DPSWAM-------------YN----------------EHQLTTGQQAQPANE--------
+-------ASEKRAPTQRLRWGRSDPALAKDSSEDK--ALDVEESENTNADDK
