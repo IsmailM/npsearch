@@ -99,7 +99,7 @@ module NpSearchHmmApp
     end
 
     post '/api/analyse' do
-      param[:user] = 'npsearch'
+      params[:user] = 'npsearch'
       email = Base64.decode64(params[:user])
       @nphmmer_results = RunNpHMMer.run(params, email, base_url)
       slim :results, layout: false
