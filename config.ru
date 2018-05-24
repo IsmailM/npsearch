@@ -1,3 +1,3 @@
 require 'nphmmerapp'
-NpHMMerApp.init
-run NpHMMerApp
+NpSearchHmmApp.init
+run NpSearchHmmApp
