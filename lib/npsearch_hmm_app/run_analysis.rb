@@ -99,10 +99,10 @@ module NpSearchHmmApp
 
       def setup_run_dir(params)
         @run_dir = File.join(users_dir, @email, @uniq_time)
-        @run_files_dir = File.join(@run_dir, 'files')
+        @run_files_dir = File.join(@run_dir, 'input_files')
         logger.debug("Creating Run Directory: #{@run_dir}")
         FileUtils.mkdir_p(@run_files_dir)
-        @input_files = params[:file_uuid].empty? ? write_seqs : move_uploaded
+        @input_files = params[:files].empty? ? write_seqs : move_uploaded
       end
 
       def move_uploaded
@@ -141,7 +141,7 @@ module NpSearchHmmApp
 
       def init_nphmmer_arguments(file)
         opt = {
-          temp_dir: File.join(@run_dir, 'tmp'),
+          temp_dir: File.join(@run_dir, "#{file}_hmmsearch_out"),
           input: file,
           num_threads: config[:num_threads],
           evalue: @params[:evalue]

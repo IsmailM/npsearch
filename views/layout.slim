@@ -13,35 +13,52 @@ html lang='en'
       script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'
       script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'
 
-    link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons'
-    - if settings.production?
-      link href='#{uri('assets/css/style-' + NpSearch::VERSION + '.min.css')}' rel='stylesheet' type='text/css'
-    - else
-      link href='#{uri('assets/css/style.css')}' rel='stylesheet' type='text/css'
+    link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro|Material+Icons'
 
-  body#mainbody
+    link href='#{uri('assets/css/style-' + NpSearch::VERSION + '.min.css')}' rel='stylesheet' type='text/css'
+    / link href='#{uri('assets/css/style.css')}' rel='stylesheet' type='text/css'
+
+    script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    - if settings.production?
+      script type='text/javascript' src='#{uri('assets/js/npsearch-' + NpSearch::VERSION + '.min.js')}'
+    - else
+      script type='text/javascript' src='#{uri('assets/js/dependencies/jquery.validate.min.js')}'
+      script type='text/javascript' src='#{uri('assets/js/dependencies/jquery.fine-uploader.min.js')}'
+      script type='text/javascript' src='#{uri('assets/js/dependencies/materialize.min.js')}'
+      script type='text/javascript' src='#{uri('assets/js/dependencies/npsearch.js')}'
+    css:
+      .materialize-textarea {
+          min-height: 20vh !important;
+          overflow-y: auto !important;
+          max-height: 40vh !important;
+        }
+      .drop_zone_container{z-index:50;position:fixed;min-height:100%;min-height:1vh;min-height:-webkit-fill-available;width:0;min-width:100%;left:0;top:0;display:none;}
+
+  body#mainbody.app
+    .drop_zone_container qq-hide-dropzone="" qq-drop-area-text="Drop Files Here"
     main
-      nav.light-blue.darken-4 role="navigation" style="opacity: 0.9; box-shadow:none; height:50px; line-height:50px;"
-        p.center style="padding: 0; margin: 0;font-size: 1.2rem; font-weight: 300;"
+      nav style="opacity: 0.9; box-shadow:none; min-height:50px; line-height:2rem; display:inline-table;"
+        p.center style="font-size: 1.2rem; font-weight: 300;"
           | Note: This Software is currently in Beta. Please 
           a. href="mailto:ismail.moghul@gmail.com?Subject=NpSearch%20Feedback" style="color:#f2ff67;"
             | contact us 
           | if you have any issues/feedback.
-      nav.light-blue.darken-4 role="navigation"
+        .clearfix
+      nav role="navigation"
         .nav-wrapper
           a.brand-logo href="#!"  NpSearch-HMM
-          a.button-collapse data-activates="side_menu" href="#" 
+          a.sidenav-trigger href="#" data-target="side_menu"
             i.material-icons menu
           ul.right.hide-on-med-and-down
             li
               a.modal-trigger href="#explanation"  Explanation
             li
               a href="mailto:ismail.moghul@gmail.com?Subject=NpSearch%20Feedback"  Contact
-          ul#side_menu.side-nav
-            li
-              a.modal-trigger href="#explanation"  Explanation
-            li
-              a href="mailto:ismail.moghul@gmail.com?Subject=NpSearch%20Feedback"  Contact
+      ul#side_menu.sidenav
+        li
+          a.modal-trigger href="#explanation"  Explanation
+        li
+          a href="mailto:ismail.moghul@gmail.com?Subject=NpSearch%20Feedback"  Contact
       ==yield
       .modal#spinnermodel
         .modal-content
@@ -134,7 +151,7 @@ html lang='en'
         | Please cite 'Moghul   
         em
           | et al (in prep) 
-        | NpHMMer: Identifing Neuropeptide Precursors'
+        | NpSearch: A Tool to Identify Neuropeptide'
         br
         |  Developed at 
         a href='https://sbcs.qmul.ac.uk#fixlink' target='_blank' Elphick Lab
@@ -145,14 +162,56 @@ html lang='en'
         |  with funding by 
         a href='http://www.bbsrc.ac.uk/home/home.aspx' target='_blank' BBSRC
         br
-        | This page was created by 
-        a href='#' target='_blank'  NpSearch-HMM Web Application 
+        a href='#'  NpSearch-HMM Web Application 
         | v#{NpSearch::VERSION}
-    - if settings.production?
-      script type='text/javascript' src='#{uri('assets/js/npsearch-' + NpSearch::VERSION + '.min.js')}'
-    - else
-      script type='text/javascript' src='#{uri('assets/js/jquery.min.js')}'
-      script type='text/javascript' src='#{uri('assets/js/jquery.validate.min.js')}'
-      script type='text/javascript' src='#{uri('assets/js/fine-uploader.min.js')}'
-      script type='text/javascript' src='#{uri('assets/js/materialize.min.js')}'
-      script type='text/javascript' src='#{uri('assets/js/npsearch.js')}'
+    script#qq-template-validation type="text/template"
+      .qq-uploader-selector.qq-uploader qq-drop-area-text=("Drop files here")
+        .qq-total-progress-bar-container-selector.qq-total-progress-bar-container
+          .qq-total-progress-bar-selector.qq-progress-bar.qq-total-progress-bar aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar"
+        .qq-upload-drop-area-selector.qq-upload-drop-area qq-hide-dropzone="" qq-drop-area-text=("Drop files here")
+          span.qq-upload-drop-area-text-selector
+        .qq-upload-button-selector.qq-upload-button
+          div Select files
+        span.qq-drop-processing-selector.qq-drop-processing
+          span Processing dropped files...
+          span.qq-drop-processing-spinner-selector.qq-drop-processing-spinner
+        ul.qq-upload-list-selector.qq-upload-list aria-live="polite" aria-relevant=("additions removals")
+          li
+            .qq-progress-bar-container-selector
+              .qq-progress-bar-selector.qq-progress-bar aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar"
+            span.qq-upload-spinner-selector.qq-upload-spinner
+            img.qq-thumbnail-selector qq-max-size="100" qq-server-scale="" /
+            span.qq-upload-file-selector.qq-upload-file
+            span.qq-upload-size-selector.qq-upload-size
+            button.qq-btn.qq-upload-cancel-selector.qq-upload-cancel type="button"  Cancel
+            button.qq-btn.qq-upload-retry-selector.qq-upload-retry type="button"  Retry
+            button.qq-btn.qq-upload-delete-selector.qq-upload-delete type="button"  Delete
+            span.qq-upload-status-text-selector.qq-upload-status-text role="status"
+        dialog.qq-alert-dialog-selector
+          .qq-dialog-message-selector
+          .qq-dialog-buttons
+            button.qq-cancel-button-selector type="button"  Close
+        dialog.qq-confirm-dialog-selector
+          .qq-dialog-message-selector
+          .qq-dialog-buttons
+            button.qq-cancel-button-selector type="button"  No
+            button.qq-ok-button-selector type="button"  Yes
+        dialog.qq-prompt-dialog-selector
+          .qq-dialog-message-selector
+          input type="text" /
+          .qq-dialog-buttons
+            button.qq-cancel-button-selector type="button"  Cancel
+            button.qq-ok-button-selector type="button"  Ok
+    javascript:
+      $(function() {
+        NS.initValidation();
+
+        NS.initShowExampleButton();
+        NS.initMaterialize();
+
+        NS.initViewMoreInfoToggle();
+        NS.initAdvParamsToggle();
+        NS.initSpFilter();
+        NS.initFineUploader();
+
+      });

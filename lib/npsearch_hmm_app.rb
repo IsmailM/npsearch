@@ -124,7 +124,7 @@ module NpSearchHmmApp
     end
 
     def init_assets(root_assets, assets, css)
-      if environment == 'development'
+      if environment != 'production'
         FileUtils.rm_rf(assets) unless File.symlink?(assets)
         FileUtils.ln_s(root_assets, @public_dir) unless File.exist?(assets)
       else
@@ -141,7 +141,7 @@ module NpSearchHmmApp
     end
 
     def init_tmp_dir
-      @tmp_dir = File.join(config[:serve_dir], 'dbs')
+      @tmp_dir = File.join(config[:serve_dir], 'tmp')
       logger.debug "tmp_dir Directory: #{@tmp_dir}"
       FileUtils.mkdir_p @tmp_dir unless Dir.exist? @tmp_dir
     end
@@ -154,9 +154,9 @@ module NpSearchHmmApp
 
     def set_up_default_user_dir
       user_dir    = File.join(NpSearchHmmApp.users_dir, 'npsearch')
-      user_public = File.join(NpSearchHmmApp.public_dir, 'npsearch/users')
+      user_public = File.join(NpSearchHmmApp.public_dir, 'npsearch/users/npsearch')
       FileUtils.mkdir(user_dir) unless Dir.exist?(user_dir)
-      return if File.exist? File.join(user_public, 'npsearch')
+      return if File.exist? File.join(user_public)
       FileUtils.ln_s(user_dir, user_public)
     end
 

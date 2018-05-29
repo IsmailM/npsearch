@@ -1,18 +1,20 @@
 - if @nphmmer_results.empty?
   p  No neuropeptides pecursors were identified.
-- else 
+- else
+  - index = 0
   - @nphmmer_results.each do |result|
-    - result.each_with_index do |seq, idx|
+    - result.each do |seq|
+      - index += 1
       .card
         .card-content
           span.card-title.id
-            | Potential NP #{idx + 1}: #{seq.id}
+            | Potential NP #{index + 1}: #{seq.id}
           ul.np_collapsible.collapsible data-collapsible="expandable" 
             - seq.hmmer_results.each_with_index do |data, i|
-              li
-                div class=(i == 0 ? 'collapsible-header active' : 'collapsible-header')
+              li class=(i == 0 ? 'active' : '')
+                .collapsible-header
                   = "Hit #{i + 1}: "
-                  span.model_name 
+                  span.model_name
                     = data[:model].gsub(/.fa$/, '').gsub('-', ' ')
                   span.badge.evalue
                     == 'Sequence E-value: ' + NpHMMer::HighlightSequence.format_evalue(data[:overall_results][:full_seq_e_value])
@@ -41,27 +43,26 @@
                               span.translated_seq
                                 == NpHMMer::HighlightSequence.format_translated_seqs(seq.translated_seq, formated_seq)
                         .section
-                          .row
-                            .col.s12.m6
-                              .more_info_header.blue-text.text-darken-2
-                                | Overall Sequence
-                              table.vertical-table
-                                thead
-                                  tr
-                                    th data-field="Evalue"  E-Value
-                                    th data-field="Score"  Score
-                                    th data-field="Bias"  Bias
-                                tbody
-                                  tr
-                                    td
-                                      == "#{NpHMMer::HighlightSequence.format_evalue(data[:overall_results][:full_seq_e_value])}"
-                                    td
-                                      |  #{data[:overall_results][:full_seq_score]}
-                                    td
-                                      |  #{data[:overall_results][:full_seq_bias]} 
+                          .col.s12
+                            .more_info_header.blue-text.text-darken-2
+                              | Overall Sequence
+                            table.vertical-table
+                              thead
+                                tr
+                                  th data-field="Evalue"  E-Value
+                                  th data-field="Score"  Score
+                                  th data-field="Bias"  Bias
+                              tbody
+                                tr
+                                  td
+                                    == "#{NpHMMer::HighlightSequence.format_evalue(data[:overall_results][:full_seq_e_value])}"
+                                  td
+                                    |  #{data[:overall_results][:full_seq_score]}
+                                  td
+                                    |  #{data[:overall_results][:full_seq_bias]} 
                             - if ! seq.signalp.nil? && ! NpHMMer.opt[:signalp_path].nil?
                               - cardclass = (seq.signalp[:sp] == 'Y') ? 'sp_present' : 'no_sp_present'
-                              .col.s12.m6 class=cardclass
+                              .col.s12 class=cardclass
                                 .more_info_header.blue-text.text-darken-2
                                   | Signal Peptide Analysis
                                 table.vertical-table

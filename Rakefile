@@ -3,12 +3,14 @@ task default: [:build]
 desc 'Builds and installs'
 task install: [:build] do
   require_relative 'lib/npsearch/version'
-  sh "gem install ./npsearch-#{NpSearch::VERSION}.gem"
+  gem = File.join(__dir__, "npsearch-#{NpSearch::VERSION}.gem")
+  sh "gem install #{gem}"
 end
 
 desc 'Runs tests and builds gem (default)'
 task build: [:test] do
-  sh 'gem build npsearch.gemspec'
+  gemspec = File.join(__dir__, 'npsearch.gemspec')
+  sh "gem build #{gemspec}"
 end
 
 task test: :spec
@@ -20,15 +22,15 @@ end
 
 task :assets do
   require_relative 'lib/npsearch/version'
-  `rm ./public/assets/css/style-*.min.css`
-  `rm ./public/assets/js/npsearch-*.min.js`
-  sh 'cleancss --s0 -s --skip-rebase -o' \
-     " './public/assets/css/style-#{NpSearch::VERSION}.min.css'" \
-     " './public/assets/css/style.css'"
-  sh "uglifyjs './public/assets/js/jquery.min.js'" \
-     " './public/assets/js/jquery.validate.min.js'" \
-     " './public/assets/js/fine-uploader.min.js'" \
-     " './public/assets/js/materialize.min.js'" \
-     " './public/assets/js/npsearch.js' -m -c -o" \
-     " './public/assets/js/npsearch-#{NpSearch::VERSION}.min.js'"
+  assets_dir = File.join(__dir__, 'public/assets')
+  `rm #{assets_dir}/css/style-*.min.css`
+  `rm #{assets_dir}/js/npsearch-*.min.js`
+  sh "sass -t compressed '#{assets_dir}/css/scss/style.scss'" \
+     " '#{assets_dir}/css/style-#{NpSearch::VERSION}.min.css'"
+  js_dir = File.join(assets_dir, 'js')
+  sh "uglifyjs '#{js_dir}/dependencies/jquery.validate.min.js'" \
+     " '#{js_dir}/dependencies/jquery.fine-uploader.min.js'" \
+     " '#{js_dir}/dependencies/materialize.min.js'" \
+     " '#{js_dir}/dependencies/npsearch.js' -m -c -o" \
+     " '#{js_dir}/npsearch-#{NpSearch::VERSION}.min.js'"
 end

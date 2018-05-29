@@ -1,5 +1,6 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'npsearch/version'
 
@@ -8,14 +9,12 @@ Gem::Specification.new do |spec|
   spec.version       = NpSearch::VERSION
   spec.authors       = ['Ismail Moghul et al.']
   spec.email         = ['ismail.moghul@gmail.com']
-  spec.summary       = 'A Web Application for identifying Neuropeptides' \
-                       "using powerful Hidden Markov Models.\n\n For further" \
-                       ' information please refer to:' \
-                       ' https://github.com/wurmlab/nphmmer & ' \
-                       ' https://github.com/wurmlab/nphmmerapp.'
-  spec.description   = 'A Web App wrapper for NpHMMer, a program for' \
-                       ' identifying neuropeptide precursors.'
-  spec.homepage      = 'https://github.com/wurmlab/nphmmerapp'
+  spec.summary       = 'A Tool to identify Neuropeptides. Includes a feature-' \
+                       " based searching tool and a HMM-based tool. \n\n" \
+                       ' For further information please refer to:' \
+                       ' https://github.com/IsmailM/npsearch.'
+  spec.description   = 'A Web tool for identifying neuropeptide precursors.'
+  spec.homepage      = 'https://github.com/IsmailM/npsearch'
   spec.license       = 'AGPL-1.0'
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -34,7 +33,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'bio', '~> 1.4'
   spec.add_dependency 'sinatra', '~> 1.4'
-  spec.add_dependency 'sinatra-cross_origin', '~> 0.3'
   spec.add_dependency 'slim', '~> 3.0'
   spec.add_dependency 'slop', '~> 3.6'
   spec.post_install_message = <<INFO
