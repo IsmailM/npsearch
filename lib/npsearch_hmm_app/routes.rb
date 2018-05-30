@@ -109,11 +109,12 @@ module NpSearchHmmApp
       FileUtils.mkdir(dir) unless File.exist?(dir)
       fname = params[:qqfilename].to_s
       fname += ".part_#{params[:qqpartindex]}" unless params[:qqtotalparts].nil?
+      puts fname
       FileUtils.cp(params[:qqfile][:tempfile].path, File.join(dir, fname))
       { success: true }.to_json
     end
 
-    post '/api/uploaddone' do
+    post '/api/upload_done' do
       parts = params[:qqtotalparts].to_i - 1
       fname = params[:qqfilename]
       dir   = File.join(NpSearchHmmApp.tmp_dir, params[:qquuid])
