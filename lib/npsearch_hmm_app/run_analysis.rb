@@ -40,11 +40,12 @@ module NpSearchHmmApp
       # Setting the scene
       def init(params, user)
         @params = params
+        @params[:files] = JSON.parse(@params[:files], symbolize_names: true)
         @email = user
         assert_params
         @uniq_time = Time.new.strftime('%Y-%m-%d_%H-%M-%S_%L-%N').to_s
         setup_run_dir(params)
-      # rescue
+        # rescue
       #   raise 'NpHMMer failed to initialise the analysis successfully. '\
       #         'Please contact me at ismail.moghul@gmail.com'
       end
@@ -106,7 +107,6 @@ module NpSearchHmmApp
       end
 
       def move_uploaded
-        @params[:files] = JSON.parse(@params[:files], symbolize_names: true)
         @params[:files].each do |f|
           t_dir = File.join(tmp_dir, f[:uuid])
           t_input_file = File.join(t_dir, f[:originalName])

@@ -80,13 +80,13 @@ module NpSearchHmmApp
       end
     end
 
-    configure do
-      set :uploaded_files, []
-    end
-
     # For any request that hits the app, log incoming params at debug level.
     before do
-      logger.debug params
+      if params['seq'].nil?
+        logger.debug params
+      else
+        logger.debug params.clone.merge!('seq' => 'sequence')
+      end
     end
 
     # Set up global variables for the templates...

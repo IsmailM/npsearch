@@ -146,8 +146,8 @@ BANNER
           puts <<MSG
 Something went wonky
 
-Looks like you have encountered a bug in NpSearch HMM App. Please could you
-report this incident here -
+Looks like you have encountered a bug in NpSearch HMM App.
+Please could you report this incident here -
 https://github.com/IsmailM/npearch/issues
 
 Error:
