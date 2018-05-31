@@ -175,8 +175,20 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
       $('.alignment').css('max-width', $('.card').width() - 120 + 'px');
     });
 
-    $('.np_collapsible').collapsible();
-    $('.np_inner_collapsible').collapsible();
+    var np_collapsible = document.querySelectorAll('.np_collapsible');
+    M.Collapsible.init(np_collapsible);
+
+    var np_inner_collapsible = document.querySelectorAll('.np_inner_collapsible');
+    M.Collapsible.init(np_inner_collapsible, {
+      onOpenStart: function (e) {
+        var btn = e.getElementsByClassName("collapsible-header")[0];
+        btn.innerHTML = 'View Less Information';
+      },
+      onCloseStart: function (e) {
+        var btn = e.getElementsByClassName("collapsible-header")[0];
+        btn.innerHTML = 'View More Information';
+      }
+    });
 
     $('html, body').animate({
       scrollTop: $('#results').offset().top
@@ -240,8 +252,12 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
   };
 
   NS.initShowExampleButton = function() {
-    $('#np_example').on('click', NS.examplarSequences);
-    $('#input_type').on('click', function () {
+    $('#np_example').on('click', function(){
+      $('#seq').focus();
+      $('#seq_label').addClass('active');
+      $('#seq').val(NS.fasta);
+      $('#seq').valid();
+      M.textareaAutoResize($('#seq'));
     });
   };
 
@@ -251,6 +267,18 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     M.Modal.init(document.getElementById("explanation"));
     M.Modal.init(document.getElementById("spinnermodel"), {
       dismissible: false
+    });
+
+    var adv_params = document.getElementById('adv_params_collapsible');
+    M.Collapsible.init(adv_params, {
+      onOpenStart: function (e) {
+        var btn = e.getElementsByClassName("collapsible-header")[0];
+        btn.innerHTML = 'Hide Advanced Parameters';
+      },
+      onCloseStart: function (e) {
+        var btn = e.getElementsByClassName("collapsible-header")[0];
+        btn.innerHTML = 'Show Advanced Parameters';
+      }
     });
 
     var input_tabs = M.Tabs.init(document.getElementById("input_type"), {
@@ -265,17 +293,6 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     input_tabs.select('paste');
   };
 
-  NS.initViewMoreInfoToggle = function() {
-    $('.more_info_btn').click(function () {
-      var body = $(this).siblings('.more_info_body');
-      if ($(body).is(':visible')) {
-        $(this).text('View More Information');
-      } else {
-        $(this).text('View Less Information');
-      }
-    });
-  };
-
   NS.initSpFilter = function() {
     $('.sp_filter').change(function () {
       if ($(this).prop('checked')) {
@@ -284,24 +301,6 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
         $('.card').has('.no_sp_present').show();
       }
     });
-  };
-
-  NS.initAdvParamsToggle = function() {
-    var btn = document.getElementById('adv_params_btn');
-  if (btn.innerHTML === '&nbsp;&nbsp;Show Advanced Parameters') {
-    btn.innerHTML = '&nbsp;&nbsp;Hide Advanced Parameters';
-  } else {
-    btn.innerHTML = '&nbsp;&nbsp;Show Advanced Parameters';
-  }
-  };
-
-  // Changes the input to an examplar dna or protein sequence...
-  NS.examplarSequences = function () {
-    $('#seq').focus();
-    $('#seq_label').addClass('active');
-    $('#seq').val(NS.fasta);
-    $('#seq').valid();
-    M.textareaAutoResize($('#seq'));
   };
 
   // FROM BIONODE-Seq - See https://github.com/bionode/bionode-seq

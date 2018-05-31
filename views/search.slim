@@ -11,10 +11,10 @@ section#search
           .row
             ul#input_type.tabs
               li.tab.col.s6
-                a#seq_tab.light-blue-text.text-darken-3.active href="#paste"
+                a#seq_tab.active href="#paste"
                   | Paste Your Sequences
               li.tab.col.s6
-                a#file_upload_tab.light-blue-text.text-darken-3 href="#upload"
+                a#file_upload_tab href="#upload"
                   | Upload a file
           .row
             #paste.input-field.col.s12
@@ -25,22 +25,24 @@ section#search
               .file_space#fine-uploader-validation
               .validation_text.red-text style="font-size: .8rem"
           .row
-            ul.collapsible data-collapsible="accordion" style="box-shadow: none;border: none;"
+            ul#adv_params_collapsible.collapsible data-collapsible="accordion" style="box-shadow: none;border: none;"
               li
-                .collapsible-header#adv_params_btn.light-blue.accent-4.waves-effect.waves-light.btn.left style="font-size:14px;border-bottom:none;"
-                  | &nbsp;&nbsp;Show Advanced Parameters
+                .collapsible-header#adv_params_btn.light-blue.accent-4.waves-effect.waves-light.btn.left style="font-size:14px;border-bottom:none;"  Show Advanced Parameters
                 .clearfix
-                .collapsible-body style="border-bottom:none;padding:2em 0;"
-                  .row
-                    .input-field.col.s12
-                      input#evalue.validate type="text" name="evalue" value="10" /
-                      label.active for="evalue"  E-value
-                    .input-field.col.s12
-                      input#signalp type="checkbox" checked="" name="signalp"
-                      label for="signalp"  Calculate Signal Peptide
-            button#submit_btn.btn-large.waves-effect.waves-light.light-blue.accent-4.right value="input" type="submit"
-              | Submit
-              i.material-icons.right send
+                .collapsible-body style="border-bottom:none;padding:2em 0"
+                  .row#adv_params_body style="display:contents"
+                    .col.m6.s12
+                      .input-field
+                        input#evalue.validate type="text" name="evalue" value="10" /
+                        label.active for="evalue"  E-value Cut-off
+                      p
+                        label
+                          input#signalp type="checkbox" checked="" name="signalp"
+                          span Calculate Signal Peptide
+          .clearfix
+          button#submit_btn.btn-large.waves-effect.waves-light.right value="input" type="submit"
+            | Submit
+            i.material-icons.right send
         .clearfix
         .show_examples_text
           span 

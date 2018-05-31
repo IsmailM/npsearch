@@ -8,8 +8,8 @@
       .card
         .card-content
           span.card-title.id
-            | Potential NP #{index + 1}: #{seq.id}
-          ul.np_collapsible.collapsible data-collapsible="expandable" 
+            | Potential NP #{index}: #{seq.id}
+          ul.np_collapsible.collapsible data-collapsible="expandable"
             - seq.hmmer_results.each_with_index do |data, i|
               li class=(i == 0 ? 'active' : '')
                 .collapsible-header
@@ -38,12 +38,16 @@
                               | Full Translated Sequence
                             p.sequence
                               span.translated_id
-                                == '>' + seq.def_line + ' [Frame: ' + seq.frame.to_s + ']' 
+                                == '>' + seq.def_line + ' [Frame: ' + seq.frame.to_s + ']'
                               br
                               span.translated_seq
                                 == NpHMMer::HighlightSequence.format_translated_seqs(seq.translated_seq, formated_seq)
                         .section
                           .col.s12
+                            - seq_url = URI::encode('>' + seq.def_line + "\n" + seq.seq)
+                            a.light-blue.waves-effect.waves-light.btn.right href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins&QUERY=#{seq_url}" target="_blank"
+                              i.material-icons.left open_in_new
+                              | BLAST this sequence
                             .more_info_header.blue-text.text-darken-2
                               | Overall Sequence
                             table.vertical-table
