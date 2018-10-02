@@ -1,0 +1,9 @@
+section
+  .card.alert.alert-danger.red.lighten-2 role="alert"
+    .card-content
+      h3.error_header.white-text  Oops! Something went Wonky!
+      h5.white-text  Apologies, there was an error with your request. Please try again.
+      p  Error Message: #{request.env['sinatra.error']&.message}
+      p  If the error persists, please contact the administrator.
+      / p The full error message can be found here:
+      / pre  #{request.env['sinatra.error'].backtrace.join("\n")}

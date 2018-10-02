@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rack/test'
 require 'rspec'
 require 'capybara/rspec'
@@ -28,10 +30,10 @@ module NpHMMerApp
       NpHMMerApp.init(config_file: empty_config,
                       database_dir: database_dir)
 
-      nps      = %w(all)
+      nps      = %w[all]
       sequence = 'AGCTAGCTAGCT'
 
-      @params   = {
+      @params = {
         'neuropeptides' => nps,
         'seq'           => sequence
       }
@@ -65,7 +67,7 @@ module NpHMMerApp
       validator = MarkupValidator.new
       results = validator.validate_text(html)
 
-      results.errors.each { |err| puts err.to_s } if results.errors.length > 0
+      results.errors.each { |err| puts err.to_s } unless results.errors.empty?
       results.errors.length.should == 0
     end
   end

@@ -1,91 +1,93 @@
-# NpHMMerApp
-<!-- [![Build Status](https://travis-ci.org/wurmlab/nphmmerapp.svg?branch=master)](https://travis-ci.org/wurmlab/nphmmerapp)
-[![Gem Version](https://badge.fury.io/rb/nphmmerapp.svg)](http://badge.fury.io/rb/nphmmerapp)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wurmlab/nphmmerapp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wurmlab/nphmmerapp/?branch=master)
- -->
+# NpSearch
 
-
+> Currently work in progress - not ready for production
 
 
 
 
 ## Introduction
 
-This is a online web application for [NpHMMer](https://github.com/IsmailM/NpHMMer). This app is currently hosted at: [nphmmer.sbcs.qmul.ac.uk](nphmmer.sbcs.qmul.ac.uk)
+NpSearch is a tool for identifying neuropeptides and compromises of two parts:
+
+- NpSearch-Novel: a command-line tool for identifying novel neuropeptides using a feature-based approach.
+- NpSearch-HMM: a command-line tool and web application for identifying homologs to known neuropeptides using Hidden Markov Models.
 
 
-If you use NpHMMer in your work, please cite us as follows:
-> "Moghul <em>et al.</em> (<em>in prep.</em>) NpHMMer: identifing Neuropeptide Precursors"
+NpSearch-HMM is currently hosted at: [https://npsearch.co.uk](https://npsearch.co.uk)
+
+
+If you use NpSearch in your work, please cite us as follows:
+> "Moghul <em>et al.</em> (<em>in prep.</em>) NpSearch: identifing Neuropeptide Precursors"
 
 
 
 
-
-
--
 ## Installation
 ### Installation Requirements
-* Ruby (>= 2.0.0)
-* HMMer (>=3.0) (Available from [here](http://hmmer.org) - Suggested Installation via [Homebrew](http://brew.sh) or [Linuxbrew](http://linuxbrew.sh) - `brew install homebrew/science/hmmer`)
-* Seqtk (Available from [here](https://github.com/lh3/seqtk) - Suggested Installation via [Homebrew](http://brew.sh) or [Linuxbrew](http://linuxbrew.sh) - `brew install homebrew/science/seqtk`)
-* EMBOSS (Available from [here](http://emboss.sourceforge.net) - Suggested Installation via [Homebrew](http://brew.sh) or [Linuxbrew](http://linuxbrew.sh) - `brew install homebrew/science/emboss`)
+* Ruby (>= 2.5.0)
+* HMMer (>=3.2) (Available from [here](http://hmmer.org)
+* Seqtk (Available from [here](https://github.com/lh3/seqtk)
+* EMBOSS (Available from [here](http://emboss.sourceforge.net)
 * SignalP 4.1.*z (Available from [here](http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp))
 
+
 ### Installation (Will not work during beta)
-1. Install NpHMMerApp 
+1. Install NpSearch
 
 ```bash
-gem install nphmmerapp # will not work during beta 
+# gem install npsearch # will not work during beta 
 ```
 
 ##### Running From Source (during beta)
 
 ```bash
-# Clone the repository. # contact me at ismail.moghul@gmail.com to get access
-git clone https://github.com/IsmailM/nphmmer.git
+# Clone the repository
+git clone https://github.com/IsmailM/npsearch.git
 
-# Move into GeneValidatorApp source directory.
-cd nphmmer
+# Move into NpSearch source directory.
+cd npsearch
 
 # Install bundler
 gem install bundler
 
-# Install NpHMMer
-gem install ./nphmmer-0.4.1.gem
-
 # Use bundler to install dependencies
-bundle install --local
+bundle install
 
-# Run NpHMMer.
-bundle exec nphmmerapp -h
+# Run NpSearch.
+bundle exec npsearch app -h
+# To use Google Login - there are further steps to take on the Gooogle Admin dashboard to get API keys..
 
 ```
 
 
 
 
-## Launch NpHMMer
+## Launch NpSearch
 
-To configure and launch NpHMMerApp, run the following from a command line.
+### NpSearch-Novel
+...
+
+### NpSearch-HMM command line tool
+
+
+### NpSearch-HMM web application
+
+To configure and launch NpSearch-HMM as an web app, run the following from a command line.
 
 ```bash
-nphmmerapp -S /path/to/signalp -n 8 -p 4567 
+npsearch app -S /path/to/signalp -n 8 -p 4567 
 ```
 
-NpHMMerApp will automatically guide you through an interactive setup process to help locate BLAST+ binaries and ask for the location of BLAST+ databases.
+That's it! Open http://localhost:4567/ and start using NpSearch!
 
-That's it! Open http://localhost:4567/ and start using NpHMMer!
-
-
+See `npsearch app -h` for more information on all the options available when running NpSearch.
 
 
 
 
-## Advanced Usage
 
-See `$ nphmmerapp -h` for more information on all the options available when running NpHMMerApp.
 
 
 <hr>
 
-This program was developed at [Wurm Lab](https://wurmlab.github.io) and [QMUL](http://sbcs.qmul.ac.uk).
+This program was developed at [Elphick Lab](http://www.sbcs.qmul.ac.uk/staff/mauriceelphick.html) & [Wurm Lab](https://wurmlab.github.io) at [QMUL](http://sbcs.qmul.ac.uk).

@@ -1,0 +1,66 @@
+section
+  - unless session[:user].nil?
+    .card
+      .card-content
+        .row
+          - if @custom_hmms.nil?
+            #custom_hmm_models-table-wrapper.material-table
+              .table-header
+                span.card-title  Custom Hidden Markov Models
+                .actions
+                  a.search-toggle.waves-effect.btn-flat.nopadding
+                    i.material-icons  add
+              table#custom_hmm_models-table
+                thead
+                  tr
+                    th style="text-align: center; font-weight:normal" No Custom HMMs found
+          - else
+            #custom_hmm_models-table-wrapper.material-table
+              .table-header
+                span.card-title  Custom Hidden Markov Models
+                .actions
+                  a.search-toggle.waves-effect.btn-flat.nopadding
+                    i.material-icons  search
+              table#custom_hmm_models-table
+                thead
+                  tr
+                    th
+                    th Model Group Name
+                    th Number of Sequences in Model
+                    th Model Length (amino acids)
+                    th Date Generated
+                    th
+                tbody
+  .card
+    .card-content
+      .row
+        - if @default_hmms.nil?
+          p Cannot find any HMM models. Please create a HMM model here.
+        - else
+          #default_hmm_models-table-wrapper.material-table
+            .table-header
+              span.card-title  Default Hidden Markov Models (included with NpSearch)
+              .actions
+                a.search-toggle.waves-effect.btn-flat.nopadding
+                  i.material-icons  search
+            table#default_hmm_models-table
+              thead
+                tr
+                  th
+                  th Model Group Name
+                  th Number of Sequences in Model
+                  th Model Length (amino acids)
+                  th Date Generated
+                  th
+              tbody
+                - @default_hmms.each_with_index do |result, idx|
+                  tr
+                    td #{idx + 1}.
+                    td
+                      a style="color:#039be5;" href="#{result[:direct_link]}" = result[:name]
+                    td = result[:Nsequences]
+                    td = result[:model_length]
+                    td = result[:date_generated]
+                    td
+                      a href="#{result[:direct_link]}"
+                        i.material-icons.white-text.light-blue-text.text-darken-3  open_in_new

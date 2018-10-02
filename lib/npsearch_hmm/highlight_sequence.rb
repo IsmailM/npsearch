@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 
 require 'npsearch_hmm/signalp'
@@ -59,8 +61,9 @@ module NpHMMer
       def calculate_hsp_start(hmmer_results)
         hsp_indexes = []
         hmmer_results[:domains].each do |domain|
-          hsp_indexes << [domain[:data][:ali_from].to_i,
-                          domain[:data][:ali_to].to_i]
+          next unless domain.is_a? Hash
+          hsp_indexes << [domain[:data][:ali_from]&.to_i,
+                          domain[:data][:ali_to]&.to_i]
         end
         hsp_indexes.sort_by(&:min)
       end

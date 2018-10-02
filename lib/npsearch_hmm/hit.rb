@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bigdecimal'
 require 'forwardable'
 require 'shellwords' # std ruby lib that escapes shell commands
@@ -53,7 +55,7 @@ module NpHMMer
 
     def sort_hmmer_results(hmmer_results)
       hmmer_results.sort_by do |h|
-        BigDecimal.new(h[:overall_results][:full_seq_e_value])
+        BigDecimal(h[:overall_results][:full_seq_e_value])
       end
     end
 

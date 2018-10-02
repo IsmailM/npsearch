@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bio'
 require 'bigdecimal'
 require 'fileutils'
@@ -22,7 +24,7 @@ module NpHMMer
       Hmmer.search
       @results = Hmmer.analyse_output
       # order results by E-values
-      @results.sort_by! { |seq| BigDecimal.new(seq.lowest_evalue) }
+      @results.sort_by! { |seq| BigDecimal(seq.lowest_evalue) }
       output_dir = Output.create_output_dir
       Output.to_fasta(@results, output_dir)
       Output.to_html(output_dir)

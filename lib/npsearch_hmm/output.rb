@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 require 'slim'
 
@@ -29,7 +31,7 @@ module NpHMMer
       end
 
       def to_html(output_dir)
-        template = File.expand_path('../../../template/contents.slim', __FILE__)
+        template = File.expand_path('../../template/contents.slim', __dir__)
         contents_temp = File.read(template)
         html = Slim::Template.new { contents_temp }.render(NpHMMer)
         basename = File.basename(opt[:input_file], '.*')
@@ -41,7 +43,7 @@ module NpHMMer
 
       def copy_html_folder(dir)
         html_dir = File.join(dir, 'nphmmer.html_files')
-        aux_dir  = File.expand_path('../../../aux', __FILE__)
+        aux_dir  = File.expand_path('../../aux', __dir__)
         FileUtils.rm_r(html_dir) if File.directory? html_dir
         FileUtils.cp_r(aux_dir, html_dir)
       end

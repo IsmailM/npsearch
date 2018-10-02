@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 require 'forwardable'
 
@@ -16,10 +18,11 @@ module NpHMMer
       def search
         hmm_dir = File.expand_path('../../data/hmm', __dir__)
         hmm_dir = opt[:hmm_models_dir] unless opt[:hmm_models_dir].nil?
-        Dir.foreach(hmm_dir) do |h|
-          hmm_file = File.join(hmm_dir, h)
-          next if hmm_file !~ /hmm$/
-          hmm_search(hmm_file)
+        hmm_dir.each do |dir|
+          Dir.foreach(dir) do |h|
+            hmm_file = File.join(dir, h)
+            hmm_search(hmm_file) if hmm_file =~ /hmm$/
+          end
         end
       end
 
@@ -35,10 +38,12 @@ module NpHMMer
       private
 
       def hmm_search(hmm_file)
-        hmm_output = File.join(opt[:temp_dir], 'nphmmer.hmm_search.out')
+        output = File.join(opt[:temp_dir], 'nphmmer.hmm_search.out')
         input_file = opt[:type] == :genetic ? opt[:orf] : opt[:input]
-        `hmmsearch --notextw --cpu #{opt[:num_threads]} #{opt[:deep_analysis]} \
-          -E #{opt[:evalue]} '#{hmm_file}' '#{input_file}' >> '#{hmm_output}'`
+        deep = opt[:deep_analysis].nil? ? '' : '--max --nonull2'
+        cmd = "hmmsearch --notextw --cpu #{opt[:num_threads]} #{deep}" \
+              " -E #{opt[:evalue]} '#{hmm_file}' '#{input_file}' >> '#{output}'"
+        system(cmd)
       end
     end
 
@@ -138,9 +143,9 @@ module NpHMMer
 
         def parse_overall_results(overall_result)
           overall_result.gsub!(/^\s+/, '')
-          headers = %w(full_seq_e_value full_seq_score full_seq_bias
+          headers = %w[full_seq_e_value full_seq_score full_seq_bias
                        best_dom_e_value best_dom_score best_dom_bias dom_exp
-                       dom_N)
+                       dom_N]
           Hash[headers.map(&:to_sym).zip(overall_result.split(/\s+/)[0..7])]
         end
 
@@ -175,8 +180,8 @@ module NpHMMer
 
         def parse_domain_csv(domain)
           domain = clean_domain_csv(domain)
-          headers = %w(domain_no score bias c_e_value i_e_value hmm_from hmm_to
-                       ali_from ali_to env_from env_to acc)
+          headers = %w[domain_no score bias c_e_value i_e_value hmm_from hmm_to
+                       ali_from ali_to env_from env_to acc]
           Hash[headers.map(&:to_sym).zip(domain.split(/\s+/))]
         end
 

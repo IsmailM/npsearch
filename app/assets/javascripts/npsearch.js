@@ -68,10 +68,10 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
   // It ensures that sequences are either protein or DNA data...
   // If there are multiple sequences, ensures that they are of the same type
   // It utilises the NS.checkType function (further below)...
-  NS.addSeqValidation = function() {
+  NS.addSeqValidation = function () {
     $.validator.addMethod('checkInputType', function (value, element) {
       var types = [],
-          type = '';
+        type = '';
       if (value.charAt(0) === '>') {
         var seqs_array = value.split('>');
         for (var i = 1; i < seqs_array.length; i++) {
@@ -136,7 +136,9 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
       },
 
       submitHandler: function (form) {
-        $('#spinnermodel').modal('open');
+        spinner_elem = document.getElementById("spinner_model");
+        var spinner_modal = M.Modal.getInstance(spinner_elem);
+        spinner_modal.open();
 
         // Check if some files are still running
         if (NS.fineUploader.getInProgress() !== 0) {
@@ -155,10 +157,10 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
           type: 'POST',
           url: $('#input').attr('action'),
           data: formData,
-          success: function(response) {
+          success: function (response) {
             NS.ajaxSuccessFunction(response);
           },
-          error: function(e, status) {
+          error: function (e, status) {
             NS.ajaxErrorFunction(e, status);
           }
         })
@@ -170,6 +172,18 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
   NS.ajaxSuccessFunction = function (response) {
     $('#results_box').show();
     $('#output').html(response);
+    NS.initResultElem();
+    $('html, body').animate({
+      scrollTop: $('#results').offset().top
+    });
+
+    spinner_elem = document.getElementById("spinner_model");
+    var spinner_modal = M.Modal.getInstance(spinner_elem);
+    spinner_modal.close();
+
+  };
+
+  NS.initResultElem = function () {
     $('.alignment').css('max-width', $('.card').width() - 120 + 'px');
     $(window).on('resize', function () {
       $('.alignment').css('max-width', $('.card').width() - 120 + 'px');
@@ -189,14 +203,7 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
         btn.innerHTML = 'View More Information';
       }
     });
-
-    $('html, body').animate({
-      scrollTop: $('#results').offset().top
-    });
-
-    $('#spinnermodel').modal('close'); // remove progress notification
   };
-
 
   NS.ajaxErrorFunction = function (e, status) {
     $('#results_box').show();
@@ -225,7 +232,7 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
         },
       },
       validation: {
-        allowedExtensions: ['fa','fas','fna','faa','fasta'],
+        allowedExtensions: ['fa', 'fas', 'fna', 'faa', 'fasta'],
         itemLimit: 5,
         sizeLimit: 78650000 // 75MB
       },
@@ -233,7 +240,7 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
         onSubmitted: function () {
           var elem = document.getElementById("input_type");
           var input_tabs = M.Tabs.getInstance(elem);
-          if (input_tabs.index !== 1){
+          if (input_tabs.index !== 1) {
             input_tabs.select('upload');
           }
         }
@@ -251,8 +258,8 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     NS.fineUploader.addExtraDropzone($(".drop_zone_container")[0]);
   };
 
-  NS.initShowExampleButton = function() {
-    $('#np_example').on('click', function(){
+  NS.initShowExampleButton = function () {
+    $('#np_example').on('click', function () {
       $('#seq').focus();
       $('#seq_label').addClass('active');
       $('#seq').val(NS.fasta);
@@ -261,14 +268,7 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     });
   };
 
-  NS.initMaterialize = function () {
-    $('.sidenav').sidenav();
-    var elems = document.querySelectorAll('.modal');
-    M.Modal.init(document.getElementById("explanation"));
-    M.Modal.init(document.getElementById("spinnermodel"), {
-      dismissible: false
-    });
-
+  NS.initSearchTabs = function () {
     var adv_params = document.getElementById('adv_params_collapsible');
     M.Collapsible.init(adv_params, {
       onOpenStart: function (e) {
@@ -282,7 +282,7 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     });
 
     var input_tabs = M.Tabs.init(document.getElementById("input_type"), {
-      onShow: function() {
+      onShow: function () {
         if ($(this)[0].index == 0) {
           $('.show_examples_text').show();
         } else {
@@ -293,7 +293,18 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     input_tabs.select('paste');
   };
 
-  NS.initSpFilter = function() {
+  NS.initSearchModal = function () {
+    M.Modal.init(document.getElementById("spinner_model"), {
+      dismissible: false
+    });
+  };
+
+  NS.initMaterialize = function () {
+    $('.sidenav').sidenav();
+    M.Modal.init(document.getElementById("login_modal"));
+  };
+
+  NS.initSpFilter = function () {
     $('.sp_filter').change(function () {
       if ($(this).prop('checked')) {
         $('.card').has('.no_sp_present').hide();
@@ -301,6 +312,63 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
         $('.card').has('.no_sp_present').show();
       }
     });
+  };
+
+  NS.addUserDropDown = function () {
+    M.Dropdown.init(document.querySelectorAll('.dropdown-button'), {
+      inDuration: 300,
+      outDuration: 225,
+      coverTrigger: false,
+      hover: true,
+      alignment: "right"
+    });
+  };
+
+  NS.setupGoogleAuthentication = function () {
+    gapi.auth.authorize({
+      immediate: true,
+      response_type: "code",
+      cookie_policy: "single_host_origin",
+      client_id: NS.CLIENT_ID,
+      scope: "email"
+    });
+    $(".login_button").on("click", function (e) {
+      e.preventDefault();
+      /** global: gapi */
+      gapi.auth.authorize({
+          immediate: false,
+          response_type: "code",
+          cookie_policy: "single_host_origin",
+          client_id: NS.CLIENT_ID,
+          scope: "email"
+        },
+        function (response) {
+          if (response && !response.error) {
+            // google authentication succeed, now post data to server.
+            jQuery.ajax({
+              type: "POST",
+              url: "/auth/google_oauth2/callback",
+              data: response,
+              success: function () {
+                // TODO - just update the DOM instead of a redirect to self
+                $(location).attr("href", window.location.href);
+              }
+            });
+          } else {
+            console.log("ERROR Response google authentication failed");
+            // TODO: ERROR Response google authentication failed
+          }
+        }
+      );
+    });
+  };
+
+  NS.protocol = function () {
+    if (NS.USING_SLL === "true") {
+      return "https://";
+    } else {
+      return "http://";
+    }
   };
 
   // FROM BIONODE-Seq - See https://github.com/bionode/bionode-seq
@@ -340,4 +408,46 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
       return 'protein';
     }
   };
+
+  NS.initializeHmmTable = function (tableId, tableWrapperId) {
+    $('#' + tableId).dataTable({
+      "oLanguage": {
+        "sStripClasses": "",
+        "sSearch": "",
+        "sSearchPlaceholder": "Enter Keywords Here",
+        "sInfo": "_START_ -_END_ of _TOTAL_",
+        "sLengthMenu": '<span>Rows per page:</span><select class="browser-default">' +
+          '<option value="10">10</option>' +
+          '<option value="20">20</option>' +
+          '<option value="30">30</option>' +
+          '<option value="40">40</option>' +
+          '<option value="50">50</option>' +
+          '<option value="-1">All</option>' +
+          '</select></div>'
+      },
+    });
+
+    $('#' + tableWrapperId).on('click', '.search-toggle', function () {
+      if ($('.hiddensearch').css('display') == 'none') {
+        $('.hiddensearch').slideDown();
+      } else {
+        $('.hiddensearch').slideUp();
+      }
+    });
+  };
 }());
+
+
+(function ($) {
+  $(function () {
+    return $.ajax({
+      url: "https://apis.google.com/js/client:plus.js?onload=gpAsyncInit",
+      dataType: "script",
+      cache: true
+    });
+  });
+
+  window.gpAsyncInit = function () {
+    NS.setupGoogleAuthentication();
+  };
+})(jQuery);

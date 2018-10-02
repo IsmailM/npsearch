@@ -9,8 +9,8 @@ module NpHMMer
       def_delegators NpHMMer, :opt
 
       def analyse_sequence(seq, hsp_indexes)
-        sp_headers = %w(name cmax cmax_pos ymax ymax_pos smax smax_pos smean d
-                        sp dmaxcut networks orf)
+        sp_headers = %w[name cmax cmax_pos ymax ymax_pos smax smax_pos smean d
+                        sp dmaxcut networks orf]
         data       = setup_analysis(seq, hsp_indexes)
         orf_results = []
         s = `echo "#{data[:fasta]}\n" | #{opt[:signalp_path]} -t euk \

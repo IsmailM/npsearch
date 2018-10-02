@@ -1,8 +1,4 @@
 section#search
-  h2
-    | NpSearch-HMM
-    span style="font-size:2rem;color:#787878"
-      |  Identify Neuropeptide Homologs
   .card
     .card-content
       span.card-title  Input Sequences
@@ -11,11 +7,9 @@ section#search
           .row
             ul#input_type.tabs
               li.tab.col.s6
-                a#seq_tab.active href="#paste"
-                  | Paste Your Sequences
+                a#seq_tab.active href="#paste"  Paste Your Sequences
               li.tab.col.s6
-                a#file_upload_tab href="#upload"
-                  | Upload a file
+                a#file_upload_tab href="#upload"  Upload a file
           .row
             #paste.input-field.col.s12
               textarea#seq.materialize-textarea name="seq" spellcheck="false" data-rule-maxcharacters="#{@max_characters}" data-rule-minlength="5" data-rule-checkInputType="true" data-msg-maxcharacters="The above input area supports up to a maximum of #{@max_characters} characters. Please use the File Upload feature if you wish to analyse more data."
@@ -35,21 +29,26 @@ section#search
                       .input-field
                         input#evalue.validate type="text" name="evalue" value="10" /
                         label.active for="evalue"  E-value Cut-off
-                      p
+                      p style="padding:1rem 0;"
                         label
                           input#signalp type="checkbox" checked="" name="signalp"
                           span Calculate Signal Peptide
+                      p style="padding:1rem 0;"
+                        label
+                          input#deep_hmm type="checkbox" name="deep_hmm"
+                          span Deep HMM Analysis (Turn all heuristic filters off - less speed, more power)
+                      span.card-title style="margin-top:1rem" HMMs to Test Against
+                      p style="padding:1rem 0;"
+                        label
+                          input#deep_hmm type="checkbox" checked="" name="all_hmms"
+                          span All HMMs
           .clearfix
           button#submit_btn.btn-large.waves-effect.waves-light.right value="input" type="submit"
             | Submit
             i.material-icons.right send
         .clearfix
         .show_examples_text
-          span 
-            a#np_example
-              | Show an example
+          span
+            a#np_example  Show an example
 
-section#results
-  #results_box style="display:none;"
-    h2  Results
-    #output
+== slim :single_result

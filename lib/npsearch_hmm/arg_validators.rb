@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bio'
 
 # Top level module / namespace.
@@ -19,23 +21,23 @@ module NpHMMer
 
       def assert_file_present(desc, file, exit_code = 1)
         return if file && File.exist?(File.expand_path(file))
-        $stderr.puts "*** Error: Couldn't find the #{desc}: #{file}."
+        warn "*** Error: Couldn't find the #{desc}: #{file}."
         exit exit_code
       end
 
       def assert_input_file_not_empty(file)
         return unless File.zero?(File.expand_path(file))
-        $stderr.puts "*** Error: The input_file (#{file})" \
+        warn "*** Error: The input_file (#{file})" \
                      ' seems to be empty.'
         exit 1
       end
 
       def assert_input_file_probably_fasta(file)
         File.open(file, 'r') do |f|
-          fasta = f.readline[0] == '>' ? true : false
+          fasta = f.readline[0] == '>'
           return fasta if fasta
         end
-        $stderr.puts "*** Error: The input_file (#{file})" \
+        warn "*** Error: The input_file (#{file})" \
                      ' does not seems to be a fasta file.'
         exit 1
       end
@@ -43,9 +45,9 @@ module NpHMMer
       def assert_input_sequence(file)
         type = type_of_sequences(file)
         return type unless type.nil?
-        $stderr.puts '*** Error: The input files seems to contain a mixture of'
-        $stderr.puts '    both protein and nucleotide data.'
-        $stderr.puts '    Please correct this and try again.'
+        warn '*** Error: The input files seems to contain a mixture of'
+        warn '    both protein and nucleotide data.'
+        warn '    Please correct this and try again.'
         exit 1
       end
 
@@ -74,8 +76,8 @@ module NpHMMer
         if File.exist?(bin) && File.directory?(bin)
           add_to_path(bin)
         else
-          $stderr.puts '*** The following bin directory does not exist:'
-          $stderr.puts "    #{bin}"
+          warn '*** The following bin directory does not exist:'
+          warn "    #{bin}"
         end
       end
 

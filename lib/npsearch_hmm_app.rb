@@ -1,5 +1,8 @@
-require 'yaml'
+# frozen_string_literal: true
+
 require 'fileutils'
+require 'pathname'
+require 'yaml'
 
 require 'npsearch_hmm_app/config'
 require 'npsearch_hmm_app/exceptions'
@@ -20,7 +23,11 @@ module NpSearchHmmApp
     end
 
     def root
-      File.dirname(__dir__)
+      Pathname.new(__dir__).dirname + 'app'
+    end
+
+    def data_dir
+      Pathname.new(__dir__).dirname + 'data'
     end
 
     def ssl?
@@ -104,60 +111,48 @@ module NpSearchHmmApp
 
     # Set up the directory structure in @config[:gd_public_dir]
     def init_dirs
-      config[:serve_dir] = File.expand_path(config[:serve_dir])
+      config[:serve_dir] = Pathname.new(config[:serve_dir]).expand_path
       logger.debug "NpSearch Directory: #{config[:serve_dir]}"
       init_public_dir
-      init_public_data_dirs
       init_tmp_dir
       init_users_dir
       set_up_default_user_dir
     end
 
     def init_public_dir
-      @public_dir = File.join(config[:serve_dir], 'public')
+      @public_dir = config[:serve_dir] + 'public'
       logger.debug "public_dir Directory: #{@public_dir}"
-      FileUtils.mkdir_p @public_dir unless Dir.exist?(@public_dir)
-      root_assets = File.join(NpSearchHmmApp.root, 'public/assets')
-      assets = File.join(@public_dir, 'assets')
-      css = File.join(assets, 'css', "style-#{NpSearch::VERSION}.min.css")
-      init_assets(root_assets, assets, css)
+      FileUtils.mkdir_p @public_dir unless @public_dir.exist?
+      init_assets(NpSearchHmmApp.root + 'public/assets',
+                  @public_dir + 'assets')
     end
 
-    def init_assets(root_assets, assets, css)
-      if environment != 'production'
-        FileUtils.rm_rf(assets) unless File.symlink?(assets)
-        FileUtils.ln_s(root_assets, @public_dir) unless File.exist?(assets)
+    def init_assets(root_assets, assets)
+      if environment == 'production'
+        css = assets + 'css' + "style-#{NpSearch::VERSION}.min.css"
+        FileUtils.rm_rf(assets) if assets.symlink? || !css.exist?
+        FileUtils.cp_r(root_assets, @public_dir) unless assets.exist?
       else
-        FileUtils.rm_rf(assets) if File.symlink?(assets) || !File.exist?(css)
-        FileUtils.cp_r(root_assets, @public_dir) unless File.exist?(assets)
+        FileUtils.rm_rf(assets) unless assets.symlink?
+        FileUtils.ln_s(root_assets, @public_dir) unless assets.exist?
       end
     end
 
-    def init_public_data_dirs
-      root_data = File.join(NpSearchHmmApp.root, 'public/npsearch')
-      public_gd = File.join(@public_dir, 'npsearch')
-      return if File.exist?(public_gd)
-      FileUtils.cp_r(root_data, @public_dir)
-    end
-
     def init_tmp_dir
-      @tmp_dir = File.join(config[:serve_dir], 'tmp')
+      @tmp_dir = config[:serve_dir] + 'tmp'
       logger.debug "tmp_dir Directory: #{@tmp_dir}"
-      FileUtils.mkdir_p @tmp_dir unless Dir.exist? @tmp_dir
+      FileUtils.mkdir_p @tmp_dir unless @tmp_dir.exist?
     end
 
     def init_users_dir
-      @users_dir = File.join(config[:serve_dir], 'users')
+      @users_dir = config[:serve_dir] + 'users'
       logger.debug "users_dir Directory: #{@users_dir}"
-      FileUtils.mkdir_p @users_dir unless Dir.exist? @users_dir
+      FileUtils.mkdir_p @users_dir unless @users_dir.exist?
     end
 
     def set_up_default_user_dir
-      user_dir    = File.join(NpSearchHmmApp.users_dir, 'npsearch')
-      user_public = File.join(NpSearchHmmApp.public_dir, 'npsearch/users/npsearch')
-      FileUtils.mkdir(user_dir) unless Dir.exist?(user_dir)
-      return if File.exist? File.join(user_public)
-      FileUtils.ln_s(user_dir, user_public)
+      default_user_dir = NpSearchHmmApp.users_dir + 'npsearch'
+      FileUtils.mkdir default_user_dir unless default_user_dir.exist?
     end
 
     def init_binaries
@@ -167,7 +162,7 @@ module NpSearchHmmApp
 
     def check_num_threads
       config[:num_threads] = Integer(config[:num_threads])
-      raise NUM_THREADS_INCORRECT unless config[:num_threads] > 0
+      raise NUM_THREADS_INCORRECT unless config[:num_threads].positive?
 
       logger.debug "Will use #{config[:num_threads]} threads to run GeoDiver."
       return unless config[:num_threads] > 256
@@ -179,7 +174,7 @@ module NpSearchHmmApp
       if config[:max_characters] != 'undefined'
         config[:max_characters] = Integer(config[:max_characters])
       end
-    rescue
+    rescue StandardError
       raise MAX_CHARACTERS_INCORRECT
     end
 
@@ -226,7 +221,7 @@ module NpSearchHmmApp
       return if using_ssh? || verbose?
       if RUBY_PLATFORM =~ /linux/ && xdg?
         system "xdg-open #{server_url}"
-      elsif RUBY_PLATFORM =~ /darwin/
+      elsif RUBY_PLATFORM.match?(/darwin/)
         system "open #{server_url}"
       end
     end

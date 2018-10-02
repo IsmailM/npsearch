@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 
 # Define Config class.
@@ -11,7 +13,7 @@ module NpSearchHmmApp
     def initialize(data = {})
       @data        = symbolise data
       @config_file = @data.delete(:config_file) || default_config_file
-      @config_file = File.expand_path(@config_file)
+      @config_file = Pathname.new(@config_file).expand_path
       @data = parse_config_file.update @data
       @data = defaults.update @data
     end
@@ -60,7 +62,7 @@ module NpSearchHmmApp
 
       logger.debug "Reading configuration file: #{config_file}."
       symbolise YAML.load_file(config_file)
-    rescue => error
+    rescue StandardError => error
       raise CONFIG_FILE_ERROR.new(config_file, error)
     end
 
