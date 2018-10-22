@@ -39,8 +39,8 @@ module NpSearchHmmApp
     end
 
     # Setting up the environment before running the app...
-    # We don't validate port and host settings. If GeoDiver is run
-    # self-hosted, bind will fail on incorrect values. If GeoDiver
+    # We don't validate port and host settings. If NpSearch is run
+    # self-hosted, bind will fail on incorrect values. If NpSearch
     # is run via Apache/Nginx + Passenger, we don't need to worry.
     def init(config = {})
       @config = Config.new(config)
@@ -98,7 +98,7 @@ module NpSearchHmmApp
       Routes.call(env)
     end
 
-    # Run GeoDiver interactively.
+    # Run NpSearch interactively.
     def irb
       # rubocop:disable Lint/Debugger
       ARGV.clear
@@ -164,7 +164,7 @@ module NpSearchHmmApp
       config[:num_threads] = Integer(config[:num_threads])
       raise NUM_THREADS_INCORRECT unless config[:num_threads].positive?
 
-      logger.debug "Will use #{config[:num_threads]} threads to run GeoDiver."
+      logger.debug "Will use #{config[:num_threads]} threads to run NpSearch."
       return unless config[:num_threads] > 256
       logger.warn "Number of threads set at #{config[:num_threads]} is" \
                   ' unusually high.'
