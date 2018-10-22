@@ -16,19 +16,19 @@ section
               span.grey-text.text-lighten-3 style="padding-left:10px;"  Run Time: #{result[:run_time].strftime("%H:%M %d/%m/%Y")}
             .card-action style="padding:0;"
               .actions.right style=" display: -webkit-flex; margin-left: auto; padding: 10px 0;"
-                a#download-all-results.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4 data-download="#{result[:assets_path]}/relayer_results.zip"
+                a#download-all-results.disabled.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4 data-download=""
                   i.material-icons  file_download
-                a#delete_results.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4
+                a#delete_results.disabled.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4
                   i.material-icons  delete
                 - if result[:share]
-                  a#share_the_link_btn.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4
+                  a#share_the_link_btn.disabled.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4
                     i.material-icons  link
-                  a#share_btn.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4 style="display:none;"
+                  a#share_btn.disabled.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4 style="display:none;"
                     i.material-icons  share
                 - else
-                  a#share_the_link_btn.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4 style="display:none;"
+                  a#share_the_link_btn.disabled.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4 style="display:none;"
                     i.material-icons  link
-                  a#share_btn.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4
+                  a#share_btn.disabled.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4
                     i.material-icons  share
                 a.waves-effect.btn-flat.nopadding.cyan-text.text-darken-4 href="#{result[:results_url]}"
                   i.material-icons  open_in_new

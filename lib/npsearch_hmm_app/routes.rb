@@ -152,7 +152,7 @@ module NpSearchHmmApp
 
     post '/api/analyse' do
       user = session[:user].nil? ? 'npsearch' : session[:user].info['email']
-      @nphmmer_results = RunNpHMMer.run(params, user, request.path)
+      @nphmmer_results = RunNpHMMer.run(params, user)
       slim :results, layout: false
     end
 

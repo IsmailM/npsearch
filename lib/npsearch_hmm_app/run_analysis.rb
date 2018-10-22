@@ -31,10 +31,10 @@ module NpSearchHmmApp
                      :tmp_dir
 
       # Writes sequesnces to file and runs NpHMMer
-      def run(params, user, url)
+      def run(params, user)
         init(params, user)
         @output_results = run_nphmmer
-        @results = generate_results_hash(url)
+        @results = generate_results_hash
         write_results_to_file
         @results
       # rescue StandardError
@@ -173,14 +173,13 @@ module NpSearchHmmApp
         Oj.to_file(params_file.to_s, @results)
       end
 
-      def generate_results_hash(url)
+      def generate_results_hash
         {
           results: @output_results,
           params: @params,
           user: encode_email,
-          results_url: "#{url}/result/#{encode_email}/#{@uniq_time}",
-          share_url: "#{url}/sh/#{encode_email}/#{@uniq_time}",
-          assets_path: "#{url}/npsearch/users/#{@email}/#{@uniq_time}",
+          results_url: "/result/#{encode_email}/#{@uniq_time}",
+          share_url: "/sh/#{encode_email}/#{@uniq_time}",
           full_path: @run_dir,
           uniq_result_id: @uniq_time
         }
