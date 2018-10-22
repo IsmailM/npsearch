@@ -139,6 +139,7 @@ module NpSearchHmmApp
       def run_nphmmer
         @input_files.map do |file|
           nphmmer_opt = init_nphmmer_arguments(file)
+          logger.debug("NpHMMer OPTS: #{nphmmer_opt}")
           NpHMMer.init(nphmmer_opt)
           NpHMMer::Hmmer.search
           result = NpHMMer::Hmmer.analyse_output
@@ -148,18 +149,15 @@ module NpSearchHmmApp
       end
 
       def init_nphmmer_arguments(file)
-        tmp = @run_dir + 'tmp' + "#{File.basename(file)}_hmmsearch_out"
-        opt = {
-          temp_dir: tmp,
+        {
+          temp_dir:  @run_dir + 'tmp' + "#{File.basename(file)}_hmmsearch_out",
           input: file,
           num_threads: config[:num_threads],
           evalue: @params[:evalue],
-          hmm_models_dir: [NpSearchHmmApp.data_dir + 'hmm']
+          hmm_models_dir: [NpSearchHmmApp.data_dir + 'hmm'],
+          signalp_path: @params[:signalp] == 'on' ? config[:signalp_path] : nil,
+          deep_analysis: @params[:deep_hmm] == 'on' ? true : nil
         }
-        opt[:deep_analysis] = true if @params[:deep_hmm] == 'on'
-        opt[:signalp_path] = config[:signalp_path] if @params[:signalp] == 'on'
-        logger.debug("NpHMMer OPTS: #{opt}")
-        opt
       end
 
       def create_log_file
