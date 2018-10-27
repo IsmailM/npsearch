@@ -29,19 +29,53 @@ section#search
                       .input-field
                         input#evalue.validate type="text" name="evalue" value="10" /
                         label.active for="evalue"  E-value Cut-off
-                      p style="padding:1rem 0;"
-                        label
-                          input#signalp type="checkbox" checked="" name="signalp"
-                          span Calculate Signal Peptide
-                      p style="padding:1rem 0;"
-                        label
-                          input#deep_hmm type="checkbox" name="deep_hmm"
-                          span Deep HMM Analysis (Turn all heuristic filters off - less speed, more power)
+                  .row
+                    .col.m6.s12
+                      p: label
+                        input#signalp type="checkbox" checked="" name="signalp"
+                        span Calculate Signal Peptide
+                  .row
+                    .col.m6.s12
+                      p: label
+                        input#deep_hmm type="checkbox" name="deep_hmm"
+                        span Deep HMM Analysis (Turn all heuristic filters off - less speed, more power)
+                  .row
+                    .col.m6.s12
                       span.card-title style="margin-top:1rem" HMMs to Test Against
-                      p style="padding:1rem 0;"
-                        label
-                          input#deep_hmm type="checkbox" checked="" name="all_hmms"
-                          span All HMMs
+                  .row
+                    .col.m6.s12
+                      p: label
+                        input#all_hmm type="checkbox" checked="" name="all_hmms"
+                        span All HMMs
+                  .row
+                    #default_hmms_options.col.m6.s12 style="display:none;"
+                      span.card-title style="margin-top:1rem;font-size:20px;" Default HMMs
+                      - @default_hmms.each do |hmm_file|
+                        p: label
+                          - fname = hmm_file.basename('.hmm')
+                          input type="checkbox" checked="" name="default_hmm[]" value="#{fname}"
+                          span #{NpSearchHmmApp::HiddenMarkovModels.parse_name(fname)}
+                    #custom_hmms_options.col.m6.s12 style="display:none;"
+                      span.card-title style="margin-top:1rem;font-size:20px;" Custom HMMs
+                      - if @custom_hmms.nil?
+                        - if session[:user].nil?
+                          p
+                            | Please 
+                            span.login_button.blue-text style="cursor:pointer" login 
+                            | to access your custom HMMs.
+                        - else
+                          p
+                            | No HMMs are found associated with your account. You can create custom HMMs 
+                            a href="/hmm/new" here
+                            | .
+
+                      - else
+                        - @custom_hmms.each do |hmm_file|
+                          p: label
+                            - fname = hmm_file.basename('.hmm')
+                            input type="checkbox" checked="" name="custom_hmm[]" value="#{fname}"
+                            span #{NpSearchHmmApp::HiddenMarkovModels.parse_name(fname)}
+
           .clearfix
           button#submit_btn.btn-large.waves-effect.waves-light.right value="input" type="submit"
             | Submit

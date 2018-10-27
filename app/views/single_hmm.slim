@@ -17,9 +17,10 @@ section.single_hmm
               td  #{@model[:model_length]} amino acids
               td  #{@model[:date_generated]}
       .row
-        a.btn.btn-small.waves-effect.waves-light.download_btns href="#{@model[:file_link][:fasta]}" download=""
-          i.fas.fa-arrow-to-bottom
-          | &nbsp;Fasta Sequence
+        - if !@model[:path][:fasta].nil?
+          a.btn.btn-small.waves-effect.waves-light.download_btns href="#{@model[:file_link][:fasta]}" download=""
+            i.fas.fa-arrow-to-bottom
+            | &nbsp;Fasta Sequence
         a.btn.btn-small.waves-effect.waves-light.download_btns href="#{@model[:file_link][:alignment]}" download=""
           i.fas.fa-arrow-to-bottom
           | &nbsp;Sequence Alignment

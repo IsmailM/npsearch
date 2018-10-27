@@ -50,11 +50,14 @@ module NpSearchHmmApp
 
       set :root, -> { Pathname.new(__dir__).dirname.dirname + 'app' }
 
+      set :assets_precompile, %w[app.js app.css *.png *.jpg *.svg *.eot *.ttf
+                                 *.woff *.woff2 *.gif]
       set :assets_protocol, :relative
       set :assets_css_compressor, :sass
       set :assets_js_compressor, :uglifier
       set :assets_paths, [File.join(root, 'assets/stylesheets'),
-                          File.join(root, 'assets/javascripts')]
+                          File.join(root, 'assets/javascripts'),
+                          File.join(root, 'assets/img')]
       register Sinatra::AssetPipeline
     end
 
@@ -79,6 +82,13 @@ module NpSearchHmmApp
 
     get '/analyse' do
       @max_characters = NpSearchHmmApp.config[:max_characters]
+      @default_hmms = Pathname.new(NpSearchHmmApp.data_dir + 'hmm')
+                              .glob('*.hmm')
+      unless session[:user].nil?
+        email = session[:user].info['email']
+        @custom_hmms = Pathname.new(NpSearchHmmApp.users_dir + email + 'hmms' +
+                                    'hmm').glob('*.hmm')
+      end
       slim :search, layout: :app_layout
     end
 
@@ -182,11 +192,10 @@ module NpSearchHmmApp
     post '/api/hmm/new' do
       redirect to('auth/google_oauth2') if session[:user].nil?
       user = session[:user].info['email']
-      @hmm_results = HiddenMarkovModels.add_new(params, user, request.path)
-      { success: true }.to_json
-      # slim :results, layout: false
+      @hmm_results = HiddenMarkovModels.add_new(params, user)
+      # { success: true }.to_json
+      redirect '/my_hmms'
     end
-
 
     # Create a share link for a result page
     post '/sh/:encoded_email/:time' do
@@ -218,10 +227,6 @@ module NpSearchHmmApp
       end
     end
 
-    before '/auth/:provider/callback' do
-      puts env.to_s
-    end
-
     get '/auth/:provider/callback' do
       content_type 'text/plain'
       session[:user] = env['omniauth.auth']
@@ -236,6 +241,10 @@ module NpSearchHmmApp
       user_dir = NpSearchHmmApp.users_dir + session[:user].info['email']
       FileUtils.mkdir(user_dir) unless user_dir.exist?
       env['omniauth.auth'].to_json
+    end
+
+    get '/login' do
+      redirect '/auth/google_oauth2'
     end
 
     get '/logout' do

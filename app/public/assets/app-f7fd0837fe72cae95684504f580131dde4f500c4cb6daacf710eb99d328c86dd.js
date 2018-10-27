@@ -571,7 +571,6 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     spinner_elem = document.getElementById("spinner_model");
     var spinner_modal = M.Modal.getInstance(spinner_elem);
     spinner_modal.close();
-
   };
 
   NS.initResultElem = function () {
@@ -715,6 +714,58 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     });
   };
 
+  NS.initNewHMMForm = function () {
+    NS.setUpValidatorDefaults();
+    $('#create_new_hmm').validate({
+      rules: {
+        seq: {
+          required: function () {
+            return $('textarea[name=seq]').is(':visible');
+          },
+        },
+        input_file: {
+          required: function () {
+            return $('textarea[name=input_file]').is(':visible');
+          }
+        }
+      },
+
+      submitHandler: function () {
+        spinner_elem = document.getElementById("spinner_model");
+        var spinner_modal = M.Modal.getInstance(spinner_elem);
+        spinner_modal.open();
+
+        // Check if some files are still running
+        if (NS.fineUploader.getInProgress() !== 0) {
+          $('.validation_text').text('Please wait until all the files have completely uploaded.');
+          return false;
+        }
+        $('.validation_text').text('');
+
+        var formData = $("#create_new_hmm").serializeArray();
+        formData.push({
+          name: "files",
+          value: JSON.stringify(NS.fineUploader.getUploads())
+        });
+
+        $.ajax({
+          type: 'POST',
+          url: $('#create_new_hmm').attr('action'),
+          data: formData,
+          success: function (response) {
+            console.log(response);
+            spinner_elem = document.getElementById("spinner_model");
+            var spinner_modal = M.Modal.getInstance(spinner_elem);
+            spinner_modal.close();
+          },
+          error: function (e, status) {
+            NS.ajaxErrorFunction(e, status);
+          }
+        })
+      }
+    });
+  }
+
   NS.setupGoogleAuthentication = function () {
     gapi.auth.authorize({
       immediate: true,
@@ -819,10 +870,10 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     });
 
     $('#' + tableWrapperId).on('click', '.search-toggle', function () {
-      if ($('.hiddensearch').css('display') == 'none') {
-        $('.hiddensearch').slideDown();
+      if ($('#' + tableWrapperId + ' .hiddensearch').css('display') == 'none') {
+        $('#' + tableWrapperId + ' .hiddensearch').slideDown();
       } else {
-        $('.hiddensearch').slideUp();
+        $('#' + tableWrapperId + ' .hiddensearch').slideUp();
       }
     });
   };

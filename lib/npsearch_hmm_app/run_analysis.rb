@@ -154,10 +154,26 @@ module NpSearchHmmApp
           input: file,
           num_threads: config[:num_threads],
           evalue: @params[:evalue],
-          hmm_models_dir: [NpSearchHmmApp.data_dir + 'hmm'],
+          hmm_models_dir: hmm_models_dirs,
+          filter_hmm_list: hmm_model_files,
           signalp_path: @params[:signalp] == 'on' ? config[:signalp_path] : nil,
           deep_analysis: @params[:deep_hmm] == 'on' ? true : nil
         }
+      end
+
+      def hmm_models_dirs
+        dir = NpSearchHmmApp.data_dir + 'hmm'
+        if @email == 'npsearch'
+          [dir]
+        else
+          user_hmm_dir = NpSearchHmmApp.users_dir + @email + 'hmms' + 'hmm'
+          [dir, user_hmm_dir]
+        end
+      end
+
+      def hmm_model_files
+        return nil if @params[:all_hmms] == 'on'
+        [@params[:default_hmm], @params[:custom_hmm]].flatten
       end
 
       def create_log_file

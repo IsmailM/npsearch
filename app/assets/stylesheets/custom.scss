@@ -605,21 +605,17 @@ kbd {
 }
 
 .hiddendiv {
-  width: initial !important;
+  max-height: 40vh !important;
+  overflow: hidden;
 }
 
-
-
-
-.material-table {
-  td {
-    text-align: center;
-  }
-}
 
 .material-table {
   padding: 0;
 
+  td {
+    text-align: center;
+  }
   .hiddensearch {
     padding: 0 14px 0 24px;
     border-bottom: solid 1px #DDDDDD;
@@ -668,6 +664,7 @@ kbd {
       cursor: pointer;
       white-space: nowrap;
       padding: 0;
+      padding-left: 10px;
       height: 56px;
       vertical-align: middle;
       outline: none !important;
@@ -878,9 +875,16 @@ kbd {
 }
 #default_hmm_models-table {
   th:first-child:after {
+    // hide sorting icons
     display:none;
   }
 }
+#default_hmm_models-table, #custom_hmm_models-table {
+  th {
+    white-space: normal;
+  }
+}
+
 
 .single_hmm {
   .card-content{

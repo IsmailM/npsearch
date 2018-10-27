@@ -18,7 +18,7 @@
                 .collapsible-header
                   - formated_full_seq_e_value = NpHMMer::HighlightSequence.format_evalue(data[:overall_results][:full_seq_e_value])
                   span = "Hit #{i + 1}:  "
-                  span.model_name = data[:model].gsub(/.fa$/, '').gsub('-', ' ')
+                  span.model_name = NpSearchHmmApp::HiddenMarkovModels.parse_name(data[:model])
                   span.badge.evalue == 'Sequence E-value: ' + formated_full_seq_e_value
                 .collapsible-body style=(i == 0 ? 'display:block' : '')
                   p.sequence

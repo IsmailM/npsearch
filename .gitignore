@@ -4,6 +4,7 @@
 .config
 .yardoc
 .DS_Store
+Gemfile.lock
 InstalledFiles
 _yardoc
 coverage
@@ -22,3 +23,5 @@ tmp
 mkmf.log
 .DS_Store
 .vscode
+passenger*
+

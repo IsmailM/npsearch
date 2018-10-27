@@ -2,7 +2,7 @@ section#search
   .card
     .card-content
       span.card-title  HMM Model Creation
-      form#input action="/api/hmm/new" method="POST" style="margin-top: 20px;"
+      form#create_new_hmm action="/api/hmm/new" method="POST" style="margin-top: 20px;"
         .row
           .input-field.col.l6.s12
             input placeholder="Neuropeptide Group Name" id="name" name="name" type="text"
@@ -11,47 +11,26 @@ section#search
         .row
           p
             label
-              input class="with-gap" name="unaligned" type="radio" checked=""
+              input class="with-gap" name="aligned" type="radio" value="no" checked=""
               span Upload un-aligned sequences
           p
             label
-              input class="with-gap" name="aligned" type="radio"
+              input class="with-gap" name="aligned" type="radio" value="yes"
               span Upload aligned sequences
-        .aligned
-          .row
-            ul#input_type.tabs
-              li.tab.col.s6
-                a#seq_tab.active href="#paste"  Paste Your Sequences
-              li.tab.col.s6
-                a#file_upload_tab href="#upload"  Upload a file
-          .row
-            #paste.input-field.col.s12
-              textarea#seq.materialize-textarea name="unaligned_seq" spellcheck="false" data-rule-maxcharacters="#{@max_characters}" data-rule-minlength="5" data-rule-checkInputType="true" data-msg-maxcharacters="The above input area supports up to a maximum of #{@max_characters} characters. Please use the File Upload feature if you wish to analyse more data."
-              label#seq_label for="unaligned_seq" Paste your sequences in FASTA format
-            #upload.col.s12
-              p.lead Alternatively, upload a fasta file.
-              .file_space#fine-uploader-validation
-              .validation_text.red-text style="font-size: .8rem"
-
-
-        .unaligned style="display:none;"
-
-
-          .row
-            ul#input_type.tabs
-              li.tab.col.s6
-                a#seq_tab.active href="#paste"  Paste Your Sequence Alignment
-              li.tab.col.s6
-                a#file_upload_tab href="#upload"  Upload a file
-          .row
-            #paste.input-field.col.s12
-              textarea#seq.materialize-textarea name="aligned_seq" spellcheck="false" data-rule-maxcharacters="#{@max_characters}" data-rule-minlength="5" data-rule-checkInputType="true" data-msg-maxcharacters="The above input area supports up to a maximum of #{@max_characters} characters. Please use the File Upload feature if you wish to analyse more data."
-              label#seq_label for="seq" Paste your sequence alignment in FASTA format
-            #upload.col.s12
-              p.lead Alternatively, upload a fasta file.
-              .file_space#fine-uploader-validation
-              .validation_text.red-text style="font-size: .8rem"
-
+        / .row
+          ul#input_type.tabs
+            li.tab.col.s6
+              a#seq_tab.active href="#paste"  Paste Your Sequences
+            li.tab.col.s6
+              a#file_upload_tab href="#upload"  Upload a file
+        .row
+          #paste.input-field.col.s12
+            textarea#seq.materialize-textarea name="seq" spellcheck="false" data-rule-maxcharacters="#{@max_characters}" data-rule-minlength="5" data-rule-checkInputType="true" data-msg-maxcharacters="The above input area supports up to a maximum of #{@max_characters} characters. Please use the File Upload feature if you wish to analyse more data."
+            label#seq_label for="seq" Paste your sequences in FASTA format
+          / #upload.col.s12
+            p.lead Alternatively, upload a fasta file.
+            .file_space#fine-uploader-validation
+            .validation_text.red-text style="font-size: .8rem"
         .row
           ul#adv_params_collapsible.collapsible data-collapsible="accordion" style="box-shadow: none;border: none;"
             li

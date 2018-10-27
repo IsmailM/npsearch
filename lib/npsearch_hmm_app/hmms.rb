@@ -13,17 +13,12 @@ module NpSearchHmmApp
 
       def_delegators NpSearchHmmApp, :logger, :users_dir
 
-      def add_new(params, user, path)
+      def add_new(params, user)
         init(params, user)
-        if @params[:unaligned] == 'on'
-          add_fasta_sequence
-        elsif @params[:aligned] == 'on'
-          add_alignment
-        end
+        @params[:aligned] == 'no' ? add_fasta_sequence : add_alignment
       end
 
       private
-
 
       # Setting the scene
       def init(params, user)
@@ -31,14 +26,19 @@ module NpSearchHmmApp
         params[:files] = params[:files].nil? ? [] : JSON.parse(params[:files])
         @params = JSON.parse(params.to_json, symbolize_names: true)
         uniq_time = Time.new.strftime('%Y-%m-%d_%H-%M-%S_%L-%N').to_s
-        @basename = @params[:name] + '__NpSearch__' + uniq_time
+        @basename = prettify_name(@params[:name]) + '__NpSearch__' + uniq_time
         setup_hmm_dir(user)
+      end
+
+      # remove weird characters
+      def prettify_name(name)
+        name.gsub(%r{[^ a-zA-Z1-9\/-]}, '').gsub(' / ', '_').tr(' ', '-')
       end
 
       def setup_hmm_dir(user)
         hmms_dir = users_dir + user + 'hmms'
         @hmm_dir = hmms_dir + 'hmm'
-        @alignments_dir = hmms_dir + 'alignment'
+        @alignments_dir = hmms_dir + 'alignments'
         @raw_data_dir = hmms_dir + 'raw_data'
         return if @hmm_dir.exist?
         FileUtils.mkdir_p(@hmm_dir)
@@ -49,20 +49,19 @@ module NpSearchHmmApp
       def add_fasta_sequence
         in_file = @raw_data_dir + "#{@basename}.fa"
         @params[:files].empty? ? write_seqs(in_file) : move_uploaded(in_file)
-        # run_alignment
-        # run_hmm
+        run_alignment
+        run_hmm
       end
 
       def add_alignment
-        in_file = @raw_data_dir + "#{@basename}.aligned.fa"
+        in_file = @alignments_dir + "#{@basename}.aligned.fa"
         @params[:files].empty? ? write_seqs(in_file) : move_uploaded(in_file)
-        # run_hmm
+        run_hmm
       end
 
       def write_seqs(file)
-        data = @params[:unaligned] == 'on' ? :unaligned_seq : :aligned_seq
         logger.debug("Writing input seqs to: '#{file}'")
-        File.open(file, 'w+') { |f| f.write(@params[data]) }
+        File.open(file, 'w+') { |f| f.write(@params[:seq]) }
         return if file.exist?
         raise 'NpSearchHmmApp was unable to create the input file.'
       end
@@ -77,6 +76,17 @@ module NpSearchHmmApp
         end
       end
 
+      def run_alignment
+        in_file = @raw_data_dir + "#{@basename}.fa"
+        out_file = @alignments_dir + "#{@basename}.aligned.fa"
+        NpHMMer::Hmmer::Generate.run_mafft(in_file, out_file, 4)
+      end
+
+      def run_hmm
+        in_file = @alignments_dir + "#{@basename}.aligned.fa"
+        out_file = @hmm_dir + "#{@basename}.hmm"
+        NpHMMer::Hmmer::Generate.run_hmm_build(in_file, out_file, 4)
+      end
     end
   end
 end

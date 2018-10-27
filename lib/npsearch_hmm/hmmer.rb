@@ -20,8 +20,10 @@ module NpHMMer
         hmm_dir = opt[:hmm_models_dir] unless opt[:hmm_models_dir].nil?
         hmm_dir.each do |dir|
           Dir.foreach(dir) do |h|
+            next unless h.end_with? 'hmm'
+            next if in_filter_list(h)
             hmm_file = File.join(dir, h)
-            hmm_search(hmm_file) if hmm_file =~ /hmm$/
+            hmm_search(hmm_file)
           end
         end
       end
@@ -36,6 +38,13 @@ module NpHMMer
       end
 
       private
+
+      def in_filter_list(hmm_file)
+        return false if opt[:filter_hmm_list].nil?
+        fname = File.basename(hmm_file, '.hmm')
+        return false if opt[:filter_hmm_list].include? fname
+        true
+      end
 
       def hmm_search(hmm_file)
         output = File.join(opt[:temp_dir], 'nphmmer.hmm_search.out')
@@ -58,19 +67,17 @@ module NpHMMer
                                        "#{file.gsub(/fa(sta)?$/, '')}aligned")
             hmm_model_file = File.join(opt[:generate_hmms], '../hmm',
                                        "#{file.gsub(/fa(sta)?$/, '')}hmm")
-            mafft(np_fasta_file, aligned_file, opt[:num_threads])
-            hmm_build(aligned_file, hmm_model_file, opt[:num_threads])
+            run_mafft(np_fasta_file, aligned_file, opt[:num_threads])
+            run_hmm_build(aligned_file, hmm_model_file, opt[:num_threads])
           end
         end
 
-        private
-
-        def mafft(input, aligned_file, num_threads)
+        def run_mafft(input, aligned_file, num_threads)
           `mafft --maxiterate 1000 --quiet --thread #{num_threads} --quiet  \
           '#{input}' > '#{aligned_file}'`
         end
 
-        def hmm_build(aligned_file, hmm_model_file, num_threads)
+        def run_hmm_build(aligned_file, hmm_model_file, num_threads)
           `hmmbuild --cpu #{num_threads} '#{hmm_model_file}' '#{aligned_file}'`
         end
       end

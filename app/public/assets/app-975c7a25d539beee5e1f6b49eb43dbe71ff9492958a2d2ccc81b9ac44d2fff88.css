@@ -5,6 +5,8 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 html {
   line-height: 1.15;
   /* 1 */
@@ -6925,7 +6927,7 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
   margin-right: 12px;
   display: inline;
   display: inline-block;
-  background: url(/img/fine-uploader/loading.gif);
+  background: "/assets/fine-uploader/loading-25a0be082d625832631400bfb4541a565d989ca1d86809c640412bfc9a224c83.gif";
   width: 15px;
   height: 15px;
   vertical-align: text-bottom; }
@@ -6946,7 +6948,7 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
 
 .qq-drop-processing-spinner {
   display: inline-block;
-  background: url(/img/fine-uploader/processing.gif);
+  background: "/assets/fine-uploader/processing-c3518213f72e691ac42e6fd374ba49d7504f9c4b8fc48b5b4c8fcf7e414efcb2.gif";
   width: 24px;
   height: 24px;
   vertical-align: text-bottom; }
@@ -6982,7 +6984,7 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
 
 .qq-edit-filename-icon {
   display: none;
-  background: url(/img/fine-uploader/edit.gif);
+  background: "/assets/fine-uploader/edit-afcbce2dc4f1bdafccefbefe88fb50d09c6eeaa351673481e5aa5412df457fd0.gif";
   width: 15px;
   height: 15px;
   vertical-align: text-bottom;

@@ -19,7 +19,7 @@ module NpSearchHmmApp
       end
 
       def custom_hmms(email)
-        hmm_path = NpSearchHmmApp.users_dir + email + 'hmm'
+        hmm_path = NpSearchHmmApp.users_dir + email + 'hmms' + 'hmm'
         generate_hmm_hash(hmm_path, 'custom')
       end
 
@@ -27,10 +27,19 @@ module NpSearchHmmApp
         path = if params[:type] == 'default'
                  NpSearchHmmApp.data_dir + 'hmm'
                else
-                 NpSearchHmmApp.users_dir + email + 'hmm'
+                 NpSearchHmmApp.users_dir + email + 'hmms' + 'hmm'
                end
         file_path = path + "#{params[:model_name]}.hmm"
         parse_single_file(file_path, params[:type])
+      end
+
+      def parse_name(basename)
+        basename = basename.to_s
+        if basename.match? '__NpSearch__'
+          basename = basename.split('__NpSearch__').first
+        end
+        basename.gsub('_', ' / ').tr('-', ' ')
+                .gsub(/.aligned.fa$/, '').gsub(/.fa$/, '')
       end
 
       private
@@ -44,15 +53,13 @@ module NpSearchHmmApp
         data = parse_hmm_header(file)
         basename = file.basename('.hmm').to_s
         paths = file_paths(file)
-        alignment = parse_alignment_file(paths[:alignment])
-        generate_single_hmm_hash(data, basename, paths, type, alignment)
+        generate_single_hmm_hash(data, basename, paths, type)
       end
 
-      def generate_single_hmm_hash(data, basename, paths, type, alignment)
+      def generate_single_hmm_hash(data, basename, paths, type)
         {
           original_name: basename, path: paths, type: type,
-          name: basename.gsub('_', ' / ').tr('-', ' '),
-          alignment_sequences: alignment,
+          name: parse_name(basename),
           Nsequences: data['NSEQ'].nil? ? '-' : data['NSEQ'].to_i,
           model_length: data['LENG'].nil? ? 0 : data['LENG'].to_i,
           date_generated: data['DATE'].nil? ? '-' : data['DATE'],
@@ -77,11 +84,6 @@ module NpSearchHmmApp
 
       def parse_hmm_header(file)
         IO.foreach(file).first(13).map { |e| e.chomp.split(' ', 2) }.to_h
-      end
-
-      def parse_alignment_file(alignment_file)
-        return unless alignment_file.exist?
-        File.read(alignment_file)
       end
     end
   end
