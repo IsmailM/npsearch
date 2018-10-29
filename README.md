@@ -53,6 +53,9 @@ gem install bundler
 # Use bundler to install dependencies
 bundle install
 
+# precompile assets
+bundle exec rake assets:precompile
+
 # Run NpSearch.
 bundle exec npsearch app -h
 # To use Google Login - there are further steps to take on the Gooogle Admin dashboard to get API keys..

@@ -749,9 +749,6 @@ kbd {
     td:nth-child(5) {
       text-align: right;
     }
-
-
-
   }
 
   .table-header {
@@ -772,6 +769,8 @@ kbd {
     .btn-flat {
       min-width: 36px;
       padding: 0 8px;
+      background-color: #eee;
+      margin-left: 10px;
     }
 
     input {
