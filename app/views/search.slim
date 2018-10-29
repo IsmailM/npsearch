@@ -11,10 +11,10 @@ section#search
               li.tab.col.s6
                 a#file_upload_tab href="#upload"  Upload a file
           .row
-            #paste.input-field.col.s12
+            #paste.input-field.col.s12 style="display: block;"
               textarea#seq.materialize-textarea name="seq" spellcheck="false" data-rule-maxcharacters="#{@max_characters}" data-rule-minlength="5" data-rule-checkInputType="true" data-msg-maxcharacters="The above input area supports up to a maximum of #{@max_characters} characters. Please use the File Upload feature if you wish to analyse more data."
               label#seq_label for="seq" Paste your sequences here
-            #upload.col.s12
+            #upload.col.s12 style="display: none;"
               p.lead Alternatively, upload a fasta file.
               .file_space#fine-uploader-validation
               .validation_text.red-text style="font-size: .8rem"

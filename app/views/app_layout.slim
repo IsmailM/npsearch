@@ -66,35 +66,28 @@ html lang='en'
                   | Login
 
       ul#side_menu.sidenav
-        li
-          a href="/analyse"  Analyse
-        li
-          a href="/my_results"  My Results
-        li
-          - if ! session[:user].nil?
-            a href="/logout"  Logout
-          - else
-            a.login_button  Login
-        li
-          a.modal-trigger href="/faq"  FAQ
-        li
-          a href="mailto:ismail.moghul@gmail.com?Subject=NpSearch%20Feedback"  Contact
-
+        li: a href="/analyse"  Analyse
+        li: a href="/my_hmms"  My HMMs
+        li: a href="/my_results"  My Results
+        li: a.modal-trigger href="/faq"  FAQ
+        li: a href="mailto:ismail.moghul@gmail.com?Subject=NpSearch%20Feedback"  Contact
+        - if ! session[:user].nil?
+          li: a href="/logout"  Logout
+        - else
+          li: a.login_button  Login
 
       ==yield
 
-      /! Dropdown Structure
       ul#user_menu_dropdown.dropdown-content.collection
         li.collection-item.avatar onclick="location.href='/faq';"
-          i.material-icons.circle  live_help
+          i.material-icons.circle.light-blue.darken-3  live_help
           span.title FAQs
         li.collection-item.avatar
-          i.material-icons.circle  feedback
+          i.material-icons.circle.light-blue.darken-3  feedback
           span.title Feedback
         li#logout.collection-item.avatar onclick="location.href='/logout';"
-          i.material-icons.circle  power_settings_new
+          i.material-icons.circle.light-blue.darken-3  power_settings_new
           span.title Log Out
-
 
       #spinner_model.modal
         .modal-content
@@ -203,7 +196,6 @@ html lang='en'
       NS.USING_SLL = "#{NpSearchHmmApp.ssl?}"
       NS.initMaterialize();
       NS.addUserDropDown();
-
     - if request.path_info =~ %r{^/analyse}
       javascript:
         $(function() {
@@ -214,7 +206,7 @@ html lang='en'
           NS.initFineUploader();
           NS.initAdvancedParams();
         });
-    - if request.path_info =~ %r{^/hmm/new}
+    - elsif request.path_info =~ %r{^/hmm/new}
       javascript:
         $(function() {
           NS.initSearchTabs();
@@ -223,7 +215,7 @@ html lang='en'
           NS.initFineUploader();
         });
 
-    - if request.path_info =~ %r{^/result/} || request.path_info =~ %r{^/sh/}
+    - elsif request.path_info =~ %r{^/result/} || request.path_info =~ %r{^/sh/}
       javascript:
         $(function() {
           spinner_elem = document.getElementById("spinner_model");
@@ -242,7 +234,7 @@ html lang='en'
             }
           })
         });
-    - if request.path_info =~ %r{^/my_hmms}
+    - elsif request.path_info =~ %r{^/my_hmms}
       javascript:
         $(function() {
           NS.initializeHmmTable('custom_hmm_models-table', 'custom_hmm_models-table-wrapper')
