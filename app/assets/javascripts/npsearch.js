@@ -120,6 +120,7 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
   };
 
   NS.initValidation = function () {
+  if ($("#input").length == 0) return;
     NS.setUpValidatorDefaults();
     $('#input').validate({
       rules: {
@@ -218,6 +219,11 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
   };
 
   NS.initFineUploader = function () {
+    if ($("#fine-uploader-validation").length == 0) return;
+    if (NS.fineUploader != null) {
+      NS.fineUploader.reset()
+      $('#fine-uploader-validation').empty();
+    }
     NS.fineUploader = new qq.FineUploader({
       element: $('#fine-uploader-validation')[0],
       template: 'qq-template-validation',
@@ -258,38 +264,45 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
   };
 
   NS.initShowExampleButton = function () {
-    $('#np_example').on('click', function () {
-      $('#seq').focus();
-      $('#seq_label').addClass('active');
-      $('#seq').val(NS.fasta);
-      $('#seq').valid();
-      M.textareaAutoResize($('#seq'));
-    });
+    if ($("#np_example").length == 0) return;
+    if (NP.npexample_click !== true) {
+      $(document).on('click', '#np_example', function () {
+        $('#seq').focus();
+        $('#seq_label').addClass('active');
+        $('#seq').val(NS.fasta);
+        $('#seq').valid();
+        M.textareaAutoResize($('#seq'));
+      });
+      NP.npexample_click = true;
+    }
   };
 
   NS.initSearchTabs = function () {
-    var adv_params = document.getElementById('adv_params_collapsible');
-    M.Collapsible.init(adv_params, {
-      onOpenStart: function (e) {
-        var btn = e.getElementsByClassName("collapsible-header")[0];
-        btn.innerHTML = 'Hide Advanced Parameters';
-      },
-      onCloseStart: function (e) {
-        var btn = e.getElementsByClassName("collapsible-header")[0];
-        btn.innerHTML = 'Show Advanced Parameters';
-      }
-    });
-
-    var input_tabs = M.Tabs.init(document.getElementById("input_type"), {
-      onShow: function () {
-        if ($(this)[0].index == 0) {
-          $('.show_examples_text').show();
-        } else {
-          $('.show_examples_text').hide();
+    var adv_params_collapsible = document.getElementById('adv_params_collapsible');
+    if (adv_params_collapsible) {
+      M.Collapsible.init(adv_params_collapsible, {
+        onOpenStart: function (e) {
+          var btn = e.getElementsByClassName("collapsible-header")[0];
+          btn.innerHTML = 'Hide Advanced Parameters';
+        },
+        onCloseStart: function (e) {
+          var btn = e.getElementsByClassName("collapsible-header")[0];
+          btn.innerHTML = 'Show Advanced Parameters';
         }
-      }
-    });
-    input_tabs.select('paste');
+      });
+    }
+    var tab_elem = document.getElementById("input_type")
+    if (tab_elem) {
+      M.Tabs.init(tab_elem, {
+        onShow: function () {
+          if ($(this)[0].index == 0) {
+            $('.show_examples_text').show();
+          } else {
+            $('.show_examples_text').hide();
+          }
+        }
+      });
+    }
   };
 
   NS.initSearchModal = function () {
@@ -299,18 +312,15 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
   };
 
   NS.initAdvancedParams = function () {
-    var all = document.getElementById("all_hmm");
-    all.addEventListener("change", function () {
-      var x = document.getElementById("default_hmms_options");
-      var y = document.getElementById("custom_hmms_options");
-      if (all.checked) {
-        x.style.display = "none";
-        if (y) y.style.display = "none";
+    $(document).on('change', '#all_hmm', function() {
+      if ($('#all_hmm').is(':checked')){
+        $('#default_hmms_options').hide()
+        $('#custom_hmms_options').hide()
       } else {
-        x.style.display = "block";
-        if (y) y.style.display = "block";
+        $('#default_hmms_options').show()
+        $('#custom_hmms_options').show()
       }
-     });
+    });
  };
 
   NS.initMaterialize = function () {
@@ -390,53 +400,6 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     });
   }
 
-  NS.setupGoogleAuthentication = function () {
-    gapi.auth.authorize({
-      immediate: true,
-      response_type: "code",
-      cookie_policy: "single_host_origin",
-      client_id: NS.CLIENT_ID,
-      scope: "email"
-    });
-    $(".login_button").on("click", function (e) {
-      e.preventDefault();
-      /** global: gapi */
-      gapi.auth.authorize({
-          immediate: false,
-          response_type: "code",
-          cookie_policy: "single_host_origin",
-          client_id: NS.CLIENT_ID,
-          scope: "email"
-        },
-        function (response) {
-          if (response && !response.error) {
-            // google authentication succeed, now post data to server.
-            jQuery.ajax({
-              type: "POST",
-              url: "/auth/google_oauth2/callback",
-              data: response,
-              success: function () {
-                // TODO - just update the DOM instead of a redirect to self
-                $(location).attr("href", window.location.href);
-              }
-            });
-          } else {
-            console.log("ERROR Response google authentication failed");
-            // TODO: ERROR Response google authentication failed
-          }
-        }
-      );
-    });
-  };
-
-  NS.protocol = function () {
-    if (NS.USING_SLL === "true") {
-      return "https://";
-    } else {
-      return "http://";
-    }
-  };
-
   // FROM BIONODE-Seq - See https://github.com/bionode/bionode-seq
   // Checks whether a sequence is a protein or dna sequence...
   NS.checkType = function (sequence, threshold, length, index) {
@@ -477,6 +440,7 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
 
   NS.initializeHmmTable = function (tableId, tableWrapperId) {
     $('#' + tableId).dataTable({
+      bDestroy: true,
       "oLanguage": {
         "sStripClasses": "",
         "sSearch": "",
@@ -492,28 +456,122 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
           '</select></div>'
       },
     });
+    if (NS[tableWrapperId + '_search'] !== true){
+      $(document).on('click', '#' + tableWrapperId + ' .search-toggle', function () {
+        if ($('#' + tableWrapperId + ' .hiddensearch').css('display') == 'none') {
+          $('#' + tableWrapperId + ' .hiddensearch').slideDown();
+        } else {
+          $('#' + tableWrapperId + ' .hiddensearch').slideUp();
+        }
+      });
+      NS[tableWrapperId + '_search'] = true
+    }
+  };
 
-    $('#' + tableWrapperId).on('click', '.search-toggle', function () {
-      if ($('#' + tableWrapperId + ' .hiddensearch').css('display') == 'none') {
-        $('#' + tableWrapperId + ' .hiddensearch').slideDown();
-      } else {
-        $('#' + tableWrapperId + ' .hiddensearch').slideUp();
+  NS.protocol = function () {
+    if (NS.USING_SLL === "true") {
+      return "https://";
+    } else {
+      return "http://";
+    }
+  };
+
+  NS.addLoginOnClick = function () {
+    $(document).on("click", '.login_button', function (e) {
+      console.log('click')
+      e.preventDefault();
+      /** global: gapi */
+      gapi.auth.authorize({
+        immediate: false,
+        response_type: 'code',
+        cookie_policy: 'single_host_origin',
+        client_id: NS.CLIENT_ID,
+        scope: "email"
+      }, function (response) {
+        if (response && !response.error) {
+          // google authentication succeed, now post data to server.
+          jQuery.ajax({
+            type: "POST",
+            url: "/auth/google_oauth2/callback",
+            data: response,
+            success: function () {
+              // TODO - just update the DOM instead of a redirect to self
+              $(location).attr("href", window.location.href);
+            }
+          });
+        } else {
+          console.log("ERROR Response google authentication failed");
+          // TODO: ERROR Response google authentication failed
+        }
+      });
+    });
+  };
+
+  NS.saveGoogleFrame = function () {
+    return NS.google_frame = $('iframe[id^="ssIFrame_google"]').detach();
+  }
+
+  NS.restoreGoogleFrame = function () {
+    if ($('iframe[id^="ssIFrame_google"]').length > 0) {
+      return $('iframe[id^="ssIFrame_google"]').replaceWith(NS.google_frame);
+    } else {
+      return $('body').append(NS.google_frame);
+    }
+  }
+
+  NS.load_single_result = function () {
+    var path = window.location.pathname
+    if (!(path.startsWith('/result/') || path.startsWith('/sh/'))) return;
+    spinner_elem = document.getElementById("spinner_model");
+    M.Modal.init(spinner_elem, { dismissible: false });
+    $('#spinner_model h2').text('Loading...');
+    var spinner_modal = M.Modal.getInstance(spinner_elem);
+    spinner_modal.open();
+    $.ajax({
+      type: 'POST',
+      url: path,
+      success: function (response) {
+        NS.ajaxSuccessFunction(response);
+      },
+      error: function (e, status) {
+        NS.ajaxErrorFunction(e, status);
       }
     });
   };
+
+  NS.initAlignment = function (url, numSequences) {
+    var seqs_length = parseInt(numSequences)
+    if (seqs_length > 50) {
+      max_height = 50 * 15;
+    } else {
+      max_height = seqs_length * 15;
+    }
+    var msa_alignment = msa({
+      el: document.getElementById("msa"),
+      importURL: url,
+      zoomer: {
+        alignmentHeight: max_height
+      },
+      vis: {
+        conserv: true,
+        seqlogo: true,
+      }
+    });
+    msa_alignment.render();
+  }
 }());
 
-
-(function ($) {
-  $(function () {
-    return $.ajax({
-      url: "https://apis.google.com/js/client:plus.js?onload=gpAsyncInit",
-      dataType: "script",
-      cache: true
-    });
+window.gpAsyncInit = function () {
+  if (NS.google_events_bound === true) return;
+  gapi.auth.authorize({
+    immediate: true,
+    response_type: 'code',
+    cookie_policy: 'single_host_origin',
+    client_id: NS.CLIENT_ID,
+    scope: 'email'
   });
-
-  window.gpAsyncInit = function () {
-    NS.setupGoogleAuthentication();
-  };
-})(jQuery);
+  NS.addLoginOnClick();
+  $(document).on('turbolinks:before-visit', NS.saveGoogleFrame)
+             .on('turbolinks:render', NS.restoreGoogleFrame);
+  NS.google_events_bound = true;
+};

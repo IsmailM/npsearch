@@ -16,7 +16,7 @@ html lang='en'
     link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro|Material+Icons'
 
     script src="https://pro.fontawesome.com/releases/v5.4.1/js/all.js" integrity="sha384-0+tugznPwCEvPiypW+OwmFjAQvRKlgI0ZZZW3nofNlLMmbYXbmNvfX/9up9XQSRs" crossorigin="anonymous" defer=""
-
+    script src="https://apis.google.com/js/client:plus.js?onload=gpAsyncInit" defer="" parsetags="explicit"
     == stylesheet_tag 'app'
     == javascript_tag 'app'
 
@@ -152,7 +152,7 @@ html lang='en'
         br
         a href='#'  NpSearch-HMM Web Application 
         | v#{NpSearch::VERSION}
-    - if request.path_info =~ %r{^/analyse} || request.path_info =~ %r{^/hmm/new}
+    - if request.path_info =~ %r{^/analyse}
       script#qq-template-validation type="text/template"
         .qq-uploader-selector.qq-uploader qq-drop-area-text=("Drop files here")
           .qq-total-progress-bar-container-selector.qq-total-progress-bar-container
@@ -194,11 +194,13 @@ html lang='en'
     javascript:
       NS.CLIENT_ID = "#{ENV['GOOGLE_KEY']}"
       NS.USING_SLL = "#{NpSearchHmmApp.ssl?}"
-      NS.initMaterialize();
-      NS.addUserDropDown();
+      document.addEventListener("turbolinks:load", function () {
+        NS.initMaterialize();
+        NS.addUserDropDown();
+      });
     - if request.path_info =~ %r{^/analyse}
       javascript:
-        $(function() {
+        document.addEventListener("turbolinks:load", function () {
           NS.initSearchTabs();
           NS.initSearchModal();
           NS.initValidation();
@@ -208,35 +210,24 @@ html lang='en'
         });
     - elsif request.path_info =~ %r{^/hmm/new}
       javascript:
-        $(function() {
+        document.addEventListener("turbolinks:load", function () {
           NS.initSearchTabs();
           NS.initSearchModal();
           NS.initShowExampleButton();
-          NS.initFineUploader();
         });
-
     - elsif request.path_info =~ %r{^/result/} || request.path_info =~ %r{^/sh/}
       javascript:
-        $(function() {
-          spinner_elem = document.getElementById("spinner_model");
-          M.Modal.init(spinner_elem, {dismissible: false});
-          var spinner_modal = M.Modal.getInstance(spinner_elem);
-          $('#spinner_model h2').text('Loading...');
-          spinner_modal.open();
-          $.ajax({
-            type: 'POST',
-            url: window.location.pathname,
-            success: function (response) {
-              NS.ajaxSuccessFunction(response);
-            },
-            error: function (e, status) {
-              NS.ajaxErrorFunction(e, status);
-            }
-          })
+        document.addEventListener("turbolinks:load", function () {
+          NS.load_single_result();
         });
     - elsif request.path_info =~ %r{^/my_hmms}
       javascript:
-        $(function() {
+        document.addEventListener("turbolinks:load", function () {
           NS.initializeHmmTable('custom_hmm_models-table', 'custom_hmm_models-table-wrapper')
           NS.initializeHmmTable('default_hmm_models-table', 'default_hmm_models-table-wrapper')
+        });
+    - elsif request.path_info =~ %r{^/hmms/}
+      javascript:
+        document.addEventListener("turbolinks:load", function () {
+          NS.initAlignment("#{@model[:file_link][:alignment]}", "#{@model[:Nsequences]}")
         });

@@ -30,29 +30,3 @@ section.single_hmm
       .row
         span.card-title  Sequence Alignment
         #msa  Loading Multiple Alignment...
-
-javascript:
-  $(document).ready(function(){
-    var seqs_length = parseInt("#{@model[:Nsequences]}")
-    if (seqs_length > 50) {
-      max_height = 50 * 15;
-    } else {
-      max_height = seqs_length * 15;
-    }
-    console.log(seqs_length)
-    console.log(max_height)
-
-    var m = msa({
-      el: document.getElementById("msa"),
-      importURL: "#{@model[:file_link][:alignment]}",
-      zoomer: {
-        alignmentHeight: max_height
-      },
-      vis: {
-        conserv: true,
-        seqlogo: true,
-
-      }
-    });
-    m.render();
-  })
