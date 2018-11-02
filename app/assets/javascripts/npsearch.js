@@ -265,7 +265,7 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
 
   NS.initShowExampleButton = function () {
     if ($("#np_example").length == 0) return;
-    if (NP.npexample_click !== true) {
+    if (NS.npexample_click !== true) {
       $(document).on('click', '#np_example', function () {
         $('#seq').focus();
         $('#seq_label').addClass('active');
@@ -273,7 +273,7 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
         $('#seq').valid();
         M.textareaAutoResize($('#seq'));
       });
-      NP.npexample_click = true;
+      NS.npexample_click = true;
     }
   };
 
