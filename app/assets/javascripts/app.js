@@ -28,6 +28,7 @@ if (Turbolinks.supported) {
 
 document.addEventListener('turbolinks:before-cache', function () {
   M.Modal._count = 0;
+  M.updateTextFields();
   //  Reset Datatables
   dataTable = $($.fn.dataTable.tables(true)).DataTable();
   if (dataTable != null) {
