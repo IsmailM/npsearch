@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.2.0'
+  spec.required_ruby_version = '>= 2.5.0'
 
   # spec.add_development_dependency 'bundler', '~> 1.6'
   spec.add_development_dependency 'capybara', '~> 2.4', '>= 2.4.4'
@@ -33,15 +33,14 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'awesome_print', '~>1.8'
   spec.add_dependency 'bio', '~> 1.5'
-  spec.add_dependency 'oj', '~>3.6'
+  spec.add_dependency 'oj', '~>3.7'
   spec.add_dependency 'omniauth', '~>1.8'
   spec.add_dependency 'omniauth-google-oauth2', '~>0.5'
-  spec.add_dependency 'passenger', '~>5.3'
-  spec.add_dependency 'pry', '~>0.11'
-  spec.add_dependency 'sinatra', '~> 2'
+  spec.add_dependency 'passenger', '~>6.0'
+  spec.add_dependency 'pry', '~>0.12'
+  spec.add_dependency 'sinatra', '~> 2.0'
   spec.add_dependency 'sinatra-asset-pipeline', '2.2'
   spec.add_dependency 'slim', '~> 4.0'
-  spec.add_dependency 'slop', '~> 3.6'
   spec.add_dependency 'uglifier', '~> 4.1'
   spec.post_install_message = <<~INFO
 
@@ -50,7 +49,7 @@ Gem::Specification.new do |spec|
 
       To launch NpSearch execute 'npsearch' from command line.
 
-        $ npsearch [options]
+        $ npsearch -h
 
       Visit https://github.com/IsmailM/npsearch for more information.
     ------------------------------------------------------------------------
