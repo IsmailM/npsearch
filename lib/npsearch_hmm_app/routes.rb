@@ -82,12 +82,11 @@ module NpSearchHmmApp
 
     get '/analyse' do
       @max_characters = NpSearchHmmApp.config[:max_characters]
-      @default_hmms = Pathname.new(NpSearchHmmApp.data_dir + 'hmm')
-                              .glob('*.hmm')
+      @default_hmms = (NpSearchHmmApp.data_dir + 'hmm').glob('*.hmm')
       unless session[:user].nil?
         email = session[:user].info['email']
-        @custom_hmms = Pathname.new(NpSearchHmmApp.users_dir + email + 'hmms' +
-                                    'hmm').glob('*.hmm')
+        user_hmm_dir = NpSearchHmmApp.users_dir + email + 'hmms' + 'hmm'
+        @custom_hmms = user_hmm_dir.glob('*.hmm')
       end
       slim :search, layout: :app_layout
     end
@@ -167,18 +166,17 @@ module NpSearchHmmApp
     end
 
     post '/api/upload' do
-      dir = NpSearchHmmApp.tmp_dir + params[:qquuid]
-      FileUtils.mkdir(dir) unless dir.exist?
-      fname = params[:qqfilename].to_s
+      fname = "#{params[:qquuid]}.uploaded"
       fname += ".part_#{params[:qqpartindex]}" unless params[:qqtotalparts].nil?
-      FileUtils.cp(params[:qqfile][:tempfile].path, dir + fname)
+      file = NpSearchHmmApp.tmp_dir + fname
+      FileUtils.cp(params[:qqfile][:tempfile].path, file)
       { success: true }.to_json
     end
 
     post '/api/upload_done' do
+      fname = "#{params[:qquuid]}.uploaded"
+      dir   = NpSearchHmmApp.tmp_dir
       parts = params[:qqtotalparts].to_i - 1
-      fname = params[:qqfilename]
-      dir   = NpSearchHmmApp.tmp_dir + params[:qquuid]
       files = (0..parts).map { |i| dir + "#{fname}.part_#{i}" }
       system("cat #{files.join(' ')} > #{dir + fname}")
       if $CHILD_STATUS.exitstatus.zero?

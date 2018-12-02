@@ -26,6 +26,12 @@ if (Turbolinks.supported) {
   Turbolinks.setProgressBarDelay(200);
 }
 
+document.addEventListener("turbolinks:before-render", function (event) {
+  FontAwesome.dom.i2svg({
+    node: event.data.newBody
+  });
+});
+
 document.addEventListener('turbolinks:before-cache', function () {
   M.Modal._count = 0;
   M.updateTextFields();

@@ -30,3 +30,5 @@ section.single_hmm
       .row
         span.card-title  Sequence Alignment
         #msa  Loading Multiple Alignment...
+        #sequences style="display:none;"
+          = IO.read @model[:path][:alignment]

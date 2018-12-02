@@ -73,12 +73,12 @@ module NpSearchHmmApp
     # Default configuration data.
     def defaults
       {
-        num_threads:    1,
-        port:           4567,
-        host:           '0.0.0.0',
-        serve_dir:     File.join(Dir.home, '.npsearch_hmm_app/'),
-        max_characters: 'undefined',
-        ssl:            false
+        num_threads:      1,
+        port:             4567,
+        host:             '0.0.0.0',
+        npsearch_app_dir: File.join(Dir.home, '.npsearch_hmm_app/'),
+        max_characters:   'undefined',
+        ssl:              false
       }
     end
 

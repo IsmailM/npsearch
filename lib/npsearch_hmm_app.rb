@@ -52,12 +52,11 @@ module NpSearchHmmApp
       self
     end
 
-    # default serve_dir   = $HOME/.npsearch_hmm_app/
-    # default public_dir  = $HOME/.npsearch_hmm_app/public/
-    # default users_dir   = $HOME/.npsearch_hmm_app/users/
-    # default tmp_dir     = $HOME/.npsearch_hmm_app/tmp/
+    # default npsearch_app_dir   = $HOME/.npsearch_hmm_app/
+    # default users_dir          = $HOME/.npsearch_hmm_app/users/
+    # default tmp_dir            = $HOME/.npsearch_hmm_app/tmp/
 
-    attr_reader :config, :public_dir, :users_dir, :tmp_dir
+    attr_reader :config, :users_dir, :tmp_dir
 
     # Starting the app manually
     def run
@@ -77,7 +76,8 @@ module NpSearchHmmApp
 
     def on_start
       puts '** NpSearch-HMM app is ready.'
-      puts "   Go to #{server_url} in your browser and start analysing NeuroPeptides!"
+      puts "   Go to #{server_url} in your browser and start finding " \
+           'NeuroPeptides!'
       puts '   Press CTRL+C to quit.'
       open_in_browser(server_url)
     end
@@ -109,43 +109,24 @@ module NpSearchHmmApp
 
     private
 
-    # Set up the directory structure in @config[:gd_public_dir]
+    # Set up the directory structure in @config[:npsearch_app_dir]
     def init_dirs
-      config[:serve_dir] = Pathname.new(config[:serve_dir]).expand_path
-      logger.debug "NpSearch Directory: #{config[:serve_dir]}"
-      init_public_dir
+      config[:npsearch_app_dir] = Pathname.new(config[:npsearch_app_dir])
+                                          .expand_path
+      logger.debug "NpSearch Directory: #{config[:npsearch_app_dir]}"
       init_tmp_dir
       init_users_dir
       set_up_default_user_dir
     end
 
-    def init_public_dir
-      @public_dir = config[:serve_dir] + 'public'
-      logger.debug "public_dir Directory: #{@public_dir}"
-      FileUtils.mkdir_p @public_dir unless @public_dir.exist?
-      init_assets(NpSearchHmmApp.root + 'public/assets',
-                  @public_dir + 'assets')
-    end
-
-    def init_assets(root_assets, assets)
-      if environment == 'production'
-        css = assets + 'css' + "style-#{NpSearch::VERSION}.min.css"
-        FileUtils.rm_rf(assets) if assets.symlink? || !css.exist?
-        FileUtils.cp_r(root_assets, @public_dir) unless assets.exist?
-      else
-        FileUtils.rm_rf(assets) unless assets.symlink?
-        FileUtils.ln_s(root_assets, @public_dir) unless assets.exist?
-      end
-    end
-
     def init_tmp_dir
-      @tmp_dir = config[:serve_dir] + 'tmp'
+      @tmp_dir = config[:npsearch_app_dir] + 'tmp'
       logger.debug "tmp_dir Directory: #{@tmp_dir}"
       FileUtils.mkdir_p @tmp_dir unless @tmp_dir.exist?
     end
 
     def init_users_dir
-      @users_dir = config[:serve_dir] + 'users'
+      @users_dir = config[:npsearch_app_dir] + 'users'
       logger.debug "users_dir Directory: #{@users_dir}"
       FileUtils.mkdir_p @users_dir unless @users_dir.exist?
     end
@@ -171,9 +152,8 @@ module NpSearchHmmApp
     end
 
     def check_max_characters
-      if config[:max_characters] != 'undefined'
-        config[:max_characters] = Integer(config[:max_characters])
-      end
+      config[:max_characters] = Integer(config[:max_characters])
+      config[:max_characters] = 'undefined' if config[:max_characters].zero?
     rescue StandardError
       raise MAX_CHARACTERS_INCORRECT
     end

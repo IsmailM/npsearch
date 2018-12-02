@@ -36,10 +36,10 @@ module NpSearchHmmApp
       end
 
       def setup_hmm_dir(user)
-        hmms_dir = users_dir + user + 'hmms'
-        @hmm_dir = hmms_dir + 'hmm'
-        @alignments_dir = hmms_dir + 'alignments'
-        @raw_data_dir = hmms_dir + 'raw_data'
+        dir = users_dir + user + 'hmms'
+        @hmm_dir = dir + 'hmm'
+        @alignments_dir = dir + 'alignments'
+        @raw_data_dir = dir + 'raw_data'
         return if @hmm_dir.exist?
         FileUtils.mkdir_p(@hmm_dir)
         FileUtils.mkdir(@alignments_dir)
@@ -54,7 +54,7 @@ module NpSearchHmmApp
       end
 
       def add_alignment
-        in_file = @alignments_dir + "#{@basename}.aligned.fa"
+        in_file = @alignments_dir + "#{@basename}.aln"
         @params[:files].empty? ? write_seqs(in_file) : move_uploaded(in_file)
         run_hmm
       end
@@ -78,12 +78,12 @@ module NpSearchHmmApp
 
       def run_alignment
         in_file = @raw_data_dir + "#{@basename}.fa"
-        out_file = @alignments_dir + "#{@basename}.aligned.fa"
+        out_file = @alignments_dir + "#{@basename}.aln"
         NpHMMer::Hmmer::Generate.run_mafft(in_file, out_file, 4)
       end
 
       def run_hmm
-        in_file = @alignments_dir + "#{@basename}.aligned.fa"
+        in_file = @alignments_dir + "#{@basename}.aln"
         out_file = @hmm_dir + "#{@basename}.hmm"
         NpHMMer::Hmmer::Generate.run_hmm_build(in_file, out_file, 4)
       end

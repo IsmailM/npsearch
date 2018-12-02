@@ -441,25 +441,12 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
   NS.initializeHmmTable = function (tableId, tableWrapperId) {
     $('#' + tableId).dataTable({
       bDestroy: true,
-      "oLanguage": {
-        "sStripClasses": "",
-        "sSearch": "",
-        "sSearchPlaceholder": "Enter Keywords Here",
-        "sInfo": "_START_ -_END_ of _TOTAL_",
-        "sLengthMenu": '<span>Rows per page:</span><select class="browser-default">' +
-          '<option value="10">10</option>' +
-          '<option value="20">20</option>' +
-          '<option value="30">30</option>' +
-          '<option value="40">40</option>' +
-          '<option value="50">50</option>' +
-          '<option value="-1">All</option>' +
-          '</select></div>'
-      },
     });
     if (NS[tableWrapperId + '_search'] !== true){
       $(document).on('click', '#' + tableWrapperId + ' .search-toggle', function () {
         if ($('#' + tableWrapperId + ' .hiddensearch').css('display') == 'none') {
           $('#' + tableWrapperId + ' .hiddensearch').slideDown();
+          $('#' + tableWrapperId + ' .hiddensearch input').focus();
         } else {
           $('#' + tableWrapperId + ' .hiddensearch').slideUp();
         }
@@ -468,17 +455,55 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     }
   };
 
-  NS.protocol = function () {
-    if (NS.USING_SLL === "true") {
-      return "https://";
-    } else {
-      return "http://";
-    }
+  NS.load_single_result = function () {
+    var path = window.location.pathname
+    if (!(path.startsWith('/result/') || path.startsWith('/sh/'))) return;
+    spinner_elem = document.getElementById("spinner_model");
+    M.Modal.init(spinner_elem, {
+      dismissible: false
+    });
+    $('#spinner_model h2').text('Loading...');
+    var spinner_modal = M.Modal.getInstance(spinner_elem);
+    spinner_modal.open();
+    $.ajax({
+      type: 'POST',
+      url: path,
+      success: function (response) {
+        NS.ajaxSuccessFunction(response);
+      },
+      error: function (e, status) {
+        NS.ajaxErrorFunction(e, status);
+      }
+    });
   };
+
+  NS.initAlignment = function (url,s) {
+    if ($("#sequences").length == 0) return;
+    var fasta = $("#sequences").text();
+    var seqs = msa.io.fasta.parse(fasta);
+
+    var seqs_length = seqs.length
+    if (seqs_length > 50) {
+      max_height = 50 * 15;
+    } else {
+      max_height = seqs_length * 15;
+    }
+    NS.msa_alignment = msa({
+      el: document.getElementById("msa"),
+      seqs: seqs,
+      zoomer: {
+        alignmentHeight: max_height
+      },
+      vis: {
+        conserv: true,
+        seqlogo: true,
+      }
+    });
+    NS.msa_alignment.render();
+  }
 
   NS.addLoginOnClick = function () {
     $(document).on("click", '.login_button', function (e) {
-      console.log('click')
       e.preventDefault();
       /** global: gapi */
       gapi.auth.authorize({
@@ -518,47 +543,6 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
       return $('body').append(NS.google_frame);
     }
   }
-
-  NS.load_single_result = function () {
-    var path = window.location.pathname
-    if (!(path.startsWith('/result/') || path.startsWith('/sh/'))) return;
-    spinner_elem = document.getElementById("spinner_model");
-    M.Modal.init(spinner_elem, { dismissible: false });
-    $('#spinner_model h2').text('Loading...');
-    var spinner_modal = M.Modal.getInstance(spinner_elem);
-    spinner_modal.open();
-    $.ajax({
-      type: 'POST',
-      url: path,
-      success: function (response) {
-        NS.ajaxSuccessFunction(response);
-      },
-      error: function (e, status) {
-        NS.ajaxErrorFunction(e, status);
-      }
-    });
-  };
-
-  NS.initAlignment = function (url, numSequences) {
-    var seqs_length = parseInt(numSequences)
-    if (seqs_length > 50) {
-      max_height = 50 * 15;
-    } else {
-      max_height = seqs_length * 15;
-    }
-    var msa_alignment = msa({
-      el: document.getElementById("msa"),
-      importURL: url,
-      zoomer: {
-        alignmentHeight: max_height
-      },
-      vis: {
-        conserv: true,
-        seqlogo: true,
-      }
-    });
-    msa_alignment.render();
-  }
 }());
 
 window.gpAsyncInit = function () {
@@ -575,3 +559,4 @@ window.gpAsyncInit = function () {
              .on('turbolinks:render', NS.restoreGoogleFrame);
   NS.google_events_bound = true;
 };
+

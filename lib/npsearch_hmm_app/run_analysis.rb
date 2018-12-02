@@ -37,9 +37,9 @@ module NpSearchHmmApp
         @results = generate_results_hash
         write_results_to_file
         @results
-      # rescue StandardError
-      #   raise 'NpHMMer failed to run successfully. Please contact me at ' \
-      #         'ismail.moghul@gmail.com'
+        # rescue StandardError
+        #   raise 'NpHMMer failed to run successfully. Please contact me at ' \
+        #         'ismail.moghul@gmail.com'
       end
 
       private
@@ -48,6 +48,7 @@ module NpSearchHmmApp
       def init(params, user)
         # Using JSON parse to symbolize all keys
         params[:files] = JSON.parse(params[:files])
+        puts params.to_s
         @params = JSON.parse(params.to_json, symbolize_names: true)
         @email = user
         assert_params
@@ -59,8 +60,9 @@ module NpSearchHmmApp
       end
 
       def assert_params
-        # && assert_files && assert_files_exists
-        raise ArgumentError, 'Failed to upload files' unless assert_param_exist
+        raise ArgumentError, 'Failed to parse Params' unless assert_param_exist
+        assert_files
+        assert_files_exists
         assert_seq_param_present
         ensure_fasta_valid
         check_seq_length
@@ -70,16 +72,19 @@ module NpSearchHmmApp
         !@params.nil?
       end
 
-      # def assert_files
-      #   @params[:files].collect { |f| f[:status] == 'upload successful' }.uniq
-      # end
+      def assert_files
+        return if @params[:files].empty?
+        @params[:files].collect { |f| f[:status] == 'upload successful' }.uniq
+      end
 
-      # def assert_files_exists
-      #   files = @params[:files].collect do |f|
-      #     File.exist?(File.join(tmp_dir, f[:uuid], f[:originalName]))
-      #   end
-      #   files.uniq
-      # end
+      def assert_files_exists
+        return if @params[:files].empty?
+        files = @params[:files].collect do |f|
+          fname = File.join(tmp_dir, f[:uuid], "#{f[:uuid]}.uploaded")
+          File.exist?(fname)
+        end
+        files.uniq
+      end
 
       # Simply asserts whether that the seq param is present
       def assert_seq_param_present
@@ -117,14 +122,11 @@ module NpSearchHmmApp
 
       def move_uploaded
         @params[:files].each do |f|
-          t_dir = tmp_dir + f[:uuid]
-          t_input_file = t_dir + f[:originalName]
-          f = @run_files_dir + f[:originalName]
+          t_input_file = tmp_dir + "#{f[:uuid]}.uploaded"
+          f = @run_files_dir + "#{f[:uuid]}.uploaded"
           FileUtils.mv(t_input_file, f)
-          next unless (Dir.entries(t_dir) - %w[. ..]).empty?
-          FileUtils.rm_r(t_dir)
         end
-        @params[:files].map { |f| @run_files_dir + f[:originalName] }
+        @params[:files].map { |f| @run_files_dir + "#{f[:uuid]}.uploaded" }
       end
 
       # Writes the input sequences to a file with the sub_dir in the temp_dir

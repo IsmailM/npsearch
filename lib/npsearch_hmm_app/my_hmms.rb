@@ -39,7 +39,7 @@ module NpSearchHmmApp
           basename = basename.split('__NpSearch__').first
         end
         basename.gsub('_', ' / ').tr('-', ' ')
-                .gsub(/.aligned.fa$/, '').gsub(/.fa$/, '')
+                .gsub(/.aln$/, '').gsub(/.fa$/, '')
       end
 
       private
