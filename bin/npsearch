@@ -1,173 +1,436 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'readline'
+require 'optparse'
 require 'English'
-require 'slop'
 
 ENV['RACK_ENV'] ||= 'production'
 
 # display name for tools like `ps`
 $PROGRAM_NAME = 'npsearch'
 
-begin
-  Slop.parse!(strict: true, help: true) do
-    banner <<~BANNER
-      SUMMARY:
-        NpSearch - Identify Neuropeptide Precursors
+global = OptionParser.new do |opts|
+  opts.banner = <<~BANNER
+    SUMMARY:
+      NpSearch - Identify Neuropeptide Precursors
 
-      USAGE:
-        $ npsearch command [options]
-    BANNER
+    USAGE:
+      $ npsearch command [options]
 
-    on '-v', '--version',
-       'Print version number of NpSearchHmmApp that will be loaded'
+    AVAILABLE COMMANDS:
+      novel         - Running NpSearch-Novel in CLI mode
+      hmm           - Running NpSearch-HMM in CLI mode
+      generate_hmm  - Generate HMM profiles from a directory of FASTA files
+      app           - For running NpSearch-HMM in app mode
 
-    on '-h', '--help',
-       'Display this help message'
+  BANNER
 
-    run do
-      if version?
-        require 'npsearch/version'
-        puts NpSearch::VERSION
-        exit
-      end
-    end
-
-    command 'app' do
-      banner <<~BANNER
-        SUMMARY:
-          NpSearch HMM APP - Identify Neuropeptide Precursors
-
-        USAGE:
-          $ npsearch app [options]
-
-        Examples:
-          # Launch npsearch with the given config file
-          $ npsearch --config ~/.npsearch_hmm_app.conf
-
-          # Launch npsearch with 8 threads / port 8888
-          $ npsearch --num_threads 8 --port 8888
-
-          # Save the arguments used to a config file - e.g. saving the port 4567
-          $ npsearch -s -p 4567
-
-      BANNER
-
-      on 'n', 'num_threads=',
-         'Number of threads to use to run a BLAST search',
-         argument: true
-
-      on 'c', 'config_file=',
-         'Use the given configuration file',
-         argument: true
-
-      on 'p', 'port=',
-         'Port to run NpSearch-HMM App on',
-         argument: true
-
-      on 'H', 'hmmer_bin=',
-         'Load HMMER 3.0 binaries from this directory',
-         argument: true
-
-      on 'S', 'signalp_path=',
-         'Load SignalP binary from this path.',
-         argument: true
-
-      on 'g', 'public_dir=',
-         'The public directory from where the web app is served',
-         argument: true
-
-      on 's', 'set',
-         'Set configuration value in default or given config file'
-
-      on 'D', 'devel',
-         'Start NpSearch-HMM App in development mode'
-
-      clean_opts = lambda do |hash|
-        hash.delete_if { |k, v| k == :set || v.nil? }
-        hash
-      end
-
-      run do
-        ENV['RACK_ENV'] = 'development' if devel?
-
-        # Exit gracefully on SIGINT.
-        stty = `stty -g`.chomp
-        trap('INT') do
-          puts ''
-          puts 'Aborted.'
-          system('stty', stty)
-          exit
-        end
-
-        require 'npsearch_hmm_app'
-
-        begin
-          NpSearchHmmApp.init clean_opts[to_h]
-
-        # The aim of following error recovery scenarios is to guide user to a
-        # working NpSearchHmmApp installation. We expect to land following
-        # error scenarios either when creating a new NpSearchHmmApp (first
-        # time or later), or updating config values using -s CLI option.
-        rescue NpSearchHmmApp::CONFIG_FILE_ERROR => e
-          puts e
-          exit!
-        rescue NpSearchHmmApp::BIN_DIR_NOT_FOUND => e
-          puts e
-
-          unless bin?
-            puts 'You can set the correct value by running:'
-            puts
-            puts '  NpSearchHmmApp -s -b <value>'
-            puts
-          end
-
-          exit!
-        rescue NpSearchHmmApp::NUM_THREADS_INCORRECT => e
-          puts e
-
-          unless num_threads?
-            puts 'You can set the correct value by running:'
-            puts
-            puts '  NpSearchHmmApp -s -n <value>'
-            puts
-          end
-
-          exit!
-        rescue StandardError => e
-          # This will catch any unhandled error and some very special errors.
-          # Ideally we will never hit this block. If we do, there's a bug in
-          # NpSearchHmmApp or something really weird going on. If we hit this
-          # error block we show the stacktrace to the user requesting them to
-          # post the same to our Google Group.
-          puts <<~MSG
-            Something went wonky
-
-            Looks like you have encountered a bug in NpSearch HMM App.
-            Please could you report this incident here -
-            https://github.com/IsmailM/npearch/issues
-
-            Error:
-            #{e.backtrace.unshift(e.message).join("\n")}
-          MSG
-          exit
-        end
-
-        NpSearchHmmApp.config.write_config_file if set?
-        NpSearchHmmApp.config.write_config_file if fetch_option(:set).value
-
-        if interactive?
-          NpSearchHmmApp.irb
-          exit
-        end
-
-        NpSearchHmmApp.run
-      end
-    end
+  opts.on('-h', '--help', 'Show this screen.') do
+    warn global
+    exit
   end
-rescue Slop::Error => e
-  puts e
-  puts "Run '#{$PROGRAM_NAME} -h' for help with command line options."
-  exit
+
+  opts.on('-v', '--version',
+          'The version of NpSearch that you are running.') do
+    require 'npsearch/version'
+    puts NpSearch::VERSION
+    exit
+  end
+end
+
+subcommands = {}
+
+novel_opt = {}
+subcommands['novel'] = OptionParser.new do |opts|
+  opts.banner = <<~BANNER
+    SUMMARY:
+      NpSearch Novel - Identify Novel Neuropeptide Precursors
+
+    USAGE:
+      $ npsearch novel [options]
+
+    Examples:
+      # Run NpSearch-Novel on a FASTA file with 8 threads
+      $ npsearch novel -n 8 -i PATH/TO/INPUT_FILE
+
+  BANNER
+
+  opts.separator 'MANDATORY ARGUMENTS'
+  opts.separator ' '
+
+  opts.on('-i', '--input_file',
+          'Path to the input file') do |input_file|
+    novel_opt[:input_file] = input_file
+  end
+
+  opts.separator ' '
+  opts.separator 'OPTIONAL ARGUMENTS'
+  opts.separator ' '
+
+  t = Time.now.strftime('%Y%m%d')
+  tmpname = "npsearch-hmm-#{t}-#{Process.pid}-#{rand(0x100000000).to_s(36)}"
+  novel_opt[:temp_dir] = File.join(Dir.pwd, '.npsearch_temp', tmpname)
+  opts.on('-o', '--output_dir PATH',
+          'The full path to the output dir. NpSearch will create the folder if',
+          'it does not exist. By default, NpSearch-Novel will create a folder',
+          'in the current working directory.') do |path|
+    novel_opt[:temp_dir] = path
+  end
+
+  novel_opt[:signalp_path] = 'signalp'
+  opts.on('-s', '--signalp_path PATH',
+          'The full path to the signalp script. This can be downloaded from',
+          'CBS (http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp).',
+          'Ensure you fully carry out the installation instructions as',
+          'certain files within SignalP script need to be edited') do |path|
+    novel_opt[:signalp_path] = path
+  end
+
+  novel_opt[:cdhit_path] = 'cd-hit'
+  opts.on('-c', '--cdhit_path PATH',
+          'The full path to the cd-hit script.') do |path|
+    novel_opt[:cdhit_path] = path
+  end
+
+  novel_opt[:getorf_path] = 'getorf'
+  opts.on('-g', '--getorf_path PATH',
+          'The full path to the getorf script.') do |path|
+    novel_opt[:getorf_path] = path
+  end
+
+  novel_opt[:min_orf_length] = 30
+  opts.on('-l', '--min_orf_length N', Integer,
+          'The minimum length of a potential neuropeptide precursor.',
+          ' Default: 30') do |n|
+    novel_opt[:min_orf_length] = n
+  end
+
+  novel_opt[:max_orf_length] = 600
+  opts.on('-m', '--max_orf_length N', Integer,
+          'The maximum length of a potential neuropeptide precursor.',
+          ' Default: 600') do |n|
+    novel_opt[:max_orf_length] = n
+  end
+
+  novel_opt[:num_threads] = 1
+  opts.on('-n', '--num_threads num_of_threads', Integer,
+          'The number of threads to use when analysing the input file') do |n|
+    novel_opt[:num_threads] = n
+  end
+
+  novel_opt[:debug] = false
+  opts.on('-d', '--debug', 'Run in debug mode') do
+    novel_opt[:debug] = true
+  end
+
+  opts.on('-h', '--help', 'Show this screen.') do
+    warn subcommands['novel']
+    exit
+  end
+end
+
+hmm_opt = {}
+subcommands['hmm'] = OptionParser.new do |opts|
+  opts.banner = <<~BANNER
+    SUMMARY:
+      NpSearch HMM - Identify Neuropeptide Precursors
+
+    USAGE:
+      $ npsearch hmm [options]
+
+    Examples:
+      # Run NpSearch-HMM on a FASTA file with 8 threads
+      $ npsearch hmm -n 8 -i PATH/TO/INPUT_FILE
+
+  BANNER
+
+  opts.separator 'MANDATORY ARGUMENTS'
+  opts.separator ' '
+
+  opts.on('-i', '--input_file',
+          'Path to the input file') do |input_file|
+    hmm_opt[:input_file] = input_file
+  end
+
+  opts.separator ' '
+  opts.separator 'OPTIONAL ARGUMENTS'
+  opts.separator ' '
+
+  hmm_opt[:evalue] = 10
+  opts.on('-e', '--evalue num',
+          'Report sequences <= this E-value threshold in output  [10.0]',
+          '  (x>0)') do |e|
+    hmm_opt[:evalue] = e
+  end
+
+  hmm_opt[:deep_analysis] = ''
+  opts.on('-d', '--deep_analysis',
+          'Turn all heurisitic filters off (less speed, more power)') do
+    hmm_opt[:deep_analysis] = '--max'
+  end
+
+  opts.on('-s', '--signalp_path path',
+          'The full path to signalp executable') do |s|
+    hmm_opt[:signalp_path] = s
+  end
+
+  opts.on('-H', '--hmmer_bin_path path',
+          'The full path to HMMer3 binaries directory') do |h|
+    hmm_opt[:hmmer_path] = h
+  end
+
+  t = Time.now.strftime('%Y%m%d')
+  tmpname = "npsearch-hmm-#{t}-#{Process.pid}-#{rand(0x100000000).to_s(36)}"
+  hmm_opt[:temp_dir] = File.join(Dir.pwd, '.npsearch_temp', tmpname)
+  opts.on('-t', '--temp_dir path_to_temp_dir',
+          'The full path to the temp directory. NpSearch-HMM creates this',
+          ' directory if it does already exist and deletes the',
+          ' directory once the analysis has finished.',
+          ' Default: Hidden folder in the current working dirctory') do |p|
+    hmm_opt[:temp_dir] = p
+  end
+
+  opts.on('-m', '--hmm_models path',
+          'Analyse input folder against hmm model in the provided dirctory',
+          ' Note: HMM models must be created with HMMER 3.0 and must end with',
+          ' the ".hmm" file extension') do |h|
+    hmm_opt[:hmm_models_dir] = h
+  end
+
+  hmm_opt[:num_threads] = 1
+  opts.on('-n', '--num_threads num_of_threads', Integer,
+          'The number of threads that NpSearch-HMM should use') do |n|
+    hmm_opt[:num_threads] = n
+  end
+
+  opts.on('-h', '--help', 'Show this screen.') do
+    warn subcommands['hmm']
+    exit
+  end
+end
+
+generate_hmm_opt = {}
+subcommands['generate_hmm'] = OptionParser.new do |opts|
+  opts.banner = <<~BANNER
+    SUMMARY:
+      NpSearch HMM - Generate profile HMMs from a folder of FASTA files.
+
+    USAGE:
+      $ npsearch generate_hmm [options]
+
+    Examples:
+          # Run npsearch with a folder containing FASTA files
+      $ npsearch ...
+
+  BANNER
+
+  opts.separator 'MANDATORY ARGUMENTS'
+  opts.separator ' '
+
+  opts.on('-i', '--input_dir PATH',
+          'The directory containing FASTA files.',
+          'Sub-directory are recursively analysed') do |d|
+    generate_hmm_opt[:input_dir] = d
+  end
+
+  opts.separator ' '
+  opts.separator 'OPTIONAL ARGUMENTS'
+  opts.separator ' '
+
+  generate_hmm_opt[:aligned] = false
+  opts.on('-a', '--aligned',
+          'Are the FASTA files aligned?') do
+    generate_hmm_opt[:aligned] = true
+  end
+
+  generate_hmm_opt[:num_threads] = 1
+  opts.on('-n', '--num_threads NUM', Integer,
+          'The number of threads that NpSearch should use') do |n|
+    generate_hmm_opt[:num_threads] = n
+  end
+
+  opts.on('-h', '--help', 'Show this screen.') do
+    warn subcommands['generate_hmm']
+    exit
+  end
+end
+
+app_opt = {}
+subcommands['app'] = OptionParser.new do |opts|
+  opts.banner = <<~BANNER
+    SUMMARY:
+      NpSearch HMM APP - Identify Neuropeptide Precursors
+
+    USAGE:
+      $ npsearch app [options]
+
+    Examples:
+      # Launch npsearch with the given config file
+      $ npsearch --config ~/.npsearch_hmm_app.conf
+
+      # Launch npsearch with 8 threads / port 8888
+      $ npsearch --num_threads 8 --port 8888
+
+      # Save the arguments used to a config file - e.g. saving the port 4567
+      $ npsearch -s -p 4567
+  BANNER
+
+  opts.separator 'ARGUMENTS'
+  opts.separator ' '
+
+  app_opt[:num_threads] = 1
+  opts.on('-n', '--num_threads NUM', Integer,
+          'The number of threads that NpSearch should use') do |n|
+    app_opt[:num_threads] = n
+  end
+
+  opts.on('-c', '--config_file FILE',
+          'Use the given configuration file') do |f|
+    app_opt[:config_file] = f
+  end
+
+  opts.on('-p', '--port NUM', Integer,
+          'Port to run the NpSearch-HMM App on') do |p|
+    app_opt[:port] = p
+  end
+
+  opts.on('-H', '--hmmer_bin PATH',
+          'Load HMMER 3.0 binaries from this directory') do |f|
+    app_opt[:hmmer_bin] = f
+  end
+
+  opts.on('-S', '--signalp_path PATH',
+          'Load SignalP binary from this path.') do |f|
+    app_opt[:signalp_path] = f
+  end
+
+  opts.on('-g', '--public_dir PATH',
+          'The public directory from where the web app is served') do |f|
+    app_opt[:public_dir] = f
+  end
+
+  app_opt[:set] = false
+  opts.on('-s', '--set',
+          'Set configuration value in default or given config file') do
+    app_opt[:set] = true
+  end
+
+  app_opt[:dev] = false
+  opts.on('-D', '--dev',
+          'Start NpSearch-HMM App in development mode') do
+    app_opt[:dev] = true
+  end
+
+  opts.on('-h', '--help', 'Show this screen.') do
+    warn subcommands['app']
+    exit
+  end
+end
+
+# Parse all arguments
+begin
+  global.order!
+  first_arg = ARGV.shift
+  if subcommands.key?(first_arg)
+    command = first_arg
+    subcommands[command]&.order!
+  end
+rescue OptionParser::ParseError
+  warn 'Error: ' + $ERROR_INFO.to_s + "\n"
+  exit 1
+end
+
+if command.nil?
+  warn global
+elsif command == 'novel'
+  require 'npsearch'
+  require 'npsearch/arg_validator'
+
+  NpSearch.init novel_opt
+  NpSearch.run
+
+elsif command == 'hmm'
+  require 'npsearch_hmm'
+  NpHMMer.init hmm_opt
+  NpHMMer.run
+
+elsif command == 'generate_hmm'
+  if generate_hmm_opt[:input_dir].nil?
+    warn subcommands['generate_hmm']
+    exit
+  end
+  require 'npsearch_hmm/hmmer'
+  NpHMMer::Hmmer::Generate.hmm_models generate_hmm_opt
+
+elsif command == 'app'
+  ENV['RACK_ENV'] = 'development' if app_opt[:dev]
+
+  # Exit gracefully on SIGINT.
+  stty = `stty -g`.chomp
+  trap('INT') do
+    puts ''
+    puts 'Aborted.'
+    system('stty', stty)
+    exit
+  end
+
+  require 'npsearch_hmm_app'
+
+  begin
+    NpSearchHmmApp.init app_opt
+
+  # The aim of following error recovery scenarios is to guide user to a
+  # working NpSearchHmmApp installation. We expect to land following
+  # error scenarios either when creating a new NpSearchHmmApp (first
+  # time or later), or updating config values using -s CLI option.
+  rescue NpSearchHmmApp::CONFIG_FILE_ERROR => e
+    puts e
+    exit!
+  rescue NpSearchHmmApp::BIN_DIR_NOT_FOUND => e
+    puts e
+
+    if app_opt[:bin].nil?
+      puts 'You can set the correct value by running:'
+      puts
+      puts '  NpSearchHmmApp -s -b <value>'
+      puts
+    end
+
+    exit!
+  rescue NpSearchHmmApp::NUM_THREADS_INCORRECT => e
+    puts e
+
+    if app_opt[:num_threads].nil?
+      puts 'You can set the correct value by running:'
+      puts
+      puts '  NpSearchHmmApp -s -n <value>'
+      puts
+    end
+
+    exit!
+  rescue StandardError => e
+    # This will catch any unhandled error and some very special errors.
+    # Ideally we will never hit this block. If we do, there's a bug in
+    # NpSearchHmmApp or something really weird going on. If we hit this
+    # error block we show the stacktrace to the user requesting them to
+    # post the same to our Google Group.
+    puts <<~MSG
+      Something went wonky
+
+      Looks like you have encountered a bug in NpSearch HMM App.
+      Please could you report this incident here -
+      https://github.com/IsmailM/npearch/issues
+
+      Error:
+      #{e.backtrace.unshift(e.message).join("\n")}
+    MSG
+    exit
+  end
+
+  if app_opt[:set]
+    NpSearchHmmApp.config.write_config_file
+    exit
+  end
+
+  NpSearchHmmApp.run
 end
