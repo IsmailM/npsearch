@@ -2,6 +2,7 @@
 
 require 'csv'
 require 'forwardable'
+require 'fileutils'
 
 require 'npsearch_hmm/hit'
 
@@ -60,25 +61,57 @@ module NpHMMer
     class Generate
       class << self
         def hmm_models(opt)
-          Dir.foreach(opt[:generate_hmms]) do |file|
-            next if file !~ /fa(sta)?$/
-            np_fasta_file  = File.join(opt[:generate_hmms], file)
-            aligned_file   = File.join(opt[:generate_hmms], '../alignments',
-                                       "#{file.gsub(/fa(sta)?$/, '')}aligned")
-            hmm_model_file = File.join(opt[:generate_hmms], '../hmm',
-                                       "#{file.gsub(/fa(sta)?$/, '')}hmm")
-            run_mafft(np_fasta_file, aligned_file, opt[:num_threads])
-            run_hmm_build(aligned_file, hmm_model_file, opt[:num_threads])
+          set_up_dirs(opt[:input_dir])
+          all_files_in_dir(opt[:input_dir]).each do |file|
+            f_base = input.basename(input.extname)
+            if opt[:aligned]
+              generate_hmm_profiles(file, f_base, opt[:num_threads])
+            else
+              align_and_generate_hmm_profiles(file, f_base, opt[:num_threads])
+            end
           end
         end
 
+        def set_up_dirs(dir)
+          @aligned_dir = dir.dirname + 'alignments'
+          @hmm_model_dir = dir.dirname + 'hmm'
+          FileUtils.mkdir(@aligned_dir) unless @aligned_dir.exist?
+          FileUtils.mkdir(@hmm_model_dir) unless @hmm_model_dir.exist?
+        end
+
+        # assumes that set_up_dirs has been run first
+        def align_and_generate_hmm_profiles(input, f_basename, num_threads)
+          aligned_file = @aligned_dir + "#{f_basename}.aln"
+          hmm_model_file = @hmm_model_dir + "#{f_basename}.hmm"
+          run_mafft(input, aligned_file, num_threads)
+          run_hmm_build(aligned_file, hmm_model_file, num_threads)
+        end
+
+        # assumes that set_up_dirs has been run first
+        def generate_hmm_profiles(input, f_basename, num_threads)
+          hmm_model_file = @hmm_model_dir + "#{f_basename}.hmm"
+          FileUtils.mkdir(hmm_model_dir) unless hmm_model_dir.exist?
+          run_hmm_build(input, hmm_model_file, num_threads)
+        end
+
         def run_mafft(input, aligned_file, num_threads)
-          `mafft --maxiterate 1000 --quiet --thread #{num_threads} --quiet  \
-          '#{input}' > '#{aligned_file}'`
+          system('mafft --maxiterate 1000 --genafpair --quiet ' \
+                 " --thread #{num_threads} '#{input}' > '#{aligned_file}'")
         end
 
         def run_hmm_build(aligned_file, hmm_model_file, num_threads)
-          `hmmbuild --cpu #{num_threads} '#{hmm_model_file}' '#{aligned_file}'`
+          system("hmmbuild --cpu #{num_threads} '#{hmm_model_file}' " \
+                 "'#{aligned_file}'")
+        end
+
+        def all_files_in_dir(dir)
+          files = []
+          Pathname.new(dir).each_child do |file|
+            next if file.basename.to_s.start_with? '.'
+            files << all_files_in_dir(file) if file.directory?
+            files << file
+          end
+          files.flatten
         end
       end
     end
