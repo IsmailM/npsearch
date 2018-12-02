@@ -1,0 +1,60 @@
+>Haliotis_diversicolor CCK_Haliotis_diversicolor
+----LPVNE-GDDVSN---------------LANLLGKLRPLHRK---------------
+--------RLDSHSRGHF--------------------------KSTSGNDDKPQSSDLA
+DSKSGVAEDPEDLLTEDVSD-----------------------------MRKRQG-AWSY
+DYGLGGGRFGKRN-----------YGEYGFGGGRFGRD----VDHVDLSD--------
+>Homo_sapiens Uniprot_CCK_Hsap
+----QPVPP-----------------------ADPAGSGLQRAEEAPRRQLRV-------
+------SQRTDGESRAHLGALLARYIQ-----------------QARKAPSGRMSI--VK
+NLQN---------------------------------------------LDPSHR-ISDR
+DY-MGWMDFGRRS-----------------------------AEEYEYPS--------
+>Danio_rerio Uniprot_CCK_Drer
+--ASRPVSD-----------------------ERFLSARRLARSASLTLQQPLPP-----
+------AGDIQPDTRANFSQLLAKLI------------------SSKKGSVRRNSS---M
+NSRAN---------------------------------------------SVNHR-IKDR
+DY-VGWMDFGRRS-----------------------------AEEYEYSS--------
+>Ictalurus_punctatus gi_204273783_Ipun
+--------------------------------ARTRSSPAQQENDALPLQMDSSV-----
+------SAGHDANPRANLNELLARLI-------------------SRKGSVRRNSM---A
+NSKASA-------------------------------------------LSANHR-IKDR
+DY-LGWMDFGRRS-----------------------------AEEYDYSS--------
+>Ciona_intestinalis AL667803_Cint
+----VPTSDLFKSVSQ---------------YHLPRGKVINKETATKPLQFQRAICRL--
+----LQKLGEETFSRLSQSELEAKQL------------------DLIKTCYQANSF---G
+GNEN----------------------------------------------DGHMQ-RMDR
+NY-YGWMDFGKRG-----------------------------IKDVDYEY--------
+>Strongylocentrotus_purpuratus gi_115694514_Spur
+----FPTRSTEQSHKN---------------LPGVTSFLRMLKDHIVNRSRGTGS--RGP
+LRGPKGHHQVTPNVNSHNSEVLPAWPPKSKTEDWVLDLAPKDDLSNLANDSERDFS---P
+DVAAAVGSTE---LEDDKRDYGHGMFFGKRVPNDK----YIDRQLEDPTMQRQRR-PDDY
+NW---GMWFGKRD----------KADLYGW-GGFFGKRS---GDVTEYEDFV-----A
+>Saccoglossus_kowalevskii gi_187061456_Skow
+----DEVTDELNSAEEVDGASSDESKRDHYGWMNFKKSDPEKKDHYGWMNFKKSDPEKKD
+HYGWMNFKKSDPEKKDHYGWM-----------------------NFKKSDPEKKDHYGWM
+NFKKS---------DPEKKDHYGWMNFKKSDPEKKDHYGWMNF--------KKSD-PEKK
+DH-YGWMNFKKSD--------PEKKDYYGW--MNFKKSDPEKKDHYGWMN--------
+>Capitella_telata]_22803 jgi_Ctel
+----SVSTDDSENVRN-----------EILILAKLLRPIRQLAGRLEDLE----------
+------------------------------------------------------------
+-----------SIIERAATDRE------------------FAME-----VAKRQGAAWDM
+DYGWGGGRFGKRDSGKRTSDSSKRYDAFGL-GGRFGRS----VDHVDLEKNE------
+>Crassostrea_gigas gi_260626388_Cgig
+------NSHAQNSIIQ---------------LSKLFSNLQDIHDAKQTQEENTKD-----
+--------QVRSDTRKQRGEI-----------ELILALGAPVHVESLQHNDKDTQT----
+DTDKSAWDVD---FEDDQQD-----------------------------VEKRQG-AWDY
+DYGLGGGRFGKRF-------------DYNFGGGRWGRD----VDHVKQGQAK------
+>Lottia_gigantea gi_163526260_Lgig
+----LPLKTDDDNVEH---------------LVSLIKKLKSLEKRPETNS----------
+--------RWLDHQLHHL--------------------------RIDNSPAEKSDSLTSG
+ERDSGILYRS---LNSDMDT-----------------------------PSKRQG-AWSY
+DYGLGGGRFGKRS-----------YDDYGIGGGRFGRD----VDHVDLADGVLN--GA
+>Aplysia_californica gi_121341705_Acal
+----LPTNSRREDLSH---------------LVTLLGKLKNIERARQNSE----------
+-------------GSAQA--------------------------HAQEA-WEGPRVSSFP
+ETEVTA-----DVIPDEVSAAK----------------GYLGQRPATGVVNKRQG-AWSY
+DYGLGGGRFGKRS-----------YGDYGIGGGRFGRD----VDHVDLSDATENEITS
+>Alvinella_pompejana gi_223770502_Apom
+SEGSSIGDNSVNEVQSK----------ELLFLAKIVGPLKEIARESEQLA----------
+------------------------------------------------------------
+-----------SIVERVATDGD------------------LTQE-----LSKRQG-AWDM
+DYGWGGGRFGKRASGTSISQSGKRYDSFGI-AGRFGRS----VENVEGH---------

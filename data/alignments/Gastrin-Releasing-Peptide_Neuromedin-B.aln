@@ -1,0 +1,216 @@
+>Bos_taurus sp|Q863C3|GRP_BOVIN Gastrin-releasing peptide GN=GRP PE=1 SV=3
+-----APVTAGRGGALAKMYTR-GN--HWAV-----------------------------
+------------------------------------------------GHLMGKKSVAES
+PQL----------HEEESLKEQL---------REYAQW--EEATRNLLSLLQAKG----A
+RGHQMPPWE---------------------------------------------------
+-----------------------------------PLSIHQPAWDSEDVSNFKDTGPQ--
+---------------------HEGRN-----------------------PQLN-------
+--
+>Bombina_orientalis sp|P29007|GRP_BOMOR Gastrin-releasing peptide GN=grp PE=1 SV=1
+---SPTSQQHNDAASLSKIYPR-GS--HWAV-----------------------------
+------------------------------------------------GHLMGKKSIEEY
+PYA----------YDEADRSSAAVFSEGDKPSDGYQQW--KESLLNLLKMIEVNE----Y
+RNSKAMREA---------------------------------------------------
+-------------------------------------SVYNKKFSGAEDNNLKE------
+--------MLDYLYQMMNMKENTSS-----------------------------------
+--
+>Canis_lupus tr|E2QW58|E2QW58_CANLF Gastrin-releasing peptide familiaris GN=GRP PE=4 SV=2
+-----APVPGGQGTVLDKMYPR-GNTGRWSE-----------------------------
+------------------------------------------------GHLMGKKSTRES
+PYV----------YEEGSLKQQL---------QGYIRW--EEAARNLLSLMEAKG----T
+RSHQTPQRE---------------------------------------------------
+-----------------------------------PLGIRQSAWDYQDDSNFKVIGPT--
+-------REVGGLSASGSQ--PEGRN-----------------------PPRN-------
+--
+>Rattus_norvegicus tr|G3V871|G3V871_RAT Gastrin releasing peptide, isoform CRA_a GN=Grp PE=4 SV=1
+---APVSTGAGGGTVLAKMYPR-GS--HWAV-----------------------------
+------------------------------------------------GHLMGKKSTDEL
+PPLY--------AADRDGLKEQL---------RGYIRW--EEAARNLLGLLEAAG----N
+RSHQPPQDQ---------------------------------------------------
+-----------------------------------PLGSLQPTWDPEDGSYFSDAQNA--
+-------KLVDSLLQVLKG--KEGTA-----------------------S----------
+--
+>Macaca_fascicularis tr|G7PWV6|G7PWV6_MACFA Gastrin-releasing peptide (Fragment) GN=EGM_08899 PE=4 SV=1
+-----VPLPAGGGTVLTKMYPR-GN--HWAV-----------------------------
+------------------------------------------------GHLMGKKSTGE-
+SSV----------SERGSLKQQL---------REYIRW--EEAASNLLGLIEAKE----N
+RNHQPPQPK---------------------------------------------------
+-----------------------------------ALGNQQPSWDSEDSSNFKDVGSK--
+-------GKVGRLSAPGSQ--REGRN-----------------------P----------
+--
+>Heterocephalus_glaber tr|G5AYY6|G5AYY6_HETGA Gastrin-releasing peptide GN=GW7_09306 PE=4 SV=1
+-----ASLPVGGGTVLAKMYPR-GN--HWAV-----------------------------
+------------------------------------------------GHLMGKKSTGES
+PQV----------LEGDSLKEQL---------KEDIQW--KEATRNLLGLIEAKG----N
+RSHWPPQLK---------------------------------------------------
+-----------------------------------PLSNYQPTWDTEDSSDFKDVG----
+------------------------------------------------------------
+--
+>Homo_sapiens tr|Q5FBX9|Q5FBX9_HUMAN Gastrin-releasing peptide nirs variant 1 GN=GRP PE=2 SV=1
+-----VPLPAGGGTVLTKMYPR-GN--HWAV-----------------------------
+------------------------------------------------GHLMGKKSTGES
+SSV----------SERGSLKQQL---------REYIRW--EEAARNLLGLIEAKE----N
+RNHQPPQPK---------------------------------------------------
+-----------------------------------ALGNQQPSWDSEDSSNFKEL-----
+---------VDSLLQVLNV--KEGTP-----------------------S----------
+--
+>Pteropus_alecto tr|L5KHB8|L5KHB8_PTEAL Gastrin-releasing peptide GN=PAL_GLEAN10017100 PE=4 SV=1
+-----APVPAAGDTVLAKMYPR-GN--HWAVAHRASAQLSKTPSPTRKELTFPPHLPGTS
+FDPARFSPCTTLGSRVPERDSEPWSSTAAALILTGVSPGCATAPGKATGHLMGKKSTGET
+PHV----------YEGGSLRQQL---------QEYLLW--QEAARNLLSLIEAKG----T
+RSHQSPPRE---------------------------------------------------
+-----------------------------------SPG------DSPVYLGFQD------
+------------------------------------------------------------
+--
+>Tupaia_chinensis tr|L9LCP5|L9LCP5_TUPCH Gastrin-releasing peptide GN=TREES_T100009591 PE=4 SV=1
+SRGPAAPAPASGGTVLAKMYPR-GN--HWAV-----------------------------
+------------------------------------------------GHLMGKKSTGEF
+PSA----------YEGGSLKQQL---------TEYVQW--EDAARNLLDLIEAKR----N
+RSPRPPQ-----------------------------------------------------
+-----------------------------------LLGNPQPIWNSEKSSNFKNVGSKCR
+GNTNTLERWARCFRAVGKGFIREKYN--------------CLYRK----PPVPVYVANVT
+AC
+>Danio_rerio Ensembl_ENSDART00000098361_Drer
+V--SLDLTELRNKVSKIKVHPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSISNS
+QLQDSP-FPVKPDRNIMGESGSS---------EDLK----ELITQEMLKIALQAQLEDPK
+RTR---------------------------------------------------------
+------------------------------------------------------------
+------DVYNQVIREIFKELANRM------------------------------------
+--
+>Ensembl_ENSDART00000112743_ZEBRAFISH
+V--SLDLTELRNKVAKIKVNPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSVVDS
+KHL-----PTE-DESTMTAVEAA---------LNARQVEPEDVFQEMLRVALQTHL---D
+TRHIRPNVP---------------------------------------------------
+------------------------------------------------------------
+--------ETAILMKILESYIQDNK-----------------------------------
+--
+>GRP_HUMAN
+-----VPLPAGGGTVLTKMYPR-GN--HWAV-----------------------------
+------------------------------------------------GHLMGKKSTGES
+SSV----------SERGSLKQQL---------REYIRW--EEAARNLLGLIEAKE----N
+RNHQPPQPK---------------------------------------------------
+-----------------------------------ALGNQQPSWDSEDSSNFKDVGSK--
+-------GK-------GSQ--REGRN-----------------------PQLNQQ-----
+--
+>Bombina_variegata gi_432152184_Bvar
+----MEFVEDPNNQGGLNLQQRLGN--QWAV-----------------------------
+------------------------------------------------GHLMGKKSLQDT
+DFE----------EMESFAKRNV---------ENMK----AESERELRH-----------
+------------------------------------------------------------
+------------------------------------------------------------
+--------AQLVVRNILEQYLKNMQN----------------------------------
+--
+>Bombina_orientalis sp|P29007|GRP_BOMOR Gastrin-releasing peptide GN=grp PE=1 SV=1
+---SPTSQQHNDAASLSKIYPR-GS--HWAV-----------------------------
+------------------------------------------------GHLMGKKSIEEY
+PYA----------YDEADRSSAAVFSEGDKPSDGYQQW--KESLLNLLKMIEVNE----Y
+RNSKAMREA---------------------------------------------------
+-------------------------------------SVYNKKFSGAEDNNLKE------
+--------MLDYLYQMMNMKENTSS-----------------------------------
+--
+>Homo_sapiens sp|P08949|NMB_HUMAN Neuromedin-B GN=NMB PE=1 SV=4
+L--SWDLPEPRSRASKIRVHSR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLEPS
+SPS----------PLGTAPHTSL---------RDQR----LQLSHDLLGILLLKKALGVS
+LSRPAPQIQ---------------------------------------------------
+------------------------------------------------------------
+--------YRRLLVQILQK-----------------------------------------
+--
+>Mus_musculus sp|Q9CR53|NMB_MOUSE Neuromedin-B GN=Nmb PE=2 SV=1
+F--NWDLPEPRSRASKIRVHPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLEPP
+SLS----------LVGTAPPNTP---------RDQR----LQLSHDLLRILLRKKALGMN
+FSGPAPPIQ---------------------------------------------------
+------------------------------------------------------------
+--------YRRLLEPLLQK-----------------------------------------
+--
+>Bos_taurus sp|Q2T9U8|NMB_BOVIN Neuromedin-B GN=NMB PE=2 SV=1
+L--GWDLPESRSRASKIRVHPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLEPP
+SPS----------LLGTAPHTSL---------RDQT----PQLSHHLLRVLLQKQALGMS
+LSVPAPNTQ---------------------------------------------------
+------------------------------------------------------------
+--------HRRLLVQTLQK-----------------------------------------
+--
+>Xenopus_laevis sp|P43443|NMB_XENLA Neuromedin-B GN=nmb PE=2 SV=1
+----MEFSEDARNIEKIR---R-GN--QWAI-----------------------------
+------------------------------------------------GHFMGKKSLQDT
+YNP-------------SEQDMDS---------EDFR----PRIIEMIRGTFRQEPI---R
+ALSPRKQDE---------------------------------------------------
+------------------------------------------------------------
+--------IQWMLKKIMDDYIKTTQK----------------------------------
+--
+>Mus_musculus tr|D3Z621|D3Z621_MOUSE Neuromedin-B GN=Nmb PE=4 SV=1
+F--NWDLPEPRSRASKIRVHPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLEPP
+SLS----------LVGTAPPNTP---------RDQR----LQLSHDLLRILLRKKALGMN
+FSGPAPPIQ---------------------------------------------------
+---------------------------------------------EAAGA----------
+--------TTAEVMPIMEQ-------------------TGC--WA---------------
+--
+>Tetraodon_nigroviridis tr|H3BWV3|H3BWV3_TETNG Neuromedin B GN=NMB PE=2 SV=1
+V--SFDLTELRNNVAKIKVNPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSVVDT
+PLL-----PSA-QAADAQEEPAA-------------QSSPGELFQEFLRVALRAKL---D
+TQDTRSKNE---------------------------------------------------
+------------------------------------------------------------
+--------EADLLMKILESYIQSRK-----------------------------------
+--
+>Gallus_gallus tr|A0MAR5|A0MAR5_CHICK Neuromedin B GN=NMB PE=2 SV=1
+V--HLDFAEHRSQAAKIKVNPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSVSGT
+PHLDVPGQPAVPMAFGPSLRALL---------EDVV----ELLTRELLKILLQERLLDEN
+RGKYDLTDQ---------------------------------------------------
+------------------------------------------------------------
+--------ETGLLTKVLEKYFSN-------------------------------------
+--
+>Sus_scrofa tr|B0LUW4|B0LUW4_PIG Neuromedin B GN=NMB PE=2 SV=1
+L--SWDLPEPRSRAGKIRVHPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLEPP
+NPS----------LLGTTHHISL---------RDQR----LQLSHDLLRILLQKKALGLS
+LSGPASHTP---------------------------------------------------
+------------------------------------------------------------
+--------YRRLLVQTLEK-----------------------------------------
+--
+>Cricetulus_griseus tr|A0A061ICH4|A0A061ICH4_CRIGR Neuromedin-B-like protein GN=H671_3g8647 PE=4 SV=1
+F--NWDLPEPRNRASKIRVHPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLEPP
+GLS----------LVGTALPSIQ---------RDQR----LPLSHDLFRILLLKKALGMN
+LSGPDSPIQ---------------------------------------------------
+------------------------------------------------------------
+--------YRRLLEPILKK-----------------------------------------
+--
+>Pan_troglodytes tr|K7ANC0|K7ANC0_PANTR Neuromedin B GN=NMB PE=2 SV=1
+L--SWDLPEPRSRASKIRVHSR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLDPS
+SPS----------PLGTAPHTSL---------RDQR----LQLSHDLLGILLLKKALGVS
+LSRPAPQIQ---------------------------------------------------
+---------------------------------------------EAAGTNTAE------
+--------MTPIMGQTQQRGLDCAHPGKVLNGILVMAPSGCKS-----------------
+--
+>Mustela_putorius tr|G9KDI7|G9KDI7_MUSPF Neuromedin B (Fragment) furo PE=2 SV=1
+L--SWDPPEPRSRASKIRVHPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLETP
+SPF----------LLGTAPHISL---------RDQR----LQLSHDLPRILLLKKVLGMS
+LSSPAPHPQ---------------------------------------------------
+---------------------------------------------EAAGPDAAE------
+--------GVPLMRKRRRRDLDCAHPGKVLSGTLVAAPSGCKTWAQMSVTPL--------
+--
+>Pteropus_alecto tr|L5L3S3|L5L3S3_PTEAL Neuromedin-B GN=PAL_GLEAN10009524 PE=4 SV=1
+L--SWELPEPRSRASKIRVHPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLEPP
+SPP----------LLKAAPHISL---------RD-------XXXXXXXXXXXXXXXXGMS
+LSGPASHTQLDLPLTVHTGLFPTPAIHPRCAQYMLVVRGGTLRPRKGKSHIAAETESDLI
+HLNQYSSQSVIFLSDLCLALRNGRVPLSVASSAQVNSSVCSASVQEAAGVNAAE------
+--------VMPLMRKTRQHGLDCAHPGKVLNGTLVVAPSGCKSWARISVTPFL-------
+--
+>Heterocephalus_glaber tr|G5B1S1|G5B1S1_HETGA Neuromedin-B GN=GW7_09440 PE=4 SV=1
+L--TWDLQEARSRASKIRVHPR-GN--LWAT-----------------------------
+------------------------------------------------GHFMGKKSLEPL
+SPS----------LLGTTPHTSP---------RDQQ----LQLSHDLLRSLLLRRALGMT
+LGSPAPHTQ---------------------------------------------------
+---------------------------------------------EPPGAHAAE------
+--------ETPGTGQGAPLGLDFAHLAKWLNGSPGVVPSRCKSRA----PPL--------
+--

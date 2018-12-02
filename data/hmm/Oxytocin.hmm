@@ -1,5 +1,5 @@
 HMMER3/f [3.1b2 | February 2015]
-NAME  Oxytocin.fa
+NAME  Oxytocin
 LENG  107
 ALPH  amino
 RF    no
@@ -7,7 +7,7 @@ MM    no
 CONS  yes
 CS    no
 MAP   yes
-DATE  Fri Jan 13 17:53:43 2017
+DATE  Sun Dec  2 17:05:58 2018
 NSEQ  12
 EFFN  0.547852
 CKSUM 4144285815

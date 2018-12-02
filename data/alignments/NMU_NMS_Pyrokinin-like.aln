@@ -1,0 +1,95 @@
+>Homo_sapiens Uniprot_NMU_Hsap
+-----------------APILPQGLQPEQQLQLWNEIDDT--------CSSFLSIDSQPQ
+ASNALEELCFMIMGMLPKPQEQDEKDNTKRF-----------------------LFHYSK
+TQKLGKSNVVS----SVVHPLLQLVPHLHERRMKRF--------------RVDEE-----
+-----------FQSPFASQSRGYFLFRPRNGRRSAGFI-------------
+>Danio_rerio Ensembl_ENSDART00000063564_Drer
+-----------------APMLLN-PSSLEHEQLLTQITDL--------CSFYLSADPSFR
+TSDVLEDLCFLMLGSLQKSKEITARETSKR------------------------------
+-----------------------------------------------------EN-----
+-----------LQGPGRIQSRGYFLYRPRNGRRSDEYV-------------
+>Tribolium_castaneum GLEAN_08429_Tcas
+-----------------EPKE----------PKRNKLASVYA------LTPSLRVGRRS-
+----------------------EGTDVKRRIGK---------------------MVSFPR
+IGRSESNWVPDDNSYGAQRPGANSGGMWFGPRLGRV--------------QKRSE-----
+NFTPWA---YIILNGEAPIIR-EVHYSPRLGRESEEAYE--EILDSNLDVL
+>Drosophila_melanogaster Ensembl_FBtr0085514_capability_Dmel
+ETDHDKNRRGANMGLYAFPRV-----GRSDPSLANSLRDGLEAGVLD-------------
+----------GIYGDA-SQEDYNEADFQKKASG---------------------LVAFPR
+VGRGDAELRKWAHLLALQQ-----------------------------------------
+----------VLDKRTGPSASSGLWFGPRLGKRSVDAKSFADISKGQKELN
+>Drosophila_melanogaster Ensembl_FBtr0082639_hugin_Dmel
+----------------------KSLQGTSKLDLGNHISAGSARGSLSPASPALSEARQKR
+AMGDYKELTDII-------DELEENSLAQKASATMQVAAMPPQGQEFDLDTMPPLTYYLL
+LQKLRQLQSNGEP-----------AYRVRTPRLGRSIDSWRLLDAEGATGMAGGEEAIGG
+QFMQR-------------MVKKSVPFKPRLGKRAQ-------VCGGD----
+>Caenorhabditis_elegans Ensembl_Y23B4A.2_Cele
+------------------------------------------------------------
+-------------------LDYNDFSLQRIARAPHPSSAL--------------LVPYPR
+VGKRSNILNNNSE-----------SQNSVQKRL---------------------------
+--------------YMARVGKRAFFYTPRIGK-------------------
+>Bombina_orientalis sp|Q1HA20|NMS_BOMOR Neuromedin-S GN=nms PE=1 SV=1
+-----------------FPQSVPSYMEALDIPESEKLAFC--------FSQWTALPDQEQ
+IPSFVMDLCSSIYNRM-KVNEENNHEIYKRF-----------------------LFQFSR
+TKDPS--LKTG------------------------------------------ESQIATA
+EYTKR--------DSSGIVGRPFFLFRPRNGRKVSINEH------------
+>Bombina_maxima sp|Q4QXT8|NMS_BOMMX Neuromedin-S GN=nms PE=1 SV=1
+-----------------FPQSVPSYLEGLDIPESERHAFC--------FSQWTALQDQEQ
+IPSFVMDLCSSIYNRM-KVNEENNHEIYKRF-----------------------LFQFSR
+AKDPS--LKIG------------------------------------------ESQIATA
+EYTKR--------DSSGIVGRPFFLFRPRNGRKVSINEH------------
+>Litoria_caerulea sp|P81872|NMU_LITCE Neuromedin-U GN=nmu PE=1 SV=2
+-----------------APFSSPVLGAEDELPLWNGIDDA--------CSAVL-PDPQLA
+VSSTLRELCFMVMRMQQKSQG-EEKDDFKRF-----------------------LFHYSK
+SHDSGNSDITS----SVLHPLLQLLPQLHDRRMKRL--------------TSDEE-----
+-----------VQVPGGVISNGYFLFRPRNGRRSAGFR-------------
+>Bombina_variegata sp|Q1HA14|NMS_BOMVA Neuromedin-S GN=nms PE=1 SV=1
+-----------------FPQSVPSYLEGLDIPESE-------------------------
+IPSFVMDLCSSIYNRM-KVNEENNHEIYKRF-----------------------LFQFSR
+AKDPS--LKIG------------------------------------------ESQIATA
+EYTKR--------DSSGIVGRPFFLFRPRNGRKVSINEH------------
+>Homo_sapiens tr|D6RBC9|D6RBC9_HUMAN Neuromedin U, isoform CRA_a GN=NMU PE=1 SV=1
+-----------------APILPQGLQPEQQLQLWNEIDDT--------CSSFLSIDSQPQ
+ASNALEELCFMIMGMLPKPQ----------------------------------------
+----------S----SVVHPLLQLVPHLHERRMKRF--------------RVDEE-----
+-----------FQSPFASQSRGYFLFRPRNGRRSAGFI-------------
+>Homo_sapiens tr|A0A0B4J202|A0A0B4J202_HUMAN Neuromedin-U GN=NMU PE=1 SV=1
+-----------------APILPQGLQPEQQLQLWNE------------------------
+ASNALEELCFMIMGMLPKPQEQDEKDNTKRF-----------------------LFHYSK
+TQKLGKSNVVS----SVVHPLLQLVPHLHERRMKRF--------------RVDEE-----
+-----------FQSPFASQSRGYFLFRPRNGRRSAGFI-------------
+>Macaca_fascicularis tr|G7P5S7|G7P5S7_MACFA Neuromedin-U GN=EGM_14496 PE=4 SV=1
+-----------------APISPQGLQPAQQLQLWNEIDDA--------CSSFLSIDSQPQ
+ASNALEELCFVIMGMLPKPQEQDEKDNTKRF-----------------------LFHYSK
+TQKLGNSNVVS----SVVHPLLQLVPHLHERRMKRF--------------RVDEE-----
+-----------FQSPFASQSRGYFLFRPRNGRRSAGFI-------------
+>Cricetulus_griseus tr|A0A061IPX1|A0A061IPX1_CRIGR Neuromedin-U-like protein GN=H671_1g1455 PE=4 SV=1
+-----------------APVSPQRIRSEQELQLWNKVHDA--------CSSFLSSDSQPQ
+GSTALREFCRLVTESLQKPLEQNEKHNTKRF-----------------------LFHYSK
+TEKSGNSNIVS----SVVHPLLQLVPQLHERRMKRF--------------K--EE-----
+-----------LQSPFAGQSRGYFLFRPRNGKRSAGFI-------------
+>Lepisosteus_oculatus tr|W5N9J3|W5N9J3_LEPOC Neuromedin U GN=NMU PE=2 SV=1
+-----------------APALLQGPQADQELQLWSEIDDL--------CSSYLSADLQSQ
+APSVLEELCYSVMGIVHKSQDVRAKEQSKRF-----------------------LFHYTK
+SHNSGSSDPAS----SVLHPLLQLVPQLHARRLRRF--------------RSDDD-----
+-----------LQGPGGIQSRGYFLFRPRNGRRSTTFI-------------
+>Bombina_orientalis sp|Q1HA20|NMS_BOMOR Neuromedin-S GN=nms PE=1 SV=1
+-----------------FPQSVPSYMEALDIPESEKLAFC--------FSQWTALPDQEQ
+IPSFVMDLCSSIYNRM-KVNEENNHEIYKRF-----------------------LFQFSR
+TKDPS--LKTG------------------------------------------ESQIATA
+EYTKR--------DSSGIVGRPFFLFRPRNGRKVSINEH------------
+>Bombina_maxima sp|Q4QXT8|NMS_BOMMX Neuromedin-S GN=nms PE=1 SV=1
+-----------------FPQSVPSYLEGLDIPESERHAFC--------FSQWTALQDQEQ
+IPSFVMDLCSSIYNRM-KVNEENNHEIYKRF-----------------------LFQFSR
+AKDPS--LKIG------------------------------------------ESQIATA
+EYTKR--------DSSGIVGRPFFLFRPRNGRKVSINEH------------
+>Bombina_variegata sp|Q1HA14|NMS_BOMVA Neuromedin-S GN=nms PE=1 SV=1
+-----------------FPQSVPSYLEGLDIPESE-------------------------
+IPSFVMDLCSSIYNRM-KVNEENNHEIYKRF-----------------------LFQFSR
+AKDPS--LKIG------------------------------------------ESQIATA
+EYTKR--------DSSGIVGRPFFLFRPRNGRKVSINEH------------
+>Bos_mutus tr|L8HNQ3|L8HNQ3_9CETA Neuromedin-S GN=M91_15023 PE=4 SV=1
+-----------------FPRPLADASDGLDIVKFEQMAY------------WASLSRQPK
+----------------------DNQDIYKRF-----------------------LFHYSR
+TQEPAHPVKTG---FPPVHPLMRLAAKLADRRMKTF--------------WRRDSRATAA
+DFTKKAVCVFILQDYTATLGRPFFLFRPRNGRNLDFDTW------------

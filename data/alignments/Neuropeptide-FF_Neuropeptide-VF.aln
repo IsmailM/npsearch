@@ -1,0 +1,120 @@
+>Homo_sapiens sp|Q9HCQ7|NPVF_HUMAN Pro-FMRFamide-related neuropeptide VF GN=NPVF PE=1 SV=2
+-----ADELV-----ISNLHSKENY-DKYSEPRGYP--KGERSLNFEELKDWGPKNVIKM
+ST--------------PAVNKMPHSFANLPLRFGRNVQE---ERSAGATANLPLRSGRNM
+EVSLVRRVPNLPQRFGRTTTAK-------------SVCRMLSDLCQGSMHSPCANDLFYS
+MTC--QHQEIQNPDQKQS----------------------------RRLLFKKIDDAELK
+QEK--------------
+>Bos_taurus sp|Q9GM96|NPVF_BOVIN Pro-FMRFamide-related neuropeptide VF GN=NPVF PE=1 SV=1
+SNIFCTDESR-----MPNLYSKKNY-DKYSEPRGDLGWEKERSLTFEEVKDWAPK--IKM
+NK--------------PVVNKMPPSAANLPLRFGRNMEE---ERSTRAMAHLPLRLGKNR
+EDSLSRWVPNLPQRFGRTTTAK-------------SITKTLSNLLQQSMHSPSTNGLLYS
+MAC--QPQEIQNPGQKNL----------------------------RRRGFQKIDDAELK
+QEK--------------
+>Mus_musculus sp|Q9ESQ8|NPVF_MOUSE Pro-FMRFamide-related neuropeptide VF GN=Npvf PE=2 SV=1
+-----TDEFM-----MPHFHSKEGD-GKYSQLRGIPKGEKERSVSFQELKDWGAKNVIKM
+SP--------------APANKVPHSAANLPLRFGRTIDE---KRSPAARV--------NM
+EAGTRSHFPSLPQRFGRTTARS---------------PKTPADLPQKPLHSLGSSELLYV
+MIC--QHQEIQSPGGKRT----------------------------RRGAFVETDDAERK
+PEK--------------
+>Ovis_aries sp|B2KKR4|NPVF_SHEEP Pro-FMRFamide-related neuropeptide VF GN=NPVF PE=2 SV=1
+SNIFCTDESR-----IPSLYSKKNY-DKYSEPRGDLGWEKERSLTFEEVKDWGPK--IKM
+NT--------------PAVNKMPPSAANLPLRFGRNMEE---ERSTRVMAHLPLRLGKNR
+EDSLSRRVPNLPQRFGRTIAAK-------------SITKTLSNLLQQSMHSPSTNGLLYS
+MTC--RPQEIQNPGQKNL----------------------------RRLGFQKIDDAELK
+QEK--------------
+>Rattus_norvegicus sp|Q9ESQ9|NPVF_RAT Pro-FMRFamide-related neuropeptide VF GN=Npvf PE=1 SV=1
+-----SDELM-----MPHFHSKEGY-GKYYQLRGIPKGVKERSVTFQELKDWGAKKDIKM
+SP--------------APANKVPHSAANLPLRFGRNIED---RRSPRARA--------NM
+EAGTMSHFPSLPQRFGRTTARR--------------ITKTLAGLPQKSLHSLASSELLYA
+MTR--QHQEIQSPGQEQP----------------------------RKRVFTETDDAERK
+QEKIGNLQPVLQGAMKL
+>Mus_musculus tr|Q3UUP8|Q3UUP8_MOUSE Neuropeptide VF GN=Npvf PE=2 SV=1
+-----TDEFM-----MPHFHSKEGD-GKYSQLRGIPKGEKERSVSFQELKDWGAKNVIKM
+SP--------------APANKVPHSAANLPLRFGRTIDE---KRSPAARV--------NM
+EAGTRSHFPSLPQRFGRTTARS---------------PKTPADLPQKPLHSLGSSELLYV
+MIC--QHQEIQSPGGKRT----------------------------RRGAFVETDDAERK
+PEK--------------
+>Danio_rerio tr|Q1LW92|Q1LW92_DANRE FMRFamide related peptide 1 GN=npvf PE=2 SV=1
+LRLPLSGE--RDLNGFTWGQFSENA------------QEIPRSLEIQDF-------TLNV
+APTSGGASSPTILRLHPIIPKPAHLHANLPLRFGRDAQPGTGDRAPKSTI----------
+---------NLPQRFGRSCTMC-------------------------ARSGTGP-----S
+ATL---PQRF---GRRNIFALDPLRALALYTRTPESPSFPKERTQVHDYMFETVEDSEET
+VKNTD------YTALD-
+>Homo_sapiens Uniprot_RFRP_Hsap
+-----ADELV-----ISNLHSKENY-DKYSEPRGYP--KGERSLNFEELKDWGPKNVIKM
+ST--------------PAVNKMPHSFANLPLRFGRNVQE---ERSAGATANLPLRSGRNM
+EVSLVRRVPNLPQRFGRTTTAK-------------SVCRMLSDLCQGSMHSPCANDLFYS
+MTC--QHQEIQNPDQKQS----------------------------RRLLFKKIDDAELK
+QEK--------------
+>Homo_sapiens Uniprot_NPFF_Hsap
+-------------------EGPGGQ-QEDQLSA----EEDSEPLPPQDA---------QT
+SG------------------SLLHYLLQAMERPGRS----------QAFL----------
+---------FQPQRFGRNTQGS-------------WRNEWLS-----PRAGEGLNSQFWS
+LAA---PQRF---GKK--------------------------------------------
+-----------------
+>Ensembl_ENSMUSP00000023814_Mmus
+-------------------EEAGSW-GEDQVFA----GEDKGPHPPQYAH---IPDRIQT
+PG------------------SLFRVLLQAMDTPRRS----------PAFL----------
+---------FQPQRFGRSAWGS-------------WSKEQLN-----PQARQ-----FWS
+LAA---PQRF---GKK--------------------------------------------
+-----------------
+>Oryzias_latipes Ensembl_ENSORLP00000006177_Olat
+------------------LHVQDSL-GKNDILPGS--SEEN----VADR-------LLRL
+-------------------------------RETRE-----------SVL----------
+---------HQPQRFGRSSRGQ------------VVSDDQIQ-----ARDWEAAPGQIWS
+MAV---PQRF---GKK--------------------------------------------
+-----------------
+>Danio_rerio Ensembl_ENSDART00000066179_Danio_rerio
+------------------ITQDEAL-EQNKRLL----EEDE----EQDN-------MLER
+PGAAQMNGLLEDR----LLVEMLRSLLHGSQRYERN----------PSVL----------
+---------HQPQRFGRGARSG------------LSTEERIQ-----SRDWETVPGQIWS
+MAV---PQRF---GKK--------------------------------------------
+-----------------
+>Petromyzon_marinus Ensembl_ENSPMAP00000004221 _Pmar
+ARGS-----------FSSMEEAAMP-DSDSSLTKDYLAESVHEDPYRDS-------FDRA
+SPDAAGSSSSEQL----LLSRLARAFMHFPQRFGRA---------GPSSL----------
+---------FQPQRFGRGSND----------------DEEVPPSLFYRRSWGAPAEKFWM
+RAM---PQRF---GRKK-------------------------------------------
+-----------------
+>Rattus_norvegicus sp|Q9WVA9|NPFF_RAT Pro-FMRFamide-related neuropeptide FF GN=Npff PE=3 SV=1
+-------------------EEAGSW-GEDQVFA----EEDKGPHPSQYAH---TPDRIQT
+PG------------------SLMRVLLQAMERPRRN----------PAFL----------
+---------FQPQRFGRNAWGP-------------WSKEQLS-----PQARE-----FWS
+LAA---PQRF---GKK--------------------------------------------
+-----------------
+>Mus_musculus sp|Q9WVA8|NPFF_MOUSE Pro-FMRFamide-related neuropeptide FF GN=Npff PE=3 SV=1
+-------------------EEAGSW-GEDQVFA----GEDKGPHPPQYAH---IPDRIQT
+PG------------------SLFRVLLQAMDTPRRS----------PAFL----------
+---------FQPQRFGRSAWGS-------------WSKEQLN-----PQARQ-----FWS
+LAA---PQRF---GKK--------------------------------------------
+-----------------
+>Bos_taurus sp|Q9TUX7|NPFF_BOVIN Pro-FMRFamide-related neuropeptide FF GN=NPFF PE=3 SV=1
+-------------------EGPGGRDGGDQIFM----EEDSGAHPAQDA---------QT
+PR------------------SLLRSLLQAMQRPGRS----------PAFL----------
+---------FQPQRFGRNTRGS-------------WSNKRLS-----PRAGEGLSSPFWS
+LAA---PQRF---GKK--------------------------------------------
+-----------------
+>Danio_rerio tr|Q05KN0|Q05KN0_DANRE Neuropeptide NPFF GN=npffl PE=2 SV=1
+------------------ITQDEAL-EQNKRLL----EEDE----EQDN-------MLER
+PGAAQMNGLLEDR----LLVEMLRSLLHGSQRYERN----------PSVL----------
+---------HQPQRFGRGARSG------------LSTEERIQ-----SRDWETVPGQIWS
+MAV---PQRF---GKK--------------------------------------------
+-----------------
+>Tetraodon_nigroviridis tr|Q05KN5|Q05KN5_TETNG Neuropeptide NPFF GN=NPFF PE=2 SV=1
+------------------LHIQGSP-NKDD-LPG---SEEQ----MADS-------LMEM
+GGKIADNS-NDNH----LLSAVLRALLLGAQRETRN-----------SVL----------
+---------HQPQRFGRNSNGP------------TLLDNEMH-----PHDWEGAPGQIWS
+MAV---PQRF---GRK--------------------------------------------
+-----------------
+>Takifugu_rubripes jgi_596067_Trub
+------------------LHIQDVL-DKED-LPG---SEEK----MADS-------MLEM
+-------------------------------RETRN-----------SVL----------
+---------HQPQRFGRNSKGQ------------VMLENEIH-----PRDWEGAPGQVWS
+MAV---PQRF---GRK--------------------------------------------
+-----------------
+>Branchiostoma_floridae NPFF_AMPHIOXUS_Brafl1_112219
+--TPSSSEWKRSLYHFVSPEESDGS-NEFPSHQRFTLRPDSSDESEAER-------VDRM
+SR------------------AAAASLFRPPNRFGRS---------PAVWL----------
+---------DSPNRFGRSARFSVPFDIPRRFGRGFSLDSDVPRRFG-RAGEEETPKRSWS
+MLSFQRPFRF---GRAIAT------------------------SNV--------------
+-----------------

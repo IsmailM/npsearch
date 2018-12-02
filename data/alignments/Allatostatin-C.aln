@@ -1,0 +1,76 @@
+>Capitella_telata gi_161295377_Ctel
+GFIVNAVPTQD-GGSNLSHG----------YNEVSEMGLTDTKLAFLE---KKLREEIER
+-----DLADLLVMEHQHRH-------------NLNFIQEKKRQLEIKK------------
+------------REP-----VQCLVNIVSCW---KRK-
+>Helobdella_robusta jgi_181187_Hrob
+------LPP---RRRSLISKNYI-------FPKTHSKRFAKNNDAE-----DPLYSSYPF
+E---------YNNNEPISM------DSNK---YANSLNKEFPKAPKGK------------
+-QVFK-------KAH-----VPCLFSIISCW---K---
+>Lottia_gigantea gi_163505903_Lgig
+---NKILPGE--EHRQLVQ--------------ITEESSNNDRLLKR----STLQDAYES
+-----HLAMLMEAEQSLTK-------------QIEELKLRREELSNRK------------
+------------RSH-----VMCLVNLISCF---RKR-
+>Crassostrea_gigas gi_260628238_Cgig
+------QPQK--FSTEIQQ--------------TGDESSTDLNLFK-----MALREAYNR
+-----ELEFYEQQEAQIVK-------------QLAALENDRNQIRERK------------
+------------RSH-----IRCLVNVIACY---RKK-
+>Aplysia_californica gi_203663510_Acal
+----AVIPVS--SPEPMEE--------------ASALQLLPGKIGR-----ASLLREMER
+-----QLMILQAAEENIVS-------------GLQELEEERRVLSGRK------------
+------------RSHY---SSMCMFNVVACY---RKRK
+>Daphnia_pulex jgi_290676_Dpul
+-KSTDREETES-TDFGQD---------------IEVLGAVPDD------------GSVET
+-----ALLNYLFAK-QIVA-------------RLRT-NANPQDL-MRK------------
+------------RSYW----KQCAFNAVSCF---GK--
+>Tribolium_castaneum BCM_GLEAN_05428_Tcas
+------RPNHF-GDASQNSI------SGL----KFQVVGEPADGNNLLD--SRLKP----
+----WELEMLVQRLSEISS--------QT---GGDFAWDKSIRLPEAK------------
+------------RQSR---YRQCYFNPISCF---RK--
+>Drosophila_melanogaster Ensembl_FBtr0080234_AstC_Dmel
+------RPS---GAETGPDS------DGLDGQDAEDVRGAYGGGYDMPA--QAIYPNIPM
+D----RLQMLFAQYRPTSY--SAYLRSPT---YGNV--NELYRLPESK------------
+------------RQVR---YRQCYFNPISCF---RK--
+>Drosophila_melanogaster Ensembl_FBtr0114455_AstCC_Dmel
+QERSEQRIGEFFGDRNILSGKFGDSHNGMEHHQAREDGMYSDDDAG--------------
+-----TLLDYDFKD---------------L-NQINRATGETRRAGADRSGTSTHSGSPAG
+SRRIQPSGSGGGRAY-----WRCYFNAVSCF-------
+>Caenorhabditis_elegans Ensembl_F33D11.8_Cele
+------IPL-----RSLF---------------------------------LRSYDDINQ
+E----SIARGYFAP-QPVD-------------DDNADNRPKRGIDLLK------------
+------------RRVEIIERNRCFFNPITCY-------
+>Caenorhabditis_elegans Ensembl_M02E1.2_Cele
+--LGSLTPSAAF---------------------------------------RANMQQRER
+S--PNTLFYMDGASKQYGD-------------EIKD--------PIYK------------
+------------R------FKPCYYSPIQCL---IKRK
+>Caenorhabditis_elegans Ensembl_R11.2_Cele
+QR----------YDRAIY---------------------------------EALLNDLER
+EFVERELAQHVLEKRELLR-------------QDRQ-ELDRVRRASEK------------
+------------KSYP----RNCYFSPIQCL---FTRN
+>Caenorhabditis_elegans Ensembl_Y73B6BL.35_Cele
+-----SVPSSS----------------------------------------AVSDGQIDF
+D----ALAAKIEMLRPNRY------------------WKRAHNIDTRA------------
+------------LNQF----KNCYFSPIQCVLMERRRK
+>Caenorhabditis_elegans Ensembl_R08B4.5_Cele
+------IPMV--SSRDEDD--------------------------------QIIQKRLSN
+D----ALIRLLMRNRGTQT-------------QLGLKRGLVKKAEVER------------
+------------RSIDE-DFSNCFLSPVQCMLP-SSRK
+>Camponotus_floridanus sp|E2A6Z3|ALLSC_CAMFO Allatostatin C GN=EAG_07220 PE=1 SV=1
+------MPTTD-KDKERL---------------LNTVDLIDDD------------GSIET
+-----ALINYLFTK-QIVK-------------RLRS-QLDIGDL-QRK------------
+------------RSYW----KQCAFNAVSCF---GK--
+>Tribolium_castaneum tr|B8XQ59|B8XQ59_TRICA Allatostatin C preprohormone PE=2 SV=1
+------RPNHF-GDAS-------------------QVVGEPADGNNLLD--SRLKP----
+----WELEMLVQRLSEISS--------QT---GGDFAWDKSIRLPEAK------------
+------------RQSR---YRQCYFNPISCF---RK--
+>Clostera_anastomosis tr|J7EQE8|J7EQE8_9NEOP C type allatostatin PE=2 SV=1
+------APME--GDDEQAE---------------NTMIGRPDHDMEMPSGWDPINTAALR
+-----KFLMELDAEERMGRATRSWPQAEPRGWERSLDGRLARQWRTDK------------
+------------RQVR---FRQCYFNPISCF---RK--
+>Daphnia_pulex tr|E9G476|E9G476_DAPPU Putative allatostatin C preprohormone GN=DAPPUDRAFT_290676 PE=4 SV=1
+-KSTDREETES-TDFGQD---------------IEVLGAVPDD------------GSVET
+-----ALLNYLFAK-QIVA-------------RLRT-NANPQDL-MRK------------
+------------RSYW----KQCAFNAVSCF---GK--
+>Nasonia_vitripennis tr|F8R0Y1|F8R0Y1_NASVI Allatostatin C preprohormone PE=2 SV=1
+------LPA---GDKEAL---------------MNGLNMMGDEEG----------AAVER
+-----DLLNYLVGR-RFVK-------------RLRN-QADVDDL-QRK------------
+------------RNYW----RQCAFNAVSCF---GK--

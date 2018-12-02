@@ -1,0 +1,75 @@
+>Drosophila_melanogaster Ensembl_FBtr0085024_PDF_Dmel
+----------------MAMPDEERYVRKEY-------------NRDLLDWFNNVGVGQFS
+PGQVATLCRYPLILENSLGP-SVP-IRKRNSELINSLL---SLP-KNMNDAGK-
+>Penaeus_monodon gi_45650472_Pmon
+-------------------QREPAASKCQA-------------ATELAIQILQAVKGAHP
+G------------------V-AVG-PHKRNSELINSLL---GLP-KFMIDAGRR
+>Peripatopsis_sedgwicki gi_283526164_Psed
+--------------SPLNRAEDLQPVERQI-------------IAEMASKILKVAEDGLV
+-------------------------YSKRNAELINSLL---GLP-KMMNDAGK-
+>CO508274_Hypsibius_dujardini_Tardigrada
+I------------WVFLEPRFDAEFISRNSEMVGQEVYSQFPSGSEGPAQLLSQGYQPVE
+L------------------T-RIP-IRKRNSEILNTII---GLP-NKLRQRG--
+>Caenorhabditis_elegans Ensembl_F48B9.4_Cele
+--------------TPRSQGNMMRY------------------GNSLPAYAPHVLYRFYN
+SRQ------------------FAPINKRNNAEVVNHILKNFGAL-DRLGDVGK-
+>Caenorhabditis_elegans Ensembl_T07E3.6a_Cele
+-------SPLLYRAPQYQMYDDVQFVKRS--------------NAELINGLIGMDLGKLS
+AV-----------------------GKRSNAELINGLL---SMNLNKLSGAGRR
+>Lottia_gigantea jgi_239524_Lgig
+-------------SPLRPYQTQIEEKSRQD-------------IITLAARVIKIAMYGSN
+---------------------QYD-VIKRNAGTVDHLL---NFP-DL--SVGK-
+>Bombyx_mori tr|B3IUD7|B3IUD7_BOMMO Pigment dispersing factor GN=pdf PE=2 SV=1
+VANSEAKIKLNRKVSESSYGSDEQY------------------IRQIHSLVNAYREDNSM
+LGEN-FIIETKALID----T-KYR-TWKRNADLINSLL---ALP-KDMNDAGR-
+>Musca_domestica tr|Q76JT9|Q76JT9_MUSDO Pigment-dispersing factor GN=pdf PE=2 SV=1
+----------------LPAPDEEQYFDKQL-------------NRELINRWLSSIHNAQI
+LNN------NPCRFYGGDGTWTAP-LPKRNSELINSLL---SLP-KSMNDAGK-
+>Blattella_germanica tr|A9YEC8|A9YEC8_BLAGE Pigment dispersing factor GN=pdf PE=2 SV=1
+--------------SPAIQLEDDRYMDKEF-------QTNAVNARELTNWIMQILMHKGE
+P--------------------TVC-THKRNSELINSLL---GLP-KVINDAGRK
+>Euperipatoides_rowelli tr|A0A0D3QT49|A0A0D3QT49_9BILA Pigment-dispersing factor I PE=2 SV=1
+--------------SPLNRADDLQPVERQM-------------IAEMATNILKIVENGFV
+-------------------------SPKRNAELINSLL---GLP-KMMNDAGK-
+>Meimuna_opalifera tr|Q76L38|Q76L38_9HEMI Pigment dispersing factor GN=pdf PE=2 SV=1
+-----------------LRYQDDKYIESQY----------GPSTRELASWLLEWAQKNDH
+-------------------------AHKRNSEIINSLL---GLP-KVLNDAGRK
+>Riptortus_pedestris tr|T2HRG2|T2HRG2_9HEMI Pigment-dispersing factor GN=pdf PE=2 SV=1
+V---------------PAYSLNDRVIDKIL--------LQSLSNKETPLWLSELLRSEDH
+-------------------------SHKRNSEIINSLL---GIP-KVINDAGR-
+>Eoperipatus_sp. tr|A0A0D3QTD1|A0A0D3QTD1_9BILA Pigment-dispersing factor I LH-2012 PE=2 SV=1
+--------------SPLSRADDIQTSDRQR-------------IAELASTILKIAEDGFA
+-------------------------NSKRNAELINSLL---GLP-KMMNDAGK-
+>Drosophila_melanogaster sp|O96690|PDF_DROME Protein PDF GN=Pdf PE=1 SV=2
+----------------MAMPDEERYVRKEY-------------NRDLLDWFNNVGVGQFS
+PGQVATLCRYPLILENSLGP-SVP-IRKRNSELINSLL---SLP-KNMNDAGK-
+>Camponotus_floridanus sp|E2AX75|PDH_CAMFO Pigment-dispersing hormone peptides GN=EAG_01710 PE=1 SV=1
+----------------------VEDVDRNL------LELNLPYGRGLDSEL-QLARLMLA
+A------------------P-RFC-HPKRNSELINSLL---GLP-KNMHNAGK-
+>Callinectes_sapidus sp|Q23755|PDH1_CALSI Pigment-dispersing hormone 1 peptides GN=PDH1 PE=2 SV=1
+--------------------QELKYQEREM-------------VAELAQQIYRVAQAPWA
+A--------------------AVG-PHKRNSELINSIL---GLP-KVMNDAGRR
+>Callinectes_sapidus sp|Q23756|PDH2_CALSI Pigment-dispersing hormone 2 peptides GN=PDH2 PE=2 SV=1
+--------------------QELHVPEREA-------------VANLAARILKIVHAPHD
+A--------------------AAGVPHKRNSELINSLL---GIS-ALMNEAGRR
+>Carcinus_maenas sp|Q06202|PDH_CARMA Pigment-dispersing hormone peptides PE=2 SV=1
+--------------------QDLKYQEREM-------------VAELAQQIYRVAQAPWA
+G--------------------AVG-PHKRNSELINSIL---GLP-KVMNDAGRR
+>Armadillidium_vulgare sp|D2Z1D6|PDH_ARMVU Pigment-dispersing hormone peptides GN=PDH PE=2 SV=1
+--------------------QDLNPTEKEV-------------LSNMLDFLQRHSRTTYM
+F------------------P-LLS-ESKRNSELINSLL---GAP-RVLNNAGR-
+>Litopenaeus_vannamei sp|P91964|PDH2_LITVA Pigment-dispersing hormone type 2 GN=PDH2 PE=2 SV=2
+-------------------QDDLKYFEREV-------------VAELAAQILRVAQGPSA
+F--------------------VAG-PHKRNSELINSLL---GIP-KVMNDAGRR
+>Litopenaeus_vannamei sp|P91963|PDH1_LITVA Pigment-dispersing hormone type 1 GN=PDH1 PE=2 SV=2
+-------------------QEDLKYFEREV-------------VAELAAQILRVAQGPSA
+F--------------------VAG-PHKRNSELINSLL---GIP-KVMNDAGRR
+>Romalea_microptera sp|P09929|PDH_ROMMI Pigment-dispersing hormone peptides PE=1 SV=2
+L------------TIQATQYEEDKYQENEV-------KY----GRELASWLAQLAHKNEP
+---------------------AIC-AHKRNSEIINSLL---GLP-KLLNDAGRK
+>Eurydice_pulchra sp|D2IT41|PDH_EURPU Pigment-dispersing hormone peptides PE=1 SV=1
+------------------QSRDFSISEREI-------------VASLAKQLLRVARMGYV
+P--------------------EGDLPRKRNAELINSLL---GVP-RVMSDAGRR
+>Orconectes_limosus sp|P37085|PDHA_ORCLI Pigment-dispersing hormone A peptides PE=2 SV=1
+--------------------QELKYPEREV-------------VAELAAQIYGWPGSLGT
+M--------------------AGG-PHKRNSELINSIL---GLP-KVMNEAGRR

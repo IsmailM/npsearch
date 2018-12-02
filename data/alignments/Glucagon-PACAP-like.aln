@@ -1,0 +1,84 @@
+>Homo_sapiens Uniprot_GIP_Hsap
+---------------------------------------EKKEGHFS-------ALPSLP
+--VGSHAKVSSPQPRGPRYAEGTFISDYSIAMDKIHQQDFVNWLLAQKGKKND------W
+KHNIT-QREARALELASQANRKEEEAVEP--QSSPAKNPSDED-----------------
+------------------------------------------------------------
+--LLRDLLIQELLACLLDQTNLCRLRSR
+>Mus_musculus sp|P48756|GIP_MOUSE Gastric inhibitory polypeptide GN=Gip PE=2 SV=2
+---------------------------------------EKEEVEFR-------------
+----SHAKFAGPRPRGPRYAEGTFISDYSIAMDKIRQQDFVNWLLAQRGKKSD------W
+KHNIT-QREARALVLAGQSQGKEDKEAQE--SSLP-KSLSDDD-----------------
+------------------------------------------------------------
+--VLRDLLIQELLAWMVDQTELCRLRSQ
+>Bos_taurus tr|F1MQC0|F1MQC0_BOVIN Gastric inhibitory polypeptide GN=GIP PE=4 SV=1
+---------------------------------------EKEEDHSK-------------
+--LGFHSKASGSQPRATRYAEGTFISDYSIAMDKIRQQDFVNWLLAQKGKKSD------W
+IHNIT-QREAGALELAHQSNRKEEAKEKQ--GSLP-KNPSDED-----------------
+------------------------------------------------------------
+--LLKHLLIRELLAWMVDQMELCRLRFQ
+>Homo_sapiens Uniprot_PACAP_Hsap
+-------SPAAAGLRFPGIRPEEEAYGEDGNPLPDFDGSEPPGAGS---------PASAP
+RAAAAWY----RPAGRRDVAHGILNEAYRKVLDQLSAGKHLQSLVARGVGGSLGGGAGDD
+AEPLS-KRHSDGIFTDSYSRYRKQMAVKKYLAAVL-GKRYKQR-----------------
+--------------------------------------VKNKGRR---------------
+------------IAYL------------
+>Homo_sapiens Uniprot_VIP_Hsap
+WPLYR--APSALRL---------------GDRIPFEGANEPDQV--SLKEDIDMLQNALA
+ENDTPYYDVS----RNARHADGVFTSDFSKLLGQLSAKKYLESLMGKRVSSNI----SED
+PVPV--KRHSDAVFTDNYTRLRKQMAVKKYLNSIL-NGKRSSE-----------------
+----------------------------------------------GES----PDFPE--
+--ELEK----------------------
+>Gallus_gallus sp|P48143|VIP_CHICK VIP peptides GN=VIP PE=1 SV=1
+LPPRGAAFPAVPRL---------------GNRLPFDAASESDRAHGSLKSESDILQNTLP
+ENEKFYFDLSRIIDRNARHADGIFTSVYSHLLAKLAVKRYLHSLIRKRVSSQD-------
+-SPV--KRHSDAVFTDNYSRFRKQMAVKKYLNSVL-TGKRSQE-----------------
+--------------------------------------ELNPAKLRGEAEILEPSFSE--
+--NYDDVSVDELLSHL--PLDL------
+>Meleagris_gallopavo sp|P45644|VIP_MELGA VIP peptides GN=VIP PE=2 SV=1
+LPPRGAAFPAVPRL---------------GNRLPFDAASESDRAHGSLKSESDILQNTLP
+ENEKFYFDLSRIIDRNDRHADGIFTTVYSHLLAKLAVKRYLHSLIRKRVSSQD-------
+-SPV--KRHSDAVFTDNYSRFRKQMAVKKYLNSVL-TGKRSQE-----------------
+--------------------------------------ELNPAKLADEAEILEPSFSE--
+--NYDDVSVDELLSHL--PLDL------
+>Homo_sapiens Uniprot_GHRH_Hsap
+SP-----PPP--------------------------------------------------
+-----------LTLRMRRYADAIFTNSYRKVLGQLSARKLLQDIMSRQQGESN----QER
+GARARLGRQVDSMWAE-----QKQMELESILVALL-QKHSRNS-----------------
+-----------------------------------------------QG-----------
+----------------------------
+>Bos_taurus sp|P63292|SLIB_BOVIN Somatoliberin GN=GHRH PE=1 SV=1
+S------LPS--------------------------------------------------
+-----------QPLRIPRYADAIFTNSYRKVLGQLSARKLLQDIMNRQQGERN----QEQ
+GAKVRLGRQVDGVWTD-----QQQMALESTLVSLL-QER-RNS-----------------
+-----------------------------------------------QG-----------
+----------------------------
+>Mesocricetus_auratus sp|Q60549|SLIB_MESAU Somatoliberin GN=GHRH PE=3 SV=1
+SP-----SPS--------------------------------------------------
+-----------LPFRIRRYADAIFTSSYRKVLGQLSARKLLQDIMSRQQGERN----QEQ
+GPRVRLGRQVDSMWAD-----HRQMSLESLLAALL-QKHSRDS-----------------
+-----------------------------------------------QG-----------
+----------------------------
+>Homo_sapiens Uniprot_Sec_Hsap
+-------RPA--------------------------------------------------
+------------PPRARRHSDGTFTSELSRLREGARLQRLLQGLVGKRSEQDA------E
+NSMAW-TRLSAGLLCPSGSN-----------MPIL-QAWMPLDG--------------TW
+SPWLPPGP-----------------------------MVSEPAGAAAEG-----------
+-----------------------TLRPR
+>Homo_sapiens Uniprot_Gluc_Hsap
+--------------R------SLQDTEEKSRYLRSFSASQAD-------------PLSDP
+D----------QMNEDKRHSQGTFTSDYSKYLDSRRAQDFVQWLMNTKRNRNN----IAK
+RHDEF-ERHAEGTFTSDVSSYLEGQAAKEFIAWLV-KGRGRRD-----------------
+-------------------------------FPEEVAIVEELGRRHADG-----SFSDEM
+NTILDNLAARDFINWLI-QTKITDRK--
+>Ciona_intestinalis Ghost_KH.L51.8.v1.A.SL1-1_Cint
+------------------------ATLTSSEILKDLSSAS--------------------
+---------SGEHVTQKRYAESAFTSMAAKQMDHAAFQQLLR-LFGKRAIKRSGG--MPE
+TMNAN-PQPTEGDINDNYVVI---LAREDFLQKVL-NNEAQND-----------------
+------------------------------------------------------------
+---------------------LS-----
+>Branchiostoma_floridae jgi_95424_Bflo
+-------LPT-------------------GD-----------------------------
+---------STLARDRRALGDQGFTSDLASKLSEAEARRMIQTLMAQAIGKRFSPAEQQE
+PLEASKRQLGDQGVTSALAARLEQAEARQYIKDLLAQAVGKRSGGVAKRSTAEGAASRKR
+RALTDQGPMDQPPVGQEKSEARKILMTLLFGFGKTRAMTEEDMYSQSQQ-----------
+--KWRRDPVAEFLDRLYKQEDF------

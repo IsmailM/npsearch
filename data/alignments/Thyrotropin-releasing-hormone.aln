@@ -1,0 +1,170 @@
+>Branchiostoma_floridae jgi_102993_Bflo
+AEPAHGAEPAHGAEPAHGAEPAHGAEPGPLAHGAEPAHGAEPGPLAHGAEPAHGAEPGPL
+APWPDTEAPRERDSGTTREPWERALLEDMA-RVLGALALYDADMEVM---NQEETSPPFT
+HGGAELGQLLTDSFLLQSTDKRQSPGKR--QSPGKRQSPGKRQSPGKRQSPGKRQSPGKR
+GDDEITLPMGLRFEPLFSSALSESSTDKRQSAGKRQSPGKRQSP-GKRQSPG-KRQSPGK
+R---TFPFPGTPQMETHDATDARANLLTLLDLVEQKRQSPGKRQHPGKRA-DWLRPSPEE
+PWLLYPPEKPDVLLPFISSWSPESGIEDGGMASDGARDDKRQSPGKRQSPGKRQSP---G
+KRQSPGKRDDAETGLPQGLPFDPLFYSAFGESSTDKRQSPGKRQSPGKRQ----------
+-SPGKRQSP-----------------------GKRQSPGKRQSPGKRGGELSAAAAGQGA
+YA-----PAGSRKDWTEKPAIYTTFPAGF
+>Strongylocentrotus_purpuratus gi109402869_Spur
+---------------------------LPTILGKELVLSENDGPE---------------
+--------------------IADWVQGKEI-PLRNQYWGDVAEEEEE--DELGMLSP---
+-----------DS------EKRQYPGGKRQYPGGKRQYPG--------------------
+--------------------------------------GKRQYPGGKRQFPAGKRQFVGG
+E---LIP-------------------------------SPELRQWPG-------------
+--------------------------------------------GXRQWPG--------G
+XRQWPG----------------------------------GKRQYPG-------------
+--------------------------------GKRQYPGGKRKVSELLDYTADELTGKSL
+YALCHGEDANRLRRRCKS-----------
+>Rattus_norvegicus sp|P01150|TRH_RAT Pro-thyrotropin-releasing hormone GN=Trh PE=1 SV=1
+----------------------------------LPEAAQEEGAVT--------------
+PDLPG---------------LENVQVRPER-RFLWKDLQRVRGDLGA---ALDS------
+-----------------WITKRQHPGKR-----EEEEKDIEAEE----------------
+-RGDLG-------------------------EGGAWRLHKRQHP-GRRANQD-KYSWADE
+EDSDWMPRSWLPDF-FLDSWFS--------------DVPQVKRQHPGRRSFPWM------
+----------------------------------------ESDVTKRQHPGRRFID---P
+ELQ----RSWEEK--------------EGE-----GVLMPEKRQHPGKRA---------L
+GHPCGPQGT--CGQTG-LLQLLGDLSRGQ-ETLVKQSP-QVEPWDKEPLEE---------
+-----------------------------
+>Homo_sapiens sp|P20396|TRH_HUMAN Pro-thyrotropin-releasing hormone GN=TRH PE=1 SV=1
+----------------------------------QPEAAQQEAVTA--------------
+AEHPG---------------LDDFLRQVERLLFLRENIQRLQGDQGE---HSASQIF---
+--------------QSDWLSKRQHPGKR-----EEEEEEGVEEE----------------
+-EEE---------------------------EGGAVGPHKRQHP-GRREDE---------
+-----------------ASWSV--------------DVTQHKRQHPGRRS-PWL------
+----------------------------------------AYAVPKRQHPGRRLAD---P
+KAQ----RSWEEE--------------EEEEERE-EDLMPEKRQHPGKRA---------L
+GGPCGPQGA--YGQAGLLLGLLDDLSRSQGAEEKRQHPGRRAAWVREPLEE---------
+-----------------------------
+>Xenopus_laevis sp|P01152|TRHA_XENLA Pro-thyrotropin-releasing hormone-A GN=trh-a PE=2 SV=2
+--------------------------------QEQPLLEEDTAPLD--------------
+--------------------DLDVLEKAKG-ILIRSILEGFQEGQQN---NRDL-PD---
+--------------AMEMISKRQHPGKRFQEEIEKRQHPGKRDL----------------
+--EDLN-----------------------------LELSKRQHP-GRRFVD---------
+--------------------------------------DVEKRQHPGKRE-EGDWS----
+---------------------------RRYLTDDSRYLDLLSDVSRRQHPGKRVPAPLFT
+KRQHPGKRVTEEE--------------GDTEFE--NSKEVGKRQHPGKRY----------
+-DPCEGPNAYNCNSGNILPDSVEELSFGL-------------------------------
+-----------------------------
+>Gallus_gallus sp|Q6ZXC3|TRH_CHICK Pro-thyrotropin-releasing hormone GN=TRH PE=2 SV=2
+------------------------------GRQFPPELSENMGRSS--------------
+--------------------LDDILQRSGS-HMLQSVLKKVEKKEEM---NKELNMP---
+--------------LPQWLSKRQHPGKRYISDPEKRQHPGKRDV----------------
+--EE---------------------------KASFGDIQKRQHL-GKTEVE---------
+-----------------GYLVN--------------YLELKKRQHPGRRS-LWD------
+----------------------------QSTDISSSQLTYLNELSKRQHPGRRYLM---Y
+KHQHPSKRGWNDE--------------LDL-----SDQNWEKHQQFGNRDRDSDSPD--Y
+TGPCDLQQSAICNKDSLLLDLAEKFSKEG-VEEKHQHPGRRSAWENETEE----------
+-----------------------------
+>Carassius_auratus sp|Q5KT10|TRH_CARAU Pro-thyrotropin-releasing hormone GN=trh PE=2 SV=1
+---------------------------QPLAGEGDPS-----------------------
+--------------------LDELFQRAES-LLIRSILTQTEDENHG---DGE-------
+--------------QTEWLEKRQHPGKR--------QHPGKRED----------------
+-TDY---------------------------EDEAAALQKRQHP-GKREEE---------
+-----------------E------------------DSARLRRQHPGKRL-SLE------
+---------------------------HMMLEEPTA----QSELAKRQHPGRRYLM-LLH
+KRQHPGRRELHE---------------AAG-----DFSDLAKRQHPGKRL----------
+---CEDWDVTGCDQASILLELLDNVNKSR-AEEKRQHPGKRFALEDELTEQES-------
+----------------------------L
+>Cyprinus_carpio sp|Q5KT11|TRH_CYPCA Pro-thyrotropin-releasing hormone GN=trh PE=2 SV=1
+---------------------------QALPGEGDPS-----------------------
+--------------------LDELLQ------LLRSMLTQMEDENHA---NGE-------
+--------------QTEWLEKRQHPGKR--------------------------------
+--------------------------------------------------E---------
+-----------------E------------------DGGRLRRQHPGKRL-SLE------
+---------------------------QVMLEEPSE----QSELSKRQHPGKRYLM-LLH
+KRQHPGRRELQE-------------------------ASLAKRQHPGKRL----------
+---CEDWSETGCDPASVLLELLD---RSG-AEEKRQHPGKRLELEDDLTEQE--------
+-----------------------------
+>Danio_rerio sp|Q5EDF9|TRH_DANRE Pro-thyrotropin-releasing hormone GN=trh PE=2 SV=1
+--------------------------------QDGPA-----------------------
+--------------------EEELFQRAED-LLLRSILTQMEEQNSE---N-D-------
+--------------QPEWMEKRQHPGKR--------QHPGKREE----------------
+----------------------------------------------DLEPE---------
+-----------------V------------------EMERWRRQHPGKRA-PLD------
+---------------------------LGMLEDPTA----LSELSKRQHPGKRYLM-LLH
+KRQHPGRRELQE---------------ADG-----DSAELEKRQHPGKRR----------
+---CEGWADAGCG----LLELLD---TSG-APEKRQHPGRRAELEDELPGLE--------
+-----------------------------
+>Camelus_ferus tr|T0M605|T0M605_9CETA Thyrotropin releasing hormone preproprotein GN=CB1_000465024 PE=4 SV=1
+----------------------------------QPEMAQQEAAMA--------------
+AEHLD---------------LDNLLRQAERFLFLQEDLQRLREDQDQGDSDSESQIF---
+--------------QPDWFSKRQHPGKR-----EEEAEDGV-EE----------------
+-EEE---------------------------EGGAAGPHKRQHP-GRREDA---------
+-----------------AAWLV--------------DVTEQKRQHPGRRS-SWL------
+----------------------------------------GYTFTKRQHPGRRLVD---P
+KAQ----RSWEEE--------------EEEEEEA-GELMPEKRQHPGKRA---------P
+GGPCGPQGS--CGQTSLLLGLLDDLSRGQ-AEEKRQHPGRRAAWAREPXREPLEE-----
+-----------------------------
+>Gasterosteus_aculeatus tr|G3NEZ6|G3NEZ6_GASAC Thyrotropin-releasing hormone GN=TRH PE=2 SV=1
+--------------------------------QSIPAEDETGGRTI--------------
+--------------------DDIILQRAES-LLLRSILKKIQDEDGG---D-EGFPP---
+--------------QAEWMTKRQHPGKRYGEDLEKRQHPGRREA----------------
+--DV---------------------------DEPYLDVQRRQHP-GKREDE---------
+-------------------MRP--------------FTELQKRQNPGKRF-AAG------
+----------------------------RVSENPA-----VLELSKRQHPGKRYLV-VQT
+KRQHPGKRDGDDD----------VDWDADGEGGEEDLVEMEKRQHPGKRFWDTSSPDLGT
+NSPCDVLDPTSCRKTSLLLNFLDNINESHHAEQKRQHPGKRFAPEEDLVEAE--------
+-----------------------------
+>Calypte_anna tr|A0A091IDK5|A0A091IDK5_CALAN Pro-thyrotropin-releasing hormone GN=N300_04414 PE=4 SV=1
+------------------------------GEQPLPEASENMKRSP--------------
+--------------------LDDILQRSQS-LFLQSFLKKAEKKEDI---NKESDAP---
+--------------LPEWLAKRQHPGRKFLSDLEKRQHPGKRDA----------------
+--EE---------------------------EKPYGDIHNWQHP-GKREIE---------
+-----------------DDLNS--------------YLELKKRQHPGRRS-VLE------
+----------------------------QYADISSAQLTYLNEISKRQHPGRRYLM---Y
+KHQHPRKRGWNVE--------------ADL-----NDQYGEEHQHAGKRDWNSDSPD--D
+ASPCHFQDSSTSSKGSLLLDFVEDVSKDR-AEEKRQHPGRRSAWESETEE----------
+-----------------------------
+>Xenopus_laevis tr|B7ZS11|B7ZS11_XENLA Thyrotropin-releasing hormone GN=trhp-a PE=2 SV=1
+--------------------------------QEQPLLEEDTAPAD--------------
+--------------------NLDVLEKAKG-ILIRSILEGFQEGQQI---NRDL-PD---
+--------------AMEMIYKRQHPGKRFQEEIEKRQHPGKRDL----------------
+--ED-------------------------------LQLSKRQHP-GRRYLE---------
+--------------------------------------DMEKRQHPGKRE-EGDWS----
+---------------------------RGYLTDDSGYLDLFSDVSKRQHPGKRVPDPLFI
+KRQHPGKRGIEEE--------------DDTEFE--NSKEVGKRQHPGKRY----------
+-DPCEGPNAYNCNSGNLQLDSVEE------------------GWAA--------------
+-----------------------------
+>Merops_nubicus tr|A0A091QB96|A0A091QB96_MERNU Pro-thyrotropin-releasing hormone GN=N331_10850 PE=4 SV=1
+------------------------------GGQSLPEGSENTGRSL--------------
+--------------------LDDILPRSES-LILQSLLKKAEKEEEM---NKESSAP---
+--------------LPEWLSERQHPGKKYLSVLEKRQHPGKRDV----------------
+--ME---------------------------GTSYGDIQKRQHP-GKRETE---------
+-----------------NSLDY--------------YLELKKRQHPGRRS-LPN------
+----------------------------QYPDIPSPQLTYLNESPKRQHPSRRYLI---Y
+KYQHPSKRGWSDE--------------VDL-----SDQFGEKRQHPGKRHWSSDSPA--D
+AGPCSLQEPFPCNKGSLLLDLVENASKDR-VEDKRQHPGKRSAWEGEAEE----------
+-----------------------------
+>Aptenodytes_forsteri tr|A0A087QJF5|A0A087QJF5_APTFO Pro-thyrotropin-releasing hormone GN=AS27_07350 PE=4 SV=1
+--------------------------------QPLPEGSENMGRST--------------
+--------------------LDDILQRSES-IILQSVLKKAEKEDEM---NKESNAP---
+--------------LPEWLSKRQHPGKKYLSDLEKRQHPGRRHV----------------
+--EE---------------------------DTSYGDIQKRQHP-GKREIE---------
+-----------------DDLDG--------------YVQLKKQQHPGRRS-LSD------
+----------------------------QYADIPNAQLAYLNELSKRQHPGRRYLM---Y
+KRQHPSKRGWNDE--------------VDL-----NDRYGEKRQHPGKRHWNSDSPD--D
+AGPCNFQESFTCNKGSLLLDLVENVSKDR-VEEKRQHPGKRSAWESETEE----------
+-----------------------------
+>Struthio_camelus tr|A0A093HSA7|A0A093HSA7_STRCA Pro-thyrotropin-releasing hormone australis GN=N308_16065 PE=4 SV=1
+-----------------------------KEGQPLPEGSDHMERSP--------------
+--------------------LDDNLQRAES-LILQSVLQKSEEEEKI---NKESNAP---
+--------------LPEWLSKRQHPGKRYVSDLEQTEHPGKGED----------------
+--EE---------------------------ESSYGDIQKRQHP-GKREED---------
+-----------------DNLDS--------------YQELKKRQHPGRRS-LWD------
+----------------------------QHAAIPSAQLVYLNELSKRQHPGKRYSM---Y
+KLQHLGSRGWNDE--------------LDL-----RDQHVEKHQHPGKRYWDSKSPD--Y
+AAPCDLQESLSCNKGSLLLDLVENVSKGR-VEEKRQHPGRRLAWESEAEE----------
+-----------------------------
+>Egretta_garzetta tr|A0A091IU67|A0A091IU67_9AVES Pro-thyrotropin-releasing hormone GN=Z169_08074 PE=4 SV=1
+----------------------------LNGGQPLPEGSENMGRSP--------------
+--------------------LDDVLKRSES-LILQPVLQKAEKEEEM---NKESNAP---
+--------------LPEWLSKRQHPGKKYLSDLEKRQHPGKRNT----------------
+--EE---------------------------DTSYGDVQKRQHP-GKREIE---------
+-----------------DDLDG--------------YLELKKQQYPGRRP-LLD------
+----------------------------RYAEIPSAQLAYLNELSKRQHPGRRYLM---Y
+KRQHPSKRGWNGE--------------VDL-----NDQYGEKRQHPGKRHWNSNSPD--G
+AGPCNFQESFTCNKGSLLLDLVETVSKDR-VEEKRQHPGKRSAWESETEE----------
+-----------------------------
