@@ -45,6 +45,9 @@
                             a.light-blue.waves-effect.waves-light.btn.right href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins&QUERY=#{seq_url}" target="_blank"
                               i.material-icons.left open_in_new
                               | BLAST this sequence
+                            a.light-blue.waves-effect.waves-light.btn.right href="/hmms/#{data[:model]}" target="_blank" style="margin-right:5px;"
+                              i.material-icons.left open_in_new
+                              | View this HMM Profile
                             .row
                               .col.m12.l4
                                 .more_info_header.blue-text.text-darken-2  Overall Sequence

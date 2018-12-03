@@ -99,11 +99,8 @@ module NpSearchHmmApp
     end
 
     get '/my_hmms' do
-      @default_hmms = HiddenMarkovModels.default_hmms
-      unless session[:user].nil?
-        email = session[:user].info['email']
-        @custom_hmms = HiddenMarkovModels.custom_hmms(email)
-      end
+      email = session[:user].nil? ? '' : session[:user].info['email']
+      @all_hmms = HiddenMarkovModels.all_hmms(email)
       slim :my_hmms, layout: :app_layout
     end
 
@@ -112,8 +109,8 @@ module NpSearchHmmApp
       slim :new_hmm, layout: :app_layout
     end
 
-    get '/hmms/:type/:model_name' do
-      if params[:type] != 'default' && session[:user].nil?
+    get '/hmms/:model_name' do
+      if params[:model_name].include?('__NpSearch__') && session[:user].nil?
         redirect to('auth/google_oauth2')
       end
       email = session[:user].nil? ? '' : session[:user].info['email']
@@ -121,13 +118,12 @@ module NpSearchHmmApp
       slim :single_hmm, layout: :app_layout
     end
 
-    get '/hmm_file/:type/:file_type/:model_name' do
-      if params[:type] != 'default' && session[:user].nil?
+    get '/hmm_file/:file_type/:model_name' do
+      if params[:model_name].include?('__NpSearch__') && session[:user].nil?
         redirect to('auth/google_oauth2')
       end
       email = session[:user].nil? ? '' : session[:user].info['email']
       @model = HiddenMarkovModels.single_model(params, email)
-
       file = @model[:path][ @params[:file_type].to_sym ]
       send_file file, filename: file.basename.to_s
     end

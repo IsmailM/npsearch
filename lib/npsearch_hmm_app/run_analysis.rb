@@ -48,7 +48,6 @@ module NpSearchHmmApp
       def init(params, user)
         # Using JSON parse to symbolize all keys
         params[:files] = JSON.parse(params[:files])
-        puts params.to_s
         @params = JSON.parse(params.to_json, symbolize_names: true)
         @email = user
         assert_params

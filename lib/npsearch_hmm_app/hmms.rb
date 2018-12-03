@@ -63,7 +63,7 @@ module NpSearchHmmApp
         logger.debug("Writing input seqs to: '#{file}'")
         File.open(file, 'w+') { |f| f.write(@params[:seq]) }
         return if file.exist?
-        raise 'NpSearchHmmApp was unable to create the input file.'
+        raise 'NpSearch was unable to create the input file.'
       end
 
       def move_uploaded(file)

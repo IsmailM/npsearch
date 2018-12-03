@@ -63,7 +63,7 @@ module NpHMMer
         def hmm_models(opt)
           set_up_dirs(opt[:input_dir])
           all_files_in_dir(opt[:input_dir]).each do |file|
-            f_base = input.basename(input.extname)
+            f_base = file.basename(file.extname)
             if opt[:aligned]
               generate_hmm_profiles(file, f_base, opt[:num_threads])
             else
@@ -73,8 +73,9 @@ module NpHMMer
         end
 
         def set_up_dirs(dir)
-          @aligned_dir = dir.dirname + 'alignments'
-          @hmm_model_dir = dir.dirname + 'hmm'
+          d = Pathname.new(dir).dirname
+          @aligned_dir = d + 'alignments'
+          @hmm_model_dir = d + 'hmm'
           FileUtils.mkdir(@aligned_dir) unless @aligned_dir.exist?
           FileUtils.mkdir(@hmm_model_dir) unless @hmm_model_dir.exist?
         end

@@ -8,7 +8,7 @@ section
             | Please 
             span.login_button.blue-text style="cursor:pointer" login 
             | to create custom Hidden Markov Models.
-        - unless @custom_hmms.nil?
+        - unless @all_hmms[:custom].nil?
           .table-header
             span.card-title  Custom Hidden Markov Models
             .actions
@@ -27,7 +27,7 @@ section
                 th Date Generated
                 th
             tbody
-              - @custom_hmms.each_with_index do |result, idx|
+              - @all_hmms[:custom].each_with_index do |result, idx|
                 tr
                   td #{idx + 1}.
                   td
@@ -41,7 +41,7 @@ section
   .card
     .card-content
       .row
-        - if @default_hmms.nil?
+        - if @all_hmms[:default].nil?
           p Cannot find any HMM models. Please create a HMM model here.
         - else
           #default_hmm_models-table-wrapper.material-table
@@ -60,7 +60,7 @@ section
                   th Date Generated
                   th
               tbody
-                - @default_hmms.each_with_index do |result, idx|
+                - @all_hmms[:default].each_with_index do |result, idx|
                   tr
                     td #{idx + 1}.
                     td

@@ -211,11 +211,12 @@ NS.fasta = '>gi|328696568|ref|XP_003240064.1| PREDICTED: uncharacterized protein
     if (e.status == 500 || e.status == 400) {
       errorMessage = e.responseText;
     } else {
-      // errorMessage = e.responseText;=
-      errorMessage = 'There seems to be an unidentified Error.';
+      errorMessage = 'There seems to be an error in running the analysis.';
     }
     $('#output').html(errorMessage);
-    $('#spinnermodel').modal('close'); // remove progress notification
+    spinner_elem = document.getElementById("spinner_model");
+    var spinner_modal = M.Modal.getInstance(spinner_elem);
+    spinner_modal.close(); // remove progress notification
   };
 
   NS.initFineUploader = function () {
