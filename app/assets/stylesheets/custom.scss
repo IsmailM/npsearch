@@ -897,5 +897,33 @@ kbd {
     margin-right: 10px;
   }
 }
+#adv_params_btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 65px;
+  width: fit-content;
+  @media (min-width: 585px) {
+    float: left !important;
+    margin-top: 0;
+    margin-bottom: 0px;
+  }
+}
 
-@media
+#submit_btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @media (min-width: 585px) {
+      float: right !important;
+  }
+}
+
+.view_hmm_profile_btn {
+  margin-right:0px;
+  margin-top:10px;
+  @media (min-width: 768px) {
+    margin-right:5px;
+    margin-top:0px;
+  }
+}

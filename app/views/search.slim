@@ -21,41 +21,41 @@ section#search
           .row
             ul#adv_params_collapsible.collapsible data-collapsible="accordion" style="box-shadow: none;border: none;"
               li
-                .collapsible-header#adv_params_btn.light-blue.accent-4.waves-effect.waves-light.btn.left style="font-size:14px;border-bottom:none;"  Show Advanced Parameters
+                .collapsible-header#adv_params_btn.light-blue.accent-4.waves-effect.waves-light.btn style="font-size:14px;border-bottom:none;"  Show Advanced Parameters
                 .clearfix
                 .collapsible-body style="border-bottom:none;padding:2em 0"
                   .row#adv_params_body style="display:contents"
-                    .col.m6.s12
+                    .col.m8.s12
                       .input-field
                         input#evalue.validate type="text" name="evalue" value="10" /
                         label.active for="evalue"  E-value Cut-off
                   .row
-                    .col.m6.s12
+                    .col.m8.s12
                       p: label
                         input#signalp type="checkbox" checked="" name="signalp"
                         span Calculate Signal Peptide
                   .row
-                    .col.m6.s12
+                    .col.m8.s12
                       p: label
                         input#deep_hmm type="checkbox" name="deep_hmm"
                         span Deep HMM Analysis (Turn all heuristic filters off - less speed, more power)
                   .row
-                    .col.m6.s12
+                    .col.m8.s12
                       span.card-title style="margin-top:1rem" HMMs to Test Against
                   .row
-                    .col.m6.s12
+                    .col.m8.s12
                       p: label
                         input#all_hmm type="checkbox" checked="" name="all_hmms"
                         span All HMMs
                   .row
-                    #default_hmms_options.col.m6.s12 style="display:none;"
+                    #default_hmms_options.col.m8.s12 style="display:none;"
                       span.card-title style="margin-top:1rem;font-size:20px;" Default HMMs
                       - @default_hmms.each do |hmm_file|
                         p: label
                           - fname = hmm_file.basename('.hmm')
                           input type="checkbox" checked="" name="default_hmm[]" value="#{fname}"
                           span #{NpSearchHmmApp::HiddenMarkovModels.parse_name(fname)}
-                    #custom_hmms_options.col.m6.s12 style="display:none;"
+                    #custom_hmms_options.col.m8.s12 style="display:none;"
                       span.card-title style="margin-top:1rem;font-size:20px;" Custom HMMs
                       - if @custom_hmms.nil?
                         - if session[:user].nil?
@@ -77,7 +77,7 @@ section#search
                             span #{NpSearchHmmApp::HiddenMarkovModels.parse_name(fname)}
 
           .clearfix
-          button#submit_btn.btn-large.waves-effect.waves-light.right value="input" type="submit"
+          button#submit_btn.btn-large.waves-effect.waves-light value="input" type="submit"
             | Submit
             i.material-icons.right send
         .clearfix
