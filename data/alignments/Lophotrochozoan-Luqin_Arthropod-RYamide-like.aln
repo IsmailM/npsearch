@@ -1,22 +1,22 @@
 >Lottia_gigantea gi_163510328_Lgig
 -------------------APQWRPQGRFGKRVNPT---------------------LSL
-LL--------HGDQEKQFLNH---EKPFISEDKPYIPEVTD----------------EIS
+LL--------HGDQEKQFLN---HEKPFISEDKPYIPEV----------------TDEIS
 VERLTSDARDNLSKFLHRLCSESGLENVPRCSWSRKTSERSSDPIRLI------------
 -----------------------------------------
 >Lymnaea_stagnalis] gi_144925775_Lsta
 -------------------TPHWRPQGRFGKRTTEDDNV------------------PDF
-GI--------SRPQ-------------------------------------------DIP
+GI--------SR-------------------------------------------PQDIP
 IELMFSKNELSRRNSKPRLCSTSGVAGYPPCDAQVNAMQVATLGEP--------------
 --------------------------------QDLANLFDL
 >Capitella_telata jgi_213930_Ctel
 -----------------EGQFAWRPQGRFGKRMDSTPVNSL----------------DNA
 GV--------ARNPGFW-------------------------------------------
 ----------------SIVCN---------CIYNQKRKQKMVEMSSMLHAWAISTLRMIS
-NINLAFGD-LVVHNAWVKPAFFFDPD----WWNAIYGGTMD
+NINLAFGD-LVVHNAWVKPAFFFDPDWW----NAIYGGTMD
 >Alvinella_pompejana gi_223786475_Apom
--------------------QYAWRPQGRFGKRDNYLARGILSG--------------PSL
-DT-------------------------------------------------------SNK
-IKMLSTH----MFESNGVLCVSAGSRGLYRCFTVNPVPGSSSPVSM------------AN
+-------------------QYAWRPQGRFGKR----------------------------
+--------------------DNYLARGILSGPSLDTSN---------------------K
+IKMLSTH----MFESNGVLCVSAGSRGLYRCFTVN-PVPGSSSPVSMAN-----------
 TPFIEVGDVLCVSVAEIGAYRCFQLDDHEVPEQSLTNH---
 >Ilyanassa_obsoleta gi_194267062_Iobs
 -------------------TPSWKPQGRFGKRGGPS---------------------DYL
@@ -25,17 +25,17 @@ VELLSTGENGMFLRLGVKPCSITGMDGIPPCTGASEGASET-------------------
 ----------------------F------------------
 >Daphnia_pulex jgi_251691_Dpul
 --------------------QTFFTNGRYGKRSEVRSRVASRSADERFFGGPRFGRSGNG
-GIVLGNSELDARNPERFFIGSRYGKRSEMEQIVP-----------------------SPQ
-VDESTSNSQE---KETFLECNPIGIEQLYHCIERLKSAHHFDLMQH--------------
+GIVLGNSELDARNPERFFIGSRYGKRSEMEQIVPSPQ-----------------------
+---VDESTSNSQEKETFLECNPIGIEQLYHCIERLKSAHHFDLMQH--------------
 --------------------------------QQV------
 >Tribolium_castaneum BCM_GLEAN_08650_Tcas
 --------KRYTSEKRVQNLATFKTMMRYGRGGPSPNNKE-----------------NKV
-NI--------RPRADAFFLGPRYGKRSGWSPNASLVYPV------------------STP
+NI--------RPRADAFFLGPRYGKRSGWSPNASLVY------------------PVSTP
 LCGLD----------EDLSCAYTGISDLYRCTPRKGESEEFTTSSN--------------
 -----------------------------------------
 >Dendroctonus_ponderosae gi_268286147_Dpon
----------DMESIKRIP-SHSFKQMMRYGRSSANN---------------------EKI
-NV--------NPRADLFYLGPRYGKRA------------------------------GPT
+D---------MESIKRIP-SHSFKQMMRYGRSSANN---------------------EKI
+NV--------NPRADLFYLGPRYGKRAGPT------------------------------
 LAKLDT-----VYDSTFMPCTYTGVADLYRCDTSRSTMREDRRK----------------
 -----------------------------------------
 >Anopheles_gambiae gi_18866372_Agam
@@ -46,7 +46,7 @@ NV--------VPRNDRFFLGSRYGKRSDLTKE----------------------------
 >Ixodes_scapularis gi_156462907_Isca
 ----------------AKGTPQFVPNGRYGRRSVTP---------------------PLA
 GV--------SK---------------------------------------------DIT
-VN---------FFGDSTISCTHTGFADIYRCTRKTSDDYKDSSFE---------------
+VNFFGD---------STISCTHTGFADIYRCTRKTSDDYKDSSFE---------------
 -----------------------------------------
 >Trichinella_spiralis gi_BQ542910_Tspi
 ---------------------KPASLARYGRAAL--------------------------
@@ -55,7 +55,7 @@ ISGLDAMRDE-VTEFKNSPCVYTGYEDLYRCSSMT-------------------------
 -----------------------------------------
 >Tribolium_castaneum tr|D6WT67|D6WT67_TRICA RYamide preprohormone GN=TcasGA2_TC008650 PE=2 SV=1
 --------KRYTSEKRVQNLATFKTMMRYGRGGPSPNNKE-----------------NKV
-NI--------RPRADAFFLGPRYGKRSGWSPNASLVYPV------------------STP
+NI--------RPRADAFFLGPRYGKRSGWSPNASLVY------------------PVSTP
 LCGLD----------EDLSCAYTGISDLYRCTPRKGESEEFTTSSN--------------
 -----------------------------------------
 >Bombyx_mori tr|M4QCG6|M4QCG6_BOMMO RYamide preprohormone PE=2 SV=1

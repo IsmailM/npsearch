@@ -1,4 +1,4 @@
-HMMER3/f [3.1b2 | February 2015]
+HMMER3/f [3.2.1 | June 2018]
 NAME  Pyroglutamylated-RFamide_OX26
 LENG  110
 ALPH  amino
@@ -7,7 +7,7 @@ MM    no
 CONS  yes
 CS    no
 MAP   yes
-DATE  Sun Dec  2 17:05:55 2018
+DATE  Mon Dec  3 11:46:49 2018
 NSEQ  11
 EFFN  1.651611
 CKSUM 1751772251

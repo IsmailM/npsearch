@@ -4,20 +4,20 @@ GC--YNKRAE-----APQKSNTDLDVLMRVYKLLQSRAGGK-P---------SSETNTI-
 ----VDAEYQPNIDGPRNLLRQLH-TIMRDIE----------------------------
 -----------------------------NN-------------------------
 >Crassostrea_gigas gi_260739332_Cgig
---DELLQK--NENSKLGVKKLAALLANELLSEDKDITQ-----------KDKRVFCNGFF
+--DELLQ--KNENSKLGVKKLAALLANELLSEDKDITQ-----------KDKRVFCNGFF
 GCSNGKKRSN------------------------------------------SMNLNPL-
 -DYPVDA-PEPETK--TDFRKRLFCNTGGCFGRRKRSTSQTLERRLNNRG-SKDGNQ---
 --------------------------------------------------------
 >Daphnia_pulex jgi_300598_Dpul
----QPLKN--NQND------------SDSAEEIEQWSF-----------KEKRPFCNAFA
+---QPLK--NNQND------------SDSAEEIEQWSF-----------KEKRPFCNAFA
 GC--GRKRSMIKDTKHPP-----------YEKAASNHP-----RL-------PNADTKL-
 ----LD----------------------KLFAKIQHQRANFVQLDDPEYY----------
 --------------------------------------------------------
 >Drosophila_melanogaster FBtr0084333_CCAP_Dmel
 SLERENNEGTNMA--------------NHKLSGVIQWK-----------YEKRPFCNAFT
 GC--GRKRTY---PSYPP--------FSLFKRNEVEEK-----P-YN-NEYLSEGLSDL-
-----IDINAEPAVE---NVQKQIM-SQAKIFEAIKEASKEIFRQKNKQKM--LQNEK---
-----------------------------------EMQQLEERESK-----------
+----IDINAEPAVE---NVQKQIM-SQAKIFEAIKEASKEIFRQKNKQKM--LQNEKE--
+-----------------------------------MQQLEERESK-----------
 >Manduca_sexta sp|Q8WRC7|CCAP_MANSE Cardioactive peptide GN=CCAP PE=1 SV=1
 --ASIPR----NF--------------DPRLSEEIVMA-----------PKKRPFCNAFT
 GC--GRKRSQ-----GPPGMP-----AQDL-RTKQYLD--------------EEALGSI-
@@ -29,7 +29,7 @@ RM--GRSQMK------------------------------------------TETGTD--
 -CCGLGMKSEFVIG--QEGKEELRHGACSSSVACCAGLREIVDQKQDGVF----------
 -------------------------FSMCVPDFVASRSSEESSSEVLSKLKSLLQK
 >Periplaneta_americana sp|Q75UG5|CCAP_PERAM Cardioactive peptide GN=CCAP PE=2 SV=1
--DDVVIQK--RQV--------------DPAEMDRLLDP-----------KRKRPFCNAFT
+-DDVVIQ--KRQV--------------DPAEMDRLLDP-----------KRKRPFCNAFT
 GC--GKKRS-------------------------------------------DESMGTL-
 ----VEMNSEPAVD---DLSRQIL-SEVKLWEAIQEARVELLRRRQEQLQ--QQSNQFGA
 GMDRPLPLPIAGYRRKRFADPESQAPAPHSNLPRATSQLQEEITKPWSR-------
@@ -41,18 +41,18 @@ GCCGVGIKNEFLIG--QDGKEEIR-SACGARADCCEGLKEVVDQKNDGVY----------
 >Drosophila_melanogaster tr|Q29QG1|Q29QG1_DROME Crustacean cardioactive peptide, isoform B GN=CCAP PE=2 SV=1
 SLERENNEGTNMA--------------NHKLSGVIQWK-----------YEKRPFCNAFT
 GC--GRKRTY---PSYPP--------FSLFKRNEVEEK-----P-YN-NEYLSEGLSDL-
-----IDINAEPAVE---NVQKQIM-SQAKIFEAIKEASKEIFRQKNKQKM--LQNEK---
-----------------------------------EMQQLEERESK-----------
+----IDINAEPAVE---NVQKQIM-SQAKIFEAIKEASKEIFRQKNKQKM--LQNEKE--
+-----------------------------------MQQLEERESK-----------
 >Anopheles_gambiae tr|Q7PM76|Q7PM76_ANOGA AGAP009729-PA GN=CCAP PE=2 SV=3
 --GVVDR--------------------QPRAYKQYNTE-----------PQKRPFCNAFT
 GC--GKKRSS---ASSPPTAAAAAAAAAMLQRHLQTMDPGRKDRMGSDFDPNEESISSL-
-----LDLNTEPAVE---DLLRQIM-SEAKLWEAIQEANREIYLQKSGMKD---QRNDFP-
---------------------------------LTFSTQ------------------
+----LDLNTEPAVE---DLLRQIM-SEAKLWEAIQEANREIYLQKSGMKD---QRNDF--
+------PL-------------------------TFSTQ------------------
 >Culex_quinquefasciatus tr|B0WGM9|B0WGM9_CULQU Cardioactive peptide GN=CpipJ_CPIJ005842 PE=4 SV=1
 --GVVDR--------------------EPRAYKQYNTNSNTAGGGGGEVPAKRPFCNAFT
 GC--GKKRSS---VAVTP--------VAMMHRHALTSEQNR-PKVTEGFDPNEDSLANL-
-----IDLNTEPAVE---DLMRQIM-SEAKLWEAIQEANREIYLQKQGQKT---QSDSFP-
---------------------------------ISFSTQ------------------
+----IDLNTEPAVE---DLMRQIM-SEAKLWEAIQEANREIYLQKQGQKT---QSDSF--
+------PI-------------------------SFSTQ------------------
 >Danaus_plexippus tr|G6D6R9|G6D6R9_DANPL Crustacean cardioactive peptide GN=KGM_11633 PE=4 SV=1
 --ATIPR----PF--------------DPRLTEEVILS-----------PKKRPFCNAFT
 GC--GRKRSQ-----ATPGMP-----MNEIARQRQFVD--------------EDAIESL-
@@ -64,7 +64,7 @@ GC--GKKRTS----SHPP--------YPVIKRGDIEDK-----SLYNSNDYISEGLSDL-
 ----IDINAEPAVE---NVQKQIM-SQAKIYEAIKEASKEIFRQKNKQRL--YNLQQ---
 ------------------------------------NQLKEEQDKLDDNDNV----
 >Zootermopsis_nevadensis tr|A0A067QIJ7|A0A067QIJ7_ZOONE Cardioactive peptide GN=L798_01547 PE=4 SV=1
--DSVIIQK--RQI--------------DPADVDRILDP-----------KRKRPFCNAFT
+-DSVIIQ--KRQI--------------DPADVDRILDP-----------KRKRPFCNAFT
 GC--GKKRS-------------------------------------------DESMGTL-
 ----VELNSEPAVE---DLSRKIL-SETKLWEAIQEARAELLRRRQEQLQ--LQEGQYAT
 AVERPIPLSITGYRKKRSVIPEGT-----GNSLLTTSEPQDQSTKTWSR-------
@@ -79,7 +79,7 @@ GC--GRKRSQ-----TAPGMP-----NQDLMRQRQYVD--------------EDTLGTM-
 ----LD--SESAID---ELSRQIL-SEAKLWEAIQEASAEIARRKQKEFY---NSQ----
 --------------------------------------------------------
 >Lygus_hesperus tr|A0A0A9Y6M8|A0A0A9Y6M8_LYGHE Cardioactive peptide (Fragment) GN=CCAP_0 PE=4 SV=1
--DDVILQK--RYYY------------PGPGEVAEPLEP-----------KMKKPFCNAFT
+-DDVILQ--KRYYY------------PGPGEVAEPLEP-----------KMKKPFCNAFT
 GC--GKKRS-------------------------------------------DESMAAL-
-----VDLSSEPAVE---DLSRQIL-SEAKLWEALQEARMELINRKHQTVPWFLDEDQ-PI
+----VDLSSEPAVE---DLSRQIL-SEAKLWEALQEARMELINRKHQTVPWFLDEDQP-I
 HTWRGAPIILDCYSEPGL-DSDLILNSICSNGANFTSS------------------

@@ -10,21 +10,21 @@ S---EL-------------------EQEQ-------------------------------
 TAIGVGAPG-KKRDMSSDL-ERDHRPHVSMPQNAN
 >Ciona_intestinalis Ghost_KH.C7.399.v1.A.SL1-1_Cint
 GIYNRLLHPRGTGRQQLLYHNFNNRYGEVLKRNQPSRSDY--DTHDELIKNVQPLQQRQE
-EKLNKLEKLFADIMLEDNSYKNVLFSKKQES-NEIDIEPSMMRDTRNNFLEMLQLSNWIH
-RVLSRLAATPHEQQAA------PVTGKRCDGVST---CWLHELGNSVHATAA------GK
+EKLNKLEKLFADIMLEDNSYKNVLFSKKQE-SNEIDIEPSMMRDTRNNFLEMLQLSNWIH
+RVLSRLAATPHEQQAA------PVTGKRCDGVST---CWLHELGNSVHA------TAAGK
 QNVGF-GPG-RK-----------------------
 >Branchiostoma_floridae jgi_87904_Bflo
 -------APTARG--ELP-----E--------ASLRLSEE--DVGRVVSAMAREVLQIVN
 ENVDKL-------------------AQPNEFGYGLDG-----------------------
-----------LPQGPV------YKRGKIACKTAW---CMNNRLSHNLSSLD-------NP
+----------LPQGPV------YKRGKIACKTAW---CMNNRLSHNLSS-----LDN--P
 TDTGVGAPG-RKRRDTS------------------
 >Branchiostoma_floridae jgi_87907_Bflo
-L-----PRPADDGD---------N---------PLAMTNS--DMRRIVSALIREVDQLAA
+-----LPRPADDG----------D--------NPLAMTNS--DMRRIVSALIREVDQLAA
 E---KL-------------------AAQR-------------------------------
--------------VFG------PGIRKRDCSTLT---CFNQKLAHELAMDNQ------RT
+-------------VFG------PGIRKRDCSTLT---CFNQKLAHELAM------DNQRT
 DTANPYSPG-RKRRSAEED-DH-------------
 >Branchiostoma_floridae jgi_87911_Bflo
-NQL--TASVIRRYDDDMY-----DYDGDM--EPLLALLGQ--QAGRVYHGLARELLDNIE
+N--QLTASVIRRYDDDMY-----DYDGDM--EPLLALLGQ--QAGRVYHGLARELLDNIE
 DN---------------TNTQDNRFSRTYE------------------------------
 ----------DMMDPM------AMRVRRKCESGT---CVQMHLADRLRLG----LGHNMF
 TNTGPESPG-RKKRSLGAS-RRAARRL--------
@@ -79,9 +79,9 @@ N---ELEQ-----------------EEEQE------------------------------
 ----------ETEDSS----LDSSRAKRCSNLST---CVLSAYWKDLNN-----YHRYSG
 MGFGPETPG-KKRDIANSL-EKDLSSHFGVPTDAN
 >Strongylocentrotus_purpuratus gi_115767208_Spur
---------------ASLT-----N---------RDGLSRQ--D--------ILDLLQLYE
+--------------ASLT-----N---------RDGLSRQ----------DILDLLQLYE
 E---PI-------------------RQEG-------------------------------
----------------------GDKRSKGCGSFSG---CMQMEVAKNRVAAL---LRNSNA
+---------------G------DKRSKGCGSFSG---CMQMEVAKNRVAAL---LRNSNA
 HLFGLNGPG-KRRRSVDDL-PQVNDAETE------
 >Saccoglossus_kowalevskii gi_187217193_Skow
 ------------YDDSES-----E---------EVVPPNY--WSLQL--AELTELVKLGE
@@ -90,16 +90,16 @@ E---VL-------------------AQKA-------------------------------
 SHFGATSPG-RKRRTTNSELDKQA-----------
 >Capitella_telata gi_161220966_Ctel
 -------AD-ERESEDLQ-----E---------ALRVYQNLGETRKGLTALKRVVSDLDG
-D---ILQK---------HDFHDL--ARKRK---GLDI---------------------LR
+D---ILQK---------HDFHD--LARKRK---GLDI---------------------LR
 RILS------EMEADL------IYEQKRTCQFNLGGHCATESAAS---------VADHWH
-YLNSPLSPG-RKRRDTGLY-KAVVSGRIFKD-SKH
+YLNSPLSPG-RKRRDTGLY-KAVVSGRIFKDSKH-
 >Lottia_gigantea jgi_166645_Lgig
-QMF--HPRDISRGGQQQE-----E------------------QLRRGY------LIQILK
+Q--MFHPRDISRGGQQQE-----E------------------QLRRGY------LIQILK
 S---FL-------------------NRRQ-------------------------------
 -------------EDA------TEKRKRSCNLNLGFHCQTDEYSS---------IADMYD
 FLQSALSPG-KRKRNVKIV-SIEGS----------
 >Caenorhabditis_elegans Ensembl_ZK287.3_Cele
 R------VFYNRFDGGLS----SDRFMEQKRDGAEASYDY-------------DANQVIR
 N-----------------------------------------------------------
-----------------------TMKRNRQCLLNAGL-SQGCDFSDLLHAQTQ------AR
+----------------------TMKRNRQCLLNAGL-SQGCDFSDLLHA------QTQAR
 KFMSFAGPG-K------------------------

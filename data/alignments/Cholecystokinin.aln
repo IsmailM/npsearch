@@ -1,60 +1,60 @@
 >Haliotis_diversicolor CCK_Haliotis_diversicolor
-----LPVNE-GDDVSN---------------LANLLGKLRPLHRK---------------
---------RLDSHSRGHF--------------------------KSTSGNDDKPQSSDLA
-DSKSGVAEDPEDLLTEDVSD-----------------------------MRKRQG-AWSY
-DYGLGGGRFGKRN-----------YGEYGFGGGRFGRD----VDHVDLSD--------
+------------LPVN-EGDDVSN-----LANLLGKLRPLHRK-----------------
+------RLDSHSRGH----------------------FKSTSGNDDK-PQSSDL---ADS
+KSGVAEDPEDLLTEDVSDMR-----------------------------KRQG-AWSYDY
+GLGGGRFGKRN-----------YGEYGFGGGRFG-RDVDHVDLSD--------
 >Homo_sapiens Uniprot_CCK_Hsap
-----QPVPP-----------------------ADPAGSGLQRAEEAPRRQLRV-------
-------SQRTDGESRAHLGALLARYIQ-----------------QARKAPSGRMSI--VK
-NLQN---------------------------------------------LDPSHR-ISDR
-DY-MGWMDFGRRS-----------------------------AEEYEYPS--------
+------------QPVP-------------PADPAGSGLQRAEEAPRRQLRV---------
+----SQRTDGESRAHLGALLARYIQ-----------------QARKAPSGRMSIV--KNL
+QNL--------------DPS-----------------------------HR---ISDRDY
+-MGWMDFGRRS--------------------------AEEYEYPS--------
 >Danio_rerio Uniprot_CCK_Drer
---ASRPVSD-----------------------ERFLSARRLARSASLTLQQPLPP-----
-------AGDIQPDTRANFSQLLAKLI------------------SSKKGSVRRNSS---M
-NSRAN---------------------------------------------SVNHR-IKDR
-DY-VGWMDFGRRS-----------------------------AEEYEYSS--------
+----------ASRPVS-------------DERFLSARRLARSASLTLQQPLPP-------
+----AGDIQPDTRANFSQLLAKLI------------------SSKKGSVRRNSS---MNS
+RAN--------------SVN-----------------------------HR---IKDRDY
+-VGWMDFGRRS--------------------------AEEYEYSS--------
 >Ictalurus_punctatus gi_204273783_Ipun
---------------------------------ARTRSSPAQQENDALPLQMDSSV-----
-------SAGHDANPRANLNELLARLI-------------------SRKGSVRRNSM---A
-NSKASA-------------------------------------------LSANHR-IKDR
-DY-LGWMDFGRRS-----------------------------AEEYDYSS--------
+------------------------------ARTRSSPAQQENDALPLQMDSSV-------
+----SAGHDANPRANLNELLARLI-------------------SRKGSVRRNSM---ANS
+KASAL------------SAN-----------------------------HR---IKDRDY
+-LGWMDFGRRS--------------------------AEEYDYSS--------
 >Ciona_intestinalis AL667803_Cint
-----VPTSDLFKSVSQ---------------YHLPRGKVINKETATKPLQFQRAICRL--
-----LQKLGEETFSRLSQSELEAKQL------------------DLIKTCYQANSF---G
-GNEN----------------------------------------------DGHMQ-RMDR
-NY-YGWMDFGKRG-----------------------------IKDVDYEY--------
+------------VPTSDLFKSVSQ-----YHLPRGKVINKETATKPLQFQRAICRL----
+--LQKLGEETFSRLSQSELEAKQL------------------DLIKTCYQANSF---GGN
+EN---------------DGH-----------------------------MQ---RMDRNY
+-YGWMDFGKRG--------------------------IKDVDYEY--------
 >Strongylocentrotus_purpuratus gi_115694514_Spur
-----FPTRSTEQSHKN---------------LPGVTSFLRMLKDHIVNRSRGTGS--RGP
-LRGPKGHHQVTPNVNSHNSEVLPAWPPKSKTEDWVLDLAPKDDLSNLANDSERDFS---P
-DVAAAVGSTE---LEDDKRDYGHGMFFGKRVPNDK----YIDRQLEDPTMQRQRR-PDDY
-NW---GMWFGKRD----------KADLYGW-GGFFGKRS---GDVTEYEDFV-----A
+------------FPTRSTEQSHKN-----LPGVTSFLRMLKDHIVNRSRGTGS--RGPLR
+GPKGHHQVTPNVNSHNSEVLPAWPPKSKTEDWVLDLAPKDDLSNLANDSERDFS---PDV
+AAAVGSTE---LEDDKRDYGHGMFFGKRVPNDK----YIDRQLEDPTM-QRQRRPDDYNW
+---GMWFGKRD----------KADLYGW-GGFFGKRSGDVTEYEDFVA-----
 >Saccoglossus_kowalevskii gi_187061456_Skow
-----DEVTDELNSAEEVDGASSDESKRDHYGWMNFKKSDPEKKDHYGWMNFKKSDPEKKD
-HYGWMNFKKSDPEKKDHYGWM-----------------------NFKKSDPEKKDHYGWM
-NFKKS---------DPEKKDHYGWMNFKKSDPEKKDHYGWMNF--------KKSD-PEKK
-DH-YGWMNFKKSD--------PEKKDYYGW--MNFKKSDPEKKDHYGWMN--------
+DEVTDELNSAEEVDGASSDESKRDHYG--WMNFKKSDPEKKDHYGWMNFKKSDPEKKDHY
+GWMNFKKSDPEKKDHYGWM-----------------------NFKKSDPEKKDHYGWMNF
+KKS---------DPEKKDHYGWMNFKKSDPEKKDHYGWMNF--------KKSD-PEKKDH
+-YGWMNFKKSD--------PEKKDYYGW--MNFKKSDPEKKDHYGWMN-----
 >Capitella_telata]_22803 jgi_Ctel
-----SVSTDDSENVRN-----------EILILAKLLRPIRQLAGRLEDLE----------
-------------------------------------------------------------
------------SIIERAATDRE------------------FAME-----VAKRQGAAWDM
-DYGWGGGRFGKRDSGKRTSDSSKRYDAFGL-GGRFGRS----VDHVDLEKNE------
+-----------SVSTD-DSENVRN-EILILAKLLRPIRQLAGRLE-DLESI---------
+----IERAATDR------------------------------------------------
+-------------EFAMEVA-----------------------------KRQGAAWDMDY
+GWGGGRFGKRDSGKRTSDSSKRYDAFGL-GGRFG-RSVDHVDLEKNE------
 >Crassostrea_gigas gi_260626388_Cgig
-------NSHAQNSIIQ---------------LSKLFSNLQDIHDAKQTQEENTKD-----
---------QVRSDTRKQRGEI-----------ELILALGAPVHVESLQHNDKDTQT----
-DTDKSAWDVD---FEDDQQD-----------------------------VEKRQG-AWDY
-DYGLGGGRFGKRF-------------DYNFGGGRWGRD----VDHVKQGQAK------
+--------------NSHAQNSIIQ-----LSKLFSNLQDIHDAKQTQEENT---------
+----KDQVRSDTRKQRGEI-----------ELILALGAPVHVESLQH-NDKDTQ---TDT
+DKSAWDVD---FEDDQQDVE-----------------------------KRQG-AWDYDY
+GLGGGRFGKRF-------------DYNFGGGRWG-RDVDHVKQGQAK------
 >Lottia_gigantea gi_163526260_Lgig
-----LPLKTDDDNVEH---------------LVSLIKKLKSLEKRPETNS----------
---------RWLDHQLHHL--------------------------RIDNSPAEKSDSLTSG
-ERDSGILYRS---LNSDMDT-----------------------------PSKRQG-AWSY
-DYGLGGGRFGKRS-----------YDDYGIGGGRFGRD----VDHVDLADGVLN--GA
+------------LPLKTDDDNVEH-----LVSLIKKLKSLEKRPETNS------------
+------RWLDHQLHH----------------------LRIDNSPAEK-SDSLTS---GER
+DSGILYRS---LNSDMDTPS-----------------------------KRQG-AWSYDY
+GLGGGRFGKRS-----------YDDYGIGGGRFG-RDVDHVDLADGVLN--GA
 >Aplysia_californica gi_121341705_Acal
-----LPTNSRREDLSH---------------LVTLLGKLKNIERARQNSE----------
--------------GSAQA--------------------------HAQEA-WEGPRVSSFP
-ETEVTA-----DVIPDEVSAAK----------------GYLGQRPATGVVNKRQG-AWSY
-DYGLGGGRFGKRS-----------YGDYGIGGGRFGRD----VDHVDLSDATENEITS
+------------LPTNSRREDLSH-----LVTLLGKLKNIERA-----------------
+------RQNSEGSAQ----------------------AHAQ-EAWEG-PRVSSF---PET
+-----EVTADVIPDEVSAAK----------------GYLGQRPATGVVNKRQG-AWSYDY
+GLGGGRFGKRS-----------YGDYGIGGGRFG-RDVDHVDLSDATENEITS
 >Alvinella_pompejana gi_223770502_Apom
-SEGSSIGDNSVNEVQSK----------ELLFLAKIVGPLKEIARESEQLA----------
-------------------------------------------------------------
------------SIVERVATDGD------------------LTQE-----LSKRQG-AWDM
-DYGWGGGRFGKRASGTSISQSGKRYDSFGI-AGRFGRS----VENVEGH---------
+-------SEGSSIGDN-SVNEVQSKELLFLAKIVGPLKEIARESE-QLASI---------
+----VERVATDG------------------------------------------------
+-------------DLTQELS-----------------------------KRQG-AWDMDY
+GWGGGRFGKRASGTSISQSGKRYDSFGI-AGRFG-RSVENVEGH---------

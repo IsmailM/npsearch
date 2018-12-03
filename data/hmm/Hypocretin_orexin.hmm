@@ -1,4 +1,4 @@
-HMMER3/f [3.1b2 | February 2015]
+HMMER3/f [3.2.1 | June 2018]
 NAME  Hypocretin_orexin
 LENG  100
 ALPH  amino
@@ -7,7 +7,7 @@ MM    no
 CONS  yes
 CS    no
 MAP   yes
-DATE  Sun Dec  2 17:04:10 2018
+DATE  Mon Dec  3 11:45:20 2018
 NSEQ  15
 EFFN  0.802002
 CKSUM 1571805702

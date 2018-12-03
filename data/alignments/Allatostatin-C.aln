@@ -1,76 +1,76 @@
 >Capitella_telata gi_161295377_Ctel
-GFIVNAVPTQD-GGSNLSHG----------YNEVSEMGLTDTKLAFLE---KKLREEIER
------DLADLLVMEHQHRH-------------NLNFIQEKKRQLEIKK------------
-------------REP-----VQCLVNIVSCW---KRK-
+GFIVNAVPTQ-DGGSNLS----HGY--NEVSEMGLTDTKLAF-------LEKKLREEIER
+----DLADLLVMEHQHRH---------------NLNFIQEKKRQLEIKK-----------
+--RE-----------PVQCLVNIVSCWKRK----
 >Helobdella_robusta jgi_181187_Hrob
-------LPP---RRRSLISKNYI-------FPKTHSKRFAKNNDAE-----DPLYSSYPF
-E---------YNNNEPISM------DSNK---YANSLNKEFPKAPKGK------------
--QVFK-------KAH-----VPCLFSIISCW---K---
+------LPP--RRRSLIS---------KNYIFPKTHSKRFAKNND----AEDPLYSSYPF
+E--------YNNNEPISM----DS-------NKYANSLNKEFPKAPKGK-----------
+--QVFKK-------AHVPCLFSIISCWK------
 >Lottia_gigantea gi_163505903_Lgig
----NKILPGE--EHRQLVQ--------------ITEESSNNDRLLKR----STLQDAYES
------HLAMLMEAEQSLTK-------------QIEELKLRREELSNRK------------
-------------RSH-----VMCLVNLISCF---RKR-
+---NKILPG--EEHRQL----------VQITEESSNNDRLLK--------RSTLQDAYES
+----HLAMLMEAEQSLTK---------------QIEELKLRREELSNRK-----------
+--RS-----------HVMCLVNLISCFRKR----
 >Crassostrea_gigas gi_260628238_Cgig
-------QPQK--FSTEIQQ--------------TGDESSTDLNLFK-----MALREAYNR
------ELEFYEQQEAQIVK-------------QLAALENDRNQIRERK------------
-------------RSH-----IRCLVNVIACY---RKK-
+------QPQ--KFSTEI----------QQTGDESSTDLNLFK---------MALREAYNR
+----ELEFYEQQEAQIVK---------------QLAALENDRNQIRERK-----------
+--RS-----------HIRCLVNVIACYRKK----
 >Aplysia_californica gi_203663510_Acal
-----AVIPVS--SPEPMEE--------------ASALQLLPGKIGR-----ASLLREMER
------QLMILQAAEENIVS-------------GLQELEEERRVLSGRK------------
-------------RSHY---SSMCMFNVVACY---RKRK
+----AVIPV--SSPEPM----------EEASALQLLPGKIGR---------ASLLREMER
+----QLMILQAAEENIVS---------------GLQELEEERRVLSGRK-----------
+--RSHY---------SSMCMFNVVACYRKRK---
 >Daphnia_pulex jgi_290676_Dpul
--KSTDREETES-TDFGQD---------------IEVLGAVPDD------------GSVET
------ALLNYLFAK-QIVA-------------RLRT-NANPQDL-MRK------------
-------------RSYW----KQCAFNAVSCF---GK--
+KS---------TDREETESTD-FGQDIEVLGAVPDD-------------------GSVET
+----ALLNYLFAKQIVAR-------------------LRTNANPQDLMR-----------
+-KRSY----------WKQCAFNAVSCFGK-----
 >Tribolium_castaneum BCM_GLEAN_05428_Tcas
-------RPNHF-GDASQNSI------SGL----KFQVVGEPADGNNLLD--SRLKP----
-----WELEMLVQRLSEISS--------QT---GGDFAWDKSIRLPEAK------------
-------------RQSR---YRQCYFNPISCF---RK--
+------RPNHFGDASQNSISGLK----FQVVGEPADGNNLLD---------SRLK-----
+--PWELEMLVQRLSEISS-------------QTGGDFAWDKSIRLPEAK-----------
+--RQSR---------YRQCYFNPISCFRK-----
 >Drosophila_melanogaster Ensembl_FBtr0080234_AstC_Dmel
-------RPS---GAETGPDS------DGLDGQDAEDVRGAYGGGYDMPA--QAIYPNIPM
-D----RLQMLFAQYRPTSY--SAYLRSPT---YGNV--NELYRLPESK------------
-------------RQVR---YRQCYFNPISCF---RK--
+------RPS--GAETGPDSDGLDGQDAEDVRGAYGGGYDMPA---------QAIYPNIPM
+D---RLQMLFAQYRPTSYSAYLRS-------PTYGNV--NELYRLPESK-----------
+--RQVR---------YRQCYFNPISCFRK-----
 >Drosophila_melanogaster Ensembl_FBtr0114455_AstCC_Dmel
-QERSEQRIGEFFGDRNILSGKFGDSHNGMEHHQAREDGMYSDDDAG--------------
------TLLDYDFKD---------------L-NQINRATGETRRAGADRSGTSTHSGSPAG
-SRRIQPSGSGGGRAY-----WRCYFNAVSCF-------
+QE---------RSEQRIG---------EFFGDRNILSGKFGDSHNGMEHHQAREDGMYSD
+DDAGTLLDYDFKDLN------------------QINRATGETRRAGADRSGTSTHSGSPA
+GSRRIQPSGSGGGRAYWRCYFNAVSCF-------
 >Caenorhabditis_elegans Ensembl_F33D11.8_Cele
-------IPL-----RSLF---------------------------------LRSYDDINQ
-E----SIARGYFAP-QPVD-------------DDNADNRPKRGIDLLK------------
-------------RRVEIIERNRCFFNPITCY-------
+------IPL----RSLF----------------------------------LRSYDDINQ
+E---SIARGYFAPQPVDD----------------DNADNRPKRGIDLLK-----------
+--RRVEII------ERNRCFFNPITCY-------
 >Caenorhabditis_elegans Ensembl_M02E1.2_Cele
---LGSLTPSAAF---------------------------------------RANMQQRER
-S--PNTLFYMDGASKQYGD-------------EIKD--------PIYK------------
-------------R------FKPCYYSPIQCL---IKRK
+-L-GSLTPSA-AFRANM--------------------------------------QQRER
+S-PNTLFYMDGASKQYG----------------------------DEIK--------DPI
+YKR------------FKPCYYSPIQCLIKRK---
 >Caenorhabditis_elegans Ensembl_R11.2_Cele
-QR----------YDRAIY---------------------------------EALLNDLER
-EFVERELAQHVLEKRELLR-------------QDRQ-ELDRVRRASEK------------
-------------KSYP----RNCYFSPIQCL---FTRN
+Q----------RYDRAIY---------------------------------EALLNDLER
+----EFVERELAQHVLEK----------------RELLRQDRQELDRVR--------RAS
+EKKSY----------PRNCYFSPIQCLFTRN---
 >Caenorhabditis_elegans Ensembl_Y73B6BL.35_Cele
------SVPSSS----------------------------------------AVSDGQIDF
-D----ALAAKIEMLRPNRY------------------WKRAHNIDTRA------------
-------------LNQF----KNCYFSPIQCVLMERRRK
+-----SVPS--SSAVSD--------------------------------------GQIDF
+DALAAKIEMLRPNRYWKRAHNIDT------------------------------------
+--RALNQ--------FKNCYFSPIQCVLMERRRK
 >Caenorhabditis_elegans Ensembl_R08B4.5_Cele
-------IPMV--SSRDEDD--------------------------------QIIQKRLSN
-D----ALIRLLMRNRGTQT-------------QLGLKRGLVKKAEVER------------
-------------RSIDE-DFSNCFLSPVQCMLP-SSRK
+------IPMV-SSRDEDD---------------------------------QIIQKRLSN
+D---ALIRLLMRNRGTQT---------------QLGLKRGLVKKAEVER-----------
+--RSIDE-------DFSNCFLSPVQCMLPSSRK-
 >Camponotus_floridanus sp|E2A6Z3|ALLSC_CAMFO Allatostatin C GN=EAG_07220 PE=1 SV=1
-------MPTTD-KDKERL---------------LNTVDLIDDD------------GSIET
------ALINYLFTK-QIVK-------------RLRS-QLDIGDL-QRK------------
-------------RSYW----KQCAFNAVSCF---GK--
+------MPTTDKDKERL---------LNTVDLIDDD-------------------GSIET
+----ALINYLFTKQIVKR-------------------LRSQLDIGDLQR-----------
+-KRSY----------WKQCAFNAVSCFGK-----
 >Tribolium_castaneum tr|B8XQ59|B8XQ59_TRICA Allatostatin C preprohormone PE=2 SV=1
-------RPNHF-GDAS-------------------QVVGEPADGNNLLD--SRLKP----
-----WELEMLVQRLSEISS--------QT---GGDFAWDKSIRLPEAK------------
-------------RQSR---YRQCYFNPISCF---RK--
+------RPNHFGDAS-------------QVVGEPADGNNLLD---------SRLK-----
+--PWELEMLVQRLSEISS-------------QTGGDFAWDKSIRLPEAK-----------
+--RQSR---------YRQCYFNPISCFRK-----
 >Clostera_anastomosis tr|J7EQE8|J7EQE8_9NEOP C type allatostatin PE=2 SV=1
-------APME--GDDEQAE---------------NTMIGRPDHDMEMPSGWDPINTAALR
------KFLMELDAEERMGRATRSWPQAEPRGWERSLDGRLARQWRTDK------------
-------------RQVR---FRQCYFNPISCF---RK--
+------APME-GDDEQAE---------NTMIGRPDHDMEMPS-------GWDPINTAALR
+----KFLMELDAEERMGRAT--RSWPQAEPRGWERSLDGRLARQWRTDK-----------
+--RQVR---------FRQCYFNPISCFRK-----
 >Daphnia_pulex tr|E9G476|E9G476_DAPPU Putative allatostatin C preprohormone GN=DAPPUDRAFT_290676 PE=4 SV=1
--KSTDREETES-TDFGQD---------------IEVLGAVPDD------------GSVET
------ALLNYLFAK-QIVA-------------RLRT-NANPQDL-MRK------------
-------------RSYW----KQCAFNAVSCF---GK--
+KS---------TDREETESTD-FGQDIEVLGAVPDD-------------------GSVET
+----ALLNYLFAKQIVAR-------------------LRTNANPQDLMR-----------
+-KRSY----------WKQCAFNAVSCFGK-----
 >Nasonia_vitripennis tr|F8R0Y1|F8R0Y1_NASVI Allatostatin C preprohormone PE=2 SV=1
-------LPA---GDKEAL---------------MNGLNMMGDEEG----------AAVER
------DLLNYLVGR-RFVK-------------RLRN-QADVDDL-QRK------------
-------------RNYW----RQCAFNAVSCF---GK--
+------LPA--GDKEAL---------MNGLNMMGDEEG-----------------AAVER
+----DLLNYLVGRRFVKR-------------------LRNQADVDDLQR-----------
+-KRNY----------WRQCAFNAVSCFGK-----

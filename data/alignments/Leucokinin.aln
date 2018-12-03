@@ -5,7 +5,7 @@
 ---------------------------QDDIDKRAFSAWG-GKRGFHA------WGGKRS
 EDNEMDKRAFSAWGGKRAFNPWGGKRSFEDQEAERGN-------------FEEQKRQFGP
 ---------------------------------WGGKRASP-----EIYKKAFNPWGGKR
-SSTSSLEDFLSKRSFNPWGGKRSSG-WRAQE-----------------------------
+SSTSSLEDFLSKRSFNPWGGKRSSG---------------------W-----RAQE----
 ---------------------
 >Idiosepius_paradoxus gi_117947799_Ipar
 ------------------------------------------------------------
@@ -19,21 +19,21 @@ SDIGRLQKMLAKRGFNPWAGK---------------------------------------
 >Lutzomyia_longipalpis gi_83930519_Llon
 ----EYHGDVGVGISPWTYSNIQ-RIQSLEERINQYRRFIIHLFGKLPGSCDLLRIFEEY
 STPQF----------PDHSPD-IQHLIE--KLQPPTAENHAETRLPTDPKKNLLDILDIY
-LDFTAYVMDPVSTE---------------GIERSLRRGCETD------------------
--------------------------LLTNPADKRS-------------------------
---------DEKVVGKKIKFHSWGGKRHQVNLDSGA----------------------Y--
+LDFTAYVMDPVSTE---------------GIERSLRRGCETDLL----------------
+---------------------------TNPADKRS-------------------------
+--------DEKVVGKKIKFHSWGGKRHQVNLDSGAY------------------------
 ------------------------------------------------------------
--------RIITRTPFHSWGGKRAA---------------------------------MDS
+-------RIITRTPFHSWGGKRAAM---------------------------------DS
 PY----------------DFY
 >Drosophila_melanogaster FBtr0075722_Leucokinin_Dmel
 -----------ASLVPAPISEQDPELATCELQLSKYRRFILHAILSFEDVCDAY---SS-
 --------------RPGGQDS-DSEGWPFRHYAPPPTSQ-------------RGEIWAFF
-RLLMAQFGDKEFSP---------------IIRDAVIERCRIK------------------
--------------------SQ------LQRDEKR--------------------------
---------NSVVLGKKQRFHSWGGKRS------PEPP----------------ILPDY--
+RLLMAQFGDKEFSP---------------IIRDAVIERCRIKSQ----------------
+---------------------------LQRDEKRN-------------------------
+---------SVVLGKKQRFHSWGGKRSPE-------------------------------
+------------------------------------------------------P-----
 ------------------------------------------------------------
-------------------------------------------------------------
----------------------
+---PIL-----PD-------Y
 >Caenorhabditis_elegans Ensembl_C45G9.13_Cele
 -------------------DKQQ-SAYDLETPISAY------------------------
 ------------------------------------------------------------
@@ -47,29 +47,29 @@ RLLMAQFGDKEFSP---------------IIRDAVIERCRIK------------------
 WELNENDDSLAKIIEGCEWTSRQ-N-VISEILLDRYRKYAMYNFFLLDDVCAVHEWNKNL
 KEPEFSENNEAEDKSPTSAQN-TQEHIPGNNFPPPAASNPPV------NSSCAKSAKDFF
 ICLSNQLGDPTLNA---------------MLLDNLEVACDPRFSP---------------
------------V---SAIQKR-N----SKYVSKQKFYSWG-GKRNNPN------------
+--------------VSAIQKR-N----SKYVSKQKFYSWG-GKRNNPN------------
 -----------------VFYPWGGKRNTGRVHR---------------------------
 -----------------------------------------------------QP-----
--------KVVIRNPFHAWGGKRNQ---------------------------------KDD
-NV------------------F
+-------KVVIRNPFHAWGGKRNQK---------------------------------DD
+------------------NVF
 >Drosophila_melanogaster sp|P81829|LCK_DROME Leucokinin GN=Lk PE=1 SV=3
 -----------ASLVPAPISEQDPELATCELQLSKYRRFILQAILSFEDVCDAY---SS-
 --------------RPGGQDS-DSEGWPFRHYAPPPTSQ-------------RGEIWAFF
-RLLMAQFGDKEFSP---------------IIRDAVIERCRIK------------------
--------------------SQ------LQRDEKR--------------------------
---------NSVVLGKKQRFHSWGGKRS------PEPP----------------ILPDY--
+RLLMAQFGDKEFSP---------------IIRDAVIERCRIKSQ----------------
+---------------------------LQRDEKRN-------------------------
+---------SVVLGKKQRFHSWGGKRSPE-------------------------------
+------------------------------------------------------P-----
 ------------------------------------------------------------
-------------------------------------------------------------
----------------------
+---PIL-----PD-------Y
 >Trichinella_spiralis tr|E5SDN6|E5SDN6_TRISP Leucokinin GN=Tsp_01848 PE=4 SV=1
 ------------------------------TLVDS-------------------------
 ---------------PSSAKE-VQ-MIP--------------------------------
-VFYSDTVGDHHVID---------------PTVDNLED-----------------------
------------V-------SE------LNNLMKRKFYAWA-GKRAS--------------
+VFYSDTVGDHHVID---------------PTVDNLEDVSE--------------------
+---------------------------LNNLMKRKFYAWA-GKRAS--------------
 -----------------RFYQWAGKRNGEKVEK---------------------------
 ------------------------------------------------------------
 ----------VRRKFYPWAAKCNKKTYEVAKDIQNRTTILFIFAITYLYCTLTVQNLQKA
-CK--ILRIR------------
+C--KILRIR------------
 >Danaus_plexippus tr|G6CZL2|G6CZL2_DANPL Leucokinin GN=KGM_05505 PE=4 SV=1
 -----------------QYINTA-G-ADAETLMDPLDSTIHY------------------
 ---------------P----------------PLPYVNYFNVLTPRNNMETLQNNGNMDH
@@ -77,7 +77,7 @@ SQFT--EQDLESLD----------SKRMRRTTDEDKDAKERNWQPNLIDSDKTIYLP---
 SDTFGIRTPFIVQAYSDTSSEKNTTDISNSLEKRSFSPWG-GKRNRPN-TIEQMWTWKKS
 -----AGIREPSMPKRVRFSPWGGKRSGQMIYK-PGTKGSKVIFSASVPELTRIVSNYSP
 NGNRLNMAGLQFIPSPDKRHPIKILALNTKLDERTLRDALPFNTFMETIPKMYKP-GHAY
-LDVHLKKDGKRKVKFSAWGGKRSPP-------------------IIGPIWTPASQDIKES
+LDVHLKKDGKRKVKFSAWGGKRSPP----------------IIGPIW---TPASQDIKES
 TLDTIVLIRNNQNEDSE-KML
 >Bombyx_mori tr|B3IUD2|B3IUD2_BOMMO Leucokinin GN=kin PE=2 SV=1
 -----------------QYINTG-G-PGADTILDPLDSSLQY------------------
@@ -86,7 +86,7 @@ TLDTIVLIRNNQNEDSE-KML
 NNE--VATPSLV-GFSGNSDE-NDTALLDQVDKKNFSPWG-GKRDKPS--FEHMWTWKRS
 -----SSVREPSMPKRVRFSPWGGKRSGQMVYK-PGSKSSKLIFSATVPELEKIVSNYLP
 SGERLNLAGLHYIPSVDKRFPLKMMALSAKFDPRSFKEAMPFKTFVESLPKVFKP-GQPY
-YDVNIKKDGKRKVKFSAWGGKRSPP-------------------IIGPIWTPAPENVKDS
+YDVNIKKDGKRKVKFSAWGGKRSPP----------------IIGPIW---TPAPENVKDS
 TLDTIILIRNSPDKDEAIKTV
 >Operophtera_brumata tr|A0A0L7LHQ0|A0A0L7LHQ0_9NEOP Leucokinin GN=OBRU01_08447 PE=4 SV=1
 -----------------QYINTG-D-PGADTILDPFTSYLRY------------------
@@ -95,14 +95,14 @@ TLDTIILIRNSPDKDEAIKTV
 NNE--AQIP------SAYDDD-N----KTEIEKRNFSPWG-GKRSGSTANVEHTWTWKRA
 -----SGIREPSMPKRVRFSPWGGKRSGQMIYKAPGSKSTKVIYSTSIPELTKVISNYSP
 TVKQLHLAGFQVIPGMDMSHPIKVLALGTHLDEQTLRDALPFKMFLDSLPKNFKP-GHPY
-TDVHLKRDGKRKVKFSTWGGKRSPP-------------------IIGPIWTPASQNQQDS
+TDVHLKRDGKRKVKFSTWGGKRSPP----------------IIGPIW---TPASQNQQDS
 TLNTILLIRNSPDIAGK-DAF
 >Ceratitis_capitata tr|W8C9S5|W8C9S5_CERCA Leucokinin GN=LCK PE=2 SV=1
 ----------------QPVVD---ELTTCEDQLAKYRRFLLQAILSFEDVCDVY---DTH
 SVNPFEAF-----YRQDQQDTVNAPLFRALQAGNAAAEQ-------------RSEIWALF
-KLLMAQFNDMDFVN---------------IIKEAVIDRCRIK------------------
--------------------SQ------QQHDEKR--------------------------
---------NSVVLGKKQRFHSWGGKRSHLDMDGSSMN----------------ML-----
+KLLMAQFNDMDFVN---------------IIKEAVIDRCRIKSQ----------------
+---------------------------QQHDEKRN-------------------------
+---------SVVLGKKQRFHSWGGKRSHLDMDGSSMN-----------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
----------------------
+-------------------ML

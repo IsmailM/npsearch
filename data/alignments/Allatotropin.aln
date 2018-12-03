@@ -2,104 +2,104 @@
 --------------SPALSRHKRGFLA----GVHDRMGHGFGKRTDPILSSYV-------
 ------------------------------------------------------------
 -------------DDVDKD-------------------DLMTVEDLVRHIMQSEVLA---
-----DAIVRKFI-DINDD--GSVSYQEL----LRKLM-------R
+----DAIVRKFI-DINDD--GSVSYQEL----L--RKLMR-------
 >Lymnaea_stagnalis gi_148318561_Lsta
 --------------DERIHRQKRGFRA----NSASRVAHGYGKRGYLSSNENL-------
 ------------------------------------------------------------
 -------------PTLSLDQLESSTGLMEEI----SDGSLMTVNEFSQLLTSHPNLA---
-----RALVKKFV-DINGD--DVISTDEL----FRPILK------K
+----RALVKKFV-DINGD--DVISTDEL----F--RPILKK------
 >Aplysia_californica gi_121313125_Acal
--------------TEASLSRAKRGFRL----NSASRVAHGYGKRGYASSSGAV-------
--------------PY---------------------------------------------
--------------PELARDVLDNLRAEEEEK---ELEWSIMSVDELASLLQSHPKLA---
-----RALVKKFV-DINGD--NLVTAEEL----FRPPTR------K
+-------------TEASLSRAKRGFRL----NSASRVAHGYGKRGYASSSGAVP------
+------------------------------------------------------------
+------------YPELARDVLDNLRAEEEEK---ELEWSIMSVDELASLLQSHPKLA---
+----RALVKKFV-DINGD--NLVTAEEL----F--RPPTRK------
 >Lottia_gigantea gi_163522278_Lgig
 -YP--------QSPSLSHHRSKRGFKA----NSASRVAHGYGKRGFPSWKNYF-------
 ------------------------------------------------------------
 -------------QDGGSD--------------------VLSVEDMAELVAENPSLA---
-----KALLRKFV-DTDND--GIISTTEL----LGTKQML-----K
+----KALLRKFV-DTDND--GIISTTEL----LGTKQMLK-------
 >Capitella_telata jgi_226681_Ctel
 ---------------ANLSRSKRGFRM----GAADRFSHGFGKRGGDFNSL---------
 ------------------------------------------------------------
 -------------IDGESD-------------------MVMSDEDLTEIIRADARLA---
-----QTFVKRFI-DTDGD--GFVSRQEL----FEA----------
+----QTFVKRFI-DTDGD--GFVSRQEL----F--EA----------
 >Alvinella_pompejana gi_223784927_Apom
 ----------KLTVTGNSRRVARGFRL----GAADRFSHGFGKRTDDHLPEVI-------
 ------------------------------------------------------------
 -------------PGAESD-------------------VLLSNAEFAELLRSDEKLA---
-----NLIVQDFV-DKNGD--GFITRNEL----MGYR--------K
+----NLIVQDFV-DKNGD--GFITRNEL----MGYRK----------
 >Bombyx_mori gi_112983783_AT_Bmor
 -AP------DVRLVRTKQQRPTRGFK-----NVEMMTARGFGRRDRPHPRAE--------
 ------------------------------------------------------------
 ----------LYGLDNFWVMSEPSPEREVQE-VDEKTFESIPLDWFVNEMLNNPDFA---
-----RFVVEKFI-DLNQD--GMLSSEE-----LRNV---------
+----RFVVEKFI-DLNQD--GMLSSEE-----L--RNV---------
 >Rhodnius_prolixus gi_240248407_Rpro
-GSPSS-ALYSSAARASGRTRTIRGFK-----NVQLSTARGFGKRTYPDSQLQP-------
+GSP-SSALYSSAARASGRTRTIRGFK-----NVQLSTARGFGKRTYPDSQLQP-------
 ------------------------------------------------------------
 --------------------------------------DLIPADWMAEELSSNPELA---
-----RFIIRRFI-DVDQD--GLVSPVEL----LRNTVCQE---PN
+----RFIIRRFI-DVDQD--GLVSPVEL----L--RNTVCQEP---N
 >Acyrthosiphon_pisum BCM_Contig45963_Apis
--YPAF-EDSEFKHKHRDKGRTIRGFK-----NMDLSTARGFGKRTDHYMNLMP-------
+-YP-AFEDSEFKHKHRDKGRTIRGFK-----NMDLSTARGFGKRTDHYMNLMP-------
 ------------------------------------------------------------
 -------------LDLFVDNKE---------------------DSFNQNIPMEVSLEKIL
-KNKYKHFIEKLI-DVNHD--GYISGEEL----LLSIDGE-----S
+KNKYKHFIEKLI-DVNHD--GYISGEEL----L--LSIDGES-----
 >Daphnia_pulex jgi_255977_Dpul
 -APHPADYTSSSVNNQRDFRSRRGFK-----TVGLATARGFGKRAPSLSN----------
 ------------------------------------------------------------
 -------------FNSFQDAAEQMMQQQEEN--PNSDPDV--------------------
------------------N--GKV----------------------
+-----------------N--GKV------------------------
 >Homalodisca_vitripennis jgi_50560525_
 --------NSVPVYLRDKPRSIRGFK-----NHALSTARGFGKRSDSELSSSE-------
 ------------------------------------------------------------
 -------------TSQFTD------------------RDSFPADWFASEVQNNGELA---
-----RLVVHKFI-DTNQD--GELSADEL----LRPLYGPPTTTYK
+----RLVVHKFI-DTNQD--GELSADEL----L--RPLYGPPTTTYK
 >Manduca_sexta sp|P21786|ALLT_MANSE Allatotropin PE=1 SV=2
 -AP------DVRLTRTKQQRPTRGFK-----NVEMMTARGFGKRDRPHPRAERDVDHQAP
 SARPNRGTPTFKSPTVGIARDFGKRASQYGNEEEIRV---TRGTFKPNSNILIARGYGKR
 TQLPQI--DGVYGLDNFWEMLETSPEREVQE-VDEKTLESIPLDWFVNEMLNNPDFA---
-----RSVVRKFI-DLNQD--GMLSSEEL----LRNF---------
+----RSVVRKFI-DLNQD--GMLSSEEL----L--RNF---------
 >Spodoptera_frugiperda sp|Q70XC3|ALLT_SPOFR Allatotropin PE=2 SV=2
 -AP------ENRLARTKQQRPTRGFK-----NVEMMTARGFGKRDRPHTRAEHQDSYDSH
 ARR----------------------------------------KFNPKSNLMVAYDFGKR
 SGNDDVT-DEVYGLDNFWEMLEATPEREGQE-NDEKTLESIPLDWFVNEMLNNPDFA---
-----RSVVRKFI-DLNQHSFGLVRERDAEQSRFRAICGPQ---VH
+----RSVVRKFI-DLNQHSFGLVRERDAEQSRF--RAICGPQV---H
 >Manduca_sexta sp|P21786|ALLT_MANSE Allatotropin PE=1 SV=2
 -AP------DVRLTRTKQQRPTRGFK-----NVEMMTARGFGKRDRPHPRAERDVDHQAP
 SARPNRGTPTFKSPTVGIARDFGKRASQYGNEEEIRV---TRGTFKPNSNILIARGYGKR
 TQLPQI--DGVYGLDNFWEMLETSPEREVQE-VDEKTLESIPLDWFVNEMLNNPDFA---
-----RSVVRKFI-DLNQD--GMLSSEEL----LRNF---------
+----RSVVRKFI-DLNQD--GMLSSEEL----L--RNF---------
 >Camponotus_floridanus sp|E2A1R1|ALLT_CAMFO Allatotropin GN=EAG_06920 PE=1 SV=1
 ------RNYPRFFKHRMKLREIRGFK-----PEYISTAIGFGKRESPAERI---------
 ------------------------------------------------------------
 -------------PDLRGR--ERILLPVLRN-FPRGVRILVPFSQLQVDAASMSSAA---
-----KSTVYAGLGDDSKK--GTIA---------------------
+----KSTVYAGLGDDSKK--GTIA-----------------------
 >Spodoptera_frugiperda sp|Q70XC3|ALLT_SPOFR Allatotropin PE=2 SV=2
 -AP------ENRLARTKQQRPTRGFK-----NVEMMTARGFGKRDRPHTRAEHQDSYDSH
 ARR----------------------------------------KFNPKSNLMVAYDFGKR
 SGNDDVT-DEVYGLDNFWEMLEATPEREGQE-NDEKTLESIPLDWFVNEMLNNPDFA---
-----RSVVRKFI-DLNQHSFGLVRERDAEQSRFRAICGPQ---VH
+----RSVVRKFI-DLNQHSFGLVRERDAEQSRF--RAICGPQV---H
 >Daphnia_pulex tr|E9HAF7|E9HAF7_DAPPU Putative allatotropin GN=DAPPUDRAFT_111909 PE=4 SV=1
 -APHPADYTSSSVNNQRDFRSRRGFK-----TVGLATARGFGKRAPSLSN----------
 ------------------------------------------------------------
 -------------FNSFQDAAEQMMQQQEEN--PNSDPDVFPVDWLVNYLQNKPDVI---
-----RYMVEHLL-DHNGD--GQVTSQEM----MTSLQQQR---ED
+----RYMVEHLL-DHNGD--GQVTSQEM----M--TSLQQQRE---D
 >Tribolium_castaneum tr|B8XQ55|B8XQ55_TRICA Allatotropin preprohormone isoform 1 PE=2 SV=1
 ---QGRRDAKYPQVRTPQQRLTRGIEALKYHNMDLGTARGYGKRAV--------------
 ------------------------------------------------------------
 --------------------------------------DMHNVNFLLEWIALETRMR---
-----NLGIPRNL-LRDQE--TIPE---------------------
+----NLGIPRNL-LRDQE--TIPE-----------------------
 >Mythimna_unipuncta tr|Q9U3W9|Q9U3W9_MYTUN Allatotropin neuropeptide PE=2 SV=1
 -AP------EGRLTRTKQQRPTRGFK-----NVEMMTARGFGKRDRPHTRAE--------
 ------------------------------------------------------------
 ----------LYGLDNFWEMLESAPEREGQETNDEKTLESIPLDWFVNEMLNNPDFA---
-----RSVVHKFI-DLNQD--GMLSSEEL----LRNVV--------
+----RSVVHKFI-DLNQD--GMLSSEEL----L--RNVV--------
 >Clostera_anastomosis tr|Q5S3K6|Q5S3K6_9NEOP Allatotropin GN=AT PE=2 SV=2
 -AP------DGRVAR-KQQRPTRGFK-----NVEMMTARGFGKRDRLHNRAE--------
 ------------------------------------------------------------
 ----------LYGIENFWDALEGASEREGQD-NEEKTLESIPLNWFVNEMLNNPDFA---
-----RSVVRKFI-DLNQD--GMLSSEEL----LRNMV--------
+----RSVVRKFI-DLNQD--GMLSSEEL----L--RNMV--------
 >Helicoverpa_armigera tr|Q693P5|Q693P5_HELAM Allatotropin PE=2 SV=1
 -AP------EGRITRTKQQRPTRGFK-----NVEMMTARGFGKRDRPHTRAERDVEHQAP
 TSRSHRGTPTFKSPTVGIARDFGKRAPELDGEDQDSYEPHARRKFNPKSNLMVAYDFGKR
 SGNDDVNDEAVYGLDNFWEMLEASPEREGQDANDEKTLESIPLDWFVNEMLNNPDFA---
-----RSVVRKFI-DLNQD--GMLSSEEL----LRNVV--------
+----RSVVRKFI-DLNQD--GMLSSEEL----L--RNVV--------
