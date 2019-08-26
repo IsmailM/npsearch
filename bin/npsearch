@@ -58,7 +58,7 @@ subcommands['novel'] = OptionParser.new do |opts|
   opts.separator 'MANDATORY ARGUMENTS'
   opts.separator ' '
 
-  opts.on('-i', '--input_file',
+  opts.on('-i', '--input_file FILE',
           'Path to the input file') do |input_file|
     novel_opt[:input_file] = input_file
   end
@@ -352,8 +352,8 @@ end
 if command.nil?
   warn global
 elsif command == 'novel'
-  require 'npsearch'
-  require 'npsearch/arg_validator'
+  require 'npsearch_novel'
+  require 'npsearch_novel/arg_validator'
 
   NpSearch.init novel_opt
   NpSearch.run
