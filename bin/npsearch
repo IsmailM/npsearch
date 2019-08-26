@@ -152,9 +152,26 @@ subcommands['hmm'] = OptionParser.new do |opts|
     hmm_opt[:input] = input_file
   end
 
+  opts.on('-m', '--hmm_models path',
+          'Analyse input folder against hmm model in the provided dirctory',
+          ' Multiple hmm_model paths can be used',
+          ' Note: HMM models must be created with HMMER 3.0 and must end with',
+          ' the ".hmm" file extension') do |h|
+    hmm_opt[:hmm_models_dir] ||= []
+    hmm_opt[:hmm_models_dir] << h
+  end
+
   opts.separator ' '
   opts.separator 'OPTIONAL ARGUMENTS'
   opts.separator ' '
+
+  opts.on('-o', '--output_dir [PATH]',
+          'Path to the output folder.',
+          'By default the output folder is in the same directory as the input',
+          'file and is named as input filename, followed by the time of',
+          'analysis') do |d|
+    opt[:output_dir] = d
+  end
 
   hmm_opt[:evalue] = 10
   opts.on('-e', '--evalue num',
@@ -188,13 +205,6 @@ subcommands['hmm'] = OptionParser.new do |opts|
           ' directory once the analysis has finished.',
           ' Default: Hidden folder in the current working dirctory') do |p|
     hmm_opt[:temp_dir] = p
-  end
-
-  opts.on('-m', '--hmm_models path',
-          'Analyse input folder against hmm model in the provided dirctory',
-          ' Note: HMM models must be created with HMMER 3.0 and must end with',
-          ' the ".hmm" file extension') do |h|
-    hmm_opt[:hmm_models_dir] = h
   end
 
   hmm_opt[:num_threads] = 1
