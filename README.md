@@ -28,7 +28,7 @@ If you use NpSearch in your work, please cite us as follows:
 * HMMer (>=3.2) (Available from [here](http://hmmer.org)
 * Seqtk (Available from [here](https://github.com/lh3/seqtk)
 * EMBOSS (Available from [here](http://emboss.sourceforge.net)
-* SignalP 4.1.*z (Available from [here](http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp))
+* SignalP 5.0.* (Available from [here](http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp))
 
 
 ### Installation (Will not work during beta)
@@ -54,15 +54,13 @@ gem install bundler
 bundle install
 
 # precompile assets
-bundle exec rake assets:precompile
+RACK_ENV=production bundle exec rake assets:precompile
 
 # Run NpSearch.
 bundle exec npsearch app -h
 # To use Google Login - there are further steps to take on the Gooogle Admin dashboard to get API keys..
 
 ```
-
-
 
 
 ## Launch NpSearch
@@ -84,7 +82,6 @@ npsearch app -S /path/to/signalp -n 8 -p 4567
 That's it! Open http://localhost:4567/ and start using NpSearch!
 
 See `npsearch app -h` for more information on all the options available when running NpSearch.
-
 
 
 
