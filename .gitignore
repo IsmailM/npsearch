@@ -25,3 +25,4 @@ mkmf.log
 .vscode
 passenger*
 app/public/assets/*
+.npsearch_temp/
