@@ -155,7 +155,7 @@ module NpHMMer
 
         hashes = []
         range.each do |r|
-          next if r.min.to_i - 1 < 0 || r.max.to_i - 0.1 < 0
+          next if (r.min.to_i - 1).negative? || (r.max.to_i - 0.1).negative?
 
           hashes << { pos: r.min.to_i - 1, insert: "<span class=#{cl}>" }
           hashes << { pos: r.max.to_i - 0.1, insert: '</span>' } # for ordering
