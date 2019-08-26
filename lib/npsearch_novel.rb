@@ -11,7 +11,7 @@ require 'npsearch_novel/pool'
 require 'npsearch_novel/scoresequence'
 require 'npsearch_novel/sequence'
 require 'npsearch_novel/signalp'
-require 'npsearch_novel/version'
+require 'npsearch/version'
 
 # Top level module / namespace.
 module NpSearch
