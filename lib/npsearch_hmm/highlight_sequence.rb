@@ -60,13 +60,12 @@ module NpHMMer
       # calculate the start idx of the HSP, so can look for Signal peptide
       # before Signal Peptide
       def calculate_hsp_start(hmmer_results)
-        hsp_indexes = []
-        hmmer_results[:domains].each do |domain|
+        hsp_indexes = hmmer_results[:domains].map do |domain|
           next unless domain.is_a? Hash
 
-          hsp_indexes << [domain[:data][:ali_from]&.to_i,
-                          domain[:data][:ali_to]&.to_i]
+          [domain[:data][:ali_from]&.to_i, domain[:data][:ali_to]&.to_i]
         end
+        # if hmmer_results[:domain][0] == complete_target
         hsp_indexes.sort_by(&:min)
       end
 
@@ -78,12 +77,11 @@ module NpHMMer
       end
 
       def calculate_formatting_classes(hmmer_results, seq)
-        hsps = []
-        hmmer_results[:domains].each do |d|
+        hsps = hmmer_results[:domains].map do |d|
           next if d.is_a? String
 
-          hsps << Range.new(d[:data][:ali_from].to_i - seq.orf_index,
-                            d[:data][:ali_to].to_i - seq.orf_index)
+          Range.new(d[:data][:ali_from].to_i - seq.orf_index,
+                    d[:data][:ali_to].to_i - seq.orf_index)
         end
         hsps = merge_ranges(hsps)
         pos = check_sp_hsp_overlap(hsps, seq.signalp)
