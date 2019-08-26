@@ -37,8 +37,8 @@ task :assets do
   sh 'rake assets:precompile'
   css = assets_dir.children.select { |s| s.to_s.end_with?('css') }[0]
   new_css = new_assets_dir + "npsearch-#{NpSearch::VERSION}.min.css"
-  js = assets_dir.children.select { |s| s.to_s.end_with?('js') }[0]
-  new_js = new_assets_dir + "npsearch-#{NpSearch::VERSION}.min.js"
+  # js = assets_dir.children.select { |s| s.to_s.end_with?('js') }[0]
+  # new_js = new_assets_dir + "npsearch-#{NpSearch::VERSION}.min.js"
   sh "cp #{css} #{new_css}"
   sh "cp #{js} #{new_js}"
 end
