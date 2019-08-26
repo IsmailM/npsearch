@@ -191,38 +191,43 @@ html lang="en"
                                 table.domains
                                   tbody
                                     - data[:domains].each_with_index do |dom, idx|
-                                      tr
-                                        td
-                                          | #{idx + 1}.
-                                        td style=("width: 100%;") 
-                                          .domain 
-                                            table.domain_stats
-                                              thead
-                                                tr
-                                                  th data-field="c-Evalue"  Conditional E-Value
-                                                  th data-field="i-Evalue"  Independent E-Value
-                                                  th data-field="Score"  Score
-                                                  th data-field="Bias"  Bias
-                                                  th data-field="Seq Coordinate"  Sequence Coordinates
-                                                  th data-field="Model Coordinate"  NP Model Coordinates
-                                              tbody
-                                                tr
-                                                  td 
-                                                    == NpHMMer::HighlightSequence.format_evalue(dom[:data][:c_e_value])
-                                                  td 
-                                                    == NpHMMer::HighlightSequence.format_evalue(dom[:data][:i_e_value])
-                                                  td 
-                                                    = dom[:data][:score]
-                                                  td
-                                                    = dom[:data][:bias]
-                                                  td
-                                                    = dom[:data][:ali_from] + ' : ' + dom[:data][:ali_to]
-                                                  td
-                                                    = dom[:data][:hmm_from] + ' : ' + dom[:data][:hmm_to]
-                                            .alignment
-                                              p
-                                                - NpHMMer::HighlightSequence.format_domain_alignments(dom).each do |domain|
-                                                  == domain.join('<br>').gsub(' ', '&nbsp;').gsub(/KR|KK|RR/i, '<span class=clv>\0</span>') + "<br><br>" 
+                                      - if dom[:desc] == 'No individual domains that satisfy reporting thresholds (although complete target did)'
+                                        tr
+                                          td
+                                            p No individual domains that satisfy reporting thresholds (although complete target did)
+                                      - else
+                                        tr
+                                          td
+                                            | #{idx + 1}.
+                                          td style="width: 100%"
+                                            .domain
+                                              table.domain_stats
+                                                thead
+                                                  tr
+                                                    th data-field="c-Evalue"  Conditional E-Value
+                                                    th data-field="i-Evalue"  Independent E-Value
+                                                    th data-field="Score"  Score
+                                                    th data-field="Bias"  Bias
+                                                    th data-field="Seq Coordinate"  Sequence Coordinates
+                                                    th data-field="Model Coordinate"  NP Model Coordinates
+                                                tbody
+                                                  tr
+                                                    td
+                                                      == NpHMMer::HighlightSequence.format_evalue(dom[:data][:c_e_value])
+                                                    td
+                                                      == NpHMMer::HighlightSequence.format_evalue(dom[:data][:i_e_value])
+                                                    td
+                                                      = dom[:data][:score]
+                                                    td
+                                                      = dom[:data][:bias]
+                                                    td
+                                                      = "#{dom[:data][:ali_from]} : #{dom[:data][:ali_to]}"
+                                                    td
+                                                      = "#{dom[:data][:hmm_from]} : #{dom[:data][:hmm_to]}"
+                                              .alignment
+                                                p
+                                                  - NpHMMer::HighlightSequence.format_domain_alignments(dom).each do |domain|
+                                                    == domain.join('<br>').gsub(' ', '&nbsp;').gsub(/KR|KK|RR/i, '<span class=clv>\0</span>') + "<br><br>"
                       .clearfix
       br
       br
