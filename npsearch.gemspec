@@ -29,15 +29,14 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rack-test', '~> 0.6'
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rspec', '~> 3.7'
-  # spec.add_dependency 'sass', '~>3.5'
 
-  spec.add_dependency 'awesome_print', '~>1.8'
+  spec.add_dependency 'awesome_print', '~> 1.8'
   spec.add_dependency 'bio', '~> 1.5'
-  spec.add_dependency 'oj', '~>3.7'
-  spec.add_dependency 'omniauth', '~>1.8'
-  spec.add_dependency 'omniauth-google-oauth2', '~>0.5'
-  spec.add_dependency 'passenger', '~>6.0'
-  spec.add_dependency 'pry', '~>0.12'
+  spec.add_dependency 'oj', '~> 3.9'
+  spec.add_dependency 'omniauth', '~> 1.9'
+  spec.add_dependency 'omniauth-google-oauth2', '~> 0.8'
+  spec.add_dependency 'passenger', '~> 6.0'
+  spec.add_dependency 'pry', '~> 0.12'
   spec.add_dependency 'sinatra', '~> 2.0'
   spec.add_dependency 'sinatra-asset-pipeline', '2.2'
   spec.add_dependency 'slim', '~> 4.0'
@@ -53,6 +52,5 @@ Gem::Specification.new do |spec|
 
       Visit https://github.com/IsmailM/npsearch for more information.
     ------------------------------------------------------------------------
-
   INFO
 end
