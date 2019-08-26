@@ -180,7 +180,6 @@ subcommands['hmm'] = OptionParser.new do |opts|
     hmm_opt[:evalue] = e
   end
 
-  hmm_opt[:deep_analysis] = ''
   opts.on('-d', '--deep_analysis',
           'Turn all heurisitic filters off (less speed, more power)') do
     hmm_opt[:deep_analysis] = '--max'
