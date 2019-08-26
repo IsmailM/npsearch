@@ -41,6 +41,7 @@ module NpSearchHmmApp
         @alignments_dir = dir + 'alignments'
         @raw_data_dir = dir + 'raw_data'
         return if @hmm_dir.exist?
+
         FileUtils.mkdir_p(@hmm_dir)
         FileUtils.mkdir(@alignments_dir)
         FileUtils.mkdir_p(@raw_data_dir)
@@ -63,6 +64,7 @@ module NpSearchHmmApp
         logger.debug("Writing input seqs to: '#{file}'")
         File.open(file, 'w+') { |f| f.write(@params[:seq]) }
         return if file.exist?
+
         raise 'NpSearch was unable to create the input file.'
       end
 
@@ -72,6 +74,7 @@ module NpSearchHmmApp
           t_input_file = t_dir + f[:originalName]
           FileUtils.mv(t_input_file, file)
           next unless (Dir.entries(t_dir) - %w[. ..]).empty?
+
           FileUtils.rm_r(t_dir)
         end
       end

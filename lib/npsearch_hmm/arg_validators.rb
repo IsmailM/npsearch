@@ -21,12 +21,14 @@ module NpHMMer
 
       def assert_file_present(desc, file, exit_code = 1)
         return if file && File.exist?(File.expand_path(file))
+
         warn "*** Error: Couldn't find the #{desc}: #{file}."
         exit exit_code
       end
 
       def assert_input_file_not_empty(file)
         return unless File.zero?(File.expand_path(file))
+
         warn "*** Error: The input_file (#{file})" \
                      ' seems to be empty.'
         exit 1
@@ -45,6 +47,7 @@ module NpHMMer
       def assert_input_sequence(file)
         type = type_of_sequences(file)
         return type unless type.nil?
+
         warn '*** Error: The input files seems to contain a mixture of'
         warn '    both protein and nucleotide data.'
         warn '    Please correct this and try again.'
@@ -60,6 +63,7 @@ module NpHMMer
         sequence_types = sequences.collect { |seq| guess_sequence_type(seq) }
                                   .uniq.compact
         return nil if sequence_types.empty?
+
         sequence_types.first if sequence_types.length == 1
       end
 
@@ -67,6 +71,7 @@ module NpHMMer
         # removing non-letter and ambiguous characters
         cleaned_sequence = seq.gsub(/[^A-Z]|[NX]/i, '')
         return nil if cleaned_sequence.length < 10 # conservative
+
         type = Bio::Sequence.new(cleaned_sequence).guess(0.9)
         type == Bio::Sequence::NA ? :genetic : :protein
       end
@@ -85,6 +90,7 @@ module NpHMMer
       def add_to_path(bin_dir)
         return unless bin_dir
         return if ENV['PATH'].split(':').include?(bin_dir)
+
         ENV['PATH'] = "#{bin_dir}:#{ENV['PATH']}"
       end
     end

@@ -45,6 +45,7 @@ module NpSearch
 
     def initialise_thread_pool
       return if @opt[:num_threads] == 1
+
       logger.debug "Creating a thread pool of size #{@opt[:num_threads]}"
       Pool.new(@opt[:num_threads])
     end
@@ -78,6 +79,7 @@ module NpSearch
     # Uses getorf from EMBOSS package to extract all ORF
     def extract_orf(input_file, minsize = 90)
       return input_file if @opt[:type] == :protein
+
       logger.debug 'Attempting to extract ORF.'
       system(extract_orf_cmd(input_file, minsize))
       logger.debug("getorf Exit Code: #{$CHILD_STATUS.exitstatus}")
@@ -109,16 +111,20 @@ module NpSearch
     def initialise_seqs(entry, idx)
       logger.debug "-- Analysing: '[#{idx}]' '#{entry.entry_id}'"
       return unless ensure_seq_long_enough(entry, idx)
+
       sp = Signalp.analyse_sequence(entry.aaseq.to_s, idx)
       return if sp[:sp] != 'Y'
+
       seq = Sequence.new(entry, sp, idx)
       return unless ensure_no_illegal_characters(entry, seq, idx)
+
       ScoreSequence.run(seq, @opt)
       @sequences << seq
     end
 
     def ensure_seq_long_enough(entry, idx)
       return true unless entry.aaseq.length > @opt[:max_orf_length]
+
       logger.debug "-- Skipping: '[#{idx}]' '#{entry.entry_id}' - " \
                    " Too small (L:#{entry.aaseq.length})"
       false
@@ -126,6 +132,7 @@ module NpSearch
 
     def ensure_no_illegal_characters(entry, seq, idx)
       return true unless seq.seq =~ /[^A-Za-z]/
+
       logger.debug "-- Skipping: '[#{idx}]' '#{entry.entry_id}' - " \
                    ' Contains illegal characters.'
       false

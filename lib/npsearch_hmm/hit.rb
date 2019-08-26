@@ -43,8 +43,10 @@ module NpHMMer
     def format_id(def_line)
       clean_id = def_line.gsub(/\r\n?/, "\n")
       return clean_id if opt[:type] == :protein
+
       clean_id.split(' ', 2).each_slice(2) do |id, desc|
         return id.gsub(/_\d+$/, '') + ' ' + desc unless desc.nil?
+
         return id.gsub(/_\d+$/, '')
       end
     end
@@ -62,16 +64,19 @@ module NpHMMer
     # Extracts the original sequence before translation
     def extract_orig_non_translated_seq(id, seq)
       return [id, seq] if opt[:type] == :protein
+
       extract_sequence(id, opt[:input])
     end
 
     def original_translated_seq(original_sequence, seq)
       return nil if opt[:type] == :protein
+
       fasta = Bio::Sequence::NA.new(original_sequence)
       sequence = nil
       (1..6).each do |f|
         translated = fasta.translate(f).to_s
         next unless translated.include? seq
+
         sequence = translated
       end
       sequence.nil? ? seq : sequence

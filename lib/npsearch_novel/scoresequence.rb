@@ -33,6 +33,7 @@ module NpSearch
 
       def count_np_cleavage_sites(sequence)
         return if sequence.potential_cleaved_nps.empty?
+
         sequence.potential_cleaved_nps.each do |e|
           count_dibasic_np_clv(sequence, e[:di_clv_end])
           count_mono_basic_np_clv(sequence, e[:mono_2_clv_end],
@@ -51,12 +52,14 @@ module NpSearch
 
       def count_mono_basic_np_clv(sequence, mono_2_clv, mono_4_clv, mono_6_clv)
         return if mono_2_clv.nil? && mono_4_clv.nil? && mono_6_clv.nil?
+
         sequence.score += 0.02
       end
 
       # Counts the number of C-terminal glycines
       def count_c_terminal_glycines(sequence)
         return if sequence.potential_cleaved_nps.empty?
+
         sequence.potential_cleaved_nps.each do |e|
           if e[:np].match?(/FG$/) && e[:di_clv_end] == 'KR'
             sequence.score += 0.40
@@ -74,6 +77,7 @@ module NpSearch
       def acidic_spacers(sequence)
         sequence.potential_cleaved_nps.each do |e|
           next if e[:np].length / sequence.seq.length > 0.25
+
           sequence.score += 0.10 if e[:np].count('DE') / e[:np].length > 0.5
         end
       end
@@ -83,6 +87,7 @@ module NpSearch
         clusters = results.split(/^>Cluster \d+\n/)
         clusters.each do |c|
           next if c.nil?
+
           no_of_seqs_in_cluster = c.split("\n").length
           if no_of_seqs_in_cluster > 1
             sequence.score += (0.15 * no_of_seqs_in_cluster)
@@ -94,12 +99,14 @@ module NpSearch
         f = Tempfile.new('clust', temp_dir)
         fo = Tempfile.new('clust_out', temp_dir)
         return unless write_potential_peptides_to_tempfile(sequence, f)
+
         `#{cdhit_path} -c 0.5 -n 3 -l 4 -i #{f.path} -o #{fo.path}`
         IO.read("#{fo.path}.clstr")
       end
 
       def write_potential_peptides_to_tempfile(sequence, tempfile)
         return false if sequence.potential_cleaved_nps.empty?
+
         sequences = ''
         sequence.potential_cleaved_nps.each_with_index do |e, i|
           sequences += ">seq#{i}\n#{e[:np]}\n"

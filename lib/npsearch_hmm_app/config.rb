@@ -38,6 +38,7 @@ module NpSearchHmmApp
     # Write config data to config file.
     def write_config_file
       return unless config_file
+
       File.open(config_file, 'w') do |f|
         f.puts(data.delete_if { |_, v| v.nil? }.to_yaml)
       end
@@ -48,6 +49,7 @@ module NpSearchHmmApp
     # Symbolizes keys.
     def symbolise(data)
       return {} unless data
+
       # Symbolize keys.
       Hash[data.map { |k, v| [k.to_sym, v] }]
     end
@@ -62,8 +64,8 @@ module NpSearchHmmApp
 
       logger.debug "Reading configuration file: #{config_file}."
       symbolise YAML.load_file(config_file)
-    rescue StandardError => error
-      raise CONFIG_FILE_ERROR.new(config_file, error)
+    rescue StandardError => e
+      raise CONFIG_FILE_ERROR.new(config_file, e)
     end
 
     def file?(file)
@@ -73,12 +75,12 @@ module NpSearchHmmApp
     # Default configuration data.
     def defaults
       {
-        num_threads:      1,
-        port:             4567,
-        host:             '0.0.0.0',
+        num_threads: 1,
+        port: 4567,
+        host: '0.0.0.0',
         npsearch_app_dir: File.join(Dir.home, '.npsearch_hmm_app/'),
-        max_characters:   'undefined',
-        ssl:              false
+        max_characters: 'undefined',
+        ssl: false
       }
     end
 

@@ -28,6 +28,7 @@ module NpSearch
       def assert_file_present(desc, file, exit_code = 1)
         logger.debug "Testing if the #{desc} exists: '#{file}'."
         return if file && File.exist?(File.expand_path(file))
+
         error_msg = "*** Error: Couldn't find the #{desc}: '#{file}'."
         logger.fatal error_msg
         warn error_msg
@@ -37,6 +38,7 @@ module NpSearch
       def assert_input_file_not_empty(file)
         logger.debug "Testing if the input file ('#{file}') is empty."
         return unless File.zero?(File.expand_path(file))
+
         error_msg = "*** Error: The input_file ('#{file}') seems to be empty."
         logger.fatal error_msg
         warn error_msg
@@ -58,6 +60,7 @@ module NpSearch
       def assert_input_sequence(file)
         type = type_of_sequences(file)
         return type unless type.nil?
+
         error_msg = '*** Error: The input files seems to contain a mixture of' \
                     ' both protein and nucleotide data.' \
                     ' Please correct this and try again.'
@@ -78,12 +81,14 @@ module NpSearch
                                   .uniq.compact
         logger.debug " The guessed typed of Sequences are: #{sequence_types}"
         return nil if sequence_types.empty?
+
         sequence_types.first if sequence_types.length == 1
       end
 
       def guess_sequence_type(seq)
         cleaned_sequence = seq.gsub(/[^A-Z]|[NX]/i, '')
         return nil if cleaned_sequence.length < 10 # conservative
+
         type = Bio::Sequence.new(cleaned_sequence).guess(0.9)
         type == Bio::Sequence::NA ? :genetic : :protein
       end
@@ -99,6 +104,7 @@ module NpSearch
           num_threads = 1
         end
         return num_threads unless num_threads > 256
+
         warn_msg = "Number of threads set at #{num_threads} is unusually high."
         logger.warn warn_msg
         warn warn_msg
@@ -107,6 +113,7 @@ module NpSearch
       def assert_binaries(desc, bin)
         logger.debug "Checking #{desc} binary at: #{bin}."
         return if command?(bin.to_s)
+
         warn_msg = "NpSearch is unable to use the #{desc} at #{bin}"
         logger.warn warn_msg
         warn warn_msg

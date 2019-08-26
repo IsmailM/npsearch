@@ -53,13 +53,14 @@ module NpSearchHmmApp
         assert_params
         @uniq_time = Time.new.strftime('%Y-%m-%d_%H-%M-%S_%L-%N').to_s
         setup_run_dir
-      # rescue StandardError
-      #   raise 'NpHMMer failed to initialise the analysis successfully. '\
-      #         'Please contact me at ismail.moghul@gmail.com'
+        # rescue StandardError
+        #   raise 'NpHMMer failed to initialise the analysis successfully. '\
+        #         'Please contact me at ismail.moghul@gmail.com'
       end
 
       def assert_params
         raise ArgumentError, 'Failed to parse Params' unless assert_param_exist
+
         assert_files
         assert_files_exists
         assert_seq_param_present
@@ -73,11 +74,13 @@ module NpSearchHmmApp
 
       def assert_files
         return if @params[:files].empty?
+
         @params[:files].collect { |f| f[:status] == 'upload successful' }.uniq
       end
 
       def assert_files_exists
         return if @params[:files].empty?
+
         files = @params[:files].collect do |f|
           fname = File.join(tmp_dir, f[:uuid], "#{f[:uuid]}.uploaded")
           File.exist?(fname)
@@ -88,6 +91,7 @@ module NpSearchHmmApp
       # Simply asserts whether that the seq param is present
       def assert_seq_param_present
         return if @params[:seq]
+
         raise ArgumentError, 'No input sequence provided.'
       end
 
@@ -106,6 +110,7 @@ module NpSearchHmmApp
       def check_seq_length
         return unless config[:max_characters] != 'undefined'
         return if @params[:seq].length < config[:max_characters]
+
         raise ArgumentError, 'The input sequence is too long.'
       end
 
@@ -134,6 +139,7 @@ module NpSearchHmmApp
         logger.debug("Writing input seqs to: '#{fname}'")
         File.open(fname, 'w+') { |f| f.write(@params[:seq]) }
         return [fname] if fname.exist?
+
         raise 'NpSearchHmmApp was unable to create the input file.'
       end
 
@@ -151,7 +157,7 @@ module NpSearchHmmApp
 
       def init_nphmmer_arguments(file)
         {
-          temp_dir:  @run_dir + 'tmp' + "#{File.basename(file)}_hmmsearch_out",
+          temp_dir: @run_dir + 'tmp' + "#{File.basename(file)}_hmmsearch_out",
           input: file,
           num_threads: config[:num_threads],
           evalue: @params[:evalue],
@@ -174,6 +180,7 @@ module NpSearchHmmApp
 
       def hmm_model_files
         return nil if @params[:all_hmms] == 'on'
+
         [@params[:default_hmm], @params[:custom_hmm]].flatten
       end
 

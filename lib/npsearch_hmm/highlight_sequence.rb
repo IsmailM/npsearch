@@ -14,6 +14,7 @@ module NpHMMer
 
       def format_evalue(evalue)
         return evalue unless evalue.include?('e')
+
         formated_evalue = evalue.split('e')
         formated_evalue[0] + '&nbsp;&times;&nbsp;10<sup>' + formated_evalue[1] +
           '</sup>'
@@ -62,6 +63,7 @@ module NpHMMer
         hsp_indexes = []
         hmmer_results[:domains].each do |domain|
           next unless domain.is_a? Hash
+
           hsp_indexes << [domain[:data][:ali_from]&.to_i,
                           domain[:data][:ali_to]&.to_i]
         end
@@ -71,6 +73,7 @@ module NpHMMer
       def calculate_signalp(seq, hsp_indexes)
         return nil if opt[:signalp_path].nil?
         return seq.signalp unless seq.signalp.nil?
+
         Signalp.analyse_sequence(seq, hsp_indexes)
       end
 
@@ -78,6 +81,7 @@ module NpHMMer
         hsps = []
         hmmer_results[:domains].each do |d|
           next if d.is_a? String
+
           hsps << Range.new(d[:data][:ali_from].to_i - seq.orf_index,
                             d[:data][:ali_to].to_i - seq.orf_index)
         end
@@ -93,6 +97,7 @@ module NpHMMer
           t.each do |r1, r2|
             next unless (r2.cover? r1.begin) || (r2.cover? r1.end) ||
                         (r1.cover? r2.begin) || (r1.cover? r2.end)
+
             ranges << Range.new([r1.begin, r2.begin].min, [r1.end, r2.end].max)
             ranges.delete_at(ranges.index(r1) || ranges.length)
             ranges.delete_at(ranges.index(r2) || ranges.length)
@@ -104,14 +109,17 @@ module NpHMMer
 
       def check_sp_hsp_overlap(hsps, signalp)
         return [hsps, nil, nil] if signalp.nil? || signalp[:sp] == 'N'
+
         signalp_range = Range.new(1, signalp[:ymax_pos].to_i - 1)
         sp = []
         hsps.each do |hsp|
           next unless signalp_range.cover?(hsp.min)
+
           sp << Range.new(signalp_range.min, hsp.min - 1)
           sp << Range.new(hsp.min, signalp_range.max)
           hsps.delete(hsp)
           next if hsp.max <= signalp_range.max + 1
+
           hsps << Range.new(signalp_range.max + 1, hsp.max)
         end
         hsps.sort_by!(&:min)
@@ -129,9 +137,11 @@ module NpHMMer
 
       def range_to_hash(range, cl)
         return nil if range.nil?
+
         hashes = []
         range.each do |r|
           next if r.min.to_i - 1 < 0 || r.max.to_i - 0.1 < 0
+
           hashes << { pos: r.min.to_i - 1, insert: "<span class=#{cl}>" }
           hashes << { pos: r.max.to_i - 0.1, insert: '</span>' } # for ordering
         end

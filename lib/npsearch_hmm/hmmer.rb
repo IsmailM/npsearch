@@ -23,6 +23,7 @@ module NpHMMer
           Dir.foreach(dir) do |h|
             next unless h.end_with? 'hmm'
             next if in_filter_list(h)
+
             hmm_file = File.join(dir, h)
             hmm_search(hmm_file)
           end
@@ -42,8 +43,10 @@ module NpHMMer
 
       def in_filter_list(hmm_file)
         return false if opt[:filter_hmm_list].nil?
+
         fname = File.basename(hmm_file, '.hmm')
         return false if opt[:filter_hmm_list].include? fname
+
         true
       end
 
@@ -109,6 +112,7 @@ module NpHMMer
           files = []
           Pathname.new(dir).each_child do |file|
             next if file.basename.to_s.start_with? '.'
+
             files << all_files_in_dir(file) if file.directory?
             files << file
           end

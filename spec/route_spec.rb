@@ -35,7 +35,7 @@ module NpHMMerApp
 
       @params = {
         'neuropeptides' => nps,
-        'seq'           => sequence
+        'seq' => sequence
       }
     end
 

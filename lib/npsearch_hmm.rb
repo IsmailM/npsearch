@@ -42,6 +42,7 @@ module NpHMMer
 
     def remove_temp_dir
       return unless File.directory?(@opt[:temp_dir])
+
       FileUtils.rm_rf(@opt[:temp_dir])
     end
   end

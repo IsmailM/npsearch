@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 
 # Top level module / namespace.
@@ -27,6 +29,7 @@ module NpHMMer
         if opt[:type] == :protein
           return { seq: [seq.seq], fasta: ">seq\n#{seq.seq}" }
         end
+
         hsp_start           = hsp_indexes[0][0]
         sequence_before_hsp = seq.seq[0, hsp_start].to_s
         if sequence_before_hsp.include?('M') && sequence_before_hsp.size > 15

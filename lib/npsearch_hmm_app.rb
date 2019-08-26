@@ -147,6 +147,7 @@ module NpSearchHmmApp
 
       logger.debug "Will use #{config[:num_threads]} threads to run NpSearch."
       return unless config[:num_threads] > 256
+
       logger.warn "Number of threads set at #{config[:num_threads]} is" \
                   ' unusually high.'
     end
@@ -165,6 +166,7 @@ module NpSearchHmmApp
         unless File.exist?(bin) && File.directory?(bin)
           raise BIN_DIR_NOT_FOUND, config[:bin]
         end
+
         export_bin_dir(bin)
       end
       bins
@@ -174,6 +176,7 @@ module NpSearchHmmApp
     def export_bin_dir(bin_dir)
       return unless bin_dir
       return if ENV['PATH'].split(':').include?(bin_dir)
+
       ENV['PATH'] = "#{bin_dir}:#{ENV['PATH']}"
     end
 
@@ -186,6 +189,7 @@ module NpSearchHmmApp
     # Check and warn user if host is 0.0.0.0 (default).
     def check_host
       return unless config[:host] == '0.0.0.0'
+
       logger.warn 'Will listen on all interfaces (0.0.0.0).' \
                   ' Consider using 127.0.0.1 (--host option).'
     end
@@ -199,6 +203,7 @@ module NpSearchHmmApp
 
     def open_in_browser(server_url)
       return if using_ssh? || verbose?
+
       if RUBY_PLATFORM =~ /linux/ && xdg?
         system "xdg-open #{server_url}"
       elsif RUBY_PLATFORM.match?(/darwin/)

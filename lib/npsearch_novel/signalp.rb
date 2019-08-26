@@ -39,11 +39,12 @@ module NpSearch
         Hash[SP_HEADERS.map(&:to_sym).zip(no_results)]
       end
 
-      def run_sp_cmd(seq, idx)
+      def run_sp_cmd(_seq, idx)
         stdin, stdout, stderr = Open3.popen3(signalp_cmd)
         logger.debug "-- Signalp: '[#{idx}]' - '#{[stdin, stdout, stderr]}'"
         out = stdout.gets(nil).split("\n").delete_if { |l| l[0] == '#' }
         return out unless out.nil? || out.empty?
+
         raise ArgumentError, 'Signalp failed to run sucessfully :('
       ensure
         stdin.close; stdout.close; stderr.close
