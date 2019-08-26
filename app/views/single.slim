@@ -244,19 +244,24 @@ html lang="en"
               i.material-icons.prefix  subject
               textarea#scratch_space.materialize-textarea
               label#scratch_space_label for="scratch_space"  Scratch Area
-    footer
-      p
-        | Please cite "Moghul
-        em
-          |   et al (in prep) 
-        | NpHMMer: A tool to identify neuropeptide homologs"
-        br
-        |  Developed at 
-        a href="https://wurmlab.github.io" target="_blank" Wurm Lab
-        | , 
-        a href="http://www.sbcs.qmul.ac.uk" target="_blank" QMUL
-        br
-        | This page was created by 
-        a href="https://github.com/wurmlab/neurohmmer" target="_blank"  NpHMMer 
-        | v#{NpSearch::VERSION}
+    footer.page-footer
+      .footer-copyright
+        .container
+          p
+            | Please cite 'Moghul   
+            em et al (in prep) 
+            | NpSearch: A Tool to Identify Neuropeptide'
+            br
+            |  Developed at 
+            a href='https://sbcs.qmul.ac.uk#fixlink' target='_blank' Elphick Lab
+            | &nbsp;&amp;&nbsp;
+            a href='https://wurmlab.github.io' target='_blank' Wurm Lab
+            | , 
+            a href='http://www.sbcs.qmul.ac.uk' target='_blank' QMUL
+            |  with funding by 
+            a href='http://www.bbsrc.ac.uk/home/home.aspx' target='_blank' BBSRC
+            br
+            | This page was created by 
+            a href="https://github.com/IsmailM/NpSearch" target="_blank"  NpSearch
+            | v#{NpSearch::VERSION}
     script type="text/javascript" href="html_files/npsearch-#{NpSearch::VERSION}.min.js"
