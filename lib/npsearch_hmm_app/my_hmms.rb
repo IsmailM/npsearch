@@ -15,7 +15,7 @@ module NpSearchHmmApp
 
       def all_hmms(email)
         default_hmm_path = NpSearchHmmApp.data_dir + 'hmm'
-        if email.empty?
+        unless email.empty?
           custom_hmm_path = NpSearchHmmApp.users_dir + email + 'hmms' + 'hmm'
         end
         {
