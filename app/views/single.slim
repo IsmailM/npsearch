@@ -42,7 +42,7 @@ html lang="en"
                   |  &#9658;
                 br
                 |  (Forward Arrow)
-              td 
+              td
                 | Cycle forward through neuropeptides hits
             tr
               td  style="text-align:center"
@@ -76,7 +76,7 @@ html lang="en"
                 br
               td
                 |  Shows further information about the current hit.
-        p   
+        p
           |  (Don't forgot to press
           kbd
             | Ctrl
@@ -86,8 +86,8 @@ html lang="en"
           |  to save any changes you make).
       .modal-footer
         btn.modal-action.modal-close.waves-effect.waves-green.btn-flat href="#!"  Close
-    / .fixed-action-btn.save_btn style=("display: none") 
-    /   a#save.btn-floating.tooltipped.btn-large.red data-delay="50" data-position="bottom" data-tooltip=("Download Updated HTML file") 
+    / .fixed-action-btn.save_btn style=("display: none")
+    /   a#save.btn-floating.tooltipped.btn-large.red data-delay="50" data-position="bottom" data-tooltip=("Download Updated HTML file")
     /     i.large.material-icons file_download
     .container
       .results
@@ -97,12 +97,12 @@ html lang="en"
               span.card-title.id
                 | Potential NP #{idx + 1}: #{seq.id}
               i.right.material-icons.cross  clear
-              ul.np_collapsible.collapsible data-collapsible="expandable" 
+              ul.np_collapsible.collapsible data-collapsible="expandable"
                 - seq.hmmer_results.each_with_index do |data, i|
                   li
                     div class=(i == 0 ? 'collapsible-header active' : 'collapsible-header')
                       = "Hit #{i + 1}: "
-                      span.model_name 
+                      span.model_name
                         = data[:model].gsub(/.fa$/, '').gsub('-', ' ')
                       span.badge.evalue
                         == 'Sequence E-value: ' + NpHMMer::HighlightSequence.format_evalue(data[:overall_results][:full_seq_e_value])
@@ -125,7 +125,7 @@ html lang="en"
                               span.lever
                               | NeuroPeptide :)
                             br
-                            a.pull-left.btn-flat.waves-effect.waves-teal.to-ScratchSpace href="#scratch_space" 
+                            a.pull-left.btn-flat.waves-effect.waves-teal.to-ScratchSpace href="#scratch_space"
                               | Go To ScratchSpace
                               i.material-icons.right send
                           .clearfix
@@ -136,7 +136,7 @@ html lang="en"
                                   | Full Translated Sequence
                                 p.sequence
                                   span.translated_id
-                                    == '>' + seq.def_line + ' [Frame: ' + seq.frame.to_s + ']' 
+                                    == '>' + seq.def_line + ' [Frame: ' + seq.frame.to_s + ']'
                                   br
                                   span.translated_seq
                                     == NpHMMer::HighlightSequence.format_translated_seqs(seq.translated_seq, formated_seq)
@@ -158,7 +158,7 @@ html lang="en"
                                         td
                                           |  #{data[:overall_results][:full_seq_score]}
                                         td
-                                          |  #{data[:overall_results][:full_seq_bias]} 
+                                          |  #{data[:overall_results][:full_seq_bias]}
                                 - if ! seq.signalp.nil? && ! @opt[:signalp_path].nil?
                                   - cardclass = (seq.signalp[:sp] == 'Y') ? 'sp_present' : 'no_sp_present'
                                   .col.s12.m6 class=cardclass
@@ -175,15 +175,15 @@ html lang="en"
                                         tr
                                           - if seq.signalp[:sp] == 'Y'
                                             td  Yes
-                                          - else 
+                                          - else
                                             td No
-                                          td 
+                                          td
                                             = seq.signalp[:d]
                                           td
                                             = "#{seq.signalp[:ymax_pos].to_i - 1 }:#{seq.signalp[:ymax_pos]}"
                             .section
-                              .domains_section_header.more_info_header.blue-text.text-darken-2 
-                                | Domains 
+                              .domains_section_header.more_info_header.blue-text.text-darken-2
+                                | Domains
                               - if data[:domains][0].is_a? String
                                 p
                                   = data[:domains][0]
