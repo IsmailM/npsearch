@@ -3,6 +3,7 @@
 require 'csv'
 require 'forwardable'
 require 'fileutils'
+require 'pathname'
 
 require 'npsearch_hmm/hit'
 
@@ -17,7 +18,7 @@ module NpHMMer
       # Run hmmsearch for each hmm model in conf[:hmm_dir] with the input file
       # Results are aggregated in conf[:hmm_output]
       def search
-        hmm_dir = File.expand_path('../../data/hmm', __dir__)
+        hmm_dir = [Pathname.new('../../data/hmm').expand_path(__dir__)]
         hmm_dir = opt[:hmm_models_dir] unless opt[:hmm_models_dir].nil?
         hmm_dir.each do |dir|
           Dir.foreach(dir) do |h|
