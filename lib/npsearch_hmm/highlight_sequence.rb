@@ -13,6 +13,7 @@ module NpHMMer
       def_delegators NpHMMer, :opt, :conf
 
       def format_evalue(evalue)
+        return '' if evalue.nil?
         return evalue unless evalue.include?('e')
 
         formated_evalue = evalue.split('e')
@@ -21,6 +22,7 @@ module NpHMMer
       end
 
       def format_seqs(seq, hmmer_results)
+        hmmer_results = update_hmmer_results(hmmer_results, seq)
         hsp_indexes = calculate_hsp_start(hmmer_results)
         seq.signalp = calculate_signalp(seq, hsp_indexes)
         seq.orf     = extract_orf(seq)
@@ -48,6 +50,22 @@ module NpHMMer
 
       private
 
+      def update_hmmer_results(hmmer_results, seq)
+        hmmer_results[:domains] = hmmer_results[:domains].map do |domain|
+          complete_target = 'No individual domains that satisfy reporting' \
+                            ' thresholds (although complete target did)'
+          if domain != complete_target
+            domain
+          else
+            {
+              data: { ali_from: 0, ali_to: seq.orf.length },
+              desc: complete_target
+            }
+          end
+        end
+        hmmer_results
+      end
+
       def extract_orf(seq)
         if seq.signalp.nil? || seq.signalp[:sp] == 'N'
           seq.orf_index = 0
@@ -65,7 +83,6 @@ module NpHMMer
 
           [domain[:data][:ali_from]&.to_i, domain[:data][:ali_to]&.to_i]
         end
-        # if hmmer_results[:domain][0] == complete_target
         hsp_indexes.sort_by(&:min)
       end
 
