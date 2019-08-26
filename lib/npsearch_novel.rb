@@ -76,13 +76,15 @@ module NpSearch
       output_dir
     end
 
-    # Uses getorf from EMBOSS package to extract all ORF
-    def extract_orf(input_file, minsize = 90)
+    # Uses OrfM to extract all ORF (including nested ORFs)
+    def extract_orf(input_file)
       return input_file if @opt[:type] == :protein
 
-      logger.debug 'Attempting to extract ORF.'
-      system(extract_orf_cmd(input_file, minsize))
-      logger.debug("getorf Exit Code: #{$CHILD_STATUS.exitstatus}")
+      logger.debug 'Attempting to extract ORFs.'
+      cmd = "orfm #{input_file} > #{@config[:orf_file]}"
+      logger.debug "Running: #{cmd}"
+      system(cmd)
+      logger.debug("orfm Exit Code: #{$CHILD_STATUS.exitstatus}")
       @config[:orf_file]
     end
 
